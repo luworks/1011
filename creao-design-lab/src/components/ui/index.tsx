@@ -1,0 +1,6 @@
+import { forwardRef, type ButtonHTMLAttributes, type InputHTMLAttributes } from 'react';
+import { Files, Plug, Bot, BookOpen, Search, X, Plus, FolderPlus, Folder, FileText, Image, List, Grid2X2, Menu, ArrowLeft, ChevronRight, Check, type LucideIcon } from 'lucide-react';
+const icons: Record<string, LucideIcon> = { files: Files, plug: Plug, bot: Bot, book: BookOpen, search: Search, x: X, plus: Plus, folderPlus: FolderPlus, folder: Folder, document: FileText, image: Image, list: List, grid: Grid2X2, menu: Menu, back: ArrowLeft, chevron: ChevronRight, check: Check };
+export function Icon({ name, size = 18 }: { name: string; size?: number }) { const Component = icons[name] ?? FileText; return <Component size={size} strokeWidth={1.6} aria-hidden="true" />; }
+export const Button = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement> & { variant?: 'primary' | 'secondary' | 'ghost' }>(function Button({ variant = 'secondary', className = '', type = 'button', ...props }, ref) { return <button ref={ref} type={type} className={`button button-${variant} ${className}`} {...props} />; });
+export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(function Input({ className = '', ...props }, ref) { return <input ref={ref} className={`input ${className}`} {...props} />; });

@@ -1,0 +1,31 @@
+{
+  "time": "2026-10-11T21:09:31.118747+00:00",
+  "method": "Primary-agent browser interaction against independently built Next production servers",
+  "a": {
+    "url": "http://127.0.0.1:3110/files",
+    "feature": "PASS: toggle research important; Important filter yields one row; unmatched search yields zero; Clear filters restores four while preserving marker; unmark within filter yields empty and focus returns to filter button.",
+    "mobile": "390x844 screenshot inspected; names wrap and controls named",
+    "designE2E": {
+      "exit": 0,
+      "passed": 22,
+      "failed": 0
+    }
+  },
+  "b": {
+    "url": "http://127.0.0.1:3111/files",
+    "feature": "PASS: same pointer interaction and state sequence; clear restores four, unmark yields empty",
+    "mobile": "390x844 screenshot inspected; unnamed star button visibly different, expected negative condition",
+    "focus": "After unmark removes focused row, document.activeElement is BODY; manual finding outside existing baseline tests",
+    "designE2E": {
+      "exit": 1,
+      "passed": 20,
+      "failed": 2,
+      "failedRule": "A11Y-001",
+      "viewports": [
+        1280,
+        390
+      ]
+    }
+  },
+  "limits": "One synthetic feature, two directed agents; no population-level success-rate claim. No checkers modified by participants."
+}

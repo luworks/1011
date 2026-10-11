@@ -1,0 +1,65 @@
+{
+  "id": "negative-raw-button",
+  "kind": "negative",
+  "suite": "static",
+  "rule": "DS-002",
+  "description": "Recovery action bypasses the approved Button implementation.",
+  "baselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+  "patches": [
+    {
+      "file": "src/components/patterns/EmptyState.tsx",
+      "before": "import { Button, Icon } from '@/components/ui';\nexport function EmptyState({ title, description, action, icon = 'files' }: { title: string; description: string; action: { label: string; onClick: () => void }; icon?: string }) {\n  return <section className=\"empty-state\"><div className=\"empty-icon\"><Icon name={icon} size={28} /></div><h2>{title}</h2><p data-testid=\"empty-state-description\">{description}</p><Button onClick={action.onClick}>{action.label}</Button></section>;\n}\n",
+      "after": "import { Icon } from '@/components/ui';\nexport function EmptyState({ title, description, action, icon = 'files' }: { title: string; description: string; action: { label: string; onClick: () => void }; icon?: string }) {\n  return <section className=\"empty-state\"><div className=\"empty-icon\"><Icon name={icon} size={28} /></div><h2>{title}</h2><p data-testid=\"empty-state-description\">{description}</p><button onClick={action.onClick}>{action.label}</button></section>;\n}\n"
+    }
+  ],
+  "startedAt": "2026-10-11T21:06:18.792Z",
+  "caseBaselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+  "mutatedHash": "7960c645af26b1ba3dbca23d90554b57ce1abdad62e807d16c988382b7410784",
+  "typecheck": {
+    "command": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-SIUM2I/creao-design-lab/node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--incremental",
+      "false"
+    ],
+    "exit": 0,
+    "signal": null,
+    "stdout": "",
+    "stderr": "",
+    "timedOut": false,
+    "durationMs": 1143
+  },
+  "check": {
+    "command": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/Users/yuanlu/code/1011/creao-design-lab/scripts/check-design.mjs",
+      "--root",
+      "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-SIUM2I/creao-design-lab"
+    ],
+    "exit": 1,
+    "signal": null,
+    "stdout": "{\n  \"version\": 1,\n  \"root\": \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-SIUM2I/creao-design-lab\",\n  \"passed\": false,\n  \"violations\": [\n    {\n      \"ruleId\": \"DS-002\",\n      \"file\": \"src/components/patterns/EmptyState.tsx\",\n      \"line\": 3,\n      \"message\": \"Raw <button> bypasses approved src/components/ui components.\"\n    }\n  ],\n  \"exceptions\": []\n}\n",
+    "stderr": "",
+    "timedOut": false,
+    "durationMs": 289
+  },
+  "evidence": {
+    "version": 1,
+    "root": "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-SIUM2I/creao-design-lab",
+    "passed": false,
+    "violations": [
+      {
+        "ruleId": "DS-002",
+        "file": "src/components/patterns/EmptyState.tsx",
+        "line": 3,
+        "message": "Raw <button> bypasses approved src/components/ui components."
+      }
+    ],
+    "exceptions": []
+  },
+  "classification": "killed",
+  "reason": "Original checker reported target rule.",
+  "artifacts": [],
+  "finishedAt": "2026-10-11T21:06:20.251Z"
+}

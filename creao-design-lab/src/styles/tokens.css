@@ -1,0 +1,34 @@
+/* Observed values: exam/research/deep/widgets-dom.json. Local additions are marked. */
+:root {
+  --color-background: #f8f6f3;
+  --color-border: #e6e2db;
+  --color-card: #fefdfb;
+  --color-card-foreground: #16181a;
+  --color-chrome: #f4f1ed;
+  --color-control-border: #ebe7e2;
+  --color-foreground: #16181a;
+  --color-ox-ink: #16181a;
+  --color-oxblood: #6e2f2c;
+  --color-primary: #16181a;
+  --color-primary-foreground: #f3ecd8;
+  --color-surface: #fefdfb;
+  --color-surface-alt: #f0ede8;
+  --font-sans: "Instrument Sans Variable", "Inter Variable", "Inter Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", "SF Mono", Menlo, monospace;
+  --radius: .375rem;
+  --radius-lg: .5rem;
+  --radius-xl: .75rem;
+  --spacing: .25rem;
+  /* Prototype decisions; not claimed as official tokens. */
+  --color-muted: #66635e;
+  --color-focus: #6e2f2c;
+  --color-backdrop: #16181a66;
+  --sidebar-width: 248px;
+  --page-padding: 32px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+}

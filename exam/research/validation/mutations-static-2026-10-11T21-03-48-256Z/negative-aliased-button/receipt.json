@@ -1,0 +1,58 @@
+{
+  "id": "negative-aliased-button",
+  "kind": "negative",
+  "suite": "static",
+  "rule": "DS-002",
+  "description": "Intrinsic JSX control aliased via capitalized const challenges scanner scope.",
+  "baselineHash": "7679d8f01d6b3b6bc686a43ab854abd1b9d9e91d67c03a540e5b0969ba8f8727",
+  "patches": [
+    {
+      "file": "src/components/patterns/EmptyState.tsx",
+      "before": "import { Button, Icon } from '@/components/ui';\nexport function EmptyState({ title, description, action, icon = 'files' }: { title: string; description: string; action: { label: string; onClick: () => void }; icon?: string }) {\n  return <section className=\"empty-state\"><div className=\"empty-icon\"><Icon name={icon} size={28} /></div><h2>{title}</h2><p data-testid=\"empty-state-description\">{description}</p><Button onClick={action.onClick}>{action.label}</Button></section>;\n}\n",
+      "after": "import { Icon } from '@/components/ui';\nconst ShortcutButton = 'button' as const;\nexport function EmptyState({ title, description, action, icon = 'files' }: { title: string; description: string; action: { label: string; onClick: () => void }; icon?: string }) {\n  return <section className=\"empty-state\"><div className=\"empty-icon\"><Icon name={icon} size={28} /></div><h2>{title}</h2><p data-testid=\"empty-state-description\">{description}</p><ShortcutButton onClick={action.onClick}>{action.label}</ShortcutButton></section>;\n}\n"
+    }
+  ],
+  "startedAt": "2026-10-11T21:03:55.747Z",
+  "caseBaselineHash": "7679d8f01d6b3b6bc686a43ab854abd1b9d9e91d67c03a540e5b0969ba8f8727",
+  "mutatedHash": "86c2f59cf4dc9837f54034e994bb71ee441ac50e4294e4f184a66e94e19547f0",
+  "typecheck": {
+    "command": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-jZ3vbC/creao-design-lab/node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--incremental",
+      "false"
+    ],
+    "exit": 0,
+    "signal": null,
+    "stdout": "",
+    "stderr": "",
+    "timedOut": false,
+    "durationMs": 1170
+  },
+  "check": {
+    "command": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/Users/yuanlu/code/1011/creao-design-lab/scripts/check-design.mjs",
+      "--root",
+      "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-jZ3vbC/creao-design-lab"
+    ],
+    "exit": 0,
+    "signal": null,
+    "stdout": "{\n  \"version\": 1,\n  \"root\": \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-jZ3vbC/creao-design-lab\",\n  \"passed\": true,\n  \"violations\": [],\n  \"exceptions\": []\n}\n",
+    "stderr": "",
+    "timedOut": false,
+    "durationMs": 201
+  },
+  "evidence": {
+    "version": 1,
+    "root": "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-jZ3vbC/creao-design-lab",
+    "passed": true,
+    "violations": [],
+    "exceptions": []
+  },
+  "classification": "survived",
+  "reason": "Target rule did not reject the mutation.",
+  "artifacts": [],
+  "finishedAt": "2026-10-11T21:03:57.129Z"
+}

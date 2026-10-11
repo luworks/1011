@@ -1,0 +1,18 @@
+{
+  "parser": "js-yaml",
+  "triggers": [
+    "pull_request",
+    "push",
+    "workflow_dispatch"
+  ],
+  "jobs": [
+    "design-gate",
+    "mutation-verification",
+    "candidate"
+  ],
+  "candidateNeeds": [
+    "design-gate",
+    "mutation-verification"
+  ],
+  "remoteExecuted": false
+}

@@ -1,0 +1,16 @@
+Browser tab: 1, Title: "文件 | CREAO", URL: "https://agent.creao.ai/files".
+0 AXWebArea 文件 | CREAO, URL: agent.creao.ai/files
+	1 container Lightbox
+		2 container Photo gallery 放大 缩小 下载 关闭 上一张 下一张
+			3 container Photo gallery
+				12 container 6 of 6
+					13 image meta_stock_analysis_1774067289.png
+			5 container
+				6 button 放大
+				7 button (disabled) 缩小
+				8 button 下载
+				9 button 关闭
+			10 button 上一张
+			11 button (disabled) 下一张
+
+The focused UI element is 2 container Photo gallery 放大 缩小 下载 关闭 上一张 下一张

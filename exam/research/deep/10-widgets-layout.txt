@@ -1,0 +1,197 @@
+Browser tab: 1, Title: "仪表盘组件 | CREAO", URL: "https://agent.creao.ai/widgets".
+1 AXWebArea 仪表盘组件 | CREAO, URL: agent.creao.ai/widgets
+	2 container
+		3 container root
+			4 link Description: 跳转到主要内容, Value: agent.creao.ai/widgets#main-content
+			5 container Main navigation
+				6 container
+					7 link Description: CREAO, Value: agent.creao.ai/chat
+					8 button 搜索
+					9 button 收起侧边栏
+				10 container Main
+					11 content list
+						12 link Description: 新对话, Value: agent.creao.ai/chat
+				13 container
+					14 container Secondary
+						15 content list
+							16 link Description: 发现, Value: agent.creao.ai/discover
+							17 link Description: 智能体, Value: agent.creao.ai/apps
+							18 link Description: 视频工作室, Value: agent.creao.ai/video
+							19 link Description: 文件, Value: agent.creao.ai/files
+							20 link Description: 连接器, Value: agent.creao.ai/integrations
+							21 pop up button (collapsed) 更多, ID: radix-_r_0_, Secondary Actions: Expand
+					22 button (expanded) Description: 隐藏聊天, Secondary Actions: Collapse
+					23 button creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。
+						24 link Description: creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。, Value: agent.creao.ai/chat?threadId=0a3aa001-be5b-445f-8811-f1729641db8b
+					25 pop up button (collapsed) Description: creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。 的选项, ID: radix-_r_13_, Secondary Actions: Expand
+					26 button 可以做什么?
+						27 link Description: 可以做什么?, Value: agent.creao.ai/chat?threadId=5cf36924-06c3-4c57-b372-78dc25271729
+					28 pop up button (collapsed) Description: 可以做什么? 的选项, ID: radix-_r_18_, Secondary Actions: Expand
+					29 button give me a suprise what you can do . give me aha monent
+						30 link Description: give me a suprise what you can do . give me aha monent, Value: agent.creao.ai/chat?threadId=96a3a1f2-8ddb-49a1-aaf5-c69bffcd8133
+					31 pop up button (collapsed) Description: give me a suprise what you can do . give me aha monent 的选项, ID: radix-_r_1d_, Secondary Actions: Expand
+				32 link Description: 创建团队, Value: agent.creao.ai/organization?create=true
+				33 link Description: 奖励. 推荐好友，赚取积分, Value: agent.creao.ai/rewards?tab=refer
+				34 pop up button (collapsed) Description: 用户菜单, ID: radix-_r_2_, Secondary Actions: Expand
+					35 text 1
+					36 text 1031luy@gmail.com
+					37 text 免费
+				38 button 设置
+			39 container main-content
+				40 heading 仪表盘组件, Value: 1
+					41 text 仪表盘组件
+				42 text 可用于在代理会话中构建可视化仪表盘的组件。
+				43 heading 布局, Value: 2
+					44 text 布局
+				45 text Card 布局
+				46 text 内容区域的容器卡片，可选标题和描述。
+				47 text title description maxWidth centered
+				48 text REVENUE
+				49 text FY2025
+				50 heading $164.5B, Value: 2
+					51 text $164.5B
+				52 text Stack 布局
+				53 text 弹性布局容器 — 水平或垂直排列，支持配置间距和对齐。
+				54 text direction gap align justify TECH NASDAQ LARGE CAP Grid 布局
+				55 text 网格布局，支持1到4列和可配置间距。
+				56 text columns gap
+				57 container
+					58 text PRICE
+					59 heading $574, Value: 2
+						60 text $574
+					61 text VOLUME
+					62 heading 18.3M, Value: 2
+						63 text 18.3M
+					64 text CAP
+					65 heading $1.5T, Value: 2
+						66 text $1.5T
+				67 text Separator 布局
+				68 text 视觉分隔线 — 水平或垂直。
+				69 text orientation
+				70 text Section A
+				71 text Section B
+				72 text Tabs 布局
+				73 text 标签页导航，包含多个内容面板。
+				74 text tabs defaultValue
+				75 tab group
+					76 tab (selected, settable, boolean) Overview, Value: 1, ID: radix-_r_4_-trigger-overview
+					77 tab (selectable, settable, boolean) Details, Value: 0, ID: radix-_r_4_-trigger-details
+				78 text Tab content goes here.
+				79 heading 数据展示, Value: 2
+					80 text 数据展示
+				81 text Heading 数据展示
+				82 text 标题文本，从h1到h4 — 用于KPI数值和章节标题。
+				83 text text level
+				84 heading $574.46, Value: 2
+					85 text $574.46
+				86 heading Revenue Growth, Value: 2
+					87 text Revenue Growth
+				88 heading Quarterly Results, Value: 2
+					89 text Quarterly Results
+				90 text Text 数据展示
+				91 text 段落文本，支持多种变体：正文、说明、辅助、引导或代码。
+				92 text text variant
+				93 text Body text — the default variant for regular content.
+				94 text Muted text for supplementary information.
+				95 text const revenue = 164.5;
+				96 text Badge 数据展示
+				97 text 状态徽章，用于标签、标记和变化指示器。
+				98 text text variant +22% YOY HOLD -5.2% NASDAQ Alert 数据展示
+				99 text 警告横幅，用于重要消息 — 信息、成功、警告或错误。
+				100 text title message type
+				101 container
+					102 text Key Insight Revenue grew 22% year over year, driven by AI-fueled ad targeting improvements.
+				103 text Progress 数据展示
+				104 text 进度条，显示0到100的数值。
+				105 text value max label
+				106 text Buy / Strong Buy
+				107 text Hold
+				108 text Sell
+				109 text Table 数据展示
+				110 text 数据表格，包含列标题和数据行。
+				111 text columns rows caption
+				112 table
+					113 row
+						114 cell
+							115 text METRIC
+						116 cell
+							117 text FY2024
+						118 cell
+							119 text FY2025
+					120 row
+						121 cell
+							122 text Revenue
+						123 cell
+							124 text $164.5B
+						125 cell
+							126 text $201.0B
+					127 row
+						128 cell
+							129 text Net Income
+						130 cell
+							131 text $62.4B
+						132 cell
+							133 text $75.8B
+					134 row
+						135 cell
+							136 text EPS
+						137 cell
+							138 text $5.31
+						139 cell
+							140 text $6.42
+				141 text Image 数据展示
+				142 text 图片展示 — 仅支持HTTPS和data URI来源。
+				143 text src alt width height
+				144 image Sample thumbnail
+				145 heading 图表, Value: 2
+					146 text 图表
+				147 text LineChart 图表
+				148 text 折线图，用于时间序列数据，支持多条线。
+				149 text title data xKey lines height
+				150 container
+					151 text Jan
+					152 text Feb
+					153 text Mar
+					154 text Apr
+					155 text May
+					156 text Jun
+					157 text 0
+					158 text 0.85
+					159 text 1.7
+					160 text 2.55
+					161 text 3.4
+				162 text AreaChart 图表
+				163 text 面积图，带填充区域 — 适合趋势和增长指标。
+				164 text title data xKey areas height
+				165 container
+					166 text Jan
+					167 text Feb
+					168 text Mar
+					169 text Apr
+					170 text May
+					171 text Jun
+					172 text 0
+					173 text 200
+					174 text 400
+					175 text 600
+					176 text 800
+				177 text BarChart 图表
+				178 text 柱状图，用于分类比较和数量数据。
+				179 text title data xKey bars height
+				180 container
+					181 text Q1
+					182 text Q2
+					183 text Q3
+					184 text Q4
+					185 text 0
+					186 text 15
+					187 text 30
+					188 text 45
+					189 text 60
+				190 text CandlestickChart 图表
+				191 text 专业K线图，支持OHLCV数据、成交量柱和叠加线。
+				192 text title data height showVolume watermark lines
+				193 image Candlestick chart preview
+			194 container Notifications alt+T
+
+The focused UI element is 1 AXWebArea 仪表盘组件 | CREAO, URL: agent.creao.ai/widgets

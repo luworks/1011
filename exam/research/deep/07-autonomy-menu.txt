@@ -1,0 +1,11 @@
+Browser tab: 1, Title: "CREAO", URL: "https://agent.creao.ai/chat".
+0 AXWebArea CREAO, URL: agent.creao.ai/chat
+	1 container
+		2 container Notifications alt+T
+		3 menu 自主程度: 总是询问, ID: radix-_r_5o_
+			4 text 自主程度
+			5 container
+				6 总是询问 可自由查询信息，但在发送、发布或删除任何内容前会先征求你的同意。, Value: 1
+				7 自动 无需确认即可发送、发布和删除——适合你信任的无人值守任务。, Value: 0
+
+The focused UI element is 3 menu 自主程度: 总是询问, ID: radix-_r_5o_

@@ -1,0 +1,59 @@
+{
+  "observedAt": "2026-10-11T21:06:57.303197+00:00",
+  "baseURL": "http://127.0.0.1:3105",
+  "mode": "next start production build",
+  "data": "synthetic; page-local state",
+  "checks": [
+    {
+      "path": "/files",
+      "result": "Pass: empty folder name shows alert; valid name creates fifth local row; reload resets to four."
+    },
+    {
+      "path": "/files",
+      "result": "Pass: preview opens named dialog; Escape closes and restores focus to invoking file button."
+    },
+    {
+      "path": "/files",
+      "viewport": "390x844",
+      "result": "Pass visual: metadata labeled, desktop header removed, names wrap."
+    },
+    {
+      "path": "/files",
+      "viewport": "320x844",
+      "result": "Pass visual: metadata wraps; no page horizontal overflow."
+    },
+    {
+      "path": "/files",
+      "viewport": "800x900",
+      "result": "First attempt FAILED: document scrollWidth806 at width800. Fixed collection breakpoint900; retest scrollWidth800. Both screenshots retained."
+    },
+    {
+      "path": "/connectors",
+      "result": "Pass: Connected(0) empty recovery selects Available; simulate Slack connect; Connected(1) contains Slack."
+    },
+    {
+      "path": "/agents",
+      "result": "Pass: Create example creates Research Assistant draft; View details opens working-instructions view."
+    },
+    {
+      "path": "/guidelines",
+      "result": "Pass: rendered Markdown including GFM tables; tokens.css link opens actual allowlisted source at /reference."
+    }
+  ],
+  "screenshots": [
+    "agents-detail.png",
+    "connectors-empty.png",
+    "css-reference.png",
+    "files-320.png",
+    "files-390.png",
+    "files-800-fixed.png",
+    "files-800.png",
+    "files-desktop.png",
+    "guidelines.png"
+  ],
+  "limits": [
+    "No real OAuth or model runs.",
+    "No exhaustive WCAG, screen-reader or all-locale review.",
+    "Actual pixel baselines not auto-approved."
+  ]
+}

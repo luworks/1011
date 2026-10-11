@@ -1,0 +1,31 @@
+{
+  "fileTitle": [
+    {
+      "role": null,
+      "tag": "BUTTON",
+      "text": "文件"
+    }
+  ],
+  "headings": [],
+  "url": "https://agent.creao.ai/files",
+  "viewControls": [
+    {
+      "checked": null,
+      "label": "切换到列表视图",
+      "pressed": "true",
+      "role": null,
+      "tag": "BUTTON"
+    },
+    {
+      "checked": null,
+      "label": "切换到网格视图",
+      "pressed": "false",
+      "role": null,
+      "tag": "BUTTON"
+    }
+  ],
+  "viewport": {
+    "height": 898,
+    "width": 943
+  }
+}

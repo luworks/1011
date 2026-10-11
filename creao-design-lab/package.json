@@ -1,0 +1,42 @@
+{
+  "name": "creao-design-lab",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "next dev --port 3100",
+    "start": "next start --port 3100",
+    "build": "next build",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "check:design": "node scripts/check-design.mjs",
+    "design:check": "node scripts/check-design.mjs",
+    "test:design": "node --test tests/design/*.test.mjs",
+    "test:e2e": "playwright test",
+    "test:mutations": "node scripts/mutation-runner.mjs --suite all",
+    "mutation:static": "node scripts/mutation-runner.mjs --suite static",
+    "mutation:browser": "node scripts/mutation-runner.mjs --suite browser",
+    "mutation:all": "node scripts/mutation-runner.mjs --suite all"
+  },
+  "dependencies": {
+    "lucide-react": "1.55.0",
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-markdown": "10.1.0",
+    "remark-gfm": "4.0.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.0",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.0",
+    "postcss": "8.5.29",
+    "postcss-value-parser": "4.2.0",
+    "typescript": "5.9.3"
+  }
+}

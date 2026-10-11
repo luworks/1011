@@ -1,0 +1,84 @@
+[
+  {
+    "width": 1280,
+    "styles": [
+      {
+        "selector": "pre",
+        "color": "rgb(22, 24, 26)",
+        "background": "rgb(248, 246, 243)",
+        "dialogBackground": "rgb(254, 253, 251)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "bounds": {
+          "x": 345,
+          "y": 409.078125,
+          "width": 590,
+          "height": 140.75,
+          "top": 409.078125,
+          "right": 935,
+          "bottom": 549.828125,
+          "left": 345
+        }
+      },
+      {
+        "selector": ".muted",
+        "color": "rgb(102, 99, 94)",
+        "background": "rgba(0, 0, 0, 0)",
+        "dialogBackground": "rgb(254, 253, 251)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "bounds": {
+          "x": 345,
+          "y": 374.078125,
+          "width": 590,
+          "height": 21,
+          "top": 374.078125,
+          "right": 935,
+          "bottom": 395.078125,
+          "left": 345
+        }
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "styles": [
+      {
+        "selector": "pre",
+        "color": "rgb(22, 24, 26)",
+        "background": "rgb(248, 246, 243)",
+        "dialogBackground": "rgb(254, 253, 251)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "bounds": {
+          "x": 38,
+          "y": 406.984375,
+          "width": 314,
+          "height": 165.9375,
+          "top": 406.984375,
+          "right": 352,
+          "bottom": 572.921875,
+          "left": 38
+        }
+      },
+      {
+        "selector": ".muted",
+        "color": "rgb(102, 99, 94)",
+        "background": "rgba(0, 0, 0, 0)",
+        "dialogBackground": "rgb(254, 253, 251)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "bounds": {
+          "x": 38,
+          "y": 350.984375,
+          "width": 314,
+          "height": 42,
+          "top": 350.984375,
+          "right": 352,
+          "bottom": 392.984375,
+          "left": 38
+        }
+      }
+    ]
+  }
+]

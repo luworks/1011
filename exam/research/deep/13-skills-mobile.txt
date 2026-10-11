@@ -1,0 +1,68 @@
+Browser tab: 1, Title: "发现 | CREAO", URL: "https://agent.creao.ai/discover/skills".
+1 AXWebArea 发现 | CREAO, URL: agent.creao.ai/discover/skills
+	2 container
+		3 container root
+			4 link Description: 跳转到主要内容, Value: agent.creao.ai/discover/skills#main-content
+			254 button 打开菜单
+			39 container main-content
+				195 container
+					196 heading 发现, Value: 1
+						197 text 发现
+					198 text 来自 CREAO 社区的精选作品，为真实工作流而构建。选择你的领域，立即开始！
+					199 tab group 发现分区
+						200 tab (selectable, settable, boolean) 智能体, Help: 使用即开即用的智能体。, Value: 0, ID: discover-tab-agents
+						201 tab (selected, settable, boolean) 技能, Help: 教 CREAO 掌握新能力。, Value: 1, ID: discover-tab-skills
+					206 search text field (settable) 搜索技能
+				202 container Description: 技能, ID: discover-tabpanel-skills
+					204 checkbox 可用, Value: 1
+					205 checkbox 已安装, Value: 0
+					207 container
+						208 link github.com/obra/superpowers
+						209 text 211k
+						210 heading superpowers, Value: 3
+							211 text superpowers
+						212 text An agentic skills framework & software development methodology that works.
+						213 text 作者
+						214 link Description: obra, Value: github.com/obra
+						215 button 安装
+					216 container
+						217 link github.com/coleam00/excalidraw-diagram-skill
+						218 text 3.3k
+						219 heading excalidraw-diagram-skill, Value: 3
+							220 text excalidraw-diagram-skill
+						221 text Skill to give agent the ability to generate beautiful and practical Excalidraw diagrams.
+						222 text 作者
+						223 link Description: coleam00, Value: github.com/coleam00
+						224 button 安装
+					225 container
+						226 link github.com/coreyhaines31/marketingskills
+						227 text 31k
+						228 heading marketingskills, Value: 3
+							229 text marketingskills
+						230 text Marketing skills for AI agents. CRO, copywriting, SEO, analytics, and growth engineering.
+						231 text 作者
+						232 link Description: coreyhaines31, Value: github.com/coreyhaines31
+						233 button 安装
+					234 container
+						235 link github.com/helloianneo/ian-xiaohei-illustrations/tree/main/ian-xiaohei-illustrations
+						236 text 1.3k
+						237 heading ian-xiaohei-illustrations, Value: 3
+							238 text ian-xiaohei-illustrations
+						239 text Turning key ideas in articles into clean, hand-drawn 16:9 illustrations featuring “Xiaohei,” a small black character that visualizes concepts, processes, and metaphors.
+						240 text 作者
+						241 link Description: helloianneo, Value: github.com/helloianneo
+						242 link Description: X 个人主页 @ianneo_ai, Value: x.com/ianneo_ai
+						243 button 安装
+					244 container
+						245 link github.com/GoPlusSecurity/agentguard/tree/main
+						246 text 446
+						247 heading agentguard, Value: 3
+							248 text agentguard
+						249 text Security guard for AI agents — blocks malicious skills, prevents data leaks, protects secrets. 24 detection rules, runtime action evaluation, trust registry.
+						250 text 作者
+						251 link Description: GoPlusSecurity, Value: github.com/GoPlusSecurity
+						252 link Description: X 个人主页 @https://x.com/AgentGuard_AI, Value: x.com/https%3A%2F%2Fx.com%2FAgentGuard_AI
+						253 button 安装
+			194 container Notifications alt+T
+
+The focused UI element is 206 search text field (settable) 搜索技能

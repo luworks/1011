@@ -1,0 +1,84 @@
+{
+  "headings": [
+    {
+      "tag": "H1",
+      "text": "仪表盘组件"
+    },
+    {
+      "tag": "H2",
+      "text": "布局"
+    },
+    {
+      "tag": "H2",
+      "text": "$164.5B"
+    },
+    {
+      "tag": "H2",
+      "text": "$574"
+    },
+    {
+      "tag": "H2",
+      "text": "18.3M"
+    },
+    {
+      "tag": "H2",
+      "text": "$1.5T"
+    },
+    {
+      "tag": "H2",
+      "text": "数据展示"
+    },
+    {
+      "tag": "H2",
+      "text": "$574.46"
+    },
+    {
+      "tag": "H2",
+      "text": "Revenue Growth"
+    },
+    {
+      "tag": "H2",
+      "text": "Quarterly Results"
+    },
+    {
+      "tag": "H2",
+      "text": "图表"
+    }
+  ],
+  "tableHeaders": [
+    "<th data-slot=\"table-head\" class=\"text-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&amp;:has([role=checkbox])]:pr-0 [&amp;&gt;[role=checkbox]]:translate-y-[2px]\">Metric</th><th data-slot=\"table-head\" class=\"text-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&amp;:has([role=checkbox])]:pr-0 [&amp;&gt;[role=checkbox]]:translate-y-[2px]\">FY2024</th><th data-slot=\"table-head\" class=\"text-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&amp;:has([role=checkbox])]:pr-0 [&amp;&gt;[role=checkbox]]:translate-y-[2px]\">FY2025</th>"
+  ],
+  "tokens": {
+    "--color-background": "#f8f6f3",
+    "--color-border": "#e6e2db",
+    "--color-card": "#fefdfb",
+    "--color-card-foreground": "#16181a",
+    "--color-chrome": "#f4f1ed",
+    "--color-control-border": "#ebe7e2",
+    "--color-foreground": "#16181a",
+    "--color-ox-ink": "#16181a",
+    "--color-oxblood": "#6e2f2c",
+    "--color-primary": "#16181a",
+    "--color-primary-foreground": "#f3ecd8",
+    "--color-surface": "#fefdfb",
+    "--color-surface-alt": "#f0ede8",
+    "--font-data": "\"DM Mono\", \"JetBrains Mono Variable\", \"JetBrains Mono\", \"SF Mono\", Menlo, monospace",
+    "--font-mono": "\"JetBrains Mono Variable\", \"JetBrains Mono\", \"SF Mono\", Menlo, monospace",
+    "--font-sans": "\"Instrument Sans Variable\", \"Inter Variable\", \"Inter Fallback\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+    "--font-serif": "\"EB Garamond Variable\", \"Iowan Old Style\", Georgia, serif",
+    "--radius": ".375rem",
+    "--radius-2xl": "1rem",
+    "--radius-3xl": "1.5rem",
+    "--radius-lg": ".5rem",
+    "--radius-md": ".375rem",
+    "--radius-sm": ".25rem",
+    "--radius-xl": ".75rem",
+    "--radius-xs": ".125rem",
+    "--spacing": ".25rem"
+  },
+  "url": "https://agent.creao.ai/widgets",
+  "viewport": {
+    "height": 898,
+    "width": 909
+  }
+}

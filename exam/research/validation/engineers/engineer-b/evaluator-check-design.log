@@ -1,0 +1,54 @@
+
+> creao-design-lab@0.1.0 check:design
+> node scripts/check-design.mjs
+
+{
+  "version": 1,
+  "root": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v1/engineer-b/creao-design-lab",
+  "passed": false,
+  "violations": [
+    {
+      "ruleId": "DS-001",
+      "file": "src/styles/layouts.css",
+      "line": 105,
+      "message": "Literal color #d2a22b; use a registered token from src/styles/tokens.css."
+    },
+    {
+      "ruleId": "DS-001",
+      "file": "src/styles/layouts.css",
+      "line": 105,
+      "message": "Literal color #fff7d6; use a registered token from src/styles/tokens.css."
+    },
+    {
+      "ruleId": "DS-001",
+      "file": "src/styles/layouts.css",
+      "line": 105,
+      "message": "Literal color #5b4400; use a registered token from src/styles/tokens.css."
+    },
+    {
+      "ruleId": "DS-001",
+      "file": "src/styles/layouts.css",
+      "line": 106,
+      "message": "Literal color #facc15; use a registered token from src/styles/tokens.css."
+    },
+    {
+      "ruleId": "DS-001",
+      "file": "src/styles/layouts.css",
+      "line": 107,
+      "message": "Literal color #9c7200; use a registered token from src/styles/tokens.css."
+    },
+    {
+      "ruleId": "DS-002",
+      "file": "src/app/files/page.tsx",
+      "line": 20,
+      "message": "Raw <button> bypasses approved src/components/ui components."
+    },
+    {
+      "ruleId": "DS-002",
+      "file": "src/app/files/page.tsx",
+      "line": 23,
+      "message": "Raw <button> bypasses approved src/components/ui components."
+    }
+  ],
+  "exceptions": []
+}

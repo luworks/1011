@@ -1,0 +1,108 @@
+Browser tab: 1, Title: "视频工作室 | CREAO", URL: "https://agent.creao.ai/video".
+1 AXWebArea 视频工作室 | CREAO, URL: agent.creao.ai/video
+	2 container
+		3 container Notifications alt+T
+		4 container 视频默认设置, ID: radix-_r_6c_
+			5 heading 视频默认设置, Value: 2, ID: radix-_r_6d_
+				6 text 视频默认设置
+			7 text 除非你为某次请求单独更改，否则会应用于每个片段。当请求需要你所选模型不具备的能力时，智能体可能会切换模型。
+			8 container
+				9 heading 视频模型, Value: 2
+					10 text 视频模型
+				11 button 自动 由智能体为每个请求选择最合适的模型
+					12 text 自动
+					13 text 由智能体为每个请求选择最合适的模型
+				14 button (disabled) Veo 3.1 Preview 高级版 画质最高的生产级输出；速度较慢。 4 / 6 / 8s 720p – 1080p 音频 费用：6 / 6, Help: 需要付费套餐
+					15 text Veo 3.1 Preview 高级版
+					16 text 画质最高的生产级输出；速度较慢。
+					17 text 4 / 6 / 8s 720p – 1080p 音频
+					18 image 费用：6 / 6
+				19 button Veo 3.1 Fast Preview 适合快速草稿和社交短视频——性价比最高。 4 / 6 / 8s 720p – 1080p 音频 费用：3 / 6
+					20 text Veo 3.1 Fast Preview
+					21 text 适合快速草稿和社交短视频——性价比最高。
+					22 text 4 / 6 / 8s
+					23 text 720p – 1080p
+					24 text 音频
+					25 image 费用：3 / 6
+				26 button Gemini Omni 1.1 Flash 3–10 秒短片，自带生成音频，最高 4K。 3–10s 360p – 4K 音频 视频编辑 费用：4 / 6
+					27 text Gemini Omni 1.1 Flash
+					28 text 3–10 秒短片，自带生成音频，最高 4K。
+					29 text 3–10s
+					30 text 360p – 4K
+					31 text 音频
+					32 text 视频编辑
+					33 image 费用：4 / 6
+				34 button Seedance 1.5 Pro 较强的文本/图片生成视频能力。 4–12s 480p – 1080p 费用：3 / 6
+					35 text Seedance 1.5 Pro
+					36 text 较强的文本/图片生成视频能力。
+					37 text 4–12s
+					38 text 480p – 1080p
+					39 image 费用：3 / 6
+				40 button (disabled) Seedance 2.0 高级版 更高保真度的生成，还可编辑现有视频。 4–15s 480p – 4K 音频 视频编辑 费用：4 / 6, Help: 需要付费套餐
+					41 text Seedance 2.0 高级版
+					42 text 更高保真度的生成，还可编辑现有视频。
+					43 text 4–15s 480p – 4K 音频 视频编辑
+					44 image 费用：4 / 6
+				45 button (disabled) Seedance 2.0 Fast 高级版 快速迭代，还可编辑现有视频。 4–15s 480p – 720p 音频 视频编辑 费用：2 / 6, Help: 需要付费套餐
+					46 text Seedance 2.0 Fast 高级版
+					47 text 快速迭代，还可编辑现有视频。
+					48 text 4–15s 480p – 720p 音频 视频编辑
+					49 image 费用：2 / 6
+				50 button Seedance 2.0 Mini 轻量低价，支持参考素材和视频编辑。 4–15s 480p – 720p 音频 视频编辑 费用：1 / 6
+					51 text Seedance 2.0 Mini
+					52 text 轻量低价，支持参考素材和视频编辑。
+					53 text 4–15s
+					54 text 480p – 720p
+					55 text 音频
+					56 text 视频编辑
+					57 image 费用：1 / 6
+				58 button (disabled) Seedance 2.5 高级版 最长可达 30 秒的片段，编辑能力最强。 4–30s 480p – 720p 音频 视频编辑 费用：5 / 6, Help: 需要付费套餐
+					59 text Seedance 2.5 高级版
+					60 text 最长可达 30 秒的片段，编辑能力最强。
+					61 text 4–30s 480p – 720p 音频 视频编辑
+					62 image 费用：5 / 6
+			63 container
+				64 heading 默认宽高比, Value: 2
+					65 text 默认宽高比
+				66 text 在聊天中未选择宽高比时生效。自动表示由模型决定。
+				67 button 自动
+				68 button 超宽 21:9
+					69 text 超宽
+					70 text 21:9
+				71 button 横向 16:9
+					72 text 横向
+					73 text 16:9
+				74 button 标准 4:3
+					75 text 标准
+					76 text 4:3
+				77 button 方形 1:1
+					78 text 方形
+					79 text 1:1
+				80 button 竖向 3:4
+					81 text 竖向
+					82 text 3:4
+				83 button 竖向 9:16
+					84 text 竖向
+					85 text 9:16
+			86 container
+				87 heading 默认分辨率, Value: 2
+					88 text 默认分辨率
+				89 text 在聊天中未选择分辨率时生效。分辨率越高，消耗的积分越多。
+				90 button 自动
+				91 button 480p
+				92 button 720p
+				93 button 1080p
+			94 container
+				95 heading 默认时长, Value: 2
+					96 text 默认时长
+				97 text 在聊天中未选择时长时生效。自动表示使用模型默认值。
+				98 button 自动
+				99 button 4秒
+				100 button 5秒
+				101 button 8秒
+				102 button 12秒
+			103 text 在聊天中，您的智能体将使用
+			104 text 自动 · 自动 · 自动 · 自动
+			105 button Close
+
+The focused UI element is 11 button 自动 由智能体为每个请求选择最合适的模型

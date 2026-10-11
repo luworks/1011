@@ -1,0 +1,6 @@
+{
+  "command": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome --version",
+  "stdout": "Google Chrome 154.0.8037.98",
+  "exit": 0,
+  "scope": "Installed binary version readback; production report separately confirms channel chrome."
+}

@@ -1,0 +1,153 @@
+Browser tab: 1, Title: "视频工作室 | CREAO", URL: "https://agent.creao.ai/video".
+1 AXWebArea 视频工作室 | CREAO, URL: agent.creao.ai/video
+	2 container
+		3 container root
+			4 link Description: 跳转到主要内容, Value: agent.creao.ai/video#main-content
+			73 container Main navigation
+				74 container
+					75 link Description: CREAO, Value: agent.creao.ai/chat
+					76 button 搜索
+					77 button 收起侧边栏
+				78 container Main
+					79 content list
+						80 link Description: 新对话, Value: agent.creao.ai/chat
+				81 container
+					82 container Secondary
+						83 content list
+							84 link Description: 发现, Value: agent.creao.ai/discover
+							85 link Description: 智能体, Value: agent.creao.ai/apps
+							86 link Description: 视频工作室, Value: agent.creao.ai/video
+							87 link Description: 文件, Value: agent.creao.ai/files
+							88 link Description: 连接器, Value: agent.creao.ai/integrations
+							89 pop up button (collapsed) 更多, ID: radix-_r_0_, Secondary Actions: Expand
+					90 button (expanded) Description: 隐藏聊天, Secondary Actions: Collapse
+					91 button creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。
+						92 link Description: creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。, Value: agent.creao.ai/chat?threadId=0a3aa001-be5b-445f-8811-f1729641db8b
+					93 pop up button (collapsed) Description: creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。 的选项, ID: radix-_r_1e_, Secondary Actions: Expand
+					94 button 可以做什么?
+						95 link Description: 可以做什么?, Value: agent.creao.ai/chat?threadId=5cf36924-06c3-4c57-b372-78dc25271729
+					96 pop up button (collapsed) Description: 可以做什么? 的选项, ID: radix-_r_1j_, Secondary Actions: Expand
+					97 button give me a suprise what you can do . give me aha monent
+						98 link Description: give me a suprise what you can do . give me aha monent, Value: agent.creao.ai/chat?threadId=96a3a1f2-8ddb-49a1-aaf5-c69bffcd8133
+					99 pop up button (collapsed) Description: give me a suprise what you can do . give me aha monent 的选项, ID: radix-_r_1o_, Secondary Actions: Expand
+				100 link Description: 创建团队, Value: agent.creao.ai/organization?create=true
+				101 link Description: 奖励. 推荐好友，赚取积分, Value: agent.creao.ai/rewards?tab=refer
+				102 pop up button (collapsed) Description: 用户菜单, ID: radix-_r_2_, Secondary Actions: Expand
+					103 text 1
+					104 text 1031luy@gmail.com
+					105 text 免费
+				106 button 设置
+			6 container main-content
+				107 heading 视频工作室, Value: 1
+					108 text 视频工作室
+				109 button 设置
+				110 tab group
+					111 tab (selected, settable, boolean) 工作室, Value: 1, ID: radix-_r_5g_-trigger-studio
+					112 tab (selectable, settable, boolean) 历史记录, Value: 0, ID: radix-_r_5g_-trigger-history
+					113 tab (selectable, settable, boolean) 素材库, Value: 0, ID: radix-_r_5g_-trigger-assets
+				114 tab group 模式
+					115 tab (selected, settable, boolean) 创建, Value: 1
+					116 tab (selectable, settable, boolean) 编辑, Value: 0
+				117 pop up button (collapsed) 模型 自动, ID: radix-_r_5k_, Secondary Actions: Expand
+				118 container
+					119 container Description: Chat message input, Value: 
+
+						216 text 描述你的场景。
+					121 text Press Enter to send, Shift+Enter for a new line. Type @ to mention skills or connectors.
+				122 button 起始帧
+				123 button 从 CREAO Files 添加
+				124 text 可选。一张起始帧。
+				125 pop up button (collapsed) 5秒, ID: radix-_r_65_, Secondary Actions: Expand
+				126 pop up button (collapsed) 自动, ID: radix-_r_67_, Secondary Actions: Expand
+				127 pop up button (collapsed) 自动, ID: radix-_r_69_, Secondary Actions: Expand
+				128 text ≈ 10 积分 · 约 2.5 分钟
+				129 button (disabled) 生成 10 ↩
+					130 text 生成 10 ↩
+				131 text 或从示例开始 填入提示词和设置。没有任何必填项。
+				132 container
+					133 text 动态图形 16:9 · 15秒 · 720p 动态图形集锦 随节拍切换的动态字体与图形。
+					134 checkbox Description: 动态图形集锦. 以此为起点, Value: 0
+				135 container
+					136 text 动态图形 16:9 · 15秒 · 720p 3D 产品场景 Three.js 中在影棚灯光下旋转的产品。
+					137 checkbox Description: 3D 产品场景. 以此为起点, Value: 0
+				138 container
+					139 text 21:9 · 8秒 · 1080p 电影感空镜 黄金时段光线下的变形宽银幕构图。
+					140 checkbox Description: 电影感空镜. 以此为起点, Value: 0
+				141 container
+					142 text 动态图形 9:16 · 15秒 · 720p 应用演示 你的截图置于手机框内，逐个功能展示。
+					143 checkbox Description: 应用演示. 以此为起点, Value: 0
+				144 container
+					145 text 动态图形 1:1 · 10秒 · 720p Logo 片头 标志伴随重音与闪光组合成形。
+					146 checkbox Description: Logo 片头. 以此为起点, Value: 0
+				147 container
+					148 text 16:9 · 8秒 微缩世界 移轴微缩风格的热闹场景。
+					149 checkbox Description: 微缩世界. 以此为起点, Value: 0
+				150 container
+					151 text 9:16 · 8秒 剧集片头卡 霓虹标志成形，一声音效，片名定格。
+					152 checkbox Description: 剧集片头卡. 以此为起点, Value: 0
+				153 container
+					154 text 16:9 · 5秒 · 1080p 奢侈品营销 琥珀色光线下，高端产品缓缓转动。
+					155 checkbox Description: 奢侈品营销. 以此为起点, Value: 0
+				156 container
+					157 text 动态图形 16:9 · 30秒 · 720p 配音讲解 配音讲解的同时信息图逐步构建。
+					158 checkbox Description: 配音讲解. 以此为起点, Value: 0
+				159 container
+					160 text 9:16 · 8秒 · 1080p 历史短片 烛光下的18世纪室内，一封信被封蜡。
+					161 checkbox Description: 历史短片. 以此为起点, Value: 0
+				162 container
+					163 text 9:16 · 8秒 · 1080p 竖版社交广告 干脆利落的竖版短片，以产品特写收尾。
+					164 checkbox Description: 竖版社交广告. 以此为起点, Value: 0
+				165 container
+					166 text 16:9 · 12秒 · 1080p 空间漫游 在自然光下平稳地走过空间。
+					167 checkbox Description: 空间漫游. 以此为起点, Value: 0
+				168 container
+					169 text 9:16 · 8秒 幼儿动画 明亮的3D，阳光花园里毛茸茸的朋友。
+					170 checkbox Description: 幼儿动画. 以此为起点, Value: 0
+				171 container
+					172 text 9:16 · 8秒 科普节目开场 主持人面对镜头讲解，身旁悬浮着一颗行星。
+					173 checkbox Description: 科普节目开场. 以此为起点, Value: 0
+				174 container
+					175 text 9:16 · 8秒 · 1080p 科幻短片 光束划破黑暗的片名开场。
+					176 checkbox Description: 科幻短片. 以此为起点, Value: 0
+				177 container
+					178 text 16:9 · 8秒 · 1080p 产品展示 缓慢环绕，同时保持标签清晰可读。
+					179 checkbox Description: 产品展示. 以此为起点, Value: 0
+				180 container
+					181 text 动态图形 16:9 · 20秒 · 720p 发布广告 广告节奏的产品短片，结尾 logo 定格。
+					182 checkbox Description: 发布广告. 以此为起点, Value: 0
+				183 container
+					184 text 9:16 · 8秒 漫改短片 主角与团队迎着一道强光而立。
+					185 checkbox Description: 漫改短片. 以此为起点, Value: 0
+				186 container
+					187 text 动态图形 16:9 · 15秒 · 720p 游戏预告 像素标题、CRT 曲面、芯片音乐节拍。
+					188 checkbox Description: 游戏预告. 以此为起点, Value: 0
+				189 container
+					190 text 16:9 · 8秒 动漫 手绘赛璐珞上色与富有表现力的线条。
+					191 checkbox Description: 动漫. 以此为起点, Value: 0
+				192 container
+					193 text 动态图形 16:9 · 20秒 · 720p 数据故事 图表逐步绘出，数字滚动到关键指标。
+					194 checkbox Description: 数据故事. 以此为起点, Value: 0
+				195 container
+					196 text 9:16 · 8秒 角色设定图 三视图转身，迈出第一步。
+					197 checkbox Description: 角色设定图. 以此为起点, Value: 0
+				198 container
+					199 text 16:9 · 5秒 · 1080p 科幻奇观 玻璃穹顶下的惊叹，远处地球熠熠生辉。
+					200 checkbox Description: 科幻奇观. 以此为起点, Value: 0
+				201 container
+					202 text 16:9 · 5秒 · 1080p 标志揭示 粒子汇聚成清晰的标志。
+					203 checkbox Description: 标志揭示. 以此为起点, Value: 0
+				204 container
+					205 text 9:16 · 8秒 分镜预演 带镜头箭头的粗略灰度分镜。
+					206 checkbox Description: 分镜预演. 以此为起点, Value: 0
+				207 container
+					208 text 16:9 · 12秒 带旁白的讲解 动态图形配上平稳的旁白。
+					209 checkbox Description: 带旁白的讲解. 以此为起点, Value: 0
+				210 container
+					211 text 5秒 前后对比 一个固定镜头，看空间焕然一新。
+					212 checkbox Description: 前后对比. 以此为起点, Value: 0
+				213 container
+					214 text 9:16 · 8秒 迷你短剧 雨中的两位恋人，风格化2D。
+					215 checkbox Description: 迷你短剧. 以此为起点, Value: 0
+			72 container Notifications alt+T
+
+The focused UI element is 86 link Description: 视频工作室, URL: agent.creao.ai/video

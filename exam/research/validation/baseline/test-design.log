@@ -1,0 +1,20 @@
+
+> creao-design-lab@0.1.0 test:design
+> node --test tests/design/*.test.mjs
+
+✔ compliant AST baseline ignores comments and source strings (82.681209ms)
+✔ CSS AST rejects color fallbacks, named colors, functions and unknown tokens (3.796458ms)
+✔ JSX AST flags native controls in governed composition scopes (36.194208ms)
+✔ GOV detects stale exception, missing IDs, broken links (4.7605ms)
+✔ exceptions are exact-file, valid dates and visible in output (3.512417ms)
+✔ invalid calendar expiry is rejected rather than normalized silently (2.938209ms)
+✔ const intrinsic aliases and alias chains are rejected through lexical symbols (28.833ms)
+✔ shadowed identifiers use their local declarations rather than matching a name (30.343208ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 393.266833

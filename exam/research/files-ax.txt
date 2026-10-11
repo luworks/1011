@@ -1,0 +1,99 @@
+Browser tab: 1, Title: "文件 | CREAO", URL: "https://agent.creao.ai/files".
+1 AXWebArea 文件 | CREAO, URL: agent.creao.ai/files
+	2 container
+		3 container root
+			4 link Description: 跳转到主要内容, Value: agent.creao.ai/files#main-content
+			5 container Main navigation
+				6 container
+					7 link Description: CREAO, Value: agent.creao.ai/chat
+					8 button 搜索
+					9 button 收起侧边栏
+				10 container Main
+					11 content list
+						180 link Description: 新对话, Value: agent.creao.ai/chat
+				13 container
+					14 container Secondary
+						15 content list
+							16 link Description: 发现, Value: agent.creao.ai/discover
+							17 link Description: 智能体, Value: agent.creao.ai/apps
+							18 link Description: 视频工作室, Value: agent.creao.ai/video
+							19 link Description: 文件, Value: agent.creao.ai/files
+							20 link Description: 连接器, Value: agent.creao.ai/integrations
+							21 pop up button (collapsed) 更多, ID: radix-_r_0_, Secondary Actions: Expand
+					22 button (expanded) Description: 隐藏聊天, Secondary Actions: Collapse
+					23 button creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。
+						24 link Description: creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。, Value: agent.creao.ai/chat?threadId=0a3aa001-be5b-445f-8811-f1729641db8b
+					25 pop up button (collapsed) Description: creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。 的选项, ID: radix-_r_25_, Secondary Actions: Expand
+					26 button 可以做什么?
+						27 link Description: 可以做什么?, Value: agent.creao.ai/chat?threadId=5cf36924-06c3-4c57-b372-78dc25271729
+					28 pop up button (collapsed) Description: 可以做什么? 的选项, ID: radix-_r_2a_, Secondary Actions: Expand
+					29 button give me a suprise what you can do . give me aha monent
+						30 link Description: give me a suprise what you can do . give me aha monent, Value: agent.creao.ai/chat?threadId=96a3a1f2-8ddb-49a1-aaf5-c69bffcd8133
+					31 pop up button (collapsed) Description: give me a suprise what you can do . give me aha monent 的选项, ID: radix-_r_2f_, Secondary Actions: Expand
+				32 link Description: 创建团队, Value: agent.creao.ai/organization?create=true
+				33 link Description: 奖励. 推荐好友，赚取积分, Value: agent.creao.ai/rewards?tab=refer
+				34 pop up button (collapsed) Description: 用户菜单, ID: radix-_r_2_, Secondary Actions: Expand
+					35 text 1
+					36 text 1031luy@gmail.com
+					37 text 免费
+				38 button 设置
+			181 container main-content
+				182 button 文件
+				183 button 新建文件夹
+				184 button 上传
+				185 search text field (settable) 搜索文件和文件夹
+				186 combo box (collapsed) Description: 来源, Value: 所有来源, Secondary Actions: Expand
+					187 text 所有来源
+				188 combo box (collapsed) Description: 类型, Value: 全部, Secondary Actions: Expand
+					189 text 全部
+				190 checkbox Description: 切换到列表视图, Value: 1
+				191 checkbox Description: 切换到网格视图, Value: 0
+				192 text 名称
+				193 text 修改时间
+				194 text 大小
+				195 text 来源
+				196 container
+					197 button Video preview cinematic_flythrough_inside_a_futuristic_1776199418.mp4
+						236 container
+							237 image Video preview
+						198 text cinematic_flythrough_inside_a_futuristic_1776199418.mp4
+					199 text 4月14日 13:43 8.7 MB 已生成
+					200 pop up button (collapsed) Description: cinematic_flythrough_inside_a_futuristic_1776199418.mp4 的操作, ID: radix-_r_5m_, Secondary Actions: Expand
+				201 container
+					202 button a_futuristic_ai_control_room_floating_in_1776199352.png
+						203 text a_futuristic_ai_control_room_floating_in_1776199352.png
+					204 text 4月14日 13:42 1008.0 KB 已生成
+					205 pop up button (collapsed) Description: a_futuristic_ai_control_room_floating_in_1776199352.png 的操作, ID: radix-_r_5t_, Secondary Actions: Expand
+				206 container
+					207 button minimalist_logo_for_coffee_shop_sunrise__1774067202.png
+						208 text minimalist_logo_for_coffee_shop_sunrise__1774067202.png
+					209 text 4月14日 13:32 302.5 KB 已生成
+					210 pop up button (collapsed) Description: minimalist_logo_for_coffee_shop_sunrise__1774067202.png 的操作, ID: radix-_r_64_, Secondary Actions: Expand
+				211 container
+					212 button minimalist_logo_for_coffee_shop_sunrise__1774067238.png
+						213 text minimalist_logo_for_coffee_shop_sunrise__1774067238.png
+					214 text 4月14日 13:32 595.1 KB 已生成
+					215 pop up button (collapsed) Description: minimalist_logo_for_coffee_shop_sunrise__1774067238.png 的操作, ID: radix-_r_6b_, Secondary Actions: Expand
+				216 container
+					217 button minimalist_logo_for_sunrise_brew_coffee__1774067224.png
+						218 text minimalist_logo_for_sunrise_brew_coffee__1774067224.png
+					219 text 4月14日 13:32 700.3 KB 已生成
+					220 pop up button (collapsed) Description: minimalist_logo_for_sunrise_brew_coffee__1774067224.png 的操作, ID: radix-_r_6i_, Secondary Actions: Expand
+				221 container
+					222 button minimalist_monogram_logo_sunrise_brew_st_1774067265.png
+						223 text minimalist_monogram_logo_sunrise_brew_st_1774067265.png
+					224 text 4月14日 13:32 573.5 KB 已生成
+					225 pop up button (collapsed) Description: minimalist_monogram_logo_sunrise_brew_st_1774067265.png 的操作, ID: radix-_r_6p_, Secondary Actions: Expand
+				226 container
+					227 button creao_ai_is_an_innovative_ai_native_work_1774067196.mp3
+						228 text creao_ai_is_an_innovative_ai_native_work_1774067196.mp3
+					229 text 4月14日 13:32 783.0 KB 已生成
+					230 pop up button (collapsed) Description: creao_ai_is_an_innovative_ai_native_work_1774067196.mp3 的操作, ID: radix-_r_70_, Secondary Actions: Expand
+				231 container
+					232 button meta_stock_analysis_1774067289.png
+						233 text meta_stock_analysis_1774067289.png
+					234 text 4月14日 13:32 175.6 KB 已生成
+					235 pop up button (collapsed) Description: meta_stock_analysis_1774067289.png 的操作, ID: radix-_r_77_, Secondary Actions: Expand
+			179 container Notifications alt+T
+
+The focused UI element is 19 link Description: 文件, URL: agent.creao.ai/files

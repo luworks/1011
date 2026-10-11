@@ -1,0 +1,574 @@
+{
+  "version": 1,
+  "startedAt": "2026-10-11T21:06:12.476Z",
+  "suite": "static",
+  "baselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+  "sourceRoot": "/Users/yuanlu/code/1011/creao-design-lab",
+  "scope": "Predefined mutations only; independent engineer experiments excluded.",
+  "baselines": [
+    {
+      "suite": "static",
+      "command": [
+        "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+        "/Users/yuanlu/code/1011/creao-design-lab/scripts/check-design.mjs",
+        "--root",
+        "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-XPLuQL/creao-design-lab"
+      ],
+      "exit": 0,
+      "signal": null,
+      "stdout": "{\n  \"version\": 1,\n  \"root\": \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-XPLuQL/creao-design-lab\",\n  \"passed\": true,\n  \"violations\": [],\n  \"exceptions\": []\n}\n",
+      "stderr": "",
+      "timedOut": false,
+      "durationMs": 350
+    },
+    {
+      "suite": "typecheck",
+      "command": [
+        "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+        "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-XPLuQL/creao-design-lab/node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "exit": 0,
+      "signal": null,
+      "stdout": "",
+      "stderr": "",
+      "timedOut": false,
+      "durationMs": 1136
+    }
+  ],
+  "cases": [
+    {
+      "id": "negative-hex-color",
+      "kind": "negative",
+      "suite": "static",
+      "rule": "DS-001",
+      "description": "Governed page description uses a literal hex color.",
+      "baselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "patches": [
+        {
+          "file": "src/styles/components.css",
+          "before": "* { box-sizing: border-box; }\nbody { margin: 0; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }\na { color: inherit; }\nbutton, input { font: inherit; }\nbutton, a, input { -webkit-tap-highlight-color: transparent; }\n:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }\nh1, h2, h3, p { margin-top: 0; }\nh1 { font-size: 25px; line-height: 1.3; font-weight: 650; margin-bottom: 0; }\nh2 { font-size: 17px; line-height: 1.4; font-weight: 600; }\n.button { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 36px; padding: 7px 12px; border: 1px solid var(--color-border); border-radius: var(--radius); cursor: pointer; font-weight: 500; line-height: 1.35; color: var(--color-foreground); background: var(--color-card); }\n.button-primary { color: var(--color-primary-foreground); background: var(--color-primary); border-color: var(--color-primary); }\n.button-ghost { border-color: transparent; background: transparent; }\n.button:hover { background: var(--color-surface-alt); color: var(--color-foreground); }\n.button-primary:hover { background: var(--color-oxblood); color: var(--color-primary-foreground); }\n.button:disabled { opacity: .5; cursor: default; }\n.input { width: 100%; min-width: 0; min-height: 36px; border: 1px solid var(--color-control-border); border-radius: var(--radius); padding: 7px 11px; color: var(--color-foreground); background: var(--color-card); }\n.input::placeholder { color: var(--color-muted); }\n.search-field { display: flex; align-items: center; gap: var(--space-2); border: 1px solid var(--color-control-border); border-radius: var(--radius); padding-left: 12px; background: var(--color-card); color: var(--color-muted); }\n.search-field .input { border: 0; background: transparent; padding-left: 0; }\n.search-field > svg { flex-shrink: 0; }\n.search-field .button { margin-right: 2px; }\n.page-description { color: var(--color-muted); margin: 8px 0 0; }\n.muted, .footnote, .section-label { color: var(--color-muted); }\n.footnote { margin-top: var(--space-6); font-size: 12px; }\n.empty-state { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3); padding: 48px 24px; border: 1px dashed var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); }\n.empty-state h2, .empty-state p { margin: 0; }\n.empty-state p { color: var(--color-muted); max-width: 52ch; }\n.empty-icon, .file-thumbnail, .connector-mark { display: flex; align-items: center; justify-content: center; background: var(--color-surface-alt); border-radius: var(--radius); flex-shrink: 0; width: 44px; height: 44px; }\n.empty-icon { width: 48px; height: 48px; color: var(--color-muted); }\n.connector-mark { font-weight: 700; font-size: 22px; }\n.badge { display: inline-block; padding: 3px 8px; background: var(--color-surface-alt); border-radius: var(--radius); font-size: 12px; }\n.error { color: var(--color-oxblood); margin: 0; width: 100%; }\n.sr-only, .skip-link:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }\n.skip-link:focus { position: fixed; z-index: 100; top: 8px; left: 8px; padding: 12px; background: var(--color-card); }\n.preview-dialog { width: min(640px, calc(100vw - 32px)); max-height: 85vh; padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); color: var(--color-foreground); }\n.preview-dialog::backdrop { background: var(--color-backdrop); }\n.dialog-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }\n.dialog-heading h2 { overflow-wrap: anywhere; }\n.preview-content { font-family: var(--font-sans); white-space: pre-wrap; overflow-wrap: anywhere; padding: 20px; background: var(--color-background); border-radius: var(--radius); line-height: 1.8; }\n",
+          "after": "* { box-sizing: border-box; }\nbody { margin: 0; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }\na { color: inherit; }\nbutton, input { font: inherit; }\nbutton, a, input { -webkit-tap-highlight-color: transparent; }\n:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }\nh1, h2, h3, p { margin-top: 0; }\nh1 { font-size: 25px; line-height: 1.3; font-weight: 650; margin-bottom: 0; }\nh2 { font-size: 17px; line-height: 1.4; font-weight: 600; }\n.button { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 36px; padding: 7px 12px; border: 1px solid var(--color-border); border-radius: var(--radius); cursor: pointer; font-weight: 500; line-height: 1.35; color: var(--color-foreground); background: var(--color-card); }\n.button-primary { color: var(--color-primary-foreground); background: var(--color-primary); border-color: var(--color-primary); }\n.button-ghost { border-color: transparent; background: transparent; }\n.button:hover { background: var(--color-surface-alt); color: var(--color-foreground); }\n.button-primary:hover { background: var(--color-oxblood); color: var(--color-primary-foreground); }\n.button:disabled { opacity: .5; cursor: default; }\n.input { width: 100%; min-width: 0; min-height: 36px; border: 1px solid var(--color-control-border); border-radius: var(--radius); padding: 7px 11px; color: var(--color-foreground); background: var(--color-card); }\n.input::placeholder { color: var(--color-muted); }\n.search-field { display: flex; align-items: center; gap: var(--space-2); border: 1px solid var(--color-control-border); border-radius: var(--radius); padding-left: 12px; background: var(--color-card); color: var(--color-muted); }\n.search-field .input { border: 0; background: transparent; padding-left: 0; }\n.search-field > svg { flex-shrink: 0; }\n.search-field .button { margin-right: 2px; }\n.page-description { color: #ff1493; margin: 8px 0 0; }\n.muted, .footnote, .section-label { color: var(--color-muted); }\n.footnote { margin-top: var(--space-6); font-size: 12px; }\n.empty-state { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3); padding: 48px 24px; border: 1px dashed var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); }\n.empty-state h2, .empty-state p { margin: 0; }\n.empty-state p { color: var(--color-muted); max-width: 52ch; }\n.empty-icon, .file-thumbnail, .connector-mark { display: flex; align-items: center; justify-content: center; background: var(--color-surface-alt); border-radius: var(--radius); flex-shrink: 0; width: 44px; height: 44px; }\n.empty-icon { width: 48px; height: 48px; color: var(--color-muted); }\n.connector-mark { font-weight: 700; font-size: 22px; }\n.badge { display: inline-block; padding: 3px 8px; background: var(--color-surface-alt); border-radius: var(--radius); font-size: 12px; }\n.error { color: var(--color-oxblood); margin: 0; width: 100%; }\n.sr-only, .skip-link:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }\n.skip-link:focus { position: fixed; z-index: 100; top: 8px; left: 8px; padding: 12px; background: var(--color-card); }\n.preview-dialog { width: min(640px, calc(100vw - 32px)); max-height: 85vh; padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); color: var(--color-foreground); }\n.preview-dialog::backdrop { background: var(--color-backdrop); }\n.dialog-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }\n.dialog-heading h2 { overflow-wrap: anywhere; }\n.preview-content { font-family: var(--font-sans); white-space: pre-wrap; overflow-wrap: anywhere; padding: 20px; background: var(--color-background); border-radius: var(--radius); line-height: 1.8; }\n"
+        }
+      ],
+      "startedAt": "2026-10-11T21:06:14.002Z",
+      "caseBaselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "mutatedHash": "2c737d75a143c9ce59cbf359b75b5cc0da4a81f92a04000e36892005aaf0a812",
+      "typecheck": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-XaXVjD/creao-design-lab/node_modules/typescript/bin/tsc",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exit": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 1187
+      },
+      "check": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/Users/yuanlu/code/1011/creao-design-lab/scripts/check-design.mjs",
+          "--root",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-XaXVjD/creao-design-lab"
+        ],
+        "exit": 1,
+        "signal": null,
+        "stdout": "{\n  \"version\": 1,\n  \"root\": \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-XaXVjD/creao-design-lab\",\n  \"passed\": false,\n  \"violations\": [\n    {\n      \"ruleId\": \"DS-001\",\n      \"file\": \"src/styles/components.css\",\n      \"line\": 22,\n      \"message\": \"Literal color #ff1493; use a registered token from src/styles/tokens.css.\"\n    }\n  ],\n  \"exceptions\": []\n}\n",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 297
+      },
+      "evidence": {
+        "version": 1,
+        "root": "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-XaXVjD/creao-design-lab",
+        "passed": false,
+        "violations": [
+          {
+            "ruleId": "DS-001",
+            "file": "src/styles/components.css",
+            "line": 22,
+            "message": "Literal color #ff1493; use a registered token from src/styles/tokens.css."
+          }
+        ],
+        "exceptions": []
+      },
+      "classification": "killed",
+      "reason": "Original checker reported target rule.",
+      "artifacts": [],
+      "finishedAt": "2026-10-11T21:06:15.497Z"
+    },
+    {
+      "id": "negative-rgb-color",
+      "kind": "negative",
+      "suite": "static",
+      "rule": "DS-001",
+      "description": "Alternative rgb() spelling of unregistered color.",
+      "baselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "patches": [
+        {
+          "file": "src/styles/components.css",
+          "before": "* { box-sizing: border-box; }\nbody { margin: 0; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }\na { color: inherit; }\nbutton, input { font: inherit; }\nbutton, a, input { -webkit-tap-highlight-color: transparent; }\n:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }\nh1, h2, h3, p { margin-top: 0; }\nh1 { font-size: 25px; line-height: 1.3; font-weight: 650; margin-bottom: 0; }\nh2 { font-size: 17px; line-height: 1.4; font-weight: 600; }\n.button { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 36px; padding: 7px 12px; border: 1px solid var(--color-border); border-radius: var(--radius); cursor: pointer; font-weight: 500; line-height: 1.35; color: var(--color-foreground); background: var(--color-card); }\n.button-primary { color: var(--color-primary-foreground); background: var(--color-primary); border-color: var(--color-primary); }\n.button-ghost { border-color: transparent; background: transparent; }\n.button:hover { background: var(--color-surface-alt); color: var(--color-foreground); }\n.button-primary:hover { background: var(--color-oxblood); color: var(--color-primary-foreground); }\n.button:disabled { opacity: .5; cursor: default; }\n.input { width: 100%; min-width: 0; min-height: 36px; border: 1px solid var(--color-control-border); border-radius: var(--radius); padding: 7px 11px; color: var(--color-foreground); background: var(--color-card); }\n.input::placeholder { color: var(--color-muted); }\n.search-field { display: flex; align-items: center; gap: var(--space-2); border: 1px solid var(--color-control-border); border-radius: var(--radius); padding-left: 12px; background: var(--color-card); color: var(--color-muted); }\n.search-field .input { border: 0; background: transparent; padding-left: 0; }\n.search-field > svg { flex-shrink: 0; }\n.search-field .button { margin-right: 2px; }\n.page-description { color: var(--color-muted); margin: 8px 0 0; }\n.muted, .footnote, .section-label { color: var(--color-muted); }\n.footnote { margin-top: var(--space-6); font-size: 12px; }\n.empty-state { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3); padding: 48px 24px; border: 1px dashed var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); }\n.empty-state h2, .empty-state p { margin: 0; }\n.empty-state p { color: var(--color-muted); max-width: 52ch; }\n.empty-icon, .file-thumbnail, .connector-mark { display: flex; align-items: center; justify-content: center; background: var(--color-surface-alt); border-radius: var(--radius); flex-shrink: 0; width: 44px; height: 44px; }\n.empty-icon { width: 48px; height: 48px; color: var(--color-muted); }\n.connector-mark { font-weight: 700; font-size: 22px; }\n.badge { display: inline-block; padding: 3px 8px; background: var(--color-surface-alt); border-radius: var(--radius); font-size: 12px; }\n.error { color: var(--color-oxblood); margin: 0; width: 100%; }\n.sr-only, .skip-link:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }\n.skip-link:focus { position: fixed; z-index: 100; top: 8px; left: 8px; padding: 12px; background: var(--color-card); }\n.preview-dialog { width: min(640px, calc(100vw - 32px)); max-height: 85vh; padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); color: var(--color-foreground); }\n.preview-dialog::backdrop { background: var(--color-backdrop); }\n.dialog-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }\n.dialog-heading h2 { overflow-wrap: anywhere; }\n.preview-content { font-family: var(--font-sans); white-space: pre-wrap; overflow-wrap: anywhere; padding: 20px; background: var(--color-background); border-radius: var(--radius); line-height: 1.8; }\n",
+          "after": "* { box-sizing: border-box; }\nbody { margin: 0; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }\na { color: inherit; }\nbutton, input { font: inherit; }\nbutton, a, input { -webkit-tap-highlight-color: transparent; }\n:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }\nh1, h2, h3, p { margin-top: 0; }\nh1 { font-size: 25px; line-height: 1.3; font-weight: 650; margin-bottom: 0; }\nh2 { font-size: 17px; line-height: 1.4; font-weight: 600; }\n.button { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 36px; padding: 7px 12px; border: 1px solid var(--color-border); border-radius: var(--radius); cursor: pointer; font-weight: 500; line-height: 1.35; color: var(--color-foreground); background: var(--color-card); }\n.button-primary { color: var(--color-primary-foreground); background: var(--color-primary); border-color: var(--color-primary); }\n.button-ghost { border-color: transparent; background: transparent; }\n.button:hover { background: var(--color-surface-alt); color: var(--color-foreground); }\n.button-primary:hover { background: var(--color-oxblood); color: var(--color-primary-foreground); }\n.button:disabled { opacity: .5; cursor: default; }\n.input { width: 100%; min-width: 0; min-height: 36px; border: 1px solid var(--color-control-border); border-radius: var(--radius); padding: 7px 11px; color: var(--color-foreground); background: var(--color-card); }\n.input::placeholder { color: var(--color-muted); }\n.search-field { display: flex; align-items: center; gap: var(--space-2); border: 1px solid var(--color-control-border); border-radius: var(--radius); padding-left: 12px; background: var(--color-card); color: var(--color-muted); }\n.search-field .input { border: 0; background: transparent; padding-left: 0; }\n.search-field > svg { flex-shrink: 0; }\n.search-field .button { margin-right: 2px; }\n.page-description { color: rgb(255 20 147); margin: 8px 0 0; }\n.muted, .footnote, .section-label { color: var(--color-muted); }\n.footnote { margin-top: var(--space-6); font-size: 12px; }\n.empty-state { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3); padding: 48px 24px; border: 1px dashed var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); }\n.empty-state h2, .empty-state p { margin: 0; }\n.empty-state p { color: var(--color-muted); max-width: 52ch; }\n.empty-icon, .file-thumbnail, .connector-mark { display: flex; align-items: center; justify-content: center; background: var(--color-surface-alt); border-radius: var(--radius); flex-shrink: 0; width: 44px; height: 44px; }\n.empty-icon { width: 48px; height: 48px; color: var(--color-muted); }\n.connector-mark { font-weight: 700; font-size: 22px; }\n.badge { display: inline-block; padding: 3px 8px; background: var(--color-surface-alt); border-radius: var(--radius); font-size: 12px; }\n.error { color: var(--color-oxblood); margin: 0; width: 100%; }\n.sr-only, .skip-link:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }\n.skip-link:focus { position: fixed; z-index: 100; top: 8px; left: 8px; padding: 12px; background: var(--color-card); }\n.preview-dialog { width: min(640px, calc(100vw - 32px)); max-height: 85vh; padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); color: var(--color-foreground); }\n.preview-dialog::backdrop { background: var(--color-backdrop); }\n.dialog-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }\n.dialog-heading h2 { overflow-wrap: anywhere; }\n.preview-content { font-family: var(--font-sans); white-space: pre-wrap; overflow-wrap: anywhere; padding: 20px; background: var(--color-background); border-radius: var(--radius); line-height: 1.8; }\n"
+        }
+      ],
+      "startedAt": "2026-10-11T21:06:15.515Z",
+      "caseBaselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "mutatedHash": "2ee84956eaa519e0d1fb5e6dc6ef3af1cad7d236d1a8fda605a539169e02341c",
+      "typecheck": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-pH535V/creao-design-lab/node_modules/typescript/bin/tsc",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exit": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 1493
+      },
+      "check": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/Users/yuanlu/code/1011/creao-design-lab/scripts/check-design.mjs",
+          "--root",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-pH535V/creao-design-lab"
+        ],
+        "exit": 1,
+        "signal": null,
+        "stdout": "{\n  \"version\": 1,\n  \"root\": \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-pH535V/creao-design-lab\",\n  \"passed\": false,\n  \"violations\": [\n    {\n      \"ruleId\": \"DS-001\",\n      \"file\": \"src/styles/components.css\",\n      \"line\": 22,\n      \"message\": \"Literal color rgb; use a registered token from src/styles/tokens.css.\"\n    }\n  ],\n  \"exceptions\": []\n}\n",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 283
+      },
+      "evidence": {
+        "version": 1,
+        "root": "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-pH535V/creao-design-lab",
+        "passed": false,
+        "violations": [
+          {
+            "ruleId": "DS-001",
+            "file": "src/styles/components.css",
+            "line": 22,
+            "message": "Literal color rgb; use a registered token from src/styles/tokens.css."
+          }
+        ],
+        "exceptions": []
+      },
+      "classification": "killed",
+      "reason": "Original checker reported target rule.",
+      "artifacts": [],
+      "finishedAt": "2026-10-11T21:06:17.304Z"
+    },
+    {
+      "id": "negative-unknown-token",
+      "kind": "negative",
+      "suite": "static",
+      "rule": "DS-001",
+      "description": "Governed description refers to an undefined variable.",
+      "baselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "patches": [
+        {
+          "file": "src/styles/components.css",
+          "before": "* { box-sizing: border-box; }\nbody { margin: 0; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }\na { color: inherit; }\nbutton, input { font: inherit; }\nbutton, a, input { -webkit-tap-highlight-color: transparent; }\n:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }\nh1, h2, h3, p { margin-top: 0; }\nh1 { font-size: 25px; line-height: 1.3; font-weight: 650; margin-bottom: 0; }\nh2 { font-size: 17px; line-height: 1.4; font-weight: 600; }\n.button { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 36px; padding: 7px 12px; border: 1px solid var(--color-border); border-radius: var(--radius); cursor: pointer; font-weight: 500; line-height: 1.35; color: var(--color-foreground); background: var(--color-card); }\n.button-primary { color: var(--color-primary-foreground); background: var(--color-primary); border-color: var(--color-primary); }\n.button-ghost { border-color: transparent; background: transparent; }\n.button:hover { background: var(--color-surface-alt); color: var(--color-foreground); }\n.button-primary:hover { background: var(--color-oxblood); color: var(--color-primary-foreground); }\n.button:disabled { opacity: .5; cursor: default; }\n.input { width: 100%; min-width: 0; min-height: 36px; border: 1px solid var(--color-control-border); border-radius: var(--radius); padding: 7px 11px; color: var(--color-foreground); background: var(--color-card); }\n.input::placeholder { color: var(--color-muted); }\n.search-field { display: flex; align-items: center; gap: var(--space-2); border: 1px solid var(--color-control-border); border-radius: var(--radius); padding-left: 12px; background: var(--color-card); color: var(--color-muted); }\n.search-field .input { border: 0; background: transparent; padding-left: 0; }\n.search-field > svg { flex-shrink: 0; }\n.search-field .button { margin-right: 2px; }\n.page-description { color: var(--color-muted); margin: 8px 0 0; }\n.muted, .footnote, .section-label { color: var(--color-muted); }\n.footnote { margin-top: var(--space-6); font-size: 12px; }\n.empty-state { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3); padding: 48px 24px; border: 1px dashed var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); }\n.empty-state h2, .empty-state p { margin: 0; }\n.empty-state p { color: var(--color-muted); max-width: 52ch; }\n.empty-icon, .file-thumbnail, .connector-mark { display: flex; align-items: center; justify-content: center; background: var(--color-surface-alt); border-radius: var(--radius); flex-shrink: 0; width: 44px; height: 44px; }\n.empty-icon { width: 48px; height: 48px; color: var(--color-muted); }\n.connector-mark { font-weight: 700; font-size: 22px; }\n.badge { display: inline-block; padding: 3px 8px; background: var(--color-surface-alt); border-radius: var(--radius); font-size: 12px; }\n.error { color: var(--color-oxblood); margin: 0; width: 100%; }\n.sr-only, .skip-link:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }\n.skip-link:focus { position: fixed; z-index: 100; top: 8px; left: 8px; padding: 12px; background: var(--color-card); }\n.preview-dialog { width: min(640px, calc(100vw - 32px)); max-height: 85vh; padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); color: var(--color-foreground); }\n.preview-dialog::backdrop { background: var(--color-backdrop); }\n.dialog-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }\n.dialog-heading h2 { overflow-wrap: anywhere; }\n.preview-content { font-family: var(--font-sans); white-space: pre-wrap; overflow-wrap: anywhere; padding: 20px; background: var(--color-background); border-radius: var(--radius); line-height: 1.8; }\n",
+          "after": "* { box-sizing: border-box; }\nbody { margin: 0; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }\na { color: inherit; }\nbutton, input { font: inherit; }\nbutton, a, input { -webkit-tap-highlight-color: transparent; }\n:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }\nh1, h2, h3, p { margin-top: 0; }\nh1 { font-size: 25px; line-height: 1.3; font-weight: 650; margin-bottom: 0; }\nh2 { font-size: 17px; line-height: 1.4; font-weight: 600; }\n.button { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 36px; padding: 7px 12px; border: 1px solid var(--color-border); border-radius: var(--radius); cursor: pointer; font-weight: 500; line-height: 1.35; color: var(--color-foreground); background: var(--color-card); }\n.button-primary { color: var(--color-primary-foreground); background: var(--color-primary); border-color: var(--color-primary); }\n.button-ghost { border-color: transparent; background: transparent; }\n.button:hover { background: var(--color-surface-alt); color: var(--color-foreground); }\n.button-primary:hover { background: var(--color-oxblood); color: var(--color-primary-foreground); }\n.button:disabled { opacity: .5; cursor: default; }\n.input { width: 100%; min-width: 0; min-height: 36px; border: 1px solid var(--color-control-border); border-radius: var(--radius); padding: 7px 11px; color: var(--color-foreground); background: var(--color-card); }\n.input::placeholder { color: var(--color-muted); }\n.search-field { display: flex; align-items: center; gap: var(--space-2); border: 1px solid var(--color-control-border); border-radius: var(--radius); padding-left: 12px; background: var(--color-card); color: var(--color-muted); }\n.search-field .input { border: 0; background: transparent; padding-left: 0; }\n.search-field > svg { flex-shrink: 0; }\n.search-field .button { margin-right: 2px; }\n.page-description { color: var(--engineer-accent); margin: 8px 0 0; }\n.muted, .footnote, .section-label { color: var(--color-muted); }\n.footnote { margin-top: var(--space-6); font-size: 12px; }\n.empty-state { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3); padding: 48px 24px; border: 1px dashed var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); }\n.empty-state h2, .empty-state p { margin: 0; }\n.empty-state p { color: var(--color-muted); max-width: 52ch; }\n.empty-icon, .file-thumbnail, .connector-mark { display: flex; align-items: center; justify-content: center; background: var(--color-surface-alt); border-radius: var(--radius); flex-shrink: 0; width: 44px; height: 44px; }\n.empty-icon { width: 48px; height: 48px; color: var(--color-muted); }\n.connector-mark { font-weight: 700; font-size: 22px; }\n.badge { display: inline-block; padding: 3px 8px; background: var(--color-surface-alt); border-radius: var(--radius); font-size: 12px; }\n.error { color: var(--color-oxblood); margin: 0; width: 100%; }\n.sr-only, .skip-link:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }\n.skip-link:focus { position: fixed; z-index: 100; top: 8px; left: 8px; padding: 12px; background: var(--color-card); }\n.preview-dialog { width: min(640px, calc(100vw - 32px)); max-height: 85vh; padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); color: var(--color-foreground); }\n.preview-dialog::backdrop { background: var(--color-backdrop); }\n.dialog-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }\n.dialog-heading h2 { overflow-wrap: anywhere; }\n.preview-content { font-family: var(--font-sans); white-space: pre-wrap; overflow-wrap: anywhere; padding: 20px; background: var(--color-background); border-radius: var(--radius); line-height: 1.8; }\n"
+        }
+      ],
+      "startedAt": "2026-10-11T21:06:17.333Z",
+      "caseBaselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "mutatedHash": "809f5cf87d78ce0eec237a59724eb0013ac81d68f1a798ecb94181649f57a481",
+      "typecheck": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-p8heiN/creao-design-lab/node_modules/typescript/bin/tsc",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exit": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 1090
+      },
+      "check": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/Users/yuanlu/code/1011/creao-design-lab/scripts/check-design.mjs",
+          "--root",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-p8heiN/creao-design-lab"
+        ],
+        "exit": 1,
+        "signal": null,
+        "stdout": "{\n  \"version\": 1,\n  \"root\": \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-p8heiN/creao-design-lab\",\n  \"passed\": false,\n  \"violations\": [\n    {\n      \"ruleId\": \"DS-001\",\n      \"file\": \"src/styles/components.css\",\n      \"line\": 22,\n      \"message\": \"Unregistered CSS token --engineer-accent.\"\n    }\n  ],\n  \"exceptions\": []\n}\n",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 319
+      },
+      "evidence": {
+        "version": 1,
+        "root": "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-p8heiN/creao-design-lab",
+        "passed": false,
+        "violations": [
+          {
+            "ruleId": "DS-001",
+            "file": "src/styles/components.css",
+            "line": 22,
+            "message": "Unregistered CSS token --engineer-accent."
+          }
+        ],
+        "exceptions": []
+      },
+      "classification": "killed",
+      "reason": "Original checker reported target rule.",
+      "artifacts": [],
+      "finishedAt": "2026-10-11T21:06:18.757Z"
+    },
+    {
+      "id": "negative-raw-button",
+      "kind": "negative",
+      "suite": "static",
+      "rule": "DS-002",
+      "description": "Recovery action bypasses the approved Button implementation.",
+      "baselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "patches": [
+        {
+          "file": "src/components/patterns/EmptyState.tsx",
+          "before": "import { Button, Icon } from '@/components/ui';\nexport function EmptyState({ title, description, action, icon = 'files' }: { title: string; description: string; action: { label: string; onClick: () => void }; icon?: string }) {\n  return <section className=\"empty-state\"><div className=\"empty-icon\"><Icon name={icon} size={28} /></div><h2>{title}</h2><p data-testid=\"empty-state-description\">{description}</p><Button onClick={action.onClick}>{action.label}</Button></section>;\n}\n",
+          "after": "import { Icon } from '@/components/ui';\nexport function EmptyState({ title, description, action, icon = 'files' }: { title: string; description: string; action: { label: string; onClick: () => void }; icon?: string }) {\n  return <section className=\"empty-state\"><div className=\"empty-icon\"><Icon name={icon} size={28} /></div><h2>{title}</h2><p data-testid=\"empty-state-description\">{description}</p><button onClick={action.onClick}>{action.label}</button></section>;\n}\n"
+        }
+      ],
+      "startedAt": "2026-10-11T21:06:18.792Z",
+      "caseBaselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "mutatedHash": "7960c645af26b1ba3dbca23d90554b57ce1abdad62e807d16c988382b7410784",
+      "typecheck": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-SIUM2I/creao-design-lab/node_modules/typescript/bin/tsc",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exit": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 1143
+      },
+      "check": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/Users/yuanlu/code/1011/creao-design-lab/scripts/check-design.mjs",
+          "--root",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-SIUM2I/creao-design-lab"
+        ],
+        "exit": 1,
+        "signal": null,
+        "stdout": "{\n  \"version\": 1,\n  \"root\": \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-SIUM2I/creao-design-lab\",\n  \"passed\": false,\n  \"violations\": [\n    {\n      \"ruleId\": \"DS-002\",\n      \"file\": \"src/components/patterns/EmptyState.tsx\",\n      \"line\": 3,\n      \"message\": \"Raw <button> bypasses approved src/components/ui components.\"\n    }\n  ],\n  \"exceptions\": []\n}\n",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 289
+      },
+      "evidence": {
+        "version": 1,
+        "root": "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-SIUM2I/creao-design-lab",
+        "passed": false,
+        "violations": [
+          {
+            "ruleId": "DS-002",
+            "file": "src/components/patterns/EmptyState.tsx",
+            "line": 3,
+            "message": "Raw <button> bypasses approved src/components/ui components."
+          }
+        ],
+        "exceptions": []
+      },
+      "classification": "killed",
+      "reason": "Original checker reported target rule.",
+      "artifacts": [],
+      "finishedAt": "2026-10-11T21:06:20.251Z"
+    },
+    {
+      "id": "negative-aliased-button",
+      "kind": "negative",
+      "suite": "static",
+      "rule": "DS-002",
+      "description": "Intrinsic JSX control aliased via capitalized const challenges scanner scope.",
+      "baselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "patches": [
+        {
+          "file": "src/components/patterns/EmptyState.tsx",
+          "before": "import { Button, Icon } from '@/components/ui';\nexport function EmptyState({ title, description, action, icon = 'files' }: { title: string; description: string; action: { label: string; onClick: () => void }; icon?: string }) {\n  return <section className=\"empty-state\"><div className=\"empty-icon\"><Icon name={icon} size={28} /></div><h2>{title}</h2><p data-testid=\"empty-state-description\">{description}</p><Button onClick={action.onClick}>{action.label}</Button></section>;\n}\n",
+          "after": "import { Icon } from '@/components/ui';\nconst ShortcutButton = 'button' as const;\nexport function EmptyState({ title, description, action, icon = 'files' }: { title: string; description: string; action: { label: string; onClick: () => void }; icon?: string }) {\n  return <section className=\"empty-state\"><div className=\"empty-icon\"><Icon name={icon} size={28} /></div><h2>{title}</h2><p data-testid=\"empty-state-description\">{description}</p><ShortcutButton onClick={action.onClick}>{action.label}</ShortcutButton></section>;\n}\n"
+        }
+      ],
+      "startedAt": "2026-10-11T21:06:20.265Z",
+      "caseBaselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "mutatedHash": "e5ffeff2a9bfbda8a5eaa419a3a4b8a22abd38297d6a639b30fc4ab22613dc1b",
+      "typecheck": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-Lmd9bM/creao-design-lab/node_modules/typescript/bin/tsc",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exit": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 1052
+      },
+      "check": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/Users/yuanlu/code/1011/creao-design-lab/scripts/check-design.mjs",
+          "--root",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-Lmd9bM/creao-design-lab"
+        ],
+        "exit": 1,
+        "signal": null,
+        "stdout": "{\n  \"version\": 1,\n  \"root\": \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-Lmd9bM/creao-design-lab\",\n  \"passed\": false,\n  \"violations\": [\n    {\n      \"ruleId\": \"DS-002\",\n      \"file\": \"src/components/patterns/EmptyState.tsx\",\n      \"line\": 4,\n      \"message\": \"Raw <button> through const alias ShortcutButton bypasses approved src/components/ui components.\"\n    }\n  ],\n  \"exceptions\": []\n}\n",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 285
+      },
+      "evidence": {
+        "version": 1,
+        "root": "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-Lmd9bM/creao-design-lab",
+        "passed": false,
+        "violations": [
+          {
+            "ruleId": "DS-002",
+            "file": "src/components/patterns/EmptyState.tsx",
+            "line": 4,
+            "message": "Raw <button> through const alias ShortcutButton bypasses approved src/components/ui components."
+          }
+        ],
+        "exceptions": []
+      },
+      "classification": "killed",
+      "reason": "Original checker reported target rule.",
+      "artifacts": [],
+      "finishedAt": "2026-10-11T21:06:21.613Z"
+    },
+    {
+      "id": "negative-expired-exception",
+      "kind": "negative",
+      "suite": "static",
+      "rule": "GOV-001",
+      "description": "An expired exception attempts to authorize a literal color.",
+      "baselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "patches": [
+        {
+          "file": "src/styles/components.css",
+          "before": "* { box-sizing: border-box; }\nbody { margin: 0; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }\na { color: inherit; }\nbutton, input { font: inherit; }\nbutton, a, input { -webkit-tap-highlight-color: transparent; }\n:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }\nh1, h2, h3, p { margin-top: 0; }\nh1 { font-size: 25px; line-height: 1.3; font-weight: 650; margin-bottom: 0; }\nh2 { font-size: 17px; line-height: 1.4; font-weight: 600; }\n.button { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 36px; padding: 7px 12px; border: 1px solid var(--color-border); border-radius: var(--radius); cursor: pointer; font-weight: 500; line-height: 1.35; color: var(--color-foreground); background: var(--color-card); }\n.button-primary { color: var(--color-primary-foreground); background: var(--color-primary); border-color: var(--color-primary); }\n.button-ghost { border-color: transparent; background: transparent; }\n.button:hover { background: var(--color-surface-alt); color: var(--color-foreground); }\n.button-primary:hover { background: var(--color-oxblood); color: var(--color-primary-foreground); }\n.button:disabled { opacity: .5; cursor: default; }\n.input { width: 100%; min-width: 0; min-height: 36px; border: 1px solid var(--color-control-border); border-radius: var(--radius); padding: 7px 11px; color: var(--color-foreground); background: var(--color-card); }\n.input::placeholder { color: var(--color-muted); }\n.search-field { display: flex; align-items: center; gap: var(--space-2); border: 1px solid var(--color-control-border); border-radius: var(--radius); padding-left: 12px; background: var(--color-card); color: var(--color-muted); }\n.search-field .input { border: 0; background: transparent; padding-left: 0; }\n.search-field > svg { flex-shrink: 0; }\n.search-field .button { margin-right: 2px; }\n.page-description { color: var(--color-muted); margin: 8px 0 0; }\n.muted, .footnote, .section-label { color: var(--color-muted); }\n.footnote { margin-top: var(--space-6); font-size: 12px; }\n.empty-state { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3); padding: 48px 24px; border: 1px dashed var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); }\n.empty-state h2, .empty-state p { margin: 0; }\n.empty-state p { color: var(--color-muted); max-width: 52ch; }\n.empty-icon, .file-thumbnail, .connector-mark { display: flex; align-items: center; justify-content: center; background: var(--color-surface-alt); border-radius: var(--radius); flex-shrink: 0; width: 44px; height: 44px; }\n.empty-icon { width: 48px; height: 48px; color: var(--color-muted); }\n.connector-mark { font-weight: 700; font-size: 22px; }\n.badge { display: inline-block; padding: 3px 8px; background: var(--color-surface-alt); border-radius: var(--radius); font-size: 12px; }\n.error { color: var(--color-oxblood); margin: 0; width: 100%; }\n.sr-only, .skip-link:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }\n.skip-link:focus { position: fixed; z-index: 100; top: 8px; left: 8px; padding: 12px; background: var(--color-card); }\n.preview-dialog { width: min(640px, calc(100vw - 32px)); max-height: 85vh; padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); color: var(--color-foreground); }\n.preview-dialog::backdrop { background: var(--color-backdrop); }\n.dialog-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }\n.dialog-heading h2 { overflow-wrap: anywhere; }\n.preview-content { font-family: var(--font-sans); white-space: pre-wrap; overflow-wrap: anywhere; padding: 20px; background: var(--color-background); border-radius: var(--radius); line-height: 1.8; }\n",
+          "after": "* { box-sizing: border-box; }\nbody { margin: 0; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }\na { color: inherit; }\nbutton, input { font: inherit; }\nbutton, a, input { -webkit-tap-highlight-color: transparent; }\n:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }\nh1, h2, h3, p { margin-top: 0; }\nh1 { font-size: 25px; line-height: 1.3; font-weight: 650; margin-bottom: 0; }\nh2 { font-size: 17px; line-height: 1.4; font-weight: 600; }\n.button { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 36px; padding: 7px 12px; border: 1px solid var(--color-border); border-radius: var(--radius); cursor: pointer; font-weight: 500; line-height: 1.35; color: var(--color-foreground); background: var(--color-card); }\n.button-primary { color: var(--color-primary-foreground); background: var(--color-primary); border-color: var(--color-primary); }\n.button-ghost { border-color: transparent; background: transparent; }\n.button:hover { background: var(--color-surface-alt); color: var(--color-foreground); }\n.button-primary:hover { background: var(--color-oxblood); color: var(--color-primary-foreground); }\n.button:disabled { opacity: .5; cursor: default; }\n.input { width: 100%; min-width: 0; min-height: 36px; border: 1px solid var(--color-control-border); border-radius: var(--radius); padding: 7px 11px; color: var(--color-foreground); background: var(--color-card); }\n.input::placeholder { color: var(--color-muted); }\n.search-field { display: flex; align-items: center; gap: var(--space-2); border: 1px solid var(--color-control-border); border-radius: var(--radius); padding-left: 12px; background: var(--color-card); color: var(--color-muted); }\n.search-field .input { border: 0; background: transparent; padding-left: 0; }\n.search-field > svg { flex-shrink: 0; }\n.search-field .button { margin-right: 2px; }\n.page-description { color: #ff1493; margin: 8px 0 0; }\n.muted, .footnote, .section-label { color: var(--color-muted); }\n.footnote { margin-top: var(--space-6); font-size: 12px; }\n.empty-state { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3); padding: 48px 24px; border: 1px dashed var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); }\n.empty-state h2, .empty-state p { margin: 0; }\n.empty-state p { color: var(--color-muted); max-width: 52ch; }\n.empty-icon, .file-thumbnail, .connector-mark { display: flex; align-items: center; justify-content: center; background: var(--color-surface-alt); border-radius: var(--radius); flex-shrink: 0; width: 44px; height: 44px; }\n.empty-icon { width: 48px; height: 48px; color: var(--color-muted); }\n.connector-mark { font-weight: 700; font-size: 22px; }\n.badge { display: inline-block; padding: 3px 8px; background: var(--color-surface-alt); border-radius: var(--radius); font-size: 12px; }\n.error { color: var(--color-oxblood); margin: 0; width: 100%; }\n.sr-only, .skip-link:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }\n.skip-link:focus { position: fixed; z-index: 100; top: 8px; left: 8px; padding: 12px; background: var(--color-card); }\n.preview-dialog { width: min(640px, calc(100vw - 32px)); max-height: 85vh; padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); color: var(--color-foreground); }\n.preview-dialog::backdrop { background: var(--color-backdrop); }\n.dialog-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }\n.dialog-heading h2 { overflow-wrap: anywhere; }\n.preview-content { font-family: var(--font-sans); white-space: pre-wrap; overflow-wrap: anywhere; padding: 20px; background: var(--color-background); border-radius: var(--radius); line-height: 1.8; }\n"
+        },
+        {
+          "file": "governance/exceptions.json",
+          "before": "{\"exceptions\":[]}\n",
+          "after": "{\n  \"exceptions\": [\n    {\n      \"id\": \"expired-demo\",\n      \"ruleId\": \"DS-001\",\n      \"path\": \"src/styles/components.css\",\n      \"reason\": \"Temporary prototype emphasis\",\n      \"owner\": \"demo-engineer\",\n      \"approvedBy\": \"demo-reviewer\",\n      \"expires\": \"2000-01-01\"\n    }\n  ]\n}\n"
+        }
+      ],
+      "startedAt": "2026-10-11T21:06:21.630Z",
+      "caseBaselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "mutatedHash": "12d84b039d1f9721510c247b8d0bcdb7663f2f4be659c51f935de078ef11d768",
+      "typecheck": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-N634xE/creao-design-lab/node_modules/typescript/bin/tsc",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exit": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 1112
+      },
+      "check": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/Users/yuanlu/code/1011/creao-design-lab/scripts/check-design.mjs",
+          "--root",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-N634xE/creao-design-lab"
+        ],
+        "exit": 1,
+        "signal": null,
+        "stdout": "{\n  \"version\": 1,\n  \"root\": \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-N634xE/creao-design-lab\",\n  \"passed\": false,\n  \"violations\": [\n    {\n      \"ruleId\": \"GOV-001\",\n      \"file\": \"governance/exceptions.json\",\n      \"line\": 1,\n      \"message\": \"Expired/invalid exception date: expired-demo\"\n    },\n    {\n      \"ruleId\": \"DS-001\",\n      \"file\": \"src/styles/components.css\",\n      \"line\": 22,\n      \"message\": \"Literal color #ff1493; use a registered token from src/styles/tokens.css.\"\n    }\n  ],\n  \"exceptions\": []\n}\n",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 298
+      },
+      "evidence": {
+        "version": 1,
+        "root": "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-N634xE/creao-design-lab",
+        "passed": false,
+        "violations": [
+          {
+            "ruleId": "GOV-001",
+            "file": "governance/exceptions.json",
+            "line": 1,
+            "message": "Expired/invalid exception date: expired-demo"
+          },
+          {
+            "ruleId": "DS-001",
+            "file": "src/styles/components.css",
+            "line": 22,
+            "message": "Literal color #ff1493; use a registered token from src/styles/tokens.css."
+          }
+        ],
+        "exceptions": []
+      },
+      "classification": "killed",
+      "reason": "Original checker reported target rule.",
+      "artifacts": [],
+      "finishedAt": "2026-10-11T21:06:23.051Z"
+    },
+    {
+      "id": "positive-registered-token",
+      "kind": "positive",
+      "suite": "static",
+      "rule": "DS-001",
+      "description": "Legitimate registered color token substitution.",
+      "baselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "patches": [
+        {
+          "file": "src/styles/components.css",
+          "before": "* { box-sizing: border-box; }\nbody { margin: 0; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }\na { color: inherit; }\nbutton, input { font: inherit; }\nbutton, a, input { -webkit-tap-highlight-color: transparent; }\n:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }\nh1, h2, h3, p { margin-top: 0; }\nh1 { font-size: 25px; line-height: 1.3; font-weight: 650; margin-bottom: 0; }\nh2 { font-size: 17px; line-height: 1.4; font-weight: 600; }\n.button { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 36px; padding: 7px 12px; border: 1px solid var(--color-border); border-radius: var(--radius); cursor: pointer; font-weight: 500; line-height: 1.35; color: var(--color-foreground); background: var(--color-card); }\n.button-primary { color: var(--color-primary-foreground); background: var(--color-primary); border-color: var(--color-primary); }\n.button-ghost { border-color: transparent; background: transparent; }\n.button:hover { background: var(--color-surface-alt); color: var(--color-foreground); }\n.button-primary:hover { background: var(--color-oxblood); color: var(--color-primary-foreground); }\n.button:disabled { opacity: .5; cursor: default; }\n.input { width: 100%; min-width: 0; min-height: 36px; border: 1px solid var(--color-control-border); border-radius: var(--radius); padding: 7px 11px; color: var(--color-foreground); background: var(--color-card); }\n.input::placeholder { color: var(--color-muted); }\n.search-field { display: flex; align-items: center; gap: var(--space-2); border: 1px solid var(--color-control-border); border-radius: var(--radius); padding-left: 12px; background: var(--color-card); color: var(--color-muted); }\n.search-field .input { border: 0; background: transparent; padding-left: 0; }\n.search-field > svg { flex-shrink: 0; }\n.search-field .button { margin-right: 2px; }\n.page-description { color: var(--color-muted); margin: 8px 0 0; }\n.muted, .footnote, .section-label { color: var(--color-muted); }\n.footnote { margin-top: var(--space-6); font-size: 12px; }\n.empty-state { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3); padding: 48px 24px; border: 1px dashed var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); }\n.empty-state h2, .empty-state p { margin: 0; }\n.empty-state p { color: var(--color-muted); max-width: 52ch; }\n.empty-icon, .file-thumbnail, .connector-mark { display: flex; align-items: center; justify-content: center; background: var(--color-surface-alt); border-radius: var(--radius); flex-shrink: 0; width: 44px; height: 44px; }\n.empty-icon { width: 48px; height: 48px; color: var(--color-muted); }\n.connector-mark { font-weight: 700; font-size: 22px; }\n.badge { display: inline-block; padding: 3px 8px; background: var(--color-surface-alt); border-radius: var(--radius); font-size: 12px; }\n.error { color: var(--color-oxblood); margin: 0; width: 100%; }\n.sr-only, .skip-link:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }\n.skip-link:focus { position: fixed; z-index: 100; top: 8px; left: 8px; padding: 12px; background: var(--color-card); }\n.preview-dialog { width: min(640px, calc(100vw - 32px)); max-height: 85vh; padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); color: var(--color-foreground); }\n.preview-dialog::backdrop { background: var(--color-backdrop); }\n.dialog-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }\n.dialog-heading h2 { overflow-wrap: anywhere; }\n.preview-content { font-family: var(--font-sans); white-space: pre-wrap; overflow-wrap: anywhere; padding: 20px; background: var(--color-background); border-radius: var(--radius); line-height: 1.8; }\n",
+          "after": "* { box-sizing: border-box; }\nbody { margin: 0; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }\na { color: inherit; }\nbutton, input { font: inherit; }\nbutton, a, input { -webkit-tap-highlight-color: transparent; }\n:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }\nh1, h2, h3, p { margin-top: 0; }\nh1 { font-size: 25px; line-height: 1.3; font-weight: 650; margin-bottom: 0; }\nh2 { font-size: 17px; line-height: 1.4; font-weight: 600; }\n.button { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 36px; padding: 7px 12px; border: 1px solid var(--color-border); border-radius: var(--radius); cursor: pointer; font-weight: 500; line-height: 1.35; color: var(--color-foreground); background: var(--color-card); }\n.button-primary { color: var(--color-primary-foreground); background: var(--color-primary); border-color: var(--color-primary); }\n.button-ghost { border-color: transparent; background: transparent; }\n.button:hover { background: var(--color-surface-alt); color: var(--color-foreground); }\n.button-primary:hover { background: var(--color-oxblood); color: var(--color-primary-foreground); }\n.button:disabled { opacity: .5; cursor: default; }\n.input { width: 100%; min-width: 0; min-height: 36px; border: 1px solid var(--color-control-border); border-radius: var(--radius); padding: 7px 11px; color: var(--color-foreground); background: var(--color-card); }\n.input::placeholder { color: var(--color-muted); }\n.search-field { display: flex; align-items: center; gap: var(--space-2); border: 1px solid var(--color-control-border); border-radius: var(--radius); padding-left: 12px; background: var(--color-card); color: var(--color-muted); }\n.search-field .input { border: 0; background: transparent; padding-left: 0; }\n.search-field > svg { flex-shrink: 0; }\n.search-field .button { margin-right: 2px; }\n.page-description { color: var(--color-foreground); margin: 8px 0 0; }\n.muted, .footnote, .section-label { color: var(--color-muted); }\n.footnote { margin-top: var(--space-6); font-size: 12px; }\n.empty-state { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3); padding: 48px 24px; border: 1px dashed var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); }\n.empty-state h2, .empty-state p { margin: 0; }\n.empty-state p { color: var(--color-muted); max-width: 52ch; }\n.empty-icon, .file-thumbnail, .connector-mark { display: flex; align-items: center; justify-content: center; background: var(--color-surface-alt); border-radius: var(--radius); flex-shrink: 0; width: 44px; height: 44px; }\n.empty-icon { width: 48px; height: 48px; color: var(--color-muted); }\n.connector-mark { font-weight: 700; font-size: 22px; }\n.badge { display: inline-block; padding: 3px 8px; background: var(--color-surface-alt); border-radius: var(--radius); font-size: 12px; }\n.error { color: var(--color-oxblood); margin: 0; width: 100%; }\n.sr-only, .skip-link:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }\n.skip-link:focus { position: fixed; z-index: 100; top: 8px; left: 8px; padding: 12px; background: var(--color-card); }\n.preview-dialog { width: min(640px, calc(100vw - 32px)); max-height: 85vh; padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: var(--color-card); color: var(--color-foreground); }\n.preview-dialog::backdrop { background: var(--color-backdrop); }\n.dialog-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }\n.dialog-heading h2 { overflow-wrap: anywhere; }\n.preview-content { font-family: var(--font-sans); white-space: pre-wrap; overflow-wrap: anywhere; padding: 20px; background: var(--color-background); border-radius: var(--radius); line-height: 1.8; }\n"
+        }
+      ],
+      "startedAt": "2026-10-11T21:06:23.066Z",
+      "caseBaselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "mutatedHash": "1029a0f7ea6a444984e94508b11ac3ddb98680d824bc13d2a3ee1ecebc4ebaf3",
+      "typecheck": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-irjIXv/creao-design-lab/node_modules/typescript/bin/tsc",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exit": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 1175
+      },
+      "check": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/Users/yuanlu/code/1011/creao-design-lab/scripts/check-design.mjs",
+          "--root",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-irjIXv/creao-design-lab"
+        ],
+        "exit": 0,
+        "signal": null,
+        "stdout": "{\n  \"version\": 1,\n  \"root\": \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-irjIXv/creao-design-lab\",\n  \"passed\": true,\n  \"violations\": [],\n  \"exceptions\": []\n}\n",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 282
+      },
+      "evidence": {
+        "version": 1,
+        "root": "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-irjIXv/creao-design-lab",
+        "passed": true,
+        "violations": [],
+        "exceptions": []
+      },
+      "classification": "passed",
+      "reason": "Positive control accepted.",
+      "artifacts": [],
+      "finishedAt": "2026-10-11T21:06:24.533Z"
+    },
+    {
+      "id": "positive-approved-button",
+      "kind": "positive",
+      "suite": "static",
+      "rule": "DS-002",
+      "description": "Recovery Button uses its supported primary variant.",
+      "baselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "patches": [
+        {
+          "file": "src/components/patterns/EmptyState.tsx",
+          "before": "import { Button, Icon } from '@/components/ui';\nexport function EmptyState({ title, description, action, icon = 'files' }: { title: string; description: string; action: { label: string; onClick: () => void }; icon?: string }) {\n  return <section className=\"empty-state\"><div className=\"empty-icon\"><Icon name={icon} size={28} /></div><h2>{title}</h2><p data-testid=\"empty-state-description\">{description}</p><Button onClick={action.onClick}>{action.label}</Button></section>;\n}\n",
+          "after": "import { Button, Icon } from '@/components/ui';\nexport function EmptyState({ title, description, action, icon = 'files' }: { title: string; description: string; action: { label: string; onClick: () => void }; icon?: string }) {\n  return <section className=\"empty-state\"><div className=\"empty-icon\"><Icon name={icon} size={28} /></div><h2>{title}</h2><p data-testid=\"empty-state-description\">{description}</p><Button variant=\"primary\" onClick={action.onClick}>{action.label}</Button></section>;\n}\n"
+        }
+      ],
+      "startedAt": "2026-10-11T21:06:24.551Z",
+      "caseBaselineHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+      "mutatedHash": "de7e7e706e4a58f880a8a1f64de6f36e3c42abc9826f21fb846f78fa4436e3c8",
+      "typecheck": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-8unmbt/creao-design-lab/node_modules/typescript/bin/tsc",
+          "--noEmit",
+          "--incremental",
+          "false"
+        ],
+        "exit": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 1147
+      },
+      "check": {
+        "command": [
+          "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+          "/Users/yuanlu/code/1011/creao-design-lab/scripts/check-design.mjs",
+          "--root",
+          "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-8unmbt/creao-design-lab"
+        ],
+        "exit": 0,
+        "signal": null,
+        "stdout": "{\n  \"version\": 1,\n  \"root\": \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-8unmbt/creao-design-lab\",\n  \"passed\": true,\n  \"violations\": [],\n  \"exceptions\": []\n}\n",
+        "stderr": "",
+        "timedOut": false,
+        "durationMs": 275
+      },
+      "evidence": {
+        "version": 1,
+        "root": "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-8unmbt/creao-design-lab",
+        "passed": true,
+        "violations": [],
+        "exceptions": []
+      },
+      "classification": "passed",
+      "reason": "Positive control accepted.",
+      "artifacts": [],
+      "finishedAt": "2026-10-11T21:06:25.987Z"
+    }
+  ],
+  "baselineArtifacts": [],
+  "finalHash": "cd142735527fc9cfbfbb8702273efc04c2b43e923a001f8fcefe958d2c09649e",
+  "baselineUnchanged": true,
+  "finishedAt": "2026-10-11T21:06:25.994Z",
+  "counts": {
+    "killed": 6,
+    "survived": 0,
+    "passed": 2,
+    "false-positive": 0,
+    "invalid": 0,
+    "error": 0
+  },
+  "negativeDenominator": 6,
+  "killRate": 1
+}

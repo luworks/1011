@@ -1,0 +1,128 @@
+
+> creao-design-lab@0.1.0 test:e2e
+> playwright test
+
+[WebServer] (node:26080) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+[WebServer]  We detected multiple lockfiles and selected the directory of /Users/yuanlu/code/1011/creao-design-lab/package-lock.json as the root directory.
+[WebServer]  To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+[WebServer]    See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+[WebServer]  Detected additional lockfiles: 
+[WebServer]    * /Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v1/engineer-b/creao-design-lab/package-lock.json
+[WebServer] 
+
+Running 22 tests using 1 worker
+
+(node:26159) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/e2e/design.spec.ts:18:9 › [LAY-001] /files one visible page heading at 1280px (3.7s)
+  ✘   2 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /files visible controls retain accessible names at 1280px (6.3s)
+(node:29201) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 tests/e2e/design.spec.ts:18:9 › [LAY-001] /connectors one visible page heading at 1280px (450ms)
+  ✓   4 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /connectors visible controls retain accessible names at 1280px (515ms)
+  ✓   5 tests/e2e/design.spec.ts:18:9 › [LAY-001] /agents one visible page heading at 1280px (381ms)
+  ✓   6 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /agents visible controls retain accessible names at 1280px (338ms)
+  ✓   7 tests/e2e/design.spec.ts:18:9 › [LAY-001] /guidelines one visible page heading at 1280px (560ms)
+  ✓   8 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /guidelines visible controls retain accessible names at 1280px (790ms)
+  ✓   9 tests/e2e/design.spec.ts:18:9 › [LAY-001] /files one visible page heading at 390px (364ms)
+  ✘  10 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /files visible controls retain accessible names at 390px (5.5s)
+(node:29837) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  11 tests/e2e/design.spec.ts:18:9 › [LAY-001] /connectors one visible page heading at 390px (683ms)
+  ✓  12 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /connectors visible controls retain accessible names at 390px (628ms)
+  ✓  13 tests/e2e/design.spec.ts:18:9 › [LAY-001] /agents one visible page heading at 390px (409ms)
+  ✓  14 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /agents visible controls retain accessible names at 390px (419ms)
+  ✓  15 tests/e2e/design.spec.ts:18:9 › [LAY-001] /guidelines one visible page heading at 390px (760ms)
+  ✓  16 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /guidelines visible controls retain accessible names at 390px (688ms)
+  ✓  17 tests/e2e/design.spec.ts:43:5 › [STATE-001] connector empty state action reaches available services (533ms)
+  ✓  18 tests/e2e/design.spec.ts:54:5 › [NAV-001] empty-state destination copy matches actual available tab (424ms)
+  ✓  19 tests/e2e/design.spec.ts:68:5 › [STATE-001] file search no-results action restores actual entries (392ms)
+  ✓  20 tests/e2e/design.spec.ts:78:5 › [RESP-001] file list preserves field labels and fits 390px viewport (753ms)
+  ✓  21 tests/e2e/design.spec.ts:121:7 › [RESP-001] file list has no horizontal overflow at 320px (1.2s)
+  ✓  22 tests/e2e/design.spec.ts:121:7 › [RESP-001] file list has no horizontal overflow at 800px (453ms)
+
+
+  1) tests/e2e/design.spec.ts:29:9 › [A11Y-001] /files visible controls retain accessible names at 1280px 
+
+    Error: expect(locator).toHaveAccessibleName(expected) failed
+
+    Locator: locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(13)
+    Expected pattern: /\S/
+    Received string:  ""
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveAccessibleName" locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(13) with timeout 5000ms
+      - waiting for locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(13)
+        13 × locator resolved to <button type="button" aria-pressed="false" class="important-star" data-file-id="research" data-testid="important-toggle">…</button>
+           - unexpected value ""
+
+
+      35 |       expect(await controls.count()).toBeGreaterThan(0);
+      36 |       for (const control of await controls.all()) {
+    > 37 |         if (await control.isVisible()) await expect(control).toHaveAccessibleName(/\S/);
+         |                                                              ^
+      38 |       }
+      39 |     });
+      40 |   }
+        at /Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v1/engineer-b/creao-design-lab/tests/e2e/design.spec.ts:37:62
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/design--A11Y-001-files-vis-75b56--accessible-names-at-1280px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/design--A11Y-001-files-vis-75b56--accessible-names-at-1280px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/design--A11Y-001-files-vis-75b56--accessible-names-at-1280px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/design--A11Y-001-files-vis-75b56--accessible-names-at-1280px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests/e2e/design.spec.ts:29:9 › [A11Y-001] /files visible controls retain accessible names at 390px 
+
+    Error: expect(locator).toHaveAccessibleName(expected) failed
+
+    Locator: locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(13)
+    Expected pattern: /\S/
+    Received string:  ""
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveAccessibleName" locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(13) with timeout 5000ms
+      - waiting for locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(13)
+        13 × locator resolved to <button type="button" aria-pressed="false" class="important-star" data-file-id="research" data-testid="important-toggle">…</button>
+           - unexpected value ""
+
+
+      35 |       expect(await controls.count()).toBeGreaterThan(0);
+      36 |       for (const control of await controls.all()) {
+    > 37 |         if (await control.isVisible()) await expect(control).toHaveAccessibleName(/\S/);
+         |                                                              ^
+      38 |       }
+      39 |     });
+      40 |   }
+        at /Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v1/engineer-b/creao-design-lab/tests/e2e/design.spec.ts:37:62
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/design--A11Y-001-files-vis-a47dd-n-accessible-names-at-390px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/design--A11Y-001-files-vis-a47dd-n-accessible-names-at-390px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/design--A11Y-001-files-vis-a47dd-n-accessible-names-at-390px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/design--A11Y-001-files-vis-a47dd-n-accessible-names-at-390px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    tests/e2e/design.spec.ts:29:9 › [A11Y-001] /files visible controls retain accessible names at 1280px 
+    tests/e2e/design.spec.ts:29:9 › [A11Y-001] /files visible controls retain accessible names at 390px 
+  20 passed (1.1m)

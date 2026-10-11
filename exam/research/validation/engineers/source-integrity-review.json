@@ -1,0 +1,58 @@
+{
+  "reviewed_at_utc": "2026-10-11T21:08:17.301064+00:00",
+  "baseline_manifest_sha256": "1294c012784e2e1ef02640bf81d20fe92e86bec9b2840dddbb7f4469f776b440",
+  "manifest_file_count": 38,
+  "canonical_drift": [],
+  "candidates": {
+    "engineer-a": {
+      "changed_files": [
+        {
+          "file": "src/app/files/page.tsx",
+          "baseline_sha256": "3321792ccfa6689a412be346d5b692ebf83ecc2723069dd26799628696e1ba88",
+          "candidate_sha256": "a4d3d7829fcebc15af486ae062a838218dfb7e1bd26602df7c4352ff88eadfc2"
+        },
+        {
+          "file": "src/lib/copy.ts",
+          "baseline_sha256": "e5e5016a224f6d183be58ec96eb25f9812d80221c03fc0a2edb6136df16e2c9e",
+          "candidate_sha256": "53c67938891f241b6b63ede93d49d3dfb22dbb15d95f2f5ca87f9381c4bded6b"
+        },
+        {
+          "file": "src/styles/layouts.css",
+          "baseline_sha256": "4db3038adcecaa68de24791d6adf31ca650a543d9fb0361668ffc69a4df470d4",
+          "candidate_sha256": "219eb9cd770974c32647eb50eea99ba4b6bb73b43a7976f027a84a983b6b8765"
+        }
+      ],
+      "missing_files": [],
+      "added_implementation_or_gate_files": [],
+      "protected_assets_count": 17,
+      "protected_assets_unchanged": true,
+      "patch": "research/validation/engineers/engineer-a.patch",
+      "patch_sha256": "a8c78eff17c9d8f116a8df8bd7951d6f002f1787aae308b5cf2b398c55456cf6"
+    },
+    "engineer-b": {
+      "changed_files": [
+        {
+          "file": "src/app/files/page.tsx",
+          "baseline_sha256": "3321792ccfa6689a412be346d5b692ebf83ecc2723069dd26799628696e1ba88",
+          "candidate_sha256": "dea1656d6bf50e00967ed5ad8d1817724b6e6a24840fff2a18f60d7cd5713e88"
+        },
+        {
+          "file": "src/lib/copy.ts",
+          "baseline_sha256": "e5e5016a224f6d183be58ec96eb25f9812d80221c03fc0a2edb6136df16e2c9e",
+          "candidate_sha256": "e8bb93ab6f73ffcdca2b748ab305ab5e34f35cbcedb08b95fcf441979a78c028"
+        },
+        {
+          "file": "src/styles/layouts.css",
+          "baseline_sha256": "4db3038adcecaa68de24791d6adf31ca650a543d9fb0361668ffc69a4df470d4",
+          "candidate_sha256": "20ce09ff38524cd8bbc778c69ae1f36070befe1a9a563a9262aa2373d7a1f357"
+        }
+      ],
+      "missing_files": [],
+      "added_implementation_or_gate_files": [],
+      "protected_assets_count": 17,
+      "protected_assets_unchanged": true,
+      "patch": "research/validation/engineers/engineer-b.patch",
+      "patch_sha256": "d65a17b2f6082c4e5f6d6995d81735fa2a3c93ac159192149e763cac7e3a48fc"
+    }
+  }
+}

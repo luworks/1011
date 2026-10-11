@@ -1,0 +1,85 @@
+Browser tab: 1, Title: "连接器 | CREAO", URL: "https://agent.creao.ai/integrations".
+1 AXWebArea 连接器 | CREAO, URL: agent.creao.ai/integrations
+	2 container
+		3 container root
+			4 link Description: 跳转到主要内容, Value: agent.creao.ai/integrations#main-content
+			5 container Main navigation
+				6 container
+					7 link Description: CREAO, Value: agent.creao.ai/chat
+					8 button 搜索
+					9 button 收起侧边栏
+				10 container Main
+					11 content list
+						180 link Description: 新对话, Value: agent.creao.ai/chat
+				13 container
+					14 container Secondary
+						15 content list
+							16 link Description: 发现, Value: agent.creao.ai/discover
+							17 link Description: 智能体, Value: agent.creao.ai/apps
+							18 link Description: 视频工作室, Value: agent.creao.ai/video
+							19 link Description: 文件, Value: agent.creao.ai/files
+							20 link Description: 连接器, Value: agent.creao.ai/integrations
+							21 pop up button (collapsed) 更多, ID: radix-_r_0_, Secondary Actions: Expand
+					22 button (expanded) Description: 隐藏聊天, Secondary Actions: Collapse
+					23 button creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。
+						24 link Description: creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。, Value: agent.creao.ai/chat?threadId=0a3aa001-be5b-445f-8811-f1729641db8b
+					25 pop up button (collapsed) Description: creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。 的选项, ID: radix-_r_25_, Secondary Actions: Expand
+					26 button 可以做什么?
+						27 link Description: 可以做什么?, Value: agent.creao.ai/chat?threadId=5cf36924-06c3-4c57-b372-78dc25271729
+					28 pop up button (collapsed) Description: 可以做什么? 的选项, ID: radix-_r_2a_, Secondary Actions: Expand
+					29 button give me a suprise what you can do . give me aha monent
+						30 link Description: give me a suprise what you can do . give me aha monent, Value: agent.creao.ai/chat?threadId=96a3a1f2-8ddb-49a1-aaf5-c69bffcd8133
+					31 pop up button (collapsed) Description: give me a suprise what you can do . give me aha monent 的选项, ID: radix-_r_2f_, Secondary Actions: Expand
+				32 link Description: 创建团队, Value: agent.creao.ai/organization?create=true
+				33 link Description: 奖励. 推荐好友，赚取积分, Value: agent.creao.ai/rewards?tab=refer
+				34 pop up button (collapsed) Description: 用户菜单, ID: radix-_r_2_, Secondary Actions: Expand
+					35 text 1
+					36 text 1031luy@gmail.com
+					37 text 免费
+				38 button 设置
+			181 container main-content
+				182 heading 连接器, Value: 1
+					183 text 连接器
+				199 container 精选连接器
+					200 text 精选连接器
+					201 button 上一组连接器
+					202 button 下一组连接器
+					203 container
+						204 button 让 Meta Ads 的每一分广告预算更有价值。 自动检查每日广告表现，找出可以减少无效支出的地方。
+							205 text 让 Meta Ads 的每一分广告预算更有价值。
+							206 text 自动检查每日广告表现，找出可以减少无效支出的地方。
+						207 button 少花时间管理你的 Shopify 店铺。 通过 Shopify 自动检查订单、更新库存和修改商品。
+							208 text 少花时间管理你的 Shopify 店铺。
+							209 text 通过 Shopify 自动检查订单、更新库存和修改商品。
+						210 link Description: 把 Slack 中的请求变成完成的工作。 让智能体处理重复问题、报告和后续跟进。, Value: agent.creao.ai/settings/integrations/slack
+						211 button 在 LinkedIn 持续发声，告别每日繁琐操作。 把想法变成 LinkedIn 帖子，持续发布，拓展专业受众。
+							212 text 在 LinkedIn 持续发声，告别每日繁琐操作。
+							213 text 把想法变成 LinkedIn 帖子，持续发布，拓展专业受众。
+						214 button 自动化你的 YouTube 内容流程。 简化上传和每周表现复盘，把精力留给受众增长。
+							215 text 自动化你的 YouTube 内容流程。
+							216 text 简化上传和每周表现复盘，把精力留给受众增长。
+						217 button 在 X 上保持稳定活跃。 自动发布内容并追踪相关讨论，无需整天查看动态。
+							218 text 在 X 上保持稳定活跃。
+							219 text 自动发布内容并追踪相关讨论，无需整天查看动态。
+				184 container
+					185 search text field (settable) 搜索连接器
+					186 tab group
+						187 tab (selectable, settable, boolean) 全部, Value: 0, ID: radix-_r_57_-trigger-all
+						188 tab (selectable, settable, boolean) 可连接, Value: 0, ID: radix-_r_57_-trigger-connectors
+						189 tab (selectable, settable, boolean) 内置, Value: 0, ID: radix-_r_57_-trigger-builtin
+						190 tab (selected, settable, boolean) 已连接 (0), Value: 1, ID: radix-_r_57_-trigger-connected
+					191 container 连接器分类
+						192 checkbox 所有分类, Value: 1
+						193 checkbox 商业, Value: 0
+						194 checkbox 电子商务, Value: 0
+						195 checkbox 营销, Value: 0
+						196 checkbox 社交媒体, Value: 0
+						197 checkbox 生产力, Value: 0
+					198 text 0 个结果
+				220 container Description: 已连接 (0), ID: radix-_r_57_-content-connected
+					221 heading 暂无已连接的连接器, Value: 3
+						222 text 暂无已连接的连接器
+					223 text 前往可用标签页连接服务。
+			179 container Notifications alt+T
+
+The focused UI element is 190 tab (selected, settable, boolean) 已连接 (0), Value: 1, ID: radix-_r_57_-trigger-connected

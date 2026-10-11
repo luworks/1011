@@ -1,0 +1,140 @@
+name: CREAO design contract
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: creao-design-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: creao-design-lab
+
+jobs:
+  design-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: creao-design-lab/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run test:design
+      - run: npm run check:design
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+        env:
+          PW_SERVER_COMMAND: npm run start -- --hostname 127.0.0.1 --port 3100
+      - name: Preserve browser and policy evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: design-gate-evidence
+          path: |
+            creao-design-lab/reports/
+            creao-design-lab/test-results/
+            creao-design-lab/playwright-report/
+          if-no-files-found: warn
+          retention-days: 14
+
+  mutation-verification:
+    needs: design-gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: creao-design-lab/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:mutations
+      - name: Preserve mutation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: design-mutation-evidence
+          path: creao-design-lab/reports/
+          if-no-files-found: warn
+          retention-days: 14
+
+  visual-gate:
+    needs: design-gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: creao-design-lab/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Identify actual visual environment
+        run: |
+          node - <<'JS'
+          const { chromium } = require('@playwright/test');
+          const { platform, arch, release } = require('node:os');
+          const fs = require('node:fs');
+          (async () => {
+            const browser = await chromium.launch();
+            const id = `${platform()}-${arch()}-${release()}-chromium-${browser.version()}`;
+            fs.appendFileSync(process.env.GITHUB_ENV, `VISUAL_ENV=${id}\n`);
+            await browser.close();
+          })().catch(error => { console.error(error); process.exit(1); });
+          JS
+      - name: Compare reviewed visual baselines (never auto-update)
+        run: npm run test:visual
+        env:
+          PW_SERVER_COMMAND: npm run start -- --hostname 127.0.0.1 --port 3100
+      - name: Preserve expected, actual and diff evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: design-visual-evidence
+          path: |
+            creao-design-lab/reports/visual.json
+            creao-design-lab/test-results/visual/
+          if-no-files-found: warn
+          retention-days: 14
+
+  candidate:
+    needs: [design-gate, mutation-verification, visual-gate]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record the validated source candidate
+        run: |
+          node -e 'require("node:fs").writeFileSync("../creao-design-candidate.json", JSON.stringify({commit:process.env.GITHUB_SHA, repository:process.env.GITHUB_REPOSITORY, workflowRun:process.env.GITHUB_RUN_ID, project:"creao-design-lab", kind:"source-revision-receipt", deployed:false}, null, 2))'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: creao-design-candidate-receipt
+          path: creao-design-candidate.json
+          retention-days: 14
+
+# This workflow prepares a source candidate; it does not deploy.
+# Make both gate jobs required in repository settings and assign real code
+# owners to governance, checks and this workflow before claiming enforcement
+# against authors who can edit these files. Those external settings are not
+# activated by committing this YAML.
+
+# Visual bootstrap is deliberately fail-closed: only the reviewed local macOS
+# baseline currently exists. A matching Linux baseline must be generated in the
+# chosen CI environment, reviewed and committed before visual-gate can pass.
+# Do not skip the gate or use --update-snapshots in this workflow.

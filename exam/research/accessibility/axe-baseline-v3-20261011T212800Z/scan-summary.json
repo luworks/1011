@@ -1,0 +1,378 @@
+[
+  {
+    "title": "accessibility.spec.ts / axe 1280px / [A11Y-002] axe Files initial",
+    "status": "passed",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "title": "accessibility.spec.ts / axe 1280px / [A11Y-002] axe Files empty search",
+    "status": "passed",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "title": "accessibility.spec.ts / axe 1280px / [A11Y-002] axe Files folder validation error",
+    "status": "passed",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "title": "accessibility.spec.ts / axe 1280px / [A11Y-002] axe Files preview dialog",
+    "status": "passed",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "pre"
+          ]
+        ],
+        "reasons": [
+          "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "accessibility.spec.ts / axe 1280px / [A11Y-002] axe Connectors connected empty",
+    "status": "passed",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "title": "accessibility.spec.ts / axe 1280px / [A11Y-002] axe Agents empty",
+    "status": "passed",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "title": "accessibility.spec.ts / axe 1280px / [A11Y-002] axe Agents detail",
+    "status": "passed",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "title": "accessibility.spec.ts / axe 1280px / [A11Y-002] axe Guidelines",
+    "status": "passed",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "title": "accessibility.spec.ts / axe 390px / [A11Y-002] axe Files initial",
+    "status": "passed",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "title": "accessibility.spec.ts / axe 390px / [A11Y-002] axe Files empty search",
+    "status": "passed",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "title": "accessibility.spec.ts / axe 390px / [A11Y-002] axe Files folder validation error",
+    "status": "passed",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "title": "accessibility.spec.ts / axe 390px / [A11Y-002] axe Files preview dialog",
+    "status": "passed",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "dialog > .muted"
+          ],
+          [
+            "pre"
+          ]
+        ],
+        "reasons": [
+          "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements",
+          "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "accessibility.spec.ts / axe 390px / [A11Y-002] axe Connectors connected empty",
+    "status": "passed",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "title": "accessibility.spec.ts / axe 390px / [A11Y-002] axe Agents empty",
+    "status": "passed",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "title": "accessibility.spec.ts / axe 390px / [A11Y-002] axe Agents detail",
+    "status": "passed",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "title": "accessibility.spec.ts / axe 390px / [A11Y-002] axe Guidelines",
+    "status": "passed",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "targets": [
+          [
+            "table:nth-child(5) > tbody > tr:nth-child(1) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(5) > tbody > tr:nth-child(2) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(5) > tbody > tr:nth-child(3) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(5) > tbody > tr:nth-child(4) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(14) > tbody > tr:nth-child(1) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(14) > tbody > tr:nth-child(2) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(14) > tbody > tr:nth-child(4) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(14) > tbody > tr:nth-child(5) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(14) > tbody > tr:nth-child(6) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(14) > tbody > tr:nth-child(7) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(14) > tbody > tr:nth-child(8) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(14) > tbody > tr:nth-child(9) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(14) > tbody > tr:nth-child(10) > td:nth-child(3)"
+          ],
+          [
+            "tr:nth-child(11) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(19) > tbody > tr:nth-child(1) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(19) > tbody > tr:nth-child(1) > td:nth-child(4)"
+          ],
+          [
+            "td:nth-child(4) > code:nth-child(1)"
+          ],
+          [
+            "td:nth-child(4) > code:nth-child(2)"
+          ],
+          [
+            "td:nth-child(4) > code:nth-child(3)"
+          ],
+          [
+            "table:nth-child(19) > tbody > tr:nth-child(2) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(19) > tbody > tr:nth-child(2) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(19) > tbody > tr:nth-child(3) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(19) > tbody > tr:nth-child(3) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(19) > tbody > tr:nth-child(4) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(19) > tbody > tr:nth-child(4) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(19) > tbody > tr:nth-child(5) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(19) > tbody > tr:nth-child(5) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(19) > tbody > tr:nth-child(6) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(19) > tbody > tr:nth-child(6) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(1) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(1) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(2) > td:nth-child(3)"
+          ],
+          [
+            "td:nth-child(3) > code:nth-child(2)"
+          ],
+          [
+            "td:nth-child(3) > code:nth-child(4)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(2) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(3) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(3) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(4) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(4) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(5) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(5) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(6) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(6) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(7) > td:nth-child(3)"
+          ],
+          [
+            "tr:nth-child(7) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(8) > td:nth-child(3)"
+          ],
+          [
+            "tr:nth-child(8) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(9) > td:nth-child(3)"
+          ],
+          [
+            "tr:nth-child(9) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(28) > tbody > tr:nth-child(10) > td:nth-child(3)"
+          ],
+          [
+            "tr:nth-child(10) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(31) > tbody > tr:nth-child(1) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(31) > tbody > tr:nth-child(1) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(31) > tbody > tr:nth-child(2) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(31) > tbody > tr:nth-child(2) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(31) > tbody > tr:nth-child(3) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(31) > tbody > tr:nth-child(3) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(31) > tbody > tr:nth-child(4) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(31) > tbody > tr:nth-child(4) > td:nth-child(4)"
+          ],
+          [
+            "table:nth-child(31) > tbody > tr:nth-child(5) > td:nth-child(3)"
+          ],
+          [
+            "table:nth-child(31) > tbody > tr:nth-child(5) > td:nth-child(4)"
+          ]
+        ],
+        "reasons": [
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+          "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+        ]
+      }
+    ]
+  }
+]

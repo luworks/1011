@@ -1,0 +1,18 @@
+[
+  {
+    "element": "TABLE",
+    "tabIndex": 0,
+    "scrollLeft": 35,
+    "scrollWidth": 451,
+    "clientWidth": 358,
+    "focused": true
+  },
+  {
+    "element": "PRE",
+    "tabIndex": 0,
+    "scrollLeft": 30,
+    "scrollWidth": 921,
+    "clientWidth": 358,
+    "focused": true
+  }
+]

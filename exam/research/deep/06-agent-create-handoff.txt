@@ -1,0 +1,182 @@
+Browser tab: 1, Title: "CREAO", URL: "https://agent.creao.ai/chat".
+0 AXWebArea CREAO, URL: agent.creao.ai/chat
+	1 container
+		2 container root
+			3 link Description: 跳转到主要内容, Value: agent.creao.ai/chat#main-content
+			4 container Main navigation
+				5 container
+					6 link Description: CREAO, Value: agent.creao.ai/chat
+					7 button 搜索
+					8 button 收起侧边栏
+				9 container Main
+					10 content list
+						179 button 新对话
+				12 container
+					13 container Secondary
+						14 content list
+							15 link Description: 发现, Value: agent.creao.ai/discover
+							16 link Description: 智能体, Value: agent.creao.ai/apps
+							17 link Description: 视频工作室, Value: agent.creao.ai/video
+							18 link Description: 文件, Value: agent.creao.ai/files
+							19 link Description: 连接器, Value: agent.creao.ai/integrations
+							20 pop up button (collapsed) 更多, ID: radix-_r_0_, Secondary Actions: Expand
+					21 button (expanded) Description: 隐藏聊天, Secondary Actions: Collapse
+					22 button creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。
+						23 link Description: creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。, Value: agent.creao.ai/chat?threadId=0a3aa001-be5b-445f-8811-f1729641db8b
+					24 pop up button (collapsed) Description: creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。 的选项, ID: radix-_r_1d_, Secondary Actions: Expand
+					25 button 可以做什么?
+						26 link Description: 可以做什么?, Value: agent.creao.ai/chat?threadId=5cf36924-06c3-4c57-b372-78dc25271729
+					27 pop up button (collapsed) Description: 可以做什么? 的选项, ID: radix-_r_1i_, Secondary Actions: Expand
+					28 button give me a suprise what you can do . give me aha monent
+						29 link Description: give me a suprise what you can do . give me aha monent, Value: agent.creao.ai/chat?threadId=96a3a1f2-8ddb-49a1-aaf5-c69bffcd8133
+					30 pop up button (collapsed) Description: give me a suprise what you can do . give me aha monent 的选项, ID: radix-_r_1n_, Secondary Actions: Expand
+				31 link Description: 创建团队, Value: agent.creao.ai/organization?create=true
+				32 link Description: 奖励. 推荐好友，赚取积分, Value: agent.creao.ai/rewards?tab=refer
+				33 pop up button (collapsed) Description: 用户菜单, ID: radix-_r_2_, Secondary Actions: Expand
+					34 text 1
+					35 text 1031luy@gmail.com
+					36 text 免费
+				37 button 设置
+			180 container
+				181 pop up button (collapsed) 轻量, ID: radix-_r_57_, Secondary Actions: Expand
+				182 pop up button (collapsed) 媒体, ID: radix-_r_59_, Secondary Actions: Expand
+				183 link Description: 免费套餐 升级, Value: agent.creao.ai/pricing?from=chat
+				184 heading Y，有什么可以帮你的？, Value: 2
+					185 text Y，有什么可以帮你的？
+				186 container
+					187 container
+						188 container Description: Chat message input, Value: Hey CREAO, can you help me create my first agent?
+							189 text Hey CREAO, can you help me create my first agent?
+						190 text Press Enter to send, Shift+Enter for a new line. Type @ to mention skills or connectors.
+					191 pop up button (collapsed) Description: 添加文件、创建媒体等, ID: radix-_r_5k_, Secondary Actions: Expand
+					192 pop up button (collapsed) 自主程度: 总是询问, ID: radix-_r_5n_, Secondary Actions: Expand
+						193 text 自主程度
+						194 text :
+						195 text 总是询问
+					196 button 语音输入
+					197 button 发送消息
+					198 text 和团队一起使用？ 创建团队即送 30 免费 credits，试用智能体与技能共享、共享文件和团队积分池。想要完整使用？购买席位，再送 100 奖励 credits。
+					199 link Description: 创建团队, Value: agent.creao.ai/organization?create=true
+					200 button 关闭
+					201 container CREAO 能做什么
+						202 container
+							203 heading CREAO 能做什么, Value: 3
+								204 text CREAO 能做什么
+							205 text 不知道从哪开始？试试这几个 — 都只需一条消息。
+						206 container
+							207 button 显示下一个功能
+							208 text 0:08
+							209 heading 一句话生成电影感视频, Value: 4
+								210 text 一句话生成电影感视频
+							211 text 精准 · 快速 · 创意无限 · 多模态
+							212 link Description: 试用 Visual Studio, Value: agent.creao.ai/video
+							213 text PPTX · PDF · HTML
+							214 heading 用 /slide 制作可编辑的幻灯片, Value: 4
+								215 text 用 /slide 制作可编辑的幻灯片
+							216 text AI 生成整套幻灯片，文字、版式和主题都能再改，可导出 PPTX、PDF 或 HTML
+							217 button 试试 /slide
+							218 text 运行中
+							219 heading 替你打理业务的智能体, Value: 4
+								220 text 替你打理业务的智能体
+							221 text 每天早晨：自动生成短视频并发布到 YouTube
+							222 button 创建智能体
+							223 container
+								224 text /workflow /workflow run 运行动态工作流
+							225 heading 用 /workflow 编排任务, Value: 4
+								226 text 用 /workflow 编排任务
+							227 text 先生成执行计划，经你确认后由并行的工作智能体执行
+							228 button 试试 /workflow
+							229 container
+								230 text @ 技能 运行技能 Gmail 已连接的应用
+							231 heading 用 @ 引入技能和连接器, Value: 4
+								232 text 用 @ 引入技能和连接器
+							233 text 输入 @ 即可将已启用的技能或已连接的应用引入对话
+							234 button 试试 @
+							235 heading 创建你的团队, Value: 4
+								236 text 创建你的团队
+							237 text 30 免费 credits 试用智能体与技能共享——文件也能全员共享。
+							238 button 创建团队
+					239 container 首页智能体
+						240 container
+							241 heading 热门智能体, Value: 3
+								242 text 热门智能体
+							243 text 现成 AI 工作流 — 立即运行或设为定时，节省重复工作的时间。
+							244 button 探索
+						245 container 热门智能体横向列表
+							246 button 显示下一批智能体
+							247 container
+								248 container
+									249 container Case Study Writer
+									250 heading Case Study Writer, Value: 3
+										251 text Case Study Writer
+									252 text Gmail Google Docs Transforms a customer interview or win report into a polished, SEO-optimized case study —ready to publish.
+									253 button 运行智能体
+									254 text 2.2k
+									255 button 点赞
+									256 text 1.5k
+								257 container
+									258 container Product Description Writer
+									259 heading Product Description Writer, Value: 3
+										260 text Product Description Writer
+									261 text Gmail Google Sheets Writes SEO-optimized product descriptions for any SKU —in your brand voice, in under 30 seconds per product.
+									262 button 运行智能体
+									263 text 2.0k
+									264 button 点赞
+									265 text 527
+								266 container
+									267 container Cash Flow Forecaster
+									268 heading Cash Flow Forecaster, Value: 3
+										269 text Cash Flow Forecaster
+									270 text Gmail Google Sheets Builds a rolling 13-week cash flow forecast from your actuals and committed future transactions.
+									271 button 运行智能体
+									272 text 1.9k
+									273 button 点赞
+									274 text 1.4k
+								275 container
+									276 container Influencer ROI Analyzer
+									277 heading Influencer ROI Analyzer, Value: 3
+										278 text Influencer ROI Analyzer
+									279 text Gmail Google Sheets Calculates the true ROI of each influencer campaign —CPV, CPE, revenue attributed —and ranks your roster by performance.
+									280 button 运行智能体
+									281 text 1.8k
+									282 button 点赞
+									283 text 829
+								284 container
+									285 container OKR Tracker
+									286 heading OKR Tracker, Value: 3
+										287 text OKR Tracker
+									288 text Gmail Google Sheets Tracks progress against OKRs weekly, surfaces at-risk objectives, and prepares the leadership review agenda automatically.
+									289 button 运行智能体
+									290 text 1.7k
+									291 button 点赞
+									292 text 830
+								293 container
+									294 container Bug Bounty Report Writer
+									295 heading Bug Bounty Report Writer, Value: 3
+										296 text Bug Bounty Report Writer
+									297 text Gmail Google Docs Writes a structured, professional bug bounty vulnerability report that gets taken seriously and paid out.
+									298 button 运行智能体
+									299 text 1.6k
+									300 button 点赞
+									301 text 1.3k
+								302 container
+									303 container Testimonial Collector
+									304 heading Testimonial Collector, Value: 3
+										305 text Testimonial Collector
+									306 text Gmail Google Sheets Automatically requests, collects, and formats customer testimonials —ready for website, sales deck, and case studies.
+									307 button 运行智能体
+									308 text 1.5k
+									309 button 点赞
+									310 text 1.3k
+								311 container
+									312 container Expense Approval Workflow
+									313 heading Expense Approval Workflow, Value: 3
+										314 text Expense Approval Workflow
+									315 text Gmail Google Sheets Routes expense requests to the right approver based on amount and category —with audit trail and auto-approval for small items.
+									316 button 运行智能体
+									317 text 1.5k
+									318 button 点赞
+									319 text 212
+			178 container Notifications alt+T
+
+The focused UI element is 0 AXWebArea CREAO, URL: agent.creao.ai/chat

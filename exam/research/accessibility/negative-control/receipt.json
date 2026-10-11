@@ -1,0 +1,54 @@
+{
+  "experiment": "new-gate-axe-aria-value",
+  "negativeCaseCount": 1,
+  "source": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab",
+  "copy": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/axe-negative-20261011T211800Z/creao-design-lab",
+  "mutation": "aria-pressed={'sometimes' as unknown as boolean}",
+  "sourceBeforeSha256": "3321792ccfa6689a412be346d5b692ebf83ecc2723069dd26799628696e1ba88",
+  "sourceAfterSha256": "d5019fffae0d32ccb2f54be1fceac60370f22cd6252ca6b994a1c89486688277",
+  "protectedTestSha256": "bade4c2f95e61ac40cdfd5003a3227ab0857212117dbb8e72ef7a931224d3c4d",
+  "status": "killed",
+  "killed": 1,
+  "survived": 0,
+  "invalid": 0,
+  "error": 0,
+  "commands": [
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "log": "typecheck.log"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 1,
+      "classification": "infrastructure attempt: Turbopack symlink outside root",
+      "log": "build.log"
+    },
+    {
+      "command": "npm run build -- --webpack",
+      "exitCode": 0,
+      "log": "build-webpack.log"
+    },
+    {
+      "command": "BASE_URL=http://127.0.0.1:3121 PW_EXTERNAL_SERVER=1 PW_CHANNEL=chrome PLAYWRIGHT_OUTPUT_DIR=../artifacts PLAYWRIGHT_JSON_OUTPUT_NAME=../negative-report.json npm run test:a11y -- --grep \"axe 1280px.*axe Files initial\"",
+      "exitCode": 1,
+      "classification": "target violation",
+      "log": "negative-test.log"
+    }
+  ],
+  "health": {
+    "status": 200,
+    "title": "CREAO Design Lab",
+    "heading": "文件",
+    "pressed": "sometimes",
+    "browser": "154.0.8037.98"
+  },
+  "targetRule": "aria-valid-attr-value",
+  "targetNodes": [
+    [
+      "button[aria-label=\"列表视图\"]"
+    ]
+  ],
+  "protectedTestUnchanged": true,
+  "completedAt": "2026-10-11T21:16:59.827Z"
+}

@@ -1,0 +1,61 @@
+Browser tab: 1, Title: "Slack 中的 Creao | CREAO", URL: "https://agent.creao.ai/settings/integrations/slack".
+1 AXWebArea Slack 中的 Creao | CREAO, URL: agent.creao.ai/settings/integrations/slack
+	2 container
+		3 container root
+			4 link Description: 跳转到主要内容, Value: agent.creao.ai/settings/integrations/slack#main-content
+			5 container Main navigation
+				6 container
+					7 link Description: CREAO, Value: agent.creao.ai/chat
+					8 button 搜索
+					9 button 收起侧边栏
+				10 container Main
+					11 content list
+						12 link Description: 新对话, Value: agent.creao.ai/chat
+				13 container
+					14 container Secondary
+						15 content list
+							16 link Description: 发现, Value: agent.creao.ai/discover
+							17 link Description: 智能体, Value: agent.creao.ai/apps
+							18 link Description: 视频工作室, Value: agent.creao.ai/video
+							19 link Description: 文件, Value: agent.creao.ai/files
+							20 link Description: 连接器, Value: agent.creao.ai/integrations
+							21 pop up button (collapsed) 更多, ID: radix-_r_0_, Secondary Actions: Expand
+					22 button (expanded) Description: 隐藏聊天, Secondary Actions: Collapse
+					23 button creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。
+						24 link Description: creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。, Value: agent.creao.ai/chat?threadId=0a3aa001-be5b-445f-8811-f1729641db8b
+					25 pop up button (collapsed) Description: creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。 的选项, ID: radix-_r_13_, Secondary Actions: Expand
+					26 button 可以做什么?
+						27 link Description: 可以做什么?, Value: agent.creao.ai/chat?threadId=5cf36924-06c3-4c57-b372-78dc25271729
+					28 pop up button (collapsed) Description: 可以做什么? 的选项, ID: radix-_r_18_, Secondary Actions: Expand
+					29 button give me a suprise what you can do . give me aha monent
+						30 link Description: give me a suprise what you can do . give me aha monent, Value: agent.creao.ai/chat?threadId=96a3a1f2-8ddb-49a1-aaf5-c69bffcd8133
+					31 pop up button (collapsed) Description: give me a suprise what you can do . give me aha monent 的选项, ID: radix-_r_1d_, Secondary Actions: Expand
+				32 link Description: 创建团队, Value: agent.creao.ai/organization?create=true
+				33 link Description: 奖励. 推荐好友，赚取积分, Value: agent.creao.ai/rewards?tab=refer
+				34 pop up button (collapsed) Description: 用户菜单, ID: radix-_r_2_, Secondary Actions: Expand
+					35 text 1
+					36 text 1031luy@gmail.com
+					37 text 免费
+				38 button 设置
+			39 container main-content
+				195 link Description: 返回连接器, Value: agent.creao.ai/integrations
+				196 heading Slack 中的 Creao, Value: 1
+					197 text Slack 中的 Creao
+				198 text 安装 @creao 机器人，让你的工作区可以运行你的智能体。
+				199 heading 将 Creao 添加到你的 Slack 工作区, Value: 2
+					200 text 将 Creao 添加到你的 Slack 工作区
+				201 text 安装 @creao 机器人后，工作区中的成员可以在频道或私信中提及 @creao 来运行你的某个智能体。
+				202 content list
+					203 container
+						204 AXListMarker • 
+						205 text 在任何已邀请它的频道中提及 @creao（或给它发私信）即可开始运行。
+					206 container
+						207 AXListMarker • 
+						208 text 运行以你的身份执行 — 消耗你的积分并使用你已连接的集成。
+					209 container
+						210 AXListMarker • 
+						211 text 你可以通过频道白名单和每个频道的每日运行上限保持控制。
+				212 link Description: 添加到 Slack, Value: agent.creao.ai/api/integrations/slack/install
+			194 container Notifications alt+T
+
+The focused UI element is 1 AXWebArea Slack 中的 Creao | CREAO, URL: agent.creao.ai/settings/integrations/slack

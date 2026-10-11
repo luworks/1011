@@ -1,0 +1,15 @@
+{
+  "id": "negative-wrong-destination",
+  "kind": "negative",
+  "suite": "browser",
+  "rule": "NAV-001",
+  "description": "Recovery action keeps correct copy but routes to all instead of available.",
+  "baselineHash": "dbfc14a102d765ab6d068b786d841491cc545c3deba1e4e749aab49c04a4f9f0",
+  "patches": [],
+  "startedAt": "2026-10-11T21:15:48.667Z",
+  "caseBaselineHash": "04cc48d4f317ecdd85735f271b53ba73761db9485a14d69e69d7677d65f6e27b",
+  "classification": "invalid",
+  "reason": "Shared source changed since baseline; this case is invalid, not a rule kill.",
+  "artifacts": [],
+  "finishedAt": "2026-10-11T21:15:48.676Z"
+}

@@ -1,0 +1,42 @@
+
+> creao-design-lab@0.1.0 test:e2e
+> playwright test
+
+[WebServer] (node:26070) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+[WebServer]  We detected multiple lockfiles and selected the directory of /Users/yuanlu/code/1011/creao-design-lab/package-lock.json as the root directory.
+[WebServer]  To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+[WebServer]    See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+[WebServer]  Detected additional lockfiles: 
+[WebServer]    * /Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v1/engineer-a/creao-design-lab/package-lock.json
+[WebServer] 
+
+Running 22 tests using 1 worker
+
+(node:26160) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/e2e/design.spec.ts:18:9 › [LAY-001] /files one visible page heading at 1280px (3.6s)
+  ✓   2 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /files visible controls retain accessible names at 1280px (1.1s)
+  ✓   3 tests/e2e/design.spec.ts:18:9 › [LAY-001] /connectors one visible page heading at 1280px (1.6s)
+  ✓   4 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /connectors visible controls retain accessible names at 1280px (1.5s)
+  ✓   5 tests/e2e/design.spec.ts:18:9 › [LAY-001] /agents one visible page heading at 1280px (594ms)
+  ✓   6 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /agents visible controls retain accessible names at 1280px (393ms)
+  ✓   7 tests/e2e/design.spec.ts:18:9 › [LAY-001] /guidelines one visible page heading at 1280px (619ms)
+  ✓   8 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /guidelines visible controls retain accessible names at 1280px (741ms)
+  ✓   9 tests/e2e/design.spec.ts:18:9 › [LAY-001] /files one visible page heading at 390px (518ms)
+  ✓  10 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /files visible controls retain accessible names at 390px (393ms)
+  ✓  11 tests/e2e/design.spec.ts:18:9 › [LAY-001] /connectors one visible page heading at 390px (285ms)
+  ✓  12 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /connectors visible controls retain accessible names at 390px (658ms)
+  ✓  13 tests/e2e/design.spec.ts:18:9 › [LAY-001] /agents one visible page heading at 390px (370ms)
+  ✓  14 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /agents visible controls retain accessible names at 390px (391ms)
+  ✓  15 tests/e2e/design.spec.ts:18:9 › [LAY-001] /guidelines one visible page heading at 390px (381ms)
+  ✓  16 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /guidelines visible controls retain accessible names at 390px (698ms)
+  ✓  17 tests/e2e/design.spec.ts:43:5 › [STATE-001] connector empty state action reaches available services (423ms)
+  ✓  18 tests/e2e/design.spec.ts:54:5 › [NAV-001] empty-state destination copy matches actual available tab (401ms)
+  ✓  19 tests/e2e/design.spec.ts:68:5 › [STATE-001] file search no-results action restores actual entries (487ms)
+  ✓  20 tests/e2e/design.spec.ts:78:5 › [RESP-001] file list preserves field labels and fits 390px viewport (1.1s)
+  ✓  21 tests/e2e/design.spec.ts:121:7 › [RESP-001] file list has no horizontal overflow at 320px (672ms)
+  ✓  22 tests/e2e/design.spec.ts:121:7 › [RESP-001] file list has no horizontal overflow at 800px (555ms)
+
+  22 passed (33.2s)

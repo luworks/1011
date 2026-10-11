@@ -1,0 +1,55 @@
+Browser tab: 1, Title: "文件 | CREAO", URL: "https://agent.creao.ai/files".
+1 AXWebArea 文件 | CREAO, URL: agent.creao.ai/files
+	2 container
+		3 container root
+			4 link Description: 跳转到主要内容, Value: agent.creao.ai/files#main-content
+			73 container Main navigation
+				74 container
+					75 link Description: CREAO, Value: agent.creao.ai/chat
+					76 button 搜索
+					77 button 收起侧边栏
+				78 container Main
+					79 content list
+						80 link Description: 新对话, Value: agent.creao.ai/chat
+				81 container
+					82 container Secondary
+						83 content list
+							84 link Description: 发现, Value: agent.creao.ai/discover
+							85 link Description: 智能体, Value: agent.creao.ai/apps
+							86 link Description: 视频工作室, Value: agent.creao.ai/video
+							87 link Description: 文件, Value: agent.creao.ai/files
+							88 link Description: 连接器, Value: agent.creao.ai/integrations
+							89 pop up button (collapsed) 更多, ID: radix-_r_0_, Secondary Actions: Expand
+					90 button (expanded) Description: 隐藏聊天, Secondary Actions: Collapse
+					91 button creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。
+						92 link Description: creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。, Value: agent.creao.ai/chat?threadId=0a3aa001-be5b-445f-8811-f1729641db8b
+					93 pop up button (collapsed) Description: creao.ai 直接调查这个公司的融资情况，然后给我出个表。看看他们这个产品有什么用，因为我觉得跟 Claude Code 和 openclaw完全对冲，不会有人用 Creao 这个产品的。 的选项, ID: radix-_r_1e_, Secondary Actions: Expand
+					94 button 可以做什么?
+						95 link Description: 可以做什么?, Value: agent.creao.ai/chat?threadId=5cf36924-06c3-4c57-b372-78dc25271729
+					96 pop up button (collapsed) Description: 可以做什么? 的选项, ID: radix-_r_1j_, Secondary Actions: Expand
+					97 button give me a suprise what you can do . give me aha monent
+						98 link Description: give me a suprise what you can do . give me aha monent, Value: agent.creao.ai/chat?threadId=96a3a1f2-8ddb-49a1-aaf5-c69bffcd8133
+					99 pop up button (collapsed) Description: give me a suprise what you can do . give me aha monent 的选项, ID: radix-_r_1o_, Secondary Actions: Expand
+				100 link Description: 创建团队, Value: agent.creao.ai/organization?create=true
+				101 link Description: 奖励. 推荐好友，赚取积分, Value: agent.creao.ai/rewards?tab=refer
+				102 pop up button (collapsed) Description: 用户菜单, ID: radix-_r_2_, Secondary Actions: Expand
+					103 text 1
+					104 text 1031luy@gmail.com
+					105 text 免费
+				106 button 设置
+			6 container main-content
+				7 button 文件
+				8 button 新建文件夹
+				9 button 上传
+				10 search text field (settable) Description: 搜索文件和文件夹, Value: creao-audit-no-match-20261011
+				11 combo box (collapsed) Description: 来源, Value: 所有来源, Secondary Actions: Expand
+					12 text 所有来源
+				13 combo box (collapsed) Description: 类型, Value: 全部, Secondary Actions: Expand
+					14 text 全部
+				15 checkbox Description: 切换到列表视图, Value: 1
+				16 checkbox Description: 切换到网格视图, Value: 0
+				107 text 没有文件
+				108 text 没有与搜索匹配的文件或文件夹。
+			72 container Notifications alt+T
+
+The focused UI element is 10 search text field (settable) Description: 搜索文件和文件夹, Value: creao-audit-no-match-20261011

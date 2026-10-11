@@ -1,0 +1,3820 @@
+{
+  "count": 61,
+  "minimumContrast": 16.502558311430466,
+  "method": "Computed foreground and first opaque ancestor background, with no images/opacity allowed; clipped table cells revealed by native scroll.",
+  "unexpectedPainting": [],
+  "values": [
+    {
+      "selector": "table:nth-child(5) > tbody > tr:nth-child(1) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(5) > tbody > tr:nth-child(2) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(5) > tbody > tr:nth-child(3) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(5) > tbody > tr:nth-child(4) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(14) > tbody > tr:nth-child(1) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(14) > tbody > tr:nth-child(2) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(14) > tbody > tr:nth-child(4) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(14) > tbody > tr:nth-child(5) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(14) > tbody > tr:nth-child(6) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(14) > tbody > tr:nth-child(7) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(14) > tbody > tr:nth-child(8) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(14) > tbody > tr:nth-child(9) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(14) > tbody > tr:nth-child(10) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "tr:nth-child(11) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(19) > tbody > tr:nth-child(1) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(19) > tbody > tr:nth-child(1) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "td:nth-child(4) > code:nth-child(1)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "CODE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "td:nth-child(4) > code:nth-child(2)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "CODE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "td:nth-child(4) > code:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "CODE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(19) > tbody > tr:nth-child(2) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(19) > tbody > tr:nth-child(2) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(19) > tbody > tr:nth-child(3) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(19) > tbody > tr:nth-child(3) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(19) > tbody > tr:nth-child(4) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(19) > tbody > tr:nth-child(4) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(19) > tbody > tr:nth-child(5) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(19) > tbody > tr:nth-child(5) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(19) > tbody > tr:nth-child(6) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(19) > tbody > tr:nth-child(6) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(1) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(1) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(2) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "td:nth-child(3) > code:nth-child(2)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "CODE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "td:nth-child(3) > code:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "CODE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(2) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(3) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(3) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(4) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(4) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(5) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(5) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(6) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(6) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(7) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "tr:nth-child(7) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(8) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "tr:nth-child(8) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(9) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "tr:nth-child(9) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(28) > tbody > tr:nth-child(10) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "tr:nth-child(10) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(31) > tbody > tr:nth-child(1) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(31) > tbody > tr:nth-child(1) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(31) > tbody > tr:nth-child(2) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(31) > tbody > tr:nth-child(2) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(31) > tbody > tr:nth-child(3) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(31) > tbody > tr:nth-child(3) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(31) > tbody > tr:nth-child(4) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(31) > tbody > tr:nth-child(4) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(31) > tbody > tr:nth-child(5) > td:nth-child(3)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    },
+    {
+      "selector": "table:nth-child(31) > tbody > tr:nth-child(5) > td:nth-child(4)",
+      "color": "rgb(22, 24, 26)",
+      "ancestors": [
+        {
+          "tag": "TD",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TR",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TBODY",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "TABLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ARTICLE",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "background": "rgb(248, 246, 243)",
+          "image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "background": "rgba(0, 0, 0, 0)",
+          "image": "none",
+          "opacity": "1"
+        }
+      ],
+      "background": "rgb(248, 246, 243)",
+      "contrast": 16.502558311430466
+    }
+  ]
+}

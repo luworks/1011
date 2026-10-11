@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://creao.ai/sitemap.xml
+
+# LLM context files:
+# https://creao.ai/llms.txt
+# https://creao.ai/llms-full.txt

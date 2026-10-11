@@ -1,0 +1,75 @@
+Browser tab: 1, Title: "文件 | CREAO", URL: "https://agent.creao.ai/files".
+1 AXWebArea 文件 | CREAO, URL: agent.creao.ai/files
+	2 container
+		3 container root
+			4 link Description: 跳转到主要内容, Value: agent.creao.ai/files#main-content
+			5 button 打开菜单
+			6 container main-content
+				7 button 文件
+				8 button
+				9 button 上传
+				10 search text field (settable) 搜索文件和文件夹
+				11 combo box (collapsed) Description: 来源, Value: 所有来源, Secondary Actions: Expand
+					12 text 所有来源
+				13 combo box (collapsed) Description: 类型, Value: 全部, Secondary Actions: Expand
+					14 text 全部
+				15 checkbox Description: 切换到列表视图, Value: 1
+				16 checkbox Description: 切换到网格视图, Value: 0
+				17 text 名称
+				18 text 修改时间
+				19 text 大小
+				20 text 来源
+				21 container
+					22 button Video preview cinematic_flythrough_inside_a_futuristic_1776199418.mp4
+						23 container
+							24 image Video preview
+						25 text cinematic_flythrough_inside_a_futuristic_1776199418.mp4
+					26 text 4月14日 13:43
+					27 text 8.7 MB
+					28 text 已生成
+					29 pop up button (collapsed) Description: cinematic_flythrough_inside_a_futuristic_1776199418.mp4 的操作, ID: radix-_r_1v_, Secondary Actions: Expand
+					30 button a_futuristic_ai_control_room_floating_in_1776199352.png
+						31 text a_futuristic_ai_control_room_floating_in_1776199352.png
+					32 text 4月14日 13:42
+					33 text 1008.0 KB
+					34 text 已生成
+					35 pop up button (collapsed) Description: a_futuristic_ai_control_room_floating_in_1776199352.png 的操作, ID: radix-_r_26_, Secondary Actions: Expand
+					36 button minimalist_logo_for_coffee_shop_sunrise__1774067202.png
+						37 text minimalist_logo_for_coffee_shop_sunrise__1774067202.png
+					38 text 4月14日 13:32
+					39 text 302.5 KB
+					40 text 已生成
+					41 pop up button (collapsed) Description: minimalist_logo_for_coffee_shop_sunrise__1774067202.png 的操作, ID: radix-_r_2d_, Secondary Actions: Expand
+					42 button minimalist_logo_for_coffee_shop_sunrise__1774067238.png
+						43 text minimalist_logo_for_coffee_shop_sunrise__1774067238.png
+					44 text 4月14日 13:32
+					45 text 595.1 KB
+					46 text 已生成
+					47 pop up button (collapsed) Description: minimalist_logo_for_coffee_shop_sunrise__1774067238.png 的操作, ID: radix-_r_2k_, Secondary Actions: Expand
+					48 button minimalist_logo_for_sunrise_brew_coffee__1774067224.png
+						49 text minimalist_logo_for_sunrise_brew_coffee__1774067224.png
+					50 text 4月14日 13:32
+					51 text 700.3 KB
+					52 text 已生成
+					53 pop up button (collapsed) Description: minimalist_logo_for_sunrise_brew_coffee__1774067224.png 的操作, ID: radix-_r_2r_, Secondary Actions: Expand
+					54 button minimalist_monogram_logo_sunrise_brew_st_1774067265.png
+						55 text minimalist_monogram_logo_sunrise_brew_st_1774067265.png
+					56 text 4月14日 13:32
+					57 text 573.5 KB
+					58 text 已生成
+					59 pop up button (collapsed) Description: minimalist_monogram_logo_sunrise_brew_st_1774067265.png 的操作, ID: radix-_r_32_, Secondary Actions: Expand
+					60 button creao_ai_is_an_innovative_ai_native_work_1774067196.mp3
+						61 text creao_ai_is_an_innovative_ai_native_work_1774067196.mp3
+					62 text 4月14日 13:32
+					63 text 783.0 KB
+					64 text 已生成
+					65 pop up button (collapsed) Description: creao_ai_is_an_innovative_ai_native_work_1774067196.mp3 的操作, ID: radix-_r_39_, Secondary Actions: Expand
+					66 button meta_stock_analysis_1774067289.png
+						67 text meta_stock_analysis_1774067289.png
+					68 text 4月14日 13:32
+					69 text 175.6 KB
+					70 text 已生成
+					71 pop up button (collapsed) Description: meta_stock_analysis_1774067289.png 的操作, ID: radix-_r_3g_, Secondary Actions: Expand
+			72 container Notifications alt+T
+
+The focused UI element is 1 AXWebArea 文件 | CREAO, URL: agent.creao.ai/files
