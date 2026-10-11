@@ -1,0 +1,17 @@
+{
+  "source_run_dir": "runs/final-replay-sonnet-medium-v11",
+  "files_sha256": {
+    "turns.jsonl": "37ba890b6d5c95b7c69936a55a6ca933a51c7a4962d7bb0882caa2ba6bb0ba2a",
+    "manifest.json": "3ebdb215f5fe1f27934566ca5102624dfba5bf03bd8f1db6b4d7d9d59d5ec828",
+    "summary.json": "235faeaee361a5f640f3602dedf44101cd093a998ad64b80fd0b434ceeb96015"
+  },
+  "code_sha256": "2032e473b946aa97c0368f5b18d0e404106c3bbda5855bab956156c26e26898b",
+  "prompt_version": "workflow-v11",
+  "corpus_version": "dbb59ca9a429ab22142b76f32c0704dc3477c5e7ff0a33289efc12d700a05a5f",
+  "config_id": "anthropic/claude-sonnet-5-5/adaptive/medium",
+  "calls": 17,
+  "estimated_cost_usd": 0.17398,
+  "summed_turn_latency_seconds": 47.016,
+  "technical_failures": 0,
+  "scope": "Single live replay of the supplied conversation on workflow-v11. Not fresh V3 acceptance and not a model-selection result."
+}

@@ -1,6 +1,6 @@
 # Policy-Grounded Agent Prototype
 
-> **Closeout status:** workflow-v11 is locally verified; its live replay and fresh V3 acceptance are unrun. The v10 live replay failed on turn 4. Haiku adaptive/medium is a development default, not an acceptance winner. No new model tests are running. See [Claude handoff](docs/CLAUDE_HANDOFF.md) and [closeout](docs/closeout.md).
+> **Closeout status:** workflow-v11 is locally verified, and one live replay of the supplied conversation on v11 with Claude Sonnet 5.5 adaptive/medium passed all six turns with zero technical failures ([examples/workflow-v11-sonnet-medium](examples/workflow-v11-sonnet-medium/walkthrough.md)). Fresh V3 acceptance is unrun. The v10 live replay failed on turn 4. Haiku adaptive/medium remains the committed development default. Held-out acceptance v2 on pinned v8 code (16 scenarios × 3 = 48 per configuration): Sonnet 5.5 adaptive/medium 44/48 (1 critical, escalation 23/24), Haiku adaptive/medium 34/48 (6), Sonnet high 29/48 (6), Opus high 25/48 (12), Sol low 24/48 (12), Opus medium 19/48 (11). No configuration met the zero-critical / full-escalation gate; Sonnet medium is the best observed configuration, pending fresh V3. See [model selection](docs/model_selection.md). No new model tests are running. See [Claude handoff](docs/CLAUDE_HANDOFF.md) and [closeout](docs/closeout.md).
 
 A runnable CLI for Nimbus Wireless billing questions. It separates language-model understanding from a reviewed, deterministic policy decision gate. It exposes the retrieved source text, governing policies, candidate decisions, final decisions, and missing verification for each customer turn.
 
@@ -131,6 +131,14 @@ The v8 live replay and immutable benchmark snapshot retain workflow SHA256 `2a56
 
 The complete policy-text experiment in [the audited report](docs/policy_comparison/20261011-full-v5-audited/report.md) is a separate frozen **workflow-v5** cohort: Sol medium and Luna medium each completed 120 paired comparisons. Raw composite results improved (85→100 and 63→75), but final composite results each decreased by one (105→104 and 95→94). The optimized policy is **not promoted**. These results cannot select the best v8 model or validate post-freeze code. A further 27 charter attacks passed locally according to the coordinator; that finite structural result is separate from live-model performance. Final model-selection and report evidence may remain explicitly pending in a stage delivery.
 
+## Model selection status
+
+Held-out acceptance v2 on pinned v8 code (16 scenarios × 3 = 48 per configuration): Sonnet 5.5 adaptive/medium 44/48 (1 critical, escalation 23/24), Haiku adaptive/medium 34/48 (6), Sonnet high 29/48 (6), Opus high 25/48 (12), Sol low 24/48 (12), Opus medium 19/48 (11). No configuration met the zero-critical / full-escalation gate; Sonnet medium is the best observed configuration, pending fresh V3. See [model selection](docs/model_selection.md). Every critical failure in every configuration was a fail-closed understanding-contract rejection, never a wrong amount or policy. Sonnet high and both Opus rows include API connection errors from 16-way concurrent runs and are infrastructure-confounded. To use the best observed configuration:
+
+```sh
+./run.sh replay --matrix config/eval-models-high.json --provider anthropic --config-id anthropic/claude-sonnet-5-5/adaptive/medium
+```
+
 ## Stage-delivery freeze — 2026-10-11
 
-The packaged report is an immutable **12:54:59 PDT** checkpoint with **62/84** screening runs completed, not a live progress page or final winner. Fresh/high model acceptance remains pending. The backend CLI, scoped v8 live repair, and local release checks can be delivered independently of that unfinished comparison. Final local suite at this freeze: **316 passed**. Report HTML SHA256: `abfc9b99cc0214b56c9fc8f929e673183eb1bee2fb87ec2e503b3779cd32a908`.
+The 12:54:59 PDT checkpoint described here (62/84 screening runs) is historical; the packaged HTML report now includes the completed held-out comparison above. Fresh/high model acceptance remains pending. The backend CLI, scoped v8 live repair, and local release checks can be delivered independently of that unfinished comparison. Final local suite at this freeze: **316 passed**. Report HTML SHA256: `abfc9b99cc0214b56c9fc8f929e673183eb1bee2fb87ec2e503b3779cd32a908`.

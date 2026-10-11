@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "policy-api",
+      "runtimeExecutable": "uv",
+      "runtimeArgs": ["run", "--frozen", "python", "scripts/web_api.py"],
+      "port": 8790
+    },
+    {
+      "name": "frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "frontend", "run", "dev"],
+      "port": 3010
+    }
+  ]
+}

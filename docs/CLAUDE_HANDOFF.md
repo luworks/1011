@@ -17,9 +17,10 @@
 
 ## 已验证结果：不能混用版本
 
-- 收尾前 v11 本地完整 pytest：388 passed；如新增报告测试等导致数量变化，以最终实际命令记录为准。v11 尚未真实模型回放/新验收。
+- 收尾前 v11 本地完整 pytest：388 passed；如新增报告测试等导致数量变化，以最终实际命令记录为准。v11 已用 Sonnet 5.5 adaptive/medium 真实回放原始六轮对话一次：6轮全部通过、0技术失败（17 calls，约$0.174，`examples/workflow-v11-sonnet-medium/`）；fresh V3 验收仍未运行。
 - v8 原始六轮会话曾通过七项针对题目要求的检查，金额 `$225 / 30 * 11 = $82.50`，不乘三、不受 $75 goodwill cap 限制；税费调整未知；恢复后30天，申请在第14天；未虚构批准/发放。
 - v8 独立回归84/84执行，三个配置均23/28。v8新验收96/96执行（16场景×3重复×2配置）：Sol-low24/48成功、21技术失败；Haiku-medium34/48成功、7技术失败。selector为no_qualifying_model。18个保守critical标记均是安全停止后缺少必须的人工作答，并非观察到实际错误发放；缺失答案仍算失败。
+- 第5阶段（同一v8代码与同一验收集，16×3=48/配置）：Sonnet-medium 44/48（1个critical，强制升级23/24），Sonnet-high 29/48，Opus-high 25/48，Opus-medium 19/48（后三者含16路并发造成的API连接错误）。所有critical均为理解契约校验失败后的安全停止，无错误金额/政策。没有配置满足“0 critical + 强制升级全召回”门槛；Sonnet-medium为观测最优，待fresh V3确认。详见 `docs/model_selection.md`。
 - v10 原始六轮真实回放第4轮失败：scope_action_support_missing连续两次，一次修复耗尽。18 calls，估算$0.0119011，逐轮耗时合计77.203秒。原始记录 `runs/mvp-live-demo-haiku-medium-v10/` 必须保留，不能用v11本地测试冒称此失败已获真实验收。
 - 旧v5 policy A/B完成240对/480场景执行，raw有所改善但final无净提升；未晋升整版优化政策。审计结果在 `docs/policy_comparison/20261011-full-v5-audited/`。
 - 新scenario版 `docs/policy_versions/20261011T200142302410Z-scenario/` 与边界修复有本地检查，但没有完成新固定Haiku的付费对照；默认原文未替换。
