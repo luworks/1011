@@ -162,13 +162,14 @@ def run_comparison(args) -> int:
         raise ValueError('Shared experiment budget is already exhausted; no API calls made')
     fixed = {'config': config, 'config_sha256': hashlib.sha256(json.dumps(config,sort_keys=True).encode()).hexdigest(),
         'prompt_sha256': hashlib.sha256((EXTRACT+'\n'+PLAN).encode()).hexdigest(),
+        'prompt_hash_scope':'EXTRACT and PLAN only; full frozen code hash also binds scope-review and protocol-repair prompts and behavior.',
         'cases_file_sha256': sha256(Path(args.cases)), 'oracle_overlay_sha256': sha256(Path(args.oracle_overlay)),
         'source_suite': freeze_manifest(original), 'selected_projected_suite': freeze_manifest(cases),
         'repeats':args.repeats, 'jobs':args.jobs, 'planned_pairs':planned,
         'order':'Per-pair AB/BA alternation by scenario index plus repetition; two independent full workflows.',
         'seed':'Provider adapter does not expose a seed; matched repetition is not identical randomness.',
         'retrieval_note':'Same algorithm, different text may change ranked retrieved clauses; full excerpts retained.',
-        'gate_note':'Fixed reviewed Python gate, not compiled from revised policy.',
+        'gate_note':'Same scenario-boundary Python gate for both versions; not compiled from revised text. Open business conventions remain unapproved.',
         'boundary_note':'Excluded fields have no unique business gold; evidence-boundary checks assess unqualified structured certainty, not an approved routing rule.',
         'ledger_start_usd':initial, 'budget_limit_usd':budget.limit,
         'snapshots':{side:start_snapshot(corpus,args.matrix) for side,corpus in corpora.items()}}

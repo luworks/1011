@@ -7,6 +7,8 @@ import os
 import time
 import uuid
 from contextlib import contextmanager
+from contextvars import ContextVar
+from dataclasses import dataclass, field
 from pathlib import Path
 from threading import RLock
 from typing import TypeVar
@@ -22,6 +24,35 @@ class ProviderError(RuntimeError):
 
 class BudgetExceeded(ProviderError):
     pass
+
+
+@dataclass
+class ContentRepairBudget:
+    """One content repair shared by every stage of a customer turn."""
+    events: list[dict] = field(default_factory=list)
+
+    def consume(self, stage: str, code: str) -> bool:
+        if self.events:
+            return False
+        self.events.append({'stage': stage, 'code': code, 'repair_index': 1})
+        return True
+
+
+_REPAIR_BUDGET: ContextVar[ContentRepairBudget | None] = ContextVar('content_repair_budget', default=None)
+
+
+@contextmanager
+def content_repair_scope():
+    budget = ContentRepairBudget()
+    token = _REPAIR_BUDGET.set(budget)
+    try:
+        yield budget
+    finally:
+        _REPAIR_BUDGET.reset(token)
+
+
+def current_repair_budget():
+    return _REPAIR_BUDGET.get()
 
 
 class Budget:
@@ -156,6 +187,7 @@ class Provider:
     def generate(self, schema: type[T], system: str, payload: dict) -> T:
         shape = strict_schema(schema.model_json_schema())
         original = json.dumps(payload, ensure_ascii=False)
+        content_budget = current_repair_budget() or ContentRepairBudget()
         for repair in range(2):
             text = original + ('\nReturn valid JSON conforming exactly to the supplied schema. Previous output failed validation.' if repair else '')
             response = self._request(system, text, shape, repair)
@@ -176,8 +208,9 @@ class Provider:
                 return schema.model_validate_json(raw)
             except (ValidationError, ValueError):
                 self.calls[-1]['validation_error'] = True
-                if repair:
-                    raise ProviderError('Structured output failed validation after one repair') from None
+                self.calls[-1]['validation_error_code'] = 'schema_validation_failed'
+                if not content_budget.consume('structured_output', 'schema_validation_failed'):
+                    raise ProviderError('Structured output failed validation; content repair exhausted') from None
         raise AssertionError('Unreachable')
 
     def _request(self, system, text, shape, repair):

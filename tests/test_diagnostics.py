@@ -7,7 +7,7 @@ import pytest
 from policy_agent.corpus import Corpus
 from policy_agent.diagnostics import contract_diagnostic
 from policy_agent.workflow import (FACT_FIELDS, LiveUnderstanding, FactProposal,
-                                   Workflow, EvidenceBoundCandidate, replay)
+                                   Workflow, EvidenceBoundCandidate, ScopeReview, replay)
 
 
 def understanding():
@@ -25,6 +25,8 @@ class Provider:
         self.calls.append(schema)
         if schema is LiveUnderstanding:
             return self.response
+        if schema is ScopeReview:
+            return schema.model_validate({'questions': [dict(intent=i, clause_quote=payload['current_message'], action_quote=payload['current_message'], classification='explicit') for i in payload['proposed_intents']]})
         assert schema is EvidenceBoundCandidate
         return schema.model_validate({'questions': [dict(
             intent='taxes', policy_ids=[], amount=None, answer_status='partial',
@@ -53,7 +55,9 @@ def test_rejected_contract_has_fixed_diagnostic_and_unchanged_fail_closed_behavi
     assert result['candidate'] is None
     assert result['context']['fraud'] is True
     assert len(result['facts']) == 1
-    assert provider.calls == [LiveUnderstanding]
+    assert provider.calls == [LiveUnderstanding, LiveUnderstanding]
+    assert len(result['understanding_diagnostics']) == 2
+    assert len(result['content_repairs']) == 1
     assert result['reply'] == ('I could not complete the evidence check due to a technical issue. '
                               'No credit has been issued. Please retry or request human assistance.')
 

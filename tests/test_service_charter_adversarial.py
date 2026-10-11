@@ -34,6 +34,11 @@ class AdversarialProvider:
 
     def generate(self, schema, system, payload):
         self.calls.append(schema.__name__)
+        if schema.__name__ == 'ScopeReview':
+            # Keep the deliberately adversarial candidate test on its original path.
+            return schema.model_validate({'questions': [dict(
+                intent=i, classification='explicit', clause_quote=payload['current_message'],
+                action_quote=payload['current_message']) for i in payload['proposed_intents']]})
         if schema.__name__ == 'LiveUnderstanding':
             return schema.model_validate({
                 'intents': [self.intent], 'facts': [], 'search_query': 'billing refund',
@@ -76,7 +81,7 @@ def test_pressure_and_overconfident_candidate_cannot_raise_authority(message, ch
     else:
         assert 'no credit has been approved or issued' in result['reply']
         assert 'next step' in result['reply']
-    assert provider.calls == ['LiveUnderstanding', 'EvidenceBoundCandidate']
+    assert provider.calls == ['LiveUnderstanding', 'ScopeReview', 'EvidenceBoundCandidate']
     assert result['service_charter'] == charter_metadata()
 
 

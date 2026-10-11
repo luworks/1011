@@ -10,6 +10,8 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 TREES = ('src', 'tests', 'config', 'fixtures', 'exam', 'scripts', 'examples', 'docs')
 FILES = ('README.md', 'design_memo.md', 'pyproject.toml', 'uv.lock', 'run.sh', '.env.example', 'LICENSE')
+# Internal team-coordination notes; not reviewer-facing project documentation.
+INTERNAL_DOC = re.compile(r'^docs/[^/]*(?:coordination_|handoff|_status\.md$|\.patch$)')
 SECRET_PATTERNS = (
     re.compile(rb'sk-ant-[A-Za-z0-9_-]{20,}'),
     re.compile(rb'sk-(?:proj-|svcacct-)?[A-Za-z0-9_-]{32,}'),
@@ -57,6 +59,8 @@ def selected_files() -> list[Path]:
     approved = []
     for p in sorted(set(paths)):
         rel = p.relative_to(ROOT)
+        if INTERNAL_DOC.search(rel.as_posix()):
+            continue
         if p.is_symlink() or any(part in ('__pycache__', '.pytest_cache', '.venv', '.git') for part in rel.parts):
             continue
         if p.suffix in ('.pyc', '.pyo') or (p.name.startswith('.env') and p.name != '.env.example'):

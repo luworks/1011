@@ -123,9 +123,31 @@ def policy_snapshot(path):
             'caveats':[data['claim_scope'], data['scoring_audit']['scope']],
             'metricDefinitions':[{'label':'Paired pass count', 'definition':'Baseline = unchanged_pass + regressed; candidate = unchanged_pass + improved. Denominator is matched completed pairs, preserving planned pairs separately.', 'componentIds':['policy-comparison']} ]}}
 
+def repair_snapshot(path):
+    """Validate bounded reviewed aggregate measurements; missing stays missing."""
+    data = read(Path(path))
+    if not isinstance(data.get('rows'), list) or not isinstance(data.get('source'), dict):
+        raise ValueError('Repair metrics require rows and provenance source')
+    for row in data['rows']:
+        if not row.get('label') or not row.get('workflow') or not row.get('config_id'):
+            raise ValueError('Repair row requires label, workflow and exact configuration')
+        for key in ('completed', 'planned', 'technical_failures', 'scope_failures', 'scope_assessed',
+                    'citation_conflict_failures', 'citation_conflict_assessed', 'scope_calls',
+                    'scope_latency_seconds', 'scope_cost_usd', 'total_calls', 'turn_p50_seconds',
+                    'turn_p95_seconds', 'reported_cost_usd'):
+            value = row.get(key)
+            if value is not None and (not isinstance(value, (int, float)) or isinstance(value, bool) or value < 0):
+                raise ValueError('Repair measurements must be nonnegative numbers or null')
+        for count, denominator in (('completed','planned'), ('scope_failures','scope_assessed'), ('citation_conflict_failures','citation_conflict_assessed')):
+            if row.get(count) is not None and row.get(denominator) is not None and row[count] > row[denominator]:
+                raise ValueError('Repair measurement exceeds its denominator')
+    return data
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--run',action='append',default=[],metavar='STAGE=DIR')
+    p.add_argument('--development-default', help='Explicit user-selected baseline configuration, not a winner')
+    p.add_argument('--repair-metrics', help='Owner-reviewed repair aggregates with provenance')
     p.add_argument('--policy-results', help='Audited aggregate Policy A/B results JSON')
     p.add_argument('--coordination', help='Reviewed coordination snapshot JSON; never reads acceptance cases')
     p.add_argument('--run-manifest', action='append', default=[], metavar='STAGE=PATH', help='Frozen metadata for a compact checkpoint without its own manifest')
@@ -141,6 +163,13 @@ def main():
             if row['stage'] == stage:
                 row.update(prompt=manifest.get('prompt_version'), code=manifest.get('code_sha256'), corpus=manifest.get('corpus_version'))
         result['queries']['models']['source']['evidenceFlow'].append({'title':manifest_path, 'detail':'Frozen source metadata SHA-256 '+hashlib.sha256(Path(manifest_path).read_bytes()).hexdigest()})
+    if a.development_default:
+        baseline = read(Path(a.development_default))
+        if baseline.get('selection_status') != 'development_default_only':
+            raise ValueError('Development default must be explicitly marked development_default_only')
+        result['development_default'] = {'status': baseline['selection_status'], 'config_ids':[c['config_id'] for c in baseline['models']]}
+    if a.repair_metrics:
+        result['queries']['repair_metrics'] = repair_snapshot(a.repair_metrics)
     if a.policy_results:
         result['queries']['policy_comparison'] = policy_snapshot(a.policy_results)
     if a.coordination:

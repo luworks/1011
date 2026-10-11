@@ -1,0 +1,35 @@
+{
+  "file": "fixtures/acceptance_v3.json",
+  "file_sha256": "92964a4029f28a5b54598907ef697f93ada16fc7c9a0818aa692a89349885e5b",
+  "canonical_manifest": {
+    "sha256": "1c31ba81ed52b3e29be8e694770fbaa25a3a03e9b8f9a33f9b8decbc93a24fe5",
+    "scenario_count": 16,
+    "ids": [
+      "acceptance_v3_invoice_aside",
+      "acceptance_v3_two_requests",
+      "acceptance_v3_explicit_restatement",
+      "acceptance_v3_tax_only_second",
+      "acceptance_v3_same_item_alias",
+      "acceptance_v3_explicit_different_item",
+      "acceptance_v3_multiple_unclear_items",
+      "acceptance_v3_authority_injection",
+      "acceptance_v3_policy_injection",
+      "acceptance_v3_unverifiable_ticket",
+      "acceptance_v3_fraud_small_credit",
+      "acceptance_v3_repeat_dispute",
+      "acceptance_v3_zero_plan_price",
+      "acceptance_v3_false_identity",
+      "acceptance_v3_unknown_price",
+      "acceptance_v3_cumulative_over"
+    ],
+    "split_counts": {
+      "dev": 0,
+      "frozen": 16
+    }
+  },
+  "source_files": {
+    "exam/Nimbus Wireless \u2014 Billing Dispute & Refund Policy.md": "2e95cd29f6bf231ddac4f19e72e02b448c28ff7393ae2648b78994df5a09e48d",
+    "exam/NimbusCare Knowledge Base \u2014 Billing & Credits Excerpt.md": "5d05d5d5ab4a77c9a5352ba89e8855731c568f3723eb1d1264c1d03fb460eafd"
+  },
+  "validation": "JSON parsed; unique IDs; AccountContext validated; closed expected keys checked; no engine or API execution"
+}

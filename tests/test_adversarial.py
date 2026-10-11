@@ -118,6 +118,11 @@ class MaliciousCandidate:
     def generate(self, schema, system, payload):
         if schema.__name__ == 'LineItemCheck':
             return schema.model_validate({'value':None,'quote':None})
+        if schema.__name__ == 'ScopeReview':
+            # Keep the deliberately adversarial candidate test on its original path.
+            return schema.model_validate({'questions': [dict(
+                intent=i, classification='explicit', clause_quote=payload['current_message'],
+                action_quote=payload['current_message']) for i in payload['proposed_intents']]})
         if schema.__name__ == 'LiveUnderstanding':
             return schema.model_validate({'intents': ['outage_credit', 'taxes'],
                                           'facts': [], 'search_query': 'outage tax credit',

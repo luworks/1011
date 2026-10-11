@@ -35,11 +35,12 @@ def enforce_evaluation_effort(configs):
 
 
 def choose(args):
-    configs = configurations(args.matrix)
+    matrix = args.matrix or ('config/models.json' if args.provider or args.model or args.config_id else 'config/development-default.json')
+    configs = configurations(matrix)
     if getattr(args,'config_id',None):
         choices = [c for c in configs if c.get('config_id')==args.config_id]
     else:
-        choices = [c for c in configs if c['provider'] == args.provider and (not args.model or c['model']==args.model)]
+        choices = [c for c in configs if (not args.provider or c['provider'] == args.provider) and (not args.model or c['model']==args.model)]
     if not choices: raise ValueError('Requested model is not in the priced model matrix')
     if not args.model:
         choices.sort(key=lambda c: c['input_per_million']+c['output_per_million'])
@@ -82,8 +83,8 @@ def parser():
     sub = p.add_subparsers(dest='command',required=True)
     for name in ('doctor','replay','chat','evaluate'):
         s=sub.add_parser(name)
-        s.add_argument('--matrix',default='config/eval-models-high.json' if name=='evaluate' else 'config/models.json')
-        s.add_argument('--provider',choices=['openai','anthropic'],default='openai')
+        s.add_argument('--matrix',default='config/eval-models-high.json' if name=='evaluate' else None)
+        s.add_argument('--provider',choices=['openai','anthropic'])
         s.add_argument('--model')
         s.add_argument('--config-id', help='Exact provider/model/thinking/effort configuration')
         s.add_argument('--max-cost-usd',type=float,default=5)
@@ -124,6 +125,9 @@ def parser():
 
 def main():
     args=parser().parse_args()
+    if args.command in ('doctor', 'replay', 'chat') and args.matrix is None:
+        args.matrix = ('config/models.json' if args.provider or args.model or args.config_id
+                       else 'config/development-default.json')
     load_dotenv(Path('.env'), override=False)
     try:
         if args.command=='report':

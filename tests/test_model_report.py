@@ -44,3 +44,13 @@ def test_policy_aggregate_keeps_pairs_and_rejects_wrong_sum(tmp_path):
     assert rows[0]['planned']==12 and rows[0]['baseline_reported_cost_usd'] is None
     x['experiments'][0]['matched']['counts']['raw']['improved']=3;p.write_text(json.dumps(x))
     with pytest.raises(ValueError):m.policy_snapshot(p)
+
+def test_repair_metrics_preserve_unmeasured_scope_cost(tmp_path):
+    path=tmp_path/'repair.json'
+    data={'rows':[{'label':'after','workflow':'workflow-v10','config_id':'haiku/medium','planned':28,'completed':20,'scope_cost_usd':None}], 'source':{'label':'Reviewed aggregates'}}
+    path.write_text(json.dumps(data))
+    result=m.repair_snapshot(path)
+    assert result['rows'][0]['scope_cost_usd'] is None
+    assert 'scope_calls' not in result['rows'][0]
+    data['rows'][0]['completed']=29;path.write_text(json.dumps(data))
+    with pytest.raises(ValueError):m.repair_snapshot(path)

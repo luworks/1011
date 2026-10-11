@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "version_id": "20261011T200142302410Z-scenario",
+  "created_at_utc": "2026-10-11T20:01:42.302410+00:00",
+  "status": "editorial-draft",
+  "parent_version_id": "20261011T192840174385Z-clarified",
+  "parent_manifest_sha256": "4ca4c9000b4b024eb69ff8203920e78662a4b7233286b6e8921ca8451d4a0034",
+  "corpus_version": "4cd8536146a7fd4cb1fe6823f9cf3e1f5f5fcafa4f3801b68eb1d5d4567698ef",
+  "files": {
+    "CHANGES.md": "15d11a180fd55c8eea91194a90c51a56f7fa3355172c3d511a389894cd7d2083",
+    "OPEN_DECISIONS.md": "5735ace3592bd697c7b19688688408bf079d0aac02cb7b1ba041804c123b4eb2",
+    "config/corpus-lock.json": "c0c3c93201b79ce616a32fb8498065a5d583d60bea55c956a4644b32bb51d5f3",
+    "exam/Nimbus Wireless — Billing Dispute & Refund Policy.md": "41377f0f1423af08ad122a93cdb70ef4598178b694aff3d8fda8e0f81dc937fe",
+    "exam/NimbusCare Knowledge Base — Billing & Credits Excerpt.md": "2ea07c5b634b1777943f4353593242031b7f9677d7607c617ddbbf132a9aa814"
+  }
+}

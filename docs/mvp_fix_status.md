@@ -1,6 +1,6 @@
 # MVP extraction and evidence repair
 
-Status: READY — workflow-v8. Null and blank-field authority fixes verified; 280 local tests and all seven full live replay checks passed. Final core freeze for independent regression; older cohorts diagnostic only.
+Status: CLOSED FOR HANDOFF — workflow-v11 locally verified (388 tests); v10 live replay failed on turn4. v11 live/fresh acceptance and new policy comparisons remain unrun at user-requested closeout. See closeout.md.
 
 ## Root causes
 

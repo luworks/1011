@@ -10,6 +10,11 @@ class FakeProvider:
         self.payloads.append(payload)
         if schema.__name__ == 'LineItemCheck':
             return schema.model_validate({'value':None,'quote':None})
+        if schema.__name__ == 'ScopeReview':
+            return schema.model_validate({'questions': [dict(
+                intent=intent, clause_quote=payload['current_message'],
+                action_quote=payload['current_message'], classification='explicit')
+                for intent in payload['proposed_intents']]})
         response=next(self.responses)
         if isinstance(response,Exception):raise response
         if schema.__name__ == 'LiveUnderstanding' and 'field_review' not in response:

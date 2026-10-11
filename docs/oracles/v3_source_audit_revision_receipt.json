@@ -1,0 +1,25 @@
+{
+  "status": "pre-run source-only revision",
+  "created_at_utc": "2026-10-11T20:08:02.904279+00:00",
+  "reviewed_registers": [
+    "docs/policy_versions/20261011T192840174385Z-clarified/OPEN_DECISIONS.md",
+    "docs/policy_versions/20261011T192840174385Z-clarified/CHANGES.md"
+  ],
+  "authority": "Original locked policy and KB remain authoritative; registers identify issues, not new business rules. No engine implementation or outputs consulted.",
+  "changes": [
+    {
+      "file": "fixtures/workflow_repair_regression_v1.json",
+      "before_sha256": "0750af26c4103d359878a0e0d01dda78151713661713a23cbe967d39956884e9",
+      "after_sha256": "8d021e7042c25de5761491b0290d7e6a3463466b80af8eb64121a770bf9f951a",
+      "archive": "docs/oracles/archive/v3-pre-source-audit/workflow_repair_regression_v1.json",
+      "reason": "OD-05: preserve six-hour outage coverage but withdraw unique zero-credit execution gold; full-day handling/minimum compensation is unspecified. Require no definite amount; do not invent a mandatory human destination or unique action status."
+    },
+    {
+      "file": "fixtures/acceptance_v3.json",
+      "before_sha256": "92964a4029f28a5b54598907ef697f93ada16fc7c9a0818aa692a89349885e5b",
+      "after_sha256": "11a95c1cf7d17438ad9d16b0d023bd8e7f3daf9ed6e4b5d24821b72bcb911429",
+      "archive": "docs/oracles/archive/v3-pre-source-audit/acceptance_v3.json",
+      "reason": "OD-05: replace non-midnight start/end timestamps with midnight for full-day calculation cases. Integral day span and requested coverage stay unchanged; avoid accidentally testing an unapproved calendar-day convention in unrelated intent/authority cases."
+    }
+  ]
+}

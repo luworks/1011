@@ -1,0 +1,34 @@
+{
+  "file": "fixtures/workflow_repair_regression_v1.json",
+  "file_sha256": "8d021e7042c25de5761491b0290d7e6a3463466b80af8eb64121a770bf9f951a",
+  "canonical_manifest": {
+    "sha256": "603e2f1621f434b568e0b0d9e2748db76518214d332d36d984458ab3e5c97101",
+    "scenario_count": 14,
+    "ids": [
+      "repair_dev_tax_reference",
+      "repair_dev_mixed_tax_amount",
+      "repair_dev_repeat_requested",
+      "repair_dev_alias_short",
+      "repair_dev_changed_item",
+      "repair_dev_ambiguous_item",
+      "repair_dev_injected_verification",
+      "repair_dev_injected_policy",
+      "repair_dev_unknown_ticket",
+      "repair_dev_fraud_flag",
+      "repair_dev_zero_general",
+      "repair_dev_null_monthly",
+      "repair_dev_short_no_full_day",
+      "repair_dev_only_tax_followup"
+    ],
+    "split_counts": {
+      "dev": 14,
+      "frozen": 0
+    }
+  },
+  "source_files": {
+    "exam/Nimbus Wireless \u2014 Billing Dispute & Refund Policy.md": "2e95cd29f6bf231ddac4f19e72e02b448c28ff7393ae2648b78994df5a09e48d",
+    "exam/NimbusCare Knowledge Base \u2014 Billing & Credits Excerpt.md": "5d05d5d5ab4a77c9a5352ba89e8855731c568f3723eb1d1264c1d03fb460eafd"
+  },
+  "validation": "JSON parsed; unique IDs; AccountContext validated; closed expected keys checked; no engine or API execution",
+  "revision_receipt": "docs/oracles/v3_source_audit_revision_receipt.json"
+}

@@ -1,0 +1,45 @@
+{
+  "rows": [
+    {
+      "label": "原始会话单次回放 v8",
+      "workflow": "workflow-v8",
+      "config_id": "anthropic/claude-haiku-5-5/adaptive/medium",
+      "completed": 6,
+      "planned": 6,
+      "technical_failures": 0,
+      "scope_calls": null,
+      "scope_latency_seconds": null,
+      "scope_cost_usd": null,
+      "total_calls": 13,
+      "turn_p50_seconds": 8.782990875071846,
+      "turn_p95_seconds": 18.377781416056678,
+      "reported_cost_usd": 0.011434
+    },
+    {
+      "label": "原始会话单次回放 v10",
+      "workflow": "workflow-v10",
+      "config_id": "anthropic/claude-haiku-5-5/adaptive/medium",
+      "completed": 6,
+      "planned": 6,
+      "technical_failures": 1,
+      "scope_calls": null,
+      "scope_latency_seconds": null,
+      "scope_cost_usd": null,
+      "total_calls": 18,
+      "turn_p50_seconds": 11.426905291038565,
+      "turn_p95_seconds": 22.181356374989264,
+      "reported_cost_usd": 0.0119011
+    }
+  ],
+  "source": {
+    "label": "Single original-conversation replay snapshots, not causal stage attribution",
+    "files": [
+      "runs/mvp-live-demo-haiku-medium-v8/manifest.json",
+      "runs/mvp-live-demo-haiku-medium-v10/manifest.json"
+    ],
+    "caveats": [
+      "Scope-specific costs/latency unmeasured because historical calls lack stage attribution.",
+      "Six turns in one conversation are not six independent acceptance scenarios."
+    ]
+  }
+}

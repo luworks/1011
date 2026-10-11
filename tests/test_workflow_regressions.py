@@ -12,6 +12,8 @@ class ScriptedProvider:
 
     def generate(self, schema, system, payload):
         self.payloads.append(payload)
+        if schema.__name__ == 'ScopeReview':
+            return schema.model_validate({'questions': [dict(intent=i, clause_quote=payload['current_message'], action_quote=payload['current_message'], classification='explicit') for i in payload['proposed_intents']]})
         if schema.__name__ == 'LineItemCheck':
             return schema.model_validate({'value':None,'quote':None})
         response = next(self.responses)
@@ -66,10 +68,11 @@ def test_two_distinct_reported_items_do_not_silently_replace_one_another():
         fact('line_item', 'activation charge', 'activation charge')]))
     assert result['error'] is None
     assert result['context']['line_item'] == 'subscription'
-    assert [f['status'] for f in result['facts']] == ['reported', 'conflicting']
+    assert [f['status'] for f in result['facts']] == ['reported', 'reported']
+    assert result['facts'][-1]['reference_only'] is True
     assert result['decisions'][0]['answer_status'] == 'needs_information'
     assert result['decisions'][0]['action_status'] == 'pending_verification'
-    assert 'line_item' in result['decisions'][0]['missing']
+    assert 'line_item_reference_resolution' in result['decisions'][0]['missing']
 
 
 def test_legitimate_mixed_request_preserves_both_answers_and_deduplicates_only_same_intent():
@@ -157,7 +160,7 @@ def test_live_extraction_contract_failure_stops_policy_output(invalid_kind):
     assert result['error'] == 'ValueError'
     assert result['decisions'] == []
     assert result['candidate'] is None
-    assert provider.calls == 1
+    assert provider.calls == 2
     assert 'technical issue' in result['reply']
 
 
@@ -189,6 +192,8 @@ class CompletionProvider:
                 'field_review': [{'field': f, 'presence': 'not_stated'} for f in FACT_FIELDS],
                 'requested_answers': [{'intent': 'general_credit', 'quote': self.message,
                                        'requested_outcome': 'Review the disputed charge'}]})
+        if schema.__name__ == 'ScopeReview':
+            return schema.model_validate({'questions': [dict(intent=i, clause_quote=payload['current_message'], action_quote=payload['current_message'], classification='explicit') for i in payload['proposed_intents']]})
         if schema.__name__ == 'LineItemCheck':
             assert self.completion is not None, 'Unexpected completion request'
             assert payload == {'customer_message': self.message}
@@ -204,7 +209,7 @@ def test_missing_item_completion_preserves_arbitrary_charge_label_without_verifi
     flow = Workflow(Corpus(), provider)
     result = flow.turn(text)
     assert result['error'] is None
-    assert provider.calls == ['LiveUnderstanding', 'LineItemCheck', 'EvidenceBoundCandidate']
+    assert provider.calls == ['LiveUnderstanding', 'LineItemCheck', 'ScopeReview', 'EvidenceBoundCandidate']
     assert result['context']['line_item'] == item
     assert result['extraction_completion'] == {'value': item, 'quote': text}
     assert result['facts'][-1]['status'] == 'reported'
@@ -243,7 +248,7 @@ def test_existing_item_does_not_trigger_additional_completion_request():
     provider = CompletionProvider(text)
     result = Workflow(Corpus(), provider, context={'line_item': 'activation charge'}).turn(text)
     assert result['error'] is None
-    assert provider.calls == ['LiveUnderstanding', 'EvidenceBoundCandidate']
+    assert provider.calls == ['LiveUnderstanding', 'ScopeReview', 'EvidenceBoundCandidate']
     assert result['extraction_completion'] is None
     assert result['context']['line_item'] == 'activation charge'
 

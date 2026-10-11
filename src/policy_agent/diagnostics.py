@@ -4,7 +4,8 @@ from typing import Literal
 from pydantic import BaseModel, ConfigDict
 
 ContractCode = Literal['incomplete_field_review', 'field_fact_mismatch',
-                       'request_intent_mismatch', 'request_source_support_missing']
+                       'request_intent_mismatch', 'request_source_support_missing',
+                       'scope_intent_mismatch', 'scope_source_support_missing', 'scope_action_support_missing']
 
 
 class UnderstandingContractError(ValueError):
@@ -43,3 +44,32 @@ def contract_diagnostic(value, message, current_source_index, fields, code):
             'outcome_present': bool(r.requested_outcome.strip()),
         } for r in value.requested_answers],
     }).model_dump()
+
+
+REPAIR_INSTRUCTIONS = {
+    'incomplete_field_review': 'Return exactly one field_review entry for every allowed fact field, with no duplicate or omitted fields.',
+    'field_fact_mismatch': 'Make each field_review presence agree with facts: stated requires a fact for that field; not_stated requires no fact. Use only facts actually stated in the same input.',
+    'request_intent_mismatch': 'Return one requested_answers entry for each listed intent, with matching intents and no extra entries.',
+    'request_source_support_missing': 'Use a nonempty literal quote from the current message for each requested answer, and a nonempty requested_outcome. Do not quote previous messages or paraphrase a quote.',
+    'scope_intent_mismatch': 'Return exactly one scope question for each distinct proposed_intent, with no extra or duplicate intents.',
+    'scope_source_support_missing': 'Set each clause_quote to a nonempty, verbatim relevant clause from current_message. Do not paraphrase or quote previous messages.',
+    'scope_action_support_missing': 'action_quote is optional, including for explicit questions: use null when no literal action fragment is needed. Otherwise copy a nonempty verbatim fragment from current_message, never a paraphrase; it need not be inside clause_quote.',
+}
+
+
+def repair_feedback(code: ContractCode) -> dict:
+    """Only reviewed constant instructions; no model output or exception text."""
+    return {'code': code, 'instruction': REPAIR_INSTRUCTIONS[code]}
+
+
+def scope_diagnostic(value, message, code):
+    return {'stage': 'scope_contract', 'code': code, 'rejected_structure': {
+        'questions': [{
+            'intent': q.intent,
+            'classification': q.classification,
+            'clause_present': bool(q.clause_quote.strip()),
+            'clause_in_current_message': bool(q.clause_quote.strip()) and q.clause_quote in message,
+            'action_is_null': q.action_quote is None,
+            'action_in_current_message': q.action_quote is not None and bool(q.action_quote.strip()) and q.action_quote in message,
+        } for q in value.questions],
+    }}

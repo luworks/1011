@@ -1,5 +1,7 @@
 # Policy-Grounded Agent Prototype
 
+> **Closeout status:** workflow-v11 is locally verified; its live replay and fresh V3 acceptance are unrun. The v10 live replay failed on turn 4. Haiku adaptive/medium is a development default, not an acceptance winner. No new model tests are running. See [Claude handoff](docs/CLAUDE_HANDOFF.md) and [closeout](docs/closeout.md).
+
 A runnable CLI for Nimbus Wireless billing questions. It separates language-model understanding from a reviewed, deterministic policy decision gate. It exposes the retrieved source text, governing policies, candidate decisions, final decisions, and missing verification for each customer turn.
 
 ## Quick start
@@ -36,6 +38,17 @@ Terminal output displays governing IDs, source paths and line references, missin
 For the outage in the supplied conversation, Rule 3 yields `$225 / 30 × 11 = $82.50`. The monthly amount already covers three lines. The general Rule 2 `$75` ceiling does not apply, but Rules 4 and 5 still govern escalation and authority. Missing fraud/dispute-history checks prevent an automatic credit even when an amount can be calculated. The 30-calendar-day outage-request window is distinct from the 60-day statement-dispute window.
 
 KB-1004 supports the credit calculation base. It does **not** establish whether taxes or regulatory fees are adjusted afterward. The final response states this coverage gap and requests human clarification instead of asserting either a refund or no refund.
+
+## Policy versions and experiment budget
+
+Policy-pair snapshots and matched version experiments are documented in
+[docs/policy_versions/README.md](docs/policy_versions/README.md). Use
+`--policy-version` for an explicit snapshot or `compare-policies` for an exact
+model/configuration comparison. Versioned evaluation excludes reviewed open
+business decisions from unique-answer scoring and separately checks evidence
+boundaries. The latest user authorization raises the **same cumulative ledger
+cap to US$70** for these experiments; pass `--max-cost-usd 70` explicitly.
+This is the overall shared ceiling, not a per-task allowance. The model-selection branch uses a US$40 process stopping line against that same shared ledger; this is not a new or per-process budget. All owners use the same absolute `runs/budget.json` ledger and include prior spend/reservations.
 
 ## Architecture and boundaries
 

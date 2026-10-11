@@ -1,13 +1,15 @@
 # Nimbus policy pair 版本管理
 
-两份文档作为一个版本发布，避免测试时混用不同轮次的 Policy 和 KB。原始 `exam/` 文件仍保留，当前默认 corpus lock 和 agent 行为未切换。
+两份文档作为一个版本发布，避免测试时混用不同轮次的 Policy 和 KB。原始 `exam/` 文件仍保留，当前默认 corpus lock 未切换；最新版 workflow 另加入通用场景证据边界门控，各 policy 版本都受同一门控约束。
 
 | 版本 | 状态 | 说明 |
 |---|---|---|
 | [20261011T192840169969Z-original](20261011T192840169969Z-original/manifest.json) | original | 两份原文逐字节归档；原文基线，不代表已经消除了原文冲突 |
 | [20261011T192840174385Z-clarified](20261011T192840174385Z-clarified/manifest.json) | editorial-draft | 修正明确冲突/遗漏，标出业务待决，尚未作为生产政策批准 |
 
-两份快照创建于 2026-10-11 12:28:40 PDT（UTC 19:28:40）；精确微秒见版本 ID 和 manifest。时间戳表示编辑快照创建时间，不替代原文生效日期。`Version 6.2` 和原 KB 更新时间是上游原始元数据；本地修订身份以快照 version ID 为准。
+| [20261011T200142302410Z-scenario](20261011T200142302410Z-scenario/manifest.json) | editorial-draft | 保留冲突修正，将待决说明改为场景触发；所有 OD 仍 OPEN |
+
+最初两份快照创建于 2026-10-11 12:28:40 PDT（UTC 19:28:40）；精确微秒见版本 ID 和 manifest。时间戳表示编辑快照创建时间，不替代原文生效日期。`Version 6.2` 和原 KB 更新时间是上游原始元数据；本地修订身份以快照 version ID 为准。
 
 优化版：[Billing Policy](20261011T192840174385Z-clarified/exam/Nimbus%20Wireless%20%E2%80%94%20Billing%20Dispute%20%26%20Refund%20Policy.md)、[Knowledge Base](20261011T192840174385Z-clarified/exam/NimbusCare%20Knowledge%20Base%20%E2%80%94%20Billing%20%26%20Credits%20Excerpt.md)。
 
@@ -97,3 +99,11 @@ CLI 已接入版本选择：`doctor`、`replay`、`chat`、`evaluate` 支持 `--
 默认 `fixtures/policy-comparison-oracle.json` 现为 schema v2，与 `policy-comparison-oracle-v2.json` 一致；v1 原样保存在 `policy-comparison-oracle-v1.json`。v2 在相同 OD-09 规则下，对两版都移除了“必须引用 KB-1004 才正确”的唯一来源断言：优化版 Rule 3/KB-1003 也明确说明证据缺口。仍检查税费 intent、引用忠实度和无依据结论，不添加税费规则。
 
 已启动的冻结实验保持各自冻结的 v1；原分数不覆盖。可使用 `scripts/report_policy_comparison.py --oracle-overlay fixtures/policy-comparison-oracle-v2.json` 在同一冻结 evaluator 上离线审计重算全部已保存输出，并同时保留原始严格计数。报告会明确记录两个 oracle 版本及审计范围。
+
+## 固定模型爬山优化（当前用户指令）
+
+后续使用 `anthropic/claude-haiku-5-5/adaptive/medium`，保持同一配置、40 个案例、每例 3 次、同一冻结 workflow/prompt/oracle。保留原文与每个历史优化快照和结果。每轮先作小范围有理由的文字修改；比较 raw 判断的明确业务断言、证据边界和引用，以及 final 输出。门控修复另记录，并让配对双方采用同一门控，避免把门控改善算成 policy 正文收益。
+
+候选出现明确业务、安全边界或工作流回归时，先分析具体失败；不根据一个总分自动提升。待决项不以某个业务选项作 gold。没有稳定改善则保留上一版，不用剩余预算作为必须继续改文档的理由。所有这些案例已用于优化，收益只能称开发集收益；正式推广仍需独立验收。共享累计预算上限仍为 $70，沿用同一账本。
+
+本轮草案两份文档及逐处原因见 [scenario CHANGES](20261011T200142302410Z-scenario/CHANGES.md)，与 clarified 差异见 [clarified-to-scenario.diff](clarified-to-scenario.diff)。新一轮结果单独归档，不覆盖 v5 历史报告。
