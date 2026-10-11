@@ -1,0 +1,174 @@
+
+Running 3 tests using 1 worker
+
+  ✘  1 tests/e2e/visual.spec.ts:29:7 › [VISUAL-001] Files initial list at 1280x900 (969ms)
+  ✘  2 tests/e2e/visual.spec.ts:29:7 › [VISUAL-001] Files initial list at 390x900 (837ms)
+  ✘  3 tests/e2e/visual.spec.ts:43:5 › [VISUAL-001] Connectors connected empty state at 1280x900 (2.5s)
+
+
+  1) tests/e2e/visual.spec.ts:29:7 › [VISUAL-001] Files initial list at 1280x900 ───────────────────
+
+    Error: expect(page).toHaveScreenshot(expected) failed
+
+      11352 pixels (ratio 0.01 of all image pixels) are different.
+
+      Snapshot: darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900.png
+
+    Call log:
+      - Expect "toHaveScreenshot(darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 11352 pixels (ratio 0.01 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 11352 pixels (ratio 0.01 of all image pixels) are different.
+
+
+      34 |     await expect(page.getByRole('button', { name: 'List view', exact: true })).toHaveAttribute('aria-pressed', 'true');
+      35 |     await page.evaluate(() => document.fonts.ready);
+    > 36 |     await expect(page).toHaveScreenshot([environment!, `files-list-${width}x900.png`], {
+         |                        ^
+      37 |       animations: 'disabled', caret: 'hide', fullPage: true, scale: 'css',
+      38 |       maxDiffPixels: 0, threshold: 0.2,
+      39 |     });
+        at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/visual.spec.ts:36:24
+
+    attachment #1: darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900 (image/png) ──────
+    Expected: tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-darwin.png
+    Received: test-results/visual/visual--VISUAL-001-Files-initial-list-at-1280x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-actual.png
+    Diff:     test-results/visual/visual--VISUAL-001-Files-initial-list-at-1280x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-diff.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual/visual--VISUAL-001-Files-initial-list-at-1280x900/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual/visual--VISUAL-001-Files-initial-list-at-1280x900/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/visual/visual--VISUAL-001-Files-initial-list-at-1280x900/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/visual/visual--VISUAL-001-Files-initial-list-at-1280x900/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests/e2e/visual.spec.ts:29:7 › [VISUAL-001] Files initial list at 390x900 ────────────────────
+
+    Error: expect(page).toHaveScreenshot(expected) failed
+
+      11488 pixels (ratio 0.04 of all image pixels) are different.
+
+      Snapshot: darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900.png
+
+    Call log:
+      - Expect "toHaveScreenshot(darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 11488 pixels (ratio 0.04 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 11488 pixels (ratio 0.04 of all image pixels) are different.
+
+
+      34 |     await expect(page.getByRole('button', { name: 'List view', exact: true })).toHaveAttribute('aria-pressed', 'true');
+      35 |     await page.evaluate(() => document.fonts.ready);
+    > 36 |     await expect(page).toHaveScreenshot([environment!, `files-list-${width}x900.png`], {
+         |                        ^
+      37 |       animations: 'disabled', caret: 'hide', fullPage: true, scale: 'css',
+      38 |       maxDiffPixels: 0, threshold: 0.2,
+      39 |     });
+        at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/visual.spec.ts:36:24
+
+    attachment #1: darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900 (image/png) ───────
+    Expected: tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-darwin.png
+    Received: test-results/visual/visual--VISUAL-001-Files-initial-list-at-390x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-actual.png
+    Diff:     test-results/visual/visual--VISUAL-001-Files-initial-list-at-390x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-diff.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual/visual--VISUAL-001-Files-initial-list-at-390x900/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual/visual--VISUAL-001-Files-initial-list-at-390x900/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/visual/visual--VISUAL-001-Files-initial-list-at-390x900/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/visual/visual--VISUAL-001-Files-initial-list-at-390x900/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) tests/e2e/visual.spec.ts:43:5 › [VISUAL-001] Connectors connected empty state at 1280x900 ─────
+
+    Error: expect(page).toHaveScreenshot(expected) failed
+
+      11709 pixels (ratio 0.02 of all image pixels) are different.
+
+      Snapshot: darwin-arm64-25.6.0-chromium-154.0.8037.98/connectors-connected-empty-1280x900.png
+
+    Call log:
+      - Expect "toHaveScreenshot(darwin-arm64-25.6.0-chromium-154.0.8037.98/connectors-connected-empty-1280x900.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 11709 pixels (ratio 0.02 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 11709 pixels (ratio 0.02 of all image pixels) are different.
+
+
+      47 |   await expect(page.getByRole('button', { name: 'Browse connectable services', exact: true })).toBeVisible();
+      48 |   await page.evaluate(() => document.fonts.ready);
+    > 49 |   await expect(page).toHaveScreenshot([environment!, 'connectors-connected-empty-1280x900.png'], {
+         |                      ^
+      50 |     animations: 'disabled', caret: 'hide', fullPage: true, scale: 'css',
+      51 |     maxDiffPixels: 0, threshold: 0.2,
+      52 |   });
+        at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/visual.spec.ts:49:22
+
+    attachment #1: darwin-arm64-25.6.0-chromium-154.0.8037.98/connectors-connected-empty-1280x900 (image/png) 
+    Expected: tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/connectors-connected-empty-1280x900-darwin.png
+    Received: test-results/visual/visual--VISUAL-001-Connect-b54e9-ted-empty-state-at-1280x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/connectors-connected-empty-1280x900-actual.png
+    Diff:     test-results/visual/visual--VISUAL-001-Connect-b54e9-ted-empty-state-at-1280x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/connectors-connected-empty-1280x900-diff.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual/visual--VISUAL-001-Connect-b54e9-ted-empty-state-at-1280x900/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual/visual--VISUAL-001-Connect-b54e9-ted-empty-state-at-1280x900/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/visual/visual--VISUAL-001-Connect-b54e9-ted-empty-state-at-1280x900/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/visual/visual--VISUAL-001-Connect-b54e9-ted-empty-state-at-1280x900/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    tests/e2e/visual.spec.ts:29:7 › [VISUAL-001] Files initial list at 1280x900 ────────────────────
+    tests/e2e/visual.spec.ts:29:7 › [VISUAL-001] Files initial list at 390x900 ─────────────────────
+    tests/e2e/visual.spec.ts:43:5 › [VISUAL-001] Connectors connected empty state at 1280x900 ──────

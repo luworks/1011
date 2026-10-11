@@ -59,7 +59,7 @@
       "source": "Observed mismatch between available and connectable tab names",
       "check": "tests/e2e/design.spec.ts",
       "scope": "Connector recovery guidance, actual tab accessible name and destination",
-      "limitations": "Checks a canonical Chinese destination contract; translations and renamed copy require reviewed test changes."
+      "limitations": "Checks a canonical English destination contract (\"Connectable\", obsolete synonym \"Available\"); further translations and renamed copy require reviewed test changes."
     },
     {
       "id": "RESP-001",

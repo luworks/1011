@@ -7,10 +7,10 @@ test.beforeEach(async ({ browser }, testInfo) => {
 });
 
 const routes = [
-  { path: '/files', heading: '文件' },
-  { path: '/connectors', heading: '连接器' },
-  { path: '/agents', heading: '智能体' },
-  { path: '/guidelines', heading: '设计规范' },
+  { path: '/files', heading: 'Files' },
+  { path: '/connectors', heading: 'Connectors' },
+  { path: '/agents', heading: 'Agents' },
+  { path: '/guidelines', heading: 'Design guidelines' },
 ];
 
 for (const width of [1280, 390]) {
@@ -75,35 +75,35 @@ for (const width of [1280, 390]) {
 
 test('[STATE-001] connector empty state action reaches available services', async ({ page }) => {
   await page.goto('/connectors');
-  await page.getByRole('tab', { name: /^已连接(?: \(\d+\))?$/ }).click();
-  const recovery = page.getByRole('button', { name: '浏览可连接服务', exact: true });
+  await page.getByRole('tab', { name: /^Connected(?: \(\d+\))?$/ }).click();
+  const recovery = page.getByRole('button', { name: 'Browse connectable services', exact: true });
   await expect(recovery).toBeVisible();
   await recovery.click();
-  await expect(page.getByRole('tab', { name: '可连接', exact: true })).toHaveAttribute('aria-selected', 'true');
-  await expect(page.getByRole('button', { name: /连接/ }).first()).toBeVisible();
+  await expect(page.getByRole('tab', { name: 'Connectable', exact: true })).toHaveAttribute('aria-selected', 'true');
+  await expect(page.getByRole('button', { name: /^Simulate connection / }).first()).toBeVisible();
   await expect(recovery).toHaveCount(0);
 });
 
 test('[NAV-001] empty-state destination copy matches actual available tab', async ({ page }) => {
   await page.goto('/connectors');
-  const destination = page.getByRole('tab', { name: '可连接', exact: true });
+  const destination = page.getByRole('tab', { name: 'Connectable', exact: true });
   await expect(destination).toBeVisible();
-  await page.getByRole('tab', { name: /^已连接(?: \(\d+\))?$/ }).click();
+  await page.getByRole('tab', { name: /^Connected(?: \(\d+\))?$/ }).click();
   // The guidance must name the destination itself, not an obsolete synonym.
-  await expect(page.getByRole('main')).toContainText('可连接');
+  await expect(page.getByRole('main')).toContainText('Connectable');
   const guidance = page.getByTestId('empty-state-description');
-  await expect(guidance).toContainText('可连接');
-  await expect(guidance).not.toContainText('可用');
-  await page.getByRole('button', { name: '浏览可连接服务', exact: true }).click();
+  await expect(guidance).toContainText('Connectable');
+  await expect(guidance).not.toContainText('Available');
+  await page.getByRole('button', { name: 'Browse connectable services', exact: true }).click();
   await expect(destination).toHaveAttribute('aria-selected', 'true');
 });
 
 test('[STATE-001] file search no-results action restores actual entries', async ({ page }) => {
   await page.goto('/files');
-  const search = page.getByRole('searchbox', { name: '搜索文件和文件夹' });
+  const search = page.getByRole('searchbox', { name: 'Search files and folders' });
   await search.fill('no-file-matches-928371');
   await expect(page.getByTestId('file-item')).toHaveCount(0);
-  await page.getByTestId('empty-state-description').locator('..').getByRole('button', { name: '清除搜索', exact: true }).click();
+  await page.getByTestId('empty-state-description').locator('..').getByRole('button', { name: 'Clear search', exact: true }).click();
   await expect(search).toHaveValue('');
   await expect(page.getByTestId('file-item').first()).toBeVisible();
 });
@@ -111,7 +111,7 @@ test('[STATE-001] file search no-results action restores actual entries', async 
 test('[RESP-001] file list preserves field labels and fits 390px viewport', async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 390, height: 900 });
   await page.goto('/files');
-  await page.getByRole('button', { name: '列表视图', exact: true }).click();
+  await page.getByRole('button', { name: 'List view', exact: true }).click();
   await expect(page.getByTestId('desktop-file-header')).toBeHidden();
   const items = page.getByTestId('file-item');
   expect(await items.count()).toBeGreaterThan(0);
@@ -154,8 +154,8 @@ for(const width of [320,800]) {
   test(`[RESP-001] file list has no horizontal overflow at ${width}px`, async ({ page }, testInfo) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/files');
-    await expect(page.getByRole('heading', { level: 1, name: '文件', exact: true })).toBeVisible();
-    await page.getByRole('button', { name: '列表视图', exact: true }).click();
+    await expect(page.getByRole('heading', { level: 1, name: 'Files', exact: true })).toBeVisible();
+    await page.getByRole('button', { name: 'List view', exact: true }).click();
     await expect(page.getByTestId('desktop-file-header')).toBeHidden();
     for(const label of await page.getByTestId('file-meta-label').all()) await expect(label).toBeVisible();
     const dimensions=await page.evaluate(()=>({document:document.documentElement.scrollWidth,viewport:window.innerWidth}));

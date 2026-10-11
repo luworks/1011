@@ -260,7 +260,7 @@ Detailed immutable reports, command logs and history are indexed in [validation-
 | Checker unit tests | 13 passing (v1 suite: 8) | Checker tests, not product screens |
 | Original browser suite | 22/22 on local production build | Chrome 154.0.8037.98, macOS; semantic, recovery and layout assertions |
 | Axe suite | 16/16 after real table/pre and group-role fixes | Earlier scan rounds retained; incomplete findings reviewed with stated limits |
-| Enhanced browser scope | 38 cases = 22 original + 16 axe | Not 38 independent product states |
+| Enhanced browser scope | 54 cases = 22 original + 16 CMP + 16 axe; latest English-UI run 54/54, visual 3/3 after a reviewed deliberate copy change ([logs](research/validation/round3-english/e2e.log)) | Not 54 independent product states |
 | CMP-001 / CMP-002 | 8/8 + 8/8 within a 38/38 run ([log](research/validation/round2-cmp/e2e-design.log)); CMP-002 negative control 2/2 detected | No CMP-001 negative control yet |
 | State inventory | 31 entries: 22 implemented, 9 not | Coverage plan, not a test count |
 | Visual gate | 3 snapshots; macOS baseline reviewed | Linux has no approved baseline and fails closed until reviewed |

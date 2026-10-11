@@ -7,7 +7,7 @@ import { arch, platform, release } from 'node:os';
 const environment = process.env.VISUAL_ENV;
 
 test.use({
-  locale: 'zh-CN',
+  locale: 'en-US',
   timezoneId: 'America/Los_Angeles',
   colorScheme: 'light',
   reducedMotion: 'reduce',
@@ -29,9 +29,9 @@ for (const width of [1280, 390]) {
   test(`[VISUAL-001] Files initial list at ${width}x900`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/files');
-    await expect(page.getByRole('heading', { level: 1, name: '文件', exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'Files', exact: true })).toBeVisible();
     await expect(page.getByTestId('file-item')).toHaveCount(4);
-    await expect(page.getByRole('button', { name: '列表视图', exact: true })).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.getByRole('button', { name: 'List view', exact: true })).toHaveAttribute('aria-pressed', 'true');
     await page.evaluate(() => document.fonts.ready);
     await expect(page).toHaveScreenshot([environment!, `files-list-${width}x900.png`], {
       animations: 'disabled', caret: 'hide', fullPage: true, scale: 'css',
@@ -43,8 +43,8 @@ for (const width of [1280, 390]) {
 test('[VISUAL-001] Connectors connected empty state at 1280x900', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto('/connectors');
-  await page.getByRole('tab', { name: /^已连接(?: \(\d+\))?$/ }).click();
-  await expect(page.getByRole('button', { name: '浏览可连接服务', exact: true })).toBeVisible();
+  await page.getByRole('tab', { name: /^Connected(?: \(\d+\))?$/ }).click();
+  await expect(page.getByRole('button', { name: 'Browse connectable services', exact: true })).toBeVisible();
   await page.evaluate(() => document.fonts.ready);
   await expect(page).toHaveScreenshot([environment!, 'connectors-connected-empty-1280x900.png'], {
     animations: 'disabled', caret: 'hide', fullPage: true, scale: 'css',

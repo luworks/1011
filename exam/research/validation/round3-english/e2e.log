@@ -59,3 +59,5 @@ Running 54 tests using 1 worker
   ✓  52 tests/e2e/design.spec.ts:111:5 › [RESP-001] file list preserves field labels and fits 390px viewport (570ms)
   ✓  53 tests/e2e/design.spec.ts:154:7 › [RESP-001] file list has no horizontal overflow at 320px (367ms)
   ✓  54 tests/e2e/design.spec.ts:154:7 › [RESP-001] file list has no horizontal overflow at 800px (342ms)
+
+  54 passed (37.8s)

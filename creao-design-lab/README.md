@@ -1,29 +1,29 @@
 # CREAO Design Lab
 
-一个将产品设计规范接入工程检查的本地 Next.js 实验。原型依据 CREAO 公开 Widgets 文档、已观察的产品页面与样式变量构建；使用合成数据，不连接真实业务系统，不冒充 CREAO 私有代码。
+A local Next.js experiment that wires product design guidelines into engineering checks. The prototype is built from CREAO's public Widgets documentation, observed product pages and style variables; it uses synthetic data, connects to no real business system, and does not impersonate CREAO private code.
 
-## 阅读顺序
+## Reading order
 
-1. [实施计划](../exam/implementation-plan.zh-CN.md)：目标、并行分工、验收与边界。
-2. [design.md](design.md)：页面模式、CSS 索引、规则和来源。
-3. [AGENTS.md](AGENTS.md)：编程智能体的工作契约。
-4. [规则注册表](governance/rules.json)：检查范围、入口与局限。
-5. [独立工程师实验协议](experiments/engineer-protocol.md)：与预设 mutation 分开的行为实验。
+1. [Implementation plan](../exam/process/implementation-plan.md): goals, parallel work split, acceptance and boundaries.
+2. [design.md](design.md): page patterns, CSS index, rules and sources.
+3. [AGENTS.md](AGENTS.md): working contract for coding agents.
+4. [Rule registry](governance/rules.json): check scope, entry points and limitations.
+5. [Independent engineer experiment protocol](experiments/engineer-protocol.md): behavioral experiment kept separate from the preset mutations.
 
-## 运行
+## Running
 
-环境：Node.js 24、npm。依赖使用 `package-lock.json` 固定。首次运行：
+Environment: Node.js 24, npm. Dependencies are pinned by `package-lock.json`. First run:
 
 ```bash
 npm ci
 npm run dev
 ```
 
-浏览器打开 `http://localhost:3100`。页面包含 `/files`、`/connectors`、`/agents` 与 `/guidelines`。原型状态仅用于本地演示；刷新是否保留以实现说明为准。规范页提供阅读入口，实际约束由同版本的 CSS、组件和检查代码实现。
+Open `http://localhost:3100` in a browser. The app contains `/files`, `/connectors`, `/agents` and `/guidelines`. Prototype state is for local demonstration only; whether it survives a refresh depends on the implementation notes. The guidelines page is a reading entry point; the actual constraints are implemented by the CSS, components and check code of the same version.
 
-## 验证接口
+## Verification interface
 
-以 `package.json` 的实际脚本为准：
+The scripts in `package.json` are authoritative:
 
 ```bash
 npm run typecheck
@@ -36,40 +36,40 @@ PW_SERVER_COMMAND="npm run start -- --hostname 127.0.0.1 --port 3100" npm run te
 npm run test:mutations
 ```
 
-静态设计检查验证受治理源码与 CSS。浏览器检查验证实际 DOM、交互和布局。Mutation 在临时副本改动真实实现后调用原有检查器；不会修改共享基线。结果中的 `killed` 必须是目标规则命中，编译失败、超时和执行基础设施错误分开统计。正例用于测量误报。实际命令、首次失败、复验与分母见 [验证结果](../exam/validation-results.zh-CN.md)。固定设计 mutation、新增 axe/视觉负例、独立工程师实验分开统计。
+Static design checks validate governed source and CSS. Browser checks validate the actual DOM, interactions and layout. Mutations change the real implementation in a temporary copy and then run the existing checkers; they never modify the shared baseline. A `killed` result must be a hit on the target rule; compile failures, timeouts and execution-infrastructure errors are counted separately. Positive cases measure false positives. Actual commands, first failures, reruns and denominators are in [Validation results](../exam/validation/validation-results.md). Fixed design mutations, the added axe/visual negative cases and the independent engineer experiment are counted separately.
 
-## CI 与发布边界
+## CI and release boundary
 
-[GitHub Actions workflow](../.github/workflows/creao-design.yml) 使用相同命令，先运行基线门禁，再执行 mutation，最后准备候选资料。它目前只是本地配置文件；没有因为创建此文件就启用远端保护或发生部署。
+The [GitHub Actions workflow](../.github/workflows/creao-design.yml) uses the same commands: it runs the baseline gate first, then mutations, and finally prepares the candidate package. It is currently only a local configuration file; creating it did not enable any remote protection or deployment.
 
-真实接入需要仓库管理员完成：
+A real integration needs a repository administrator to:
 
-- 将基线门禁与 mutation job 设为受保护分支的必需检查，并明确它们的可信工作流来源。
-- 为规范、tokens、组件底座、规则、测试和 workflow 指定真实 CODEOWNERS，要求审批，限制自批准和直接绕过。
-- 将发布绑定到通过检查的同一提交/构建产物；部署后执行受影响页面的 smoke check。
-- 保护证据与基准更新流程。视觉快照不能由作者无解释地整体更新；例外需要范围、责任人和有效期。
+- Make the baseline gate and mutation job required checks on protected branches, with an explicit trusted workflow source.
+- Assign real CODEOWNERS to the guidelines, tokens, component primitives, rules, tests and workflow; require approvals and restrict self-approval and direct bypass.
+- Bind releases to the same commit/build artifact that passed the checks; run a smoke check on affected pages after deployment.
+- Protect the evidence and baseline-update process. Visual snapshots must not be bulk-updated by the author without explanation; exceptions need a scope, an owner and an expiry date.
 
-这些是仓库设置和权限问题，无法仅靠 `AGENTS.md`、一份 YAML 或项目内可编辑的 hash 文件保证。此实验不替用户配置远端权限或部署。
+These are repository settings and permission questions that cannot be guaranteed by `AGENTS.md`, a YAML file, or a hash file editable inside the project. This experiment does not configure remote permissions or deployments on the user's behalf.
 
-## 如何理解结果
+## How to read the results
 
-一个可执行设计契约有三类结论：
+An executable design contract supports three kinds of conclusions:
 
-| 结论 | 所需证据 |
+| Conclusion | Required evidence |
 | --- | --- |
-| 本次实现遵守已覆盖规则 | 固定候选的静态及浏览器检查通过，人工确认视觉和行为 |
-| 检查器识别某类违规 | 有效基线 + 能编译的实现变异 + 对应规则失败 |
-| 任意工程师无法绕过 | 此实验不能证明；需要权限边界、更广的覆盖与持续治理 |
+| This implementation complies with the covered rules | Static and browser checks pass on a fixed candidate; visuals and behavior confirmed by a human |
+| The checker detects a class of violation | Valid baseline + a compiling implementation mutation + the corresponding rule fails |
+| No engineer can bypass it | Not provable by this experiment; needs permission boundaries, broader coverage and ongoing governance |
 
-文档一致性检查只能确认 ID、路径和格式，不能完全证明自然语言与代码语义等价。静态规则也不能穷尽任意 JavaScript/CSS 写法。浏览器验证只覆盖记录的页面、状态和视口。报告必须保留 survivors、invalid、error、未测项及人工判断。
+Document consistency checks can only confirm IDs, paths and formats; they cannot fully prove that the natural language and the code are semantically equivalent. Static rules also cannot exhaust every possible JavaScript/CSS spelling. Browser verification covers only the recorded pages, states and viewports. Reports must retain survivors, invalid cases, errors, untested items and human judgments.
 
-## 增强门禁与状态目录
+## Enhanced gates and state catalog
 
-- [页面状态目录](governance/page-states.json) 枚举路由、状态、视口、检查和实测证据；不存在的 loading/error/permission 状态明确标注未实现。
-- `npm run test:e2e` 默认运行行为/布局与 axe；`npm run test:a11y` 单独运行 axe。违规与 incomplete（需人工核查）分别记录，不能将无自动违规等同完整 WCAG 合规。
-- `npm run test:visual` 独立比较经审阅截图，默认禁止更新快照。`VISUAL_ENV` 必须等于真实 OS/架构/内核/浏览器版本 namespace。当前受审阅环境是 `darwin-arm64-25.6.0-chromium-154.0.8037.98`，真实字体证据在验收附件中。
+- The [page-state catalog](governance/page-states.json) enumerates routes, states, viewports, checks and measured evidence; loading/error/permission states that do not exist are explicitly marked as not implemented.
+- `npm run test:e2e` runs behavior/layout and axe checks by default; `npm run test:a11y` runs axe on its own. Violations and incomplete results (which need manual review) are recorded separately; zero automated violations is not full WCAG compliance.
+- `npm run test:visual` compares reviewed screenshots independently and forbids snapshot updates by default. `VISUAL_ENV` must equal the real OS/architecture/kernel/browser-version namespace. The currently reviewed environment is `darwin-arm64-25.6.0-chromium-154.0.8037.98`; real font evidence is in the acceptance attachments.
 
-本机复现（已有系统 Chrome，精确环境一致时）：
+Local reproduction (with system Chrome installed and an exactly matching environment):
 
 ```bash
 PW_CHANNEL=chrome PW_SERVER_COMMAND='npm run start -- --hostname 127.0.0.1 --port 3100' npm run test:e2e
@@ -77,10 +77,10 @@ PW_CHANNEL=chrome VISUAL_ENV=darwin-arm64-25.6.0-chromium-154.0.8037.98 PW_SERVE
 PW_CHANNEL=chrome npm run test:mutations
 ```
 
-其他环境会在身份不匹配或缺少对应基线时失败。CI 的 Linux 视觉基线尚需在选定环境生成候选、人工审阅并提交；现有 workflow 不跳过 visual gate，因此不能声称远端 CI 已全绿。合法新功能造成像素变化时，先保存 expected/actual/diff，由独立 reviewer 说明变化并批准基线更新，再普通模式复验；不能把生成基线的命令算成通过。
+Other environments fail when the identity does not match or the corresponding baseline is missing. A Linux visual baseline for CI still has to be generated as a candidate in the chosen environment, reviewed by a human and committed; the existing workflow does not skip the visual gate, so remote CI cannot be claimed to be fully green. When a legitimate new feature changes pixels, first keep the expected/actual/diff, have an independent reviewer explain the change and approve the baseline update, then rerun in normal mode; the command that generates a baseline never counts as a pass.
 
-[完整实施与选型计划](../exam/implementation-plan.zh-CN.md)、[交付包方案](../exam/delivery-packaging-plan.zh-CN.md) 与 [设计漂移巡查职责](../exam/agents/design-drift-auditor.md) 提供后续接入契约。巡查 agent 当前仅交付职责文档，没有启用每日调度或外部通知。
+The [full implementation and tooling plan](../exam/process/implementation-plan.md), the [delivery packaging plan](../exam/process/delivery-packaging-plan.md) and the [design drift auditor role](../exam/agents/design-drift-auditor.md) provide the follow-up integration contract. The auditor agent is currently delivered as a role document only; no daily schedule or external notification is enabled.
 
-## 已知工程限制
+## Known engineering limitations
 
-自动检查只覆盖登记的语法、路由与状态。React Doctor 的基线扫描为 0 errors / 6 性能建议；实验副本出现的 0 文件扫描评分不作为有效证据。依赖审计的生产依赖为 0 发现，开发 lint 依赖链存在同一个 braces 公告传播出的 5 条 high；它没有进入当前产品请求路径，仍需跟踪上游修复，不能写成已修复。详情和原始 JSON 均在验证结果索引。
+Automated checks cover only the registered syntax, routes and states. The React Doctor baseline scan reports 0 errors / 6 performance suggestions; the 0-file scan score seen in the experiment copy is not valid evidence. The dependency audit reports 0 findings for production dependencies; the development lint dependency chain has 5 high advisories propagated from the same braces advisory. It is not on the current product request path, but upstream fixes still need tracking and it must not be reported as fixed. Details and raw JSON are in the validation results index.
