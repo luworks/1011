@@ -1,0 +1,59 @@
+name: Runner smoke test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Verify checkout and execution tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -s README.md
+          git --version
+          node --version
+          python3 --version
+          python3 - <<'PY'
+          import pathlib
+          import subprocess
+          import sys
+          import tempfile
+
+          with tempfile.TemporaryDirectory() as directory:
+              script = pathlib.Path(directory) / "smoke.py"
+              script.write_text("print('runner-execution-ok')\n")
+              result = subprocess.run(
+                  [sys.executable, str(script)],
+                  check=True,
+                  capture_output=True,
+                  text=True,
+              )
+              assert result.stdout.strip() == "runner-execution-ok", result.stdout
+              print(result.stdout, end="")
+          PY
+
+      - name: Verify GitHub API network access
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --retry 2 --max-time 20 \
+            https://api.github.com/zen
+
+      - name: Record tested commit
+        shell: bash
+        run: |
+          {
+            echo "Runner smoke test passed."
+            echo "Commit: $GITHUB_SHA"
+            echo "Runner: $RUNNER_NAME ($RUNNER_OS / $RUNNER_ARCH)"
+          } >> "$GITHUB_STEP_SUMMARY"
