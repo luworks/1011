@@ -10,7 +10,7 @@
 
 ## 2. 基线完整性
 
-冻结清单：[baseline-manifest.json](../creao-design-lab/experiments/runs/engineers-v1/baseline-manifest.json)，包含 38 个文件。清单 SHA-256：
+冻结清单：[baseline-manifest.json](research/validation/engineers/baseline-manifest.json)，包含 38 个文件。清单 SHA-256：
 
 `1294c012784e2e1ef02640bf81d20fe92e86bec9b2840dddbb7f4469f776b440`
 

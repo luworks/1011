@@ -1,0 +1,15 @@
+
+> creao-design-lab@0.1.0 test:visual
+> PW_VISUAL=1 playwright test
+
+
+Running 3 tests using 1 worker
+
+(node:83376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 tests/e2e/visual.spec.ts:29:7 › [VISUAL-001] Files initial list at 1280x900 (3.0s)
+(node:84040) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 tests/e2e/visual.spec.ts:29:7 › [VISUAL-001] Files initial list at 390x900 (3.2s)
+(node:84915) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

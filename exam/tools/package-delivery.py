@@ -10,6 +10,7 @@ import argparse
 import hashlib
 import json
 import os
+import platform
 from pathlib import Path, PurePosixPath
 import re
 import stat
@@ -62,7 +63,7 @@ def inventory(root):
             "trackedIncluded": sorted(n for n in tracked if n and not excluded(n)),
             "trackedExcluded": sorted(n for n in tracked if n and excluded(n)),
             "untrackedNotPackaged": sorted(n for n in untracked if n and not excluded(n)),
-            "note": "Read-only inventory. Untracked or modified files must be committed before packaging."}
+            "note": "Read-only inventory. Only explicit commit blobs are packaged; worktree changes are excluded and recorded."}
 
 
 def markdown_links(root):
@@ -117,11 +118,7 @@ def readme(commit):
 def package(root, commit, output):
     resolved = git(root, "rev-parse", commit + "^{commit}").decode().strip()
     head = git(root, "rev-parse", "HEAD").decode().strip()
-    if resolved != head:
-        raise ValueError("Package only current frozen HEAD; requested commit differs.")
     dirty = git(root, "status", "--porcelain", "--untracked-files=all", "--", *SCOPES).decode()
-    if dirty.strip():
-        raise ValueError("Scoped worktree/index is not clean; commit owner must freeze it first.\n" + dirty)
     files, rejected = {}, []
     for record in git(root, "ls-tree", "-rz", "--full-tree", resolved, "--", *SCOPES).split(b"\0"):
         if not record:
@@ -145,6 +142,8 @@ def package(root, commit, output):
                    for name, data in sorted(files.items()) if classify(name) == category]
         manifest = {"schemaVersion": 1, "kind": category, "sourceCommit": resolved,
                     "createdAt": stamp, "files": entries, "excludedTracked": rejected,
+                    "workspaceHeadAtPackaging": head,
+                    "uncommittedChangesExcluded": dirty.splitlines(),
                     "claims": {"remoteCIExecuted": False, "deployed": False, "uploaded": False}}
         files[category + "-manifest.json"] = (json.dumps(manifest, ensure_ascii=False, indent=2) + "\n").encode()
     output.mkdir(parents=True, exist_ok=True)
@@ -160,16 +159,23 @@ def package(root, commit, output):
     receipt = {"sourceCommit": resolved, "archive": dest.name, "size": dest.stat().st_size,
                "sha256": sha(dest.read_bytes()), "fileCount": len(files), "createdAt": stamp,
                "manifestDigests": {n: sha(files[n]) for n in ("candidate-manifest.json", "evidence-manifest.json")},
-               "verification": "notRun", "uploaded": False}
+               "verification": "notRun", "uploaded": False,
+               "workspaceHeadAtPackaging": head, "uncommittedChangesExcluded": dirty.splitlines(),
+               "packagerSha256": sha(Path(__file__).read_bytes())}
     dest.with_suffix(".receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
     return receipt
 
 
-def verify(archive_path, run_checks, browser_args):
+def verify(archive_path, run_checks, browser_args, visual=False):
     # Always use a fresh extraction; never follow symlinks or reuse the source checkout.
     target = Path(tempfile.mkdtemp(prefix="creao-delivery-verify-"))
     result = {"archive": str(archive_path), "archiveSha256": sha(archive_path.read_bytes()),
               "extractedTo": str(target), "checks": [], "mutationRerun": False,
+              "environment": {"system": platform.system(), "release": platform.release(), "machine": platform.machine(),
+                              "node": subprocess.check_output(["node", "--version"]).decode().strip(),
+                              "npm": subprocess.check_output(["npm", "--version"]).decode().strip(),
+                              "PW_CHANNEL": os.environ.get("PW_CHANNEL"),
+                              "VISUAL_ENV": os.environ.get("VISUAL_ENV")},
               "visualEnvironment": "Caller must select the documented reviewed environment; no snapshot updates."}
     with zipfile.ZipFile(archive_path) as archive:
         for info in archive.infolist():
@@ -199,10 +205,12 @@ def verify(archive_path, run_checks, browser_args):
         if "--update-snapshots" in " ".join(browser_args) or "-u" in browser_args:
             raise ValueError("Verification cannot update screenshot baselines.")
         commands.append(["npx", "playwright", "test", *browser_args])
+    if visual:
+        commands.append(["npm", "run", "test:visual"])
     if run_checks and not result["links"]["broken"]:
         # No inherited production secrets are passed to package lifecycle scripts.
         env = {k: v for k, v in os.environ.items() if k in {"PATH", "HOME", "TMPDIR", "LANG", "LC_ALL",
-               "PW_CHANNEL", "PW_SERVER_COMMAND", "BASE_URL", "VISUAL_BASELINE_ENV", "PLAYWRIGHT_BROWSERS_PATH"}}
+               "PW_CHANNEL", "PW_SERVER_COMMAND", "BASE_URL", "PW_VISUAL", "VISUAL_ENV", "PLAYWRIGHT_BROWSERS_PATH"}}
         env["NEXT_TELEMETRY_DISABLED"] = "1"
         for index, command in enumerate(commands):
             log = target / f"verification-{index + 1}.log"
@@ -219,6 +227,7 @@ def verify(archive_path, run_checks, browser_args):
                 break
     result["status"] = "failed" if result["links"]["broken"] or any(c["exitCode"] for c in result["checks"]) else ("passed" if run_checks else "integrityOnly")
     result["browserChecksRequested"] = bool(browser_args)
+    result["visualChecksRequested"] = visual
     result["checksRequested"] = run_checks
     receipt = archive_path.with_name(archive_path.stem + ".verification-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + ".json")
     receipt.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
@@ -234,6 +243,7 @@ def main():
     parser.add_argument("--output", type=Path)
     parser.add_argument("--verify", type=Path, metavar="ZIP")
     parser.add_argument("--run-checks", action="store_true", help="Execute npm install, types, lint, unit, static, build in extracted directory")
+    parser.add_argument("--visual", action="store_true", help="Also run the project's non-updating visual gate; requires its reviewed environment")
     parser.add_argument("--browser-args", nargs=argparse.REMAINDER, help="Playwright selected specs/project arguments; pass last")
     args = parser.parse_args()
     if args.package and args.verify:
@@ -243,7 +253,7 @@ def main():
             parser.error("--package requires --commit SHA")
         result = package(args.root, args.commit, args.output or args.root / "exam/delivery")
     elif args.verify:
-        result = verify(args.verify.resolve(), args.run_checks, args.browser_args)
+        result = verify(args.verify.resolve(), args.run_checks, args.browser_args, args.visual)
     else:
         result = inventory(args.root)
     print(json.dumps(result, ensure_ascii=False, indent=2))

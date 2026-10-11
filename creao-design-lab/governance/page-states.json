@@ -1,0 +1,2094 @@
+{
+  "version": 1,
+  "purpose": "Single inventory of page, state and viewport coverage. Route completeness is executable; state completeness still requires product review.",
+  "statusPolicy": {
+    "implementation": [
+      "implemented",
+      "notImplemented"
+    ],
+    "checkImplementation": [
+      "implemented",
+      "planned",
+      "manual",
+      "notImplemented"
+    ],
+    "execution": [
+      "notVerified",
+      "passed",
+      "failed",
+      "notApplicable"
+    ],
+    "rules": "Rules identify the proposed contract, not a claim that every assertion is enforced. passed/failed requires evidence; the existence of a test is only implemented.",
+    "plannedChecks": "Only explicitly mapped axe/visual state checks are implemented. Their execution remains notVerified until immutable reports are attached; all other planned checks are coverage gaps.",
+    "evidence": "Use workspace-relative paths from project root. Preserve original and rerun receipts separately; do not count infrastructure errors as rule failures."
+  },
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 900
+    },
+    "mobile": {
+      "width": 390,
+      "height": 900
+    },
+    "compact": {
+      "width": 320,
+      "height": 900
+    },
+    "intermediate": {
+      "width": 800,
+      "height": 900
+    },
+    "browser-default": {
+      "width": 1280,
+      "height": 720
+    },
+    "audit-mobile": {
+      "width": 390,
+      "height": 844
+    }
+  },
+  "routes": [
+    {
+      "path": "/",
+      "source": "src/app/page.tsx",
+      "scope": "redirect"
+    },
+    {
+      "path": "/files",
+      "source": "src/app/files/page.tsx",
+      "scope": "product-prototype"
+    },
+    {
+      "path": "/connectors",
+      "source": "src/app/connectors/page.tsx",
+      "scope": "product-prototype"
+    },
+    {
+      "path": "/agents",
+      "source": "src/app/agents/page.tsx",
+      "scope": "product-prototype"
+    },
+    {
+      "path": "/guidelines",
+      "source": "src/app/guidelines/page.tsx",
+      "scope": "product-prototype"
+    },
+    {
+      "path": "/reference",
+      "source": "src/app/reference/page.tsx",
+      "scope": "reference-support"
+    }
+  ],
+  "states": [
+    {
+      "id": "home.redirect",
+      "route": "/",
+      "description": "Landing redirects to Files.",
+      "implementation": "implemented",
+      "setup": [
+        "Open / in a fresh page."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "URL becomes /files; the 文件 heading is visible."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "NAV-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "notVerified",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "files.populated-list",
+      "route": "/files",
+      "description": "Initial populated file list.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /files in a fresh page; select 列表视图."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile",
+        "compact",
+        "intermediate",
+        "audit-mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "One visible 文件 h1; every visible control has an accessible name.",
+          "List metadata retains label/value association and fits its viewport; desktop column header is hidden below the compact breakpoint."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "LAY-001",
+        "A11Y-001",
+        "RESP-001",
+        "A11Y-002",
+        "VISUAL-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[RESP-001] file list has no horizontal overflow at 800px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "intermediate"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[RESP-001] file list has no horizontal overflow at 320px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "compact"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[A11Y-001] /files visible controls retain accessible names at 390px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "mobile"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[LAY-001] /files one visible page heading at 390px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "mobile"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[A11Y-001] /files visible controls retain accessible names at 1280px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "desktop"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[LAY-001] /files one visible page heading at 1280px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "desktop"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[RESP-001] file list preserves field labels and fits 390px viewport",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Only the exact named assertion and viewport in the linked production-Chrome receipt. Other assertions/viewports in this state remain unverified unless separately recorded.",
+          "executedViewports": [
+            "mobile",
+            "desktop"
+          ]
+        },
+        {
+          "kind": "axe",
+          "implementation": "implemented",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": "[A11Y-002] axe Files initial",
+          "evidence": [],
+          "expectedRuns": 2,
+          "coverageScope": "Full-page axe A/AA tagged scan at 1280x900 and 390x844 only; no claim that other listed behavioral assertions or viewport combinations were checked."
+        },
+        {
+          "kind": "visual",
+          "implementation": "implemented",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": "[VISUAL-001] Files initial list at 1280x900",
+          "expectedRuns": 1,
+          "evidence": [],
+          "coverageScope": "Exact named screenshot and viewport only, compared in an OS/architecture/release/browser namespace after separate baseline review."
+        },
+        {
+          "kind": "visual",
+          "implementation": "implemented",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": "[VISUAL-001] Files initial list at 390x900",
+          "expectedRuns": 1,
+          "evidence": [],
+          "coverageScope": "Exact named screenshot and viewport only, compared in an OS/architecture/release/browser namespace after separate baseline review."
+        }
+      ]
+    },
+    {
+      "id": "files.populated-grid",
+      "route": "/files",
+      "description": "Grid view selection.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /files; click 网格视图."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Grid toggle aria-pressed is true; list toggle is false.",
+          "All four synthetic files remain reachable; no horizontal clipping."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "A11Y-001",
+        "RESP-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "notVerified",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "files.search-empty",
+      "route": "/files",
+      "description": "Search has zero matching files, then recovery.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /files; fill 搜索文件和文件夹 with no-file-matches-928371.",
+        "Click the 清除搜索 action inside the empty state."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile",
+        "browser-default",
+        "audit-mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Before recovery, no file rows are rendered and the empty message and action are visible.",
+          "After recovery, search is empty and actual file entries return."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "STATE-001",
+        "A11Y-001",
+        "A11Y-002"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[STATE-001] file search no-results action restores actual entries",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Only the exact named assertion and viewport in the linked production-Chrome receipt. Other assertions/viewports in this state remain unverified unless separately recorded.",
+          "executedViewports": [
+            "browser-default"
+          ]
+        },
+        {
+          "kind": "axe",
+          "implementation": "implemented",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": "[A11Y-002] axe Files empty search",
+          "evidence": [],
+          "expectedRuns": 2,
+          "coverageScope": "Full-page axe A/AA tagged scan at 1280x900 and 390x844 only; no claim that other listed behavioral assertions or viewport combinations were checked."
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "files.long-name",
+      "route": "/files",
+      "description": "Long synthetic filename remains recoverable on small screens.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /files; locate 跨团队协作项目的长期研究资料与待确认事项汇总.md."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile",
+        "compact",
+        "intermediate"
+      ],
+      "scope": {
+        "assertions": [
+          "Full name remains in the control accessible name and title.",
+          "The row and metadata fit viewport; activating the name opens a dialog exposing the complete filename."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "A11Y-001",
+        "RESP-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "notVerified",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "files.create-empty-validation",
+      "route": "/files",
+      "description": "Empty folder name validation.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /files; click 新建文件夹; leave 文件夹名称 empty; click 创建文件夹."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile",
+        "audit-mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "An associated role=alert error appears, input aria-invalid is true, and no file row is created.",
+          "Error text instructs the user how to correct the input."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "STATE-001",
+        "A11Y-001",
+        "A11Y-002"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "implemented",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": "[A11Y-002] axe Files folder validation error",
+          "evidence": [],
+          "expectedRuns": 2,
+          "coverageScope": "Full-page axe A/AA tagged scan at 1280x900 and 390x844 only; no claim that other listed behavioral assertions or viewport combinations were checked."
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "passed",
+          "checkRef": null,
+          "testTitle": null,
+          "coverageScope": "Empty-name alert observed; aria-describedby and aria-invalid not separately recorded.",
+          "evidence": [
+            "../exam/research/prototype/manual-review.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "files.create-duplicate-validation",
+      "route": "/files",
+      "description": "Existing file-name collision validation.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /files; click 新建文件夹; set 文件夹名称 to 季度研究摘要.md; click 创建文件夹."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Duplicate-name error is associated with the input; the file count does not increase."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "STATE-001",
+        "A11Y-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "notVerified",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "files.create-success",
+      "route": "/files",
+      "description": "Successful folder creation is local and acknowledged.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /files; click 新建文件夹; set 文件夹名称 to 合规实验资料; click 创建文件夹."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "New folder appears, form closes, and role=status announces the created folder.",
+          "Reloading resets synthetic state; no persistence/backend capability is implied."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "STATE-001",
+        "A11Y-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "passed",
+          "checkRef": null,
+          "testTitle": null,
+          "coverageScope": "Valid folder creates fifth row and reload resets to four; live-region announcement was not separately recorded.",
+          "evidence": [
+            "../exam/research/prototype/manual-review.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "files.preview-open-close",
+      "route": "/files",
+      "description": "File preview and focus return.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /files; click 季度研究摘要.md; close using 关闭预览.",
+        "Repeat with Escape."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile",
+        "audit-mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Open dialog has filename heading and demo content; background is modal.",
+          "After each close the invoking file control regains focus."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "A11Y-001",
+        "LAY-001",
+        "A11Y-002"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "implemented",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": "[A11Y-002] axe Files preview dialog",
+          "evidence": [],
+          "expectedRuns": 2,
+          "coverageScope": "Full-page axe A/AA tagged scan at 1280x900 and 390x844 only; no claim that other listed behavioral assertions or viewport combinations were checked."
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "passed",
+          "checkRef": null,
+          "testTitle": null,
+          "coverageScope": "Named dialog opens; Escape closes and focus returns. Explicit close-button path not recorded.",
+          "evidence": [
+            "../exam/research/prototype/manual-review.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "connectors.catalog",
+      "route": "/connectors",
+      "description": "Initial connector catalog.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /connectors in a fresh page."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "One visible 连接器 h1 and named controls.",
+          "Catalog advertises only local simulation and shows available services."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "LAY-001",
+        "A11Y-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[A11Y-001] /connectors visible controls retain accessible names at 390px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "mobile"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[LAY-001] /connectors one visible page heading at 390px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "mobile"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[A11Y-001] /connectors visible controls retain accessible names at 1280px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "desktop"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[LAY-001] /connectors one visible page heading at 1280px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Only the exact named assertion and viewport in the linked production-Chrome receipt. Other assertions/viewports in this state remain unverified unless separately recorded.",
+          "executedViewports": [
+            "desktop"
+          ]
+        },
+        {
+          "kind": "axe",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "connectors.connected-empty",
+      "route": "/connectors",
+      "description": "Connected filter is empty and has a working destination.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /connectors; activate 已连接 (0).",
+        "Click 浏览可连接服务."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile",
+        "browser-default",
+        "audit-mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Empty guidance names 可连接 exactly.",
+          "Recovery selects 可连接, focuses its tab, and exposes connect controls."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "STATE-001",
+        "NAV-001",
+        "A11Y-001",
+        "A11Y-002",
+        "VISUAL-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[STATE-001] connector empty state action reaches available services",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Only the exact named assertion and viewport in the linked production-Chrome receipt. Other assertions/viewports in this state remain unverified unless separately recorded.",
+          "executedViewports": [
+            "browser-default"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[NAV-001] empty-state destination copy matches actual available tab",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Only the exact named assertion and viewport in the linked production-Chrome receipt. Other assertions/viewports in this state remain unverified unless separately recorded.",
+          "executedViewports": [
+            "browser-default"
+          ]
+        },
+        {
+          "kind": "axe",
+          "implementation": "implemented",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": "[A11Y-002] axe Connectors connected empty",
+          "evidence": [],
+          "expectedRuns": 2,
+          "coverageScope": "Full-page axe A/AA tagged scan at 1280x900 and 390x844 only; no claim that other listed behavioral assertions or viewport combinations were checked."
+        },
+        {
+          "kind": "visual",
+          "implementation": "implemented",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": "[VISUAL-001] Connectors connected empty state at 1280x900",
+          "expectedRuns": 1,
+          "evidence": [],
+          "coverageScope": "Exact named screenshot and viewport only, compared in an OS/architecture/release/browser namespace after separate baseline review."
+        }
+      ]
+    },
+    {
+      "id": "connectors.search-empty",
+      "route": "/connectors",
+      "description": "Unknown connector search and recovery.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /connectors; fill 搜索连接器 with no-service-928371.",
+        "Activate 清除搜索 in the empty state."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "No-results state is actionable; recovery clears search, selects 可连接, and restores service cards."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "STATE-001",
+        "NAV-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "notVerified",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "connectors.simulated-connected",
+      "route": "/connectors",
+      "description": "Simulated local connection and disconnect.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /connectors; activate 模拟连接 Slack; activate 已连接 (1).",
+        "Activate 取消模拟连接 Slack."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Slack appears in connected results, then removal returns the connected empty state.",
+          "No external OAuth or account mutation occurs."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "STATE-001",
+        "A11Y-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "passed",
+          "checkRef": null,
+          "testTitle": null,
+          "coverageScope": "Slack simulate-connect and Connected(1) result observed; disconnect transition not recorded.",
+          "evidence": [
+            "../exam/research/prototype/manual-review.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "connectors.keyboard-tabs",
+      "route": "/connectors",
+      "description": "Arrow, Home and End tab navigation.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /connectors; focus 全部 tab.",
+        "Use ArrowRight, ArrowLeft, Home, End."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Focus and aria-selected move together; only selected tab is in tab order.",
+          "Active panel label references the selected tab."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "A11Y-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "notVerified",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "agents.empty",
+      "route": "/agents",
+      "description": "Initial empty agent collection.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /agents in a fresh page."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile",
+        "audit-mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "One visible 智能体 h1; named 创建示例智能体 action; local demo explanation."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "LAY-001",
+        "A11Y-001",
+        "STATE-001",
+        "A11Y-002"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[A11Y-001] /agents visible controls retain accessible names at 390px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "mobile"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[LAY-001] /agents one visible page heading at 390px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "mobile"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[A11Y-001] /agents visible controls retain accessible names at 1280px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "desktop"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[LAY-001] /agents one visible page heading at 1280px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Only the exact named assertion and viewport in the linked production-Chrome receipt. Other assertions/viewports in this state remain unverified unless separately recorded.",
+          "executedViewports": [
+            "desktop"
+          ]
+        },
+        {
+          "kind": "axe",
+          "implementation": "implemented",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": "[A11Y-002] axe Agents empty",
+          "evidence": [],
+          "expectedRuns": 2,
+          "coverageScope": "Full-page axe A/AA tagged scan at 1280x900 and 390x844 only; no claim that other listed behavioral assertions or viewport combinations were checked."
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "agents.example-list",
+      "route": "/agents",
+      "description": "Create a local example agent.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /agents; click 创建示例智能体."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "研究助手 card replaces empty state; draft badge and 查看详情 action appear."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "STATE-001",
+        "A11Y-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "passed",
+          "checkRef": null,
+          "testTitle": null,
+          "coverageScope": "Create example produces Research Assistant draft.",
+          "evidence": [
+            "../exam/research/prototype/manual-review.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agents.detail",
+      "route": "/agents",
+      "description": "Example agent detail and return.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /agents; click 创建示例智能体; click 查看详情.",
+        "Click 返回智能体列表."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile",
+        "audit-mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Detail has one 研究助手 h1 and local-only explanation.",
+          "Return restores existing example card rather than resetting to empty."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "LAY-001",
+        "NAV-001",
+        "A11Y-001",
+        "A11Y-002"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "implemented",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": "[A11Y-002] axe Agents detail",
+          "evidence": [],
+          "expectedRuns": 2,
+          "coverageScope": "Full-page axe A/AA tagged scan at 1280x900 and 390x844 only; no claim that other listed behavioral assertions or viewport combinations were checked."
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "passed",
+          "checkRef": null,
+          "testTitle": null,
+          "coverageScope": "View details opens working-instructions view; return transition not recorded.",
+          "evidence": [
+            "../exam/research/prototype/manual-review.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agents.example-result",
+      "route": "/agents",
+      "description": "Static result preview.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /agents; create example; open details; click 预览示例结果."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "示例结果 appears in status region; content explicitly remains a prewritten example."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "STATE-001",
+        "A11Y-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "notVerified",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "guidelines.document",
+      "route": "/guidelines",
+      "description": "Rendered Markdown rulebook and local reference links.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /guidelines; inspect rule tables; follow src/styles/tokens.css link."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile",
+        "audit-mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Exactly one 设计规范 h1; Markdown source h1 is demoted; GFM tables render.",
+          "Allowed CSS source opens under /reference with readable content."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "LAY-001",
+        "A11Y-001",
+        "GOV-001",
+        "A11Y-002"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[A11Y-001] /guidelines visible controls retain accessible names at 390px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "mobile"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[LAY-001] /guidelines one visible page heading at 390px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "mobile"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[A11Y-001] /guidelines visible controls retain accessible names at 1280px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Exact named assertion only; other state assertions are not covered by this check.",
+          "executedViewports": [
+            "desktop"
+          ]
+        },
+        {
+          "kind": "behavior",
+          "implementation": "implemented",
+          "execution": "passed",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": "[LAY-001] /guidelines one visible page heading at 1280px",
+          "evidence": [
+            "../exam/research/prototype/e2e-production-chrome.json"
+          ],
+          "coverageScope": "Only the exact named assertion and viewport in the linked production-Chrome receipt. Other assertions/viewports in this state remain unverified unless separately recorded.",
+          "executedViewports": [
+            "desktop"
+          ]
+        },
+        {
+          "kind": "axe",
+          "implementation": "implemented",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": "[A11Y-002] axe Guidelines",
+          "evidence": [],
+          "expectedRuns": 2,
+          "coverageScope": "Full-page axe A/AA tagged scan at 1280x900 and 390x844 only; no claim that other listed behavioral assertions or viewport combinations were checked."
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "passed",
+          "checkRef": null,
+          "testTitle": null,
+          "coverageScope": "Markdown/GFM tables and tokens.css link to actual allowlisted source observed.",
+          "evidence": [
+            "../exam/research/prototype/manual-review.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reference.allowed-file",
+      "route": "/reference",
+      "description": "Read a specifically allowed CSS source.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /reference?file=src%2Fstyles%2Ftokens.css."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Source viewer shows src/styles/tokens.css as the page heading and matching source text.",
+          "返回设计规范 navigates back to /guidelines."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "LAY-001",
+        "NAV-001",
+        "GOV-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "passed",
+          "checkRef": null,
+          "testTitle": null,
+          "coverageScope": "Actual tokens.css source viewer reached from guideline link.",
+          "evidence": [
+            "../exam/research/prototype/manual-review.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reference.allowed-group",
+      "route": "/reference",
+      "description": "Read the allowlisted styles index.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /reference?group=src%2Fstyles%2F."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Only allowed style references are listed; each target is readable."
+        ],
+        "limitations": "Local synthetic-data prototype. This catalog describes required coverage; entries and test files are not execution evidence."
+      },
+      "rules": [
+        "LAY-001",
+        "GOV-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "notVerified",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "reference.denied-file",
+      "route": "/reference",
+      "description": "Reject unknown source requests.",
+      "implementation": "implemented",
+      "setup": [
+        "Open /reference?file=.env; repeat with file=..%2F.env."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "404 response; requested sensitive contents are never rendered."
+        ],
+        "limitations": "Source allowlist boundary. This is a local reference viewer check, not a full security audit."
+      },
+      "rules": [
+        "GOV-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/accessibility.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "planned",
+          "execution": "notVerified",
+          "checkRef": "tests/e2e/visual.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "manual",
+          "implementation": "manual",
+          "execution": "notVerified",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "files.loading",
+      "route": "/files",
+      "description": "Unimplemented loading state.",
+      "implementation": "notImplemented",
+      "setup": [
+        "No supported setup: local synchronous synthetic data has no network/auth fixture."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Before production integration, provide a reproducible fixture and reviewed recovery contract."
+        ],
+        "limitations": "Explicit gap; not exercised, not passed, and excluded from implemented-state coverage denominators."
+      },
+      "rules": [
+        "STATE-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "files.network-error",
+      "route": "/files",
+      "description": "Unimplemented network-error state.",
+      "implementation": "notImplemented",
+      "setup": [
+        "No supported setup: local synchronous synthetic data has no network/auth fixture."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Before production integration, provide a reproducible fixture and reviewed recovery contract."
+        ],
+        "limitations": "Explicit gap; not exercised, not passed, and excluded from implemented-state coverage denominators."
+      },
+      "rules": [
+        "STATE-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "files.permission-denied",
+      "route": "/files",
+      "description": "Unimplemented permission-denied state.",
+      "implementation": "notImplemented",
+      "setup": [
+        "No supported setup: local synchronous synthetic data has no network/auth fixture."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Before production integration, provide a reproducible fixture and reviewed recovery contract."
+        ],
+        "limitations": "Explicit gap; not exercised, not passed, and excluded from implemented-state coverage denominators."
+      },
+      "rules": [
+        "STATE-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "connectors.loading",
+      "route": "/connectors",
+      "description": "Unimplemented loading state.",
+      "implementation": "notImplemented",
+      "setup": [
+        "No supported setup: local synchronous synthetic data has no network/auth fixture."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Before production integration, provide a reproducible fixture and reviewed recovery contract."
+        ],
+        "limitations": "Explicit gap; not exercised, not passed, and excluded from implemented-state coverage denominators."
+      },
+      "rules": [
+        "STATE-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "connectors.network-error",
+      "route": "/connectors",
+      "description": "Unimplemented network-error state.",
+      "implementation": "notImplemented",
+      "setup": [
+        "No supported setup: local synchronous synthetic data has no network/auth fixture."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Before production integration, provide a reproducible fixture and reviewed recovery contract."
+        ],
+        "limitations": "Explicit gap; not exercised, not passed, and excluded from implemented-state coverage denominators."
+      },
+      "rules": [
+        "STATE-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "connectors.permission-denied",
+      "route": "/connectors",
+      "description": "Unimplemented permission-denied state.",
+      "implementation": "notImplemented",
+      "setup": [
+        "No supported setup: local synchronous synthetic data has no network/auth fixture."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Before production integration, provide a reproducible fixture and reviewed recovery contract."
+        ],
+        "limitations": "Explicit gap; not exercised, not passed, and excluded from implemented-state coverage denominators."
+      },
+      "rules": [
+        "STATE-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "agents.loading",
+      "route": "/agents",
+      "description": "Unimplemented loading state.",
+      "implementation": "notImplemented",
+      "setup": [
+        "No supported setup: local synchronous synthetic data has no network/auth fixture."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Before production integration, provide a reproducible fixture and reviewed recovery contract."
+        ],
+        "limitations": "Explicit gap; not exercised, not passed, and excluded from implemented-state coverage denominators."
+      },
+      "rules": [
+        "STATE-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "agents.network-error",
+      "route": "/agents",
+      "description": "Unimplemented network-error state.",
+      "implementation": "notImplemented",
+      "setup": [
+        "No supported setup: local synchronous synthetic data has no network/auth fixture."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Before production integration, provide a reproducible fixture and reviewed recovery contract."
+        ],
+        "limitations": "Explicit gap; not exercised, not passed, and excluded from implemented-state coverage denominators."
+      },
+      "rules": [
+        "STATE-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "agents.permission-denied",
+      "route": "/agents",
+      "description": "Unimplemented permission-denied state.",
+      "implementation": "notImplemented",
+      "setup": [
+        "No supported setup: local synchronous synthetic data has no network/auth fixture."
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "scope": {
+        "assertions": [
+          "Before production integration, provide a reproducible fixture and reviewed recovery contract."
+        ],
+        "limitations": "Explicit gap; not exercised, not passed, and excluded from implemented-state coverage denominators."
+      },
+      "rules": [
+        "STATE-001"
+      ],
+      "checks": [
+        {
+          "kind": "behavior",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": "tests/e2e/design.spec.ts",
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "axe",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        },
+        {
+          "kind": "visual",
+          "implementation": "notImplemented",
+          "execution": "notApplicable",
+          "checkRef": null,
+          "testTitle": null,
+          "evidence": []
+        }
+      ]
+    }
+  ]
+}

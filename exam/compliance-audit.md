@@ -1,10 +1,10 @@
 # CREAO Product Design Compliance Audit
 
-Audit date: 11 October 2026 (PDT). Standard: [design-system-guideline.md](design-system-guideline.md) and the executable [design.md](../creao-design-lab/design.md), version 0.1.
+Audit date: 11 October 2026 (PDT). Standard: [design-system-guideline.md](design-system-guideline.md) and the executable [design.md](../creao-design-lab/design.md), version 0.2 (with retained v1 experiment history).
 
 **Finding:** the inspected product contains five directly evidenced issues across page identity, empty-state navigation/recovery, and compact file layouts. A sixth, lower-priority improvement applies the proposed stricter in-state recovery rule to file search. The issues can be translated into specific pre-release checks without redesigning CREAO's token or component library.
 
-**Evidence status:** the source-product observations below are complete. Local execution receipts are awaiting integration in the final section. No claim is made that these checks already run inside CREAO's production repository, that the live defects were fixed, or that CREAO's unpublished internal rules were violated.
+**Evidence status:** the source-product observations below are complete. Local receipts are summarized separately below; final runtime-mutation and visual-negative-control results are explicitly reserved for the integrating reviewer. No claim is made that these checks already run inside CREAO's production repository, that the live defects were fixed, or that CREAO's unpublished internal rules were violated.
 
 ## Method and boundaries
 
@@ -136,24 +136,44 @@ To validate the gate, mutations must change real source in isolated copies. Nega
 
 The denominator must include all valid injected negative candidates. Report `killed`, `survived`, `invalid` and `error` separately. A compile failure, browser-install problem or timeout is not a rule-attributed kill. A survivor is evidence about the checker's boundary and must remain in the record even if a later checker revision detects it. Independent experiments must not modify checkers or tests to make their own changes pass.
 
-## Local validation results — pending integration of receipts
+## Additional findings in the local prototype — not CREAO production
 
-**本地验证结果待主 agent 回填。** This section is intentionally not a passing certificate. Populate from actual final-candidate commands and report files; retain the source-product observations above unchanged. The receipt must identify the candidate manifest/hash, exact command, exit status, report path and any skipped scope.
+The following were found while evaluating our implementation. They must not be attributed to the captured live CREAO product or counted as additional source-product audit findings.
 
-| Evidence lane | Required result | Current status in this audit | Receipt / remaining scope |
-| --- | --- | --- | --- |
-| Candidate identity | Final source manifest/hash and runtime versions | Pending receipt integration | Do not substitute a mutable directory name for candidate identity |
-| Typecheck | `npm run typecheck` | Pending receipt integration | Exit code, command log |
-| Lint | `npm run lint` | Pending receipt integration | Exit code, command log |
-| Static design rules | `npm run check:design` | Pending receipt integration | Actual DS-001/DS-002/GOV-001 result |
-| Checker unit tests | `npm run test:design` | Pending receipt integration | Passed/failed count and report |
-| Production build | `npm run build` | Pending receipt integration | Build log; candidate identity |
-| Browser gate | `npm run test:e2e` against the built candidate | Pending receipt integration | Test count/results, desktop/compact captures, browser version |
-| Deterministic mutations | `npm run test:mutations` | Pending receipt integration | Killed / survived / invalid / error; valid-negative denominator; per-case rule IDs |
-| Positive controls | Same checks on allowed changes | Pending receipt integration | Passing controls / total controls; false-positive details |
-| Independent engineers | Same feature task, isolated implementations, unchanged gates | Pending receipt integration | Per-agent task, patch, command, result; separate from fixed mutations |
-| Human visual/interaction review | Screenshots, keyboard/focus and affected flows | Pending receipt integration | Reviewed states and explicit untested paths |
-| Remote CI and protected policy | Required checks, ownership, candidate evidence retention | Not established by local work | State whether configuration exists; remote execution/protection require separate evidence |
-| CREAO deployment | Real-library integration, accepted build and deployed smoke test | Not performed | CREAO production remains outside this local experiment |
+| Local finding | Evidence and correction | Rule / acceptance |
+| --- | --- | --- |
+| File columns overflowed at 800px despite passing the initial narrow/desktop fixtures | Manual review measured 806px document width at an 800px viewport. Moving collection reflow to 900px restored 800px width; shell collapse remains 760px. Added 320/800px regressions. | RESP-001; retain before/after screenshots and geometry receipts |
+| Static native-control aliases escaped the first checker | First deterministic run killed 5/6 negatives; a `const` alias survived. Lexical symbol resolution was added; second run killed 6/6 while both positive controls still passed. | DS-002; keep original survivor and second-run evidence separately |
+| Guidelines' scrollable tables were not keyboard-focusable | axe reported `scrollable-region-focusable`; tables were made focusable. Subsequent scans also exposed scrollable `pre` blocks, which were corrected rather than suppressing the rule. | A11Y-002; final 16/16 scans pass; ArrowRight increased real table/pre scroll positions by 35/30px |
+| View-switch container used an unsupported ARIA attribute/role combination | axe incomplete review identified `aria-label` on a roleless div; adding `role=group` made the intended semantics explicit. | A11Y-002; document manual incomplete review as well as automatic results |
+| A new feature's focus lifecycle escaped the existing automatic tests | Engineer B's removal of the currently focused marked item moved focus to BODY. Manual interaction found this even though the feature's pointer action worked. | Existing automatic checks did not cover this new dynamic focus transition; retain as a coverage gap |
 
-Any first-run infrastructure failures belong in the receipt history with their resolution, not in the design-mutation kill count. Once populated, this table proves the local mechanism within its stated boundaries; it still does not establish remediation of the captured live CREAO screens.
+The [accessibility evidence record](research/accessibility/README.md) preserves three scan rounds. Initial route-announcer locator conflicts were test errors, not product violations. The final scan still required manual review of dialog contrast and 61 clipped Guidelines cells; computed styles and representative revealed-cell screenshots support that review. It does not claim every cell was individually screenshotted or that axe automatically confirmed all incomplete results. Automated zero violations is not full WCAG certification.
+
+## Local validation results and distinct denominators
+
+Detailed immutable reports, command logs and history are indexed in [validation-results.zh-CN.md](validation-results.zh-CN.md), [accessibility/README.md](research/accessibility/README.md), and the [independent engineer experiment review](engineer-experiment-review.zh-CN.md). Results from different candidate revisions and gate versions are not merged into a single unqualified success rate.
+
+| Evidence lane | Recorded result / status | Interpretation and remaining scope |
+| --- | --- | --- |
+| Typecheck, lint, production build and static gate | v1 archived commands exit 0; final enhanced candidate receipts are recorded in validation results | A passing historical revision is not a substitute for final-candidate identity |
+| Checker unit tests | Enhanced checker: 13 passing unit cases; original v1 suite had 8 | These are checker tests, not 13 product screens |
+| Original browser suite | 22/22 passed on local production build | Chrome 154.0.8037.98 on macOS; includes semantic, recovery and layout assertions |
+| Enhanced axe suite | 16/16 passed after real table/pre and group-role fixes | Separate scan rounds retained; incomplete findings have explicit review and limits |
+| Enhanced semantic/browser scope | 38 cases = original 22 + axe 16 | Keep phases/candidate identities visible; do not call this 38 independently explored product states |
+| State inventory | 31 entries: 22 implemented, 9 not implemented | Inventory coverage, not a passing-test count; missing states remain listed |
+| Visual gate | Three screen snapshots; macOS baseline reviewed | Linux has no approved baseline and must fail closed pending controlled bootstrap/review; final negative-control result below |
+| Fixed static mutations, first round | 5 killed / 1 survived; 2/2 positive controls accepted | Valid negative denominator 6; real alias escape retained |
+| Fixed static mutations, second round | 6/6 killed; 2/2 positive controls accepted; 0 survived/invalid/error/false-positive | Scope limited to those fixed candidates; later check additions require their own receipts |
+| Runtime mutations | **FINAL RUNTIME RESULT: integrating reviewer to insert the final immutable receipt and killed/survived/invalid/error counts** | Prior two runs each had 7 invalid cases; valid design denominator 0 for those runs, never counted as kills |
+| Axe negative control | **1/1 killed**, independently validated | Invalid runtime `aria-pressed="sometimes"`; typecheck and production build succeeded, HTTP 200 and real DOM confirmed; axe returned `aria-valid-attr-value` critical |
+| Visual negative control | **FINAL VISUAL NEGATIVE RESULT: integrating reviewer to insert actual diff result and receipt** | Must demonstrate real source/pixel change with unchanged baseline and visual gate; environment mismatch is not a successful design kill |
+| Independent engineer A | Original suite 22/22; static 0 violations; feature works | Historical original gate, not a re-run of the enhanced 38-case suite |
+| Independent engineer B | Original suite 20/22; 2 name-test failures; 7 static violations; feature pointer behavior works | 5 literal-color + 2 native-control findings; focus loss additionally found manually |
+| Manual product checks | Desktop, 390/320px reviewed; 800px fixed and rechecked; local create/preview/recovery/detail paths exercised | No real OAuth, model run or complete screen-reader journey |
+| Remote CI and protected policy | Configuration is an implementation artifact; remote execution and required protection not established | Linux visual bootstrap is intentionally blocking, not an unexplained green check |
+| CREAO deployment | Not performed | No claim that the original live defects are remediated |
+
+The axe negative-control denominator of one is separate from six static negatives and the runtime mutation set. Its initial symlink/Turbopack build failure was an infrastructure attempt, not a kill; the subsequent successful webpack production build and rule-attributed scan provide the valid evidence. Likewise, initial missing-browser failures and invalid shared-baseline runs remain visible in history but do not improve the mutation score.
+
+The accepted candidate must carry its source manifest/hash, environment, exact commands, exit statuses and report paths. Operationally, the frontend owner reviews failed gates/new state gaps/exception expiry daily, and Product Design reviews visual diffs and pattern drift; this describes ownership only and does not assert a recurring automation was scheduled. Local success within this explicit scope does not establish CREAO repository integration, protected CI enforcement or deployment.

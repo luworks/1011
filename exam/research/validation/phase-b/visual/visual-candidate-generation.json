@@ -1,0 +1,351 @@
+{
+  "config": {
+    "argv": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/node_modules/.bin/playwright",
+      "test",
+      "--update-snapshots"
+    ],
+    "configFile": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/playwright.config.ts",
+    "rootDir": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/test-results/visual-candidate",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/visual.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/test-results/visual-candidate",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/tests/e2e",
+        "snapshotDir": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/visual.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "channel": "chrome",
+          "baseURL": "http://127.0.0.1:3120",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/visual-candidate-generation.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "changed",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "visual.spec.ts",
+      "file": "visual.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[VISUAL-001] Files initial list at 1280x900",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "visual-environment",
+                  "description": "darwin-arm64-25.6.0-chromium-154.0.8037.98"
+                },
+                {
+                  "type": "browser-version",
+                  "description": "154.0.8037.98"
+                },
+                {
+                  "type": "browser-channel",
+                  "description": "chrome"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3323,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "A snapshot doesn't exist at /Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-darwin.png, writing actual.\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T21:13:54.040Z",
+                  "annotations": [
+                    {
+                      "type": "visual-environment",
+                      "description": "darwin-arm64-25.6.0-chromium-154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-version",
+                      "description": "154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-channel",
+                      "description": "chrome"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-expected.png",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-darwin.png"
+                    },
+                    {
+                      "name": "darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-actual.png",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/test-results/visual-candidate/visual--VISUAL-001-Files-initial-list-at-1280x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-actual.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8324bb52c49185e48ff4-5910d0ad8778bb497209",
+          "file": "visual.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "[VISUAL-001] Files initial list at 390x900",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "visual-environment",
+                  "description": "darwin-arm64-25.6.0-chromium-154.0.8037.98"
+                },
+                {
+                  "type": "browser-version",
+                  "description": "154.0.8037.98"
+                },
+                {
+                  "type": "browser-channel",
+                  "description": "chrome"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3186,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "A snapshot doesn't exist at /Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-darwin.png, writing actual.\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T21:13:58.506Z",
+                  "annotations": [
+                    {
+                      "type": "visual-environment",
+                      "description": "darwin-arm64-25.6.0-chromium-154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-version",
+                      "description": "154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-channel",
+                      "description": "chrome"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-expected.png",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-darwin.png"
+                    },
+                    {
+                      "name": "darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-actual.png",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/test-results/visual-candidate/visual--VISUAL-001-Files-initial-list-at-390x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-actual.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8324bb52c49185e48ff4-5ee71df963672317ddce",
+          "file": "visual.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "[VISUAL-001] Connectors connected empty state at 1280x900",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "visual-environment",
+                  "description": "darwin-arm64-25.6.0-chromium-154.0.8037.98"
+                },
+                {
+                  "type": "browser-version",
+                  "description": "154.0.8037.98"
+                },
+                {
+                  "type": "browser-channel",
+                  "description": "chrome"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6444,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "A snapshot doesn't exist at /Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/connectors-connected-empty-1280x900-darwin.png, writing actual.\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T21:14:01.934Z",
+                  "annotations": [
+                    {
+                      "type": "visual-environment",
+                      "description": "darwin-arm64-25.6.0-chromium-154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-version",
+                      "description": "154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-channel",
+                      "description": "chrome"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "darwin-arm64-25.6.0-chromium-154.0.8037.98/connectors-connected-empty-1280x900-expected.png",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/connectors-connected-empty-1280x900-darwin.png"
+                    },
+                    {
+                      "name": "darwin-arm64-25.6.0-chromium-154.0.8037.98/connectors-connected-empty-1280x900-actual.png",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/test-results/visual-candidate/visual--VISUAL-001-Connect-b54e9-ted-empty-state-at-1280x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/connectors-connected-empty-1280x900-actual.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8324bb52c49185e48ff4-61c6f3c596da205664ff",
+          "file": "visual.spec.ts",
+          "line": 43,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-11T21:13:53.506Z",
+    "duration": 26306.125,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "archivedAt": "2026-10-11T21:18:08.889096+00:00",
+  "archivedAt": "2026-10-11T21:30:31.956518+00:00",
   "note": "Local evidence copies; independent timestamped runs preserve initial failures. Source paths and synthetic prototype code appear in receipts.",
   "files": [
     {
@@ -248,9 +248,199 @@
       "sha256": "49a4800beafb9248b66fb7489fb4063c9812eeb46e6d4f4e64e0730e68c92792"
     },
     {
+      "path": "engineers-v2/a/visual-first/artifacts/visual--VISUAL-001-Files-initial-list-at-1280x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-actual.png",
+      "bytes": 69682,
+      "sha256": "81f51e1c0d3057eb326fd31dadcce02c746a538aa19c356e2b8015f472183972"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/artifacts/visual--VISUAL-001-Files-initial-list-at-1280x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-diff.png",
+      "bytes": 57232,
+      "sha256": "1b832f391f93cdc58d4d4ef6b901d581e67fad9eab61cbd184889f8df6331c2b"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/artifacts/visual--VISUAL-001-Files-initial-list-at-1280x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-expected.png",
+      "bytes": 64250,
+      "sha256": "86f9fdc99cf91f6ff5b5bba0300cb995d47df084bc3600e909ba43c256b0c123"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/artifacts/visual--VISUAL-001-Files-initial-list-at-1280x900/error-context.md",
+      "bytes": 7672,
+      "sha256": "7b3d222ae5a0acbd2ecf546bcf7a2428cf4722e43624142fa079f8cf98be0a1e"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/artifacts/visual--VISUAL-001-Files-initial-list-at-1280x900/test-failed-1.png",
+      "bytes": 69682,
+      "sha256": "81f51e1c0d3057eb326fd31dadcce02c746a538aa19c356e2b8015f472183972"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/artifacts/visual--VISUAL-001-Files-initial-list-at-1280x900/trace.zip",
+      "bytes": 312249,
+      "sha256": "454f12593c13daacf58db68726ac9aa494a73728554622304a58a1b464e46fcc"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/artifacts/visual--VISUAL-001-Files-initial-list-at-390x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-actual.png",
+      "bytes": 58890,
+      "sha256": "0cdd7ff18445d1fa5e81805d2943ee14071a3c341c492685833b20afa9c0d1de"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/artifacts/visual--VISUAL-001-Files-initial-list-at-390x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-diff.png",
+      "bytes": 48477,
+      "sha256": "c1eaa67d80bd0eb08506573a42986ee55259b275186177243c1fbb12aecc6616"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/artifacts/visual--VISUAL-001-Files-initial-list-at-390x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-expected.png",
+      "bytes": 53265,
+      "sha256": "fb3c699424ad37b4844d13f49b6c64a8955622c1f319cabe1f6a9ece064d51a9"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/artifacts/visual--VISUAL-001-Files-initial-list-at-390x900/error-context.md",
+      "bytes": 7747,
+      "sha256": "b59c741adb11a7bd9427aa95d7c4da7894444ed5c83ac7dad0f78eac0faeab40"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/artifacts/visual--VISUAL-001-Files-initial-list-at-390x900/test-failed-1.png",
+      "bytes": 58890,
+      "sha256": "0cdd7ff18445d1fa5e81805d2943ee14071a3c341c492685833b20afa9c0d1de"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/artifacts/visual--VISUAL-001-Files-initial-list-at-390x900/trace.zip",
+      "bytes": 250799,
+      "sha256": "959405bc41d7ce5ce986016fd99c73c2ebbb05ca0a0a6f7ebbd55a0585efdbbe"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/build.log",
+      "bytes": 815,
+      "sha256": "cf9e8f737b0eb993672c4e43df63d2f5655590512cce4b712e62b9ed456bf98c"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/check-design.log",
+      "bytes": 261,
+      "sha256": "0b7bd2014eb91326f5b7f63d53adc7811d717163807a0a29711d67e4693fbb1e"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/evaluator-e2e.log",
+      "bytes": 1852,
+      "sha256": "560f09f1df1b545c4e2b92860f17d33a18ab0439e96e9d88a5ebacd44ba46e24"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/evaluator-visual-first.log",
+      "bytes": 781,
+      "sha256": "19f37be4aa7681e346730ab8497f80df811e08c058fbe7e32f8a32377b7c50e7"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/lint.log",
+      "bytes": 43,
+      "sha256": "516fa9ea58b4d1ace9a7a9adffb5199c9cac4da24cf4d036a9b66b3ed85ce2d7"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/protected-after.json",
+      "bytes": 177,
+      "sha256": "70c7889a0ae49ced85d67c415e02f68ab00492ecd8e525d875085cdee7c4e412"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/protected-before.json",
+      "bytes": 2713,
+      "sha256": "5fe90d0decbb5545c5872db792aea5d61303842ebc76d3766f5d04708ef43ecd"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/server3110.log",
+      "bytes": 226,
+      "sha256": "be0bcd7fa33202c757fb3794e70393748e1dbd8a10eb42a47040af8ecd910611"
+    },
+    {
+      "path": "engineers-v2/a/visual-first/typecheck.log",
+      "bytes": 52,
+      "sha256": "124904ce926a1c4207813e7138ab95b0e4f519e30bed11d1308a4a5ea6ab61b8"
+    },
+    {
+      "path": "engineers-v2/baseline-manifest.json",
+      "bytes": 4738,
+      "sha256": "8f4e3a93337f3d50c69c630811c82e2af18bc0787829b5466e3e0451bc8c590c"
+    },
+    {
+      "path": "history/mutations-all-2026-10-11T21-15-51-863Z/aborted.md",
+      "bytes": 447,
+      "sha256": "3198da61d4826c1b2d12ac152ab7f29cbffa4e52472bbdb936172691a8df764b"
+    },
+    {
       "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/baseline-artifacts/test-results/.last-run.json",
       "bytes": 45,
       "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/e903519000a4fad0af3a7c4d5ff722a7.zip",
+      "bytes": 3316,
+      "sha256": "c7bcd459ed0bdc462e2b1e1bb6e8579b0a44fbfd85e55e8a2c68e4f7a1693300"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/fc5f54d8ed2d2f459b7b2716f9777a83.zip",
+      "bytes": 34552,
+      "sha256": "3f526b5cb214b212a942c9a0d09734a457f6115f18917e0acfaf92e41e091635"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/traces/a97bb9db443074d9bdd1-abab3e906d8561712aa9-pwnetcopy-1.network",
+      "bytes": 17416,
+      "sha256": "3462f86bd377873dd81d3cfde8bf1aba4ca388032cf0855b98b2ef4d946a3a54"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/traces/a97bb9db443074d9bdd1-abab3e906d8561712aa9-recording1-pwnetcopy-1.network",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/traces/a97bb9db443074d9bdd1-abab3e906d8561712aa9-recording1.network",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/traces/a97bb9db443074d9bdd1-abab3e906d8561712aa9-recording1.trace",
+      "bytes": 301,
+      "sha256": "f153300a48fec82ba6793067acb97b5b9804ae258cddf8bffb3dbdea31d7327f"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/traces/a97bb9db443074d9bdd1-abab3e906d8561712aa9.network",
+      "bytes": 17416,
+      "sha256": "3462f86bd377873dd81d3cfde8bf1aba4ca388032cf0855b98b2ef4d946a3a54"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/traces/a97bb9db443074d9bdd1-abab3e906d8561712aa9.trace",
+      "bytes": 18694,
+      "sha256": "7fe9a2599a72f3ec551baf4d8a72f8f99208a0cc33a5539adb8a9f41289baddd"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/traces/resources/34a1bb160896e4f1310dc74e5bdf4c59.jsonl",
+      "bytes": 14369,
+      "sha256": "0a8a2ed6d57430cf9de886fae66d804fba2405694119998c2731afd7d2b7c9b3"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/traces/resources/68f1e3b9c729dde2c2f4743ca2db9aa25c20053f.html",
+      "bytes": 12414,
+      "sha256": "e3876bc4b7c9fc7189f57b19834da34fcac9d6945ac4bbae01dae1a3944b88ba"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/traces/resources/fd7172fe3255f9f9c9d883959357a4096dbbc273.css",
+      "bytes": 17118,
+      "sha256": "30522c5de3018d01c2e8789769a22c00dfe2ddcddf569eb099152044c88de94a"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/traces/screencast/page@cd9c86c67eed6cee7ac4dfa8add51787-1791753165243.jpeg",
+      "bytes": 696,
+      "sha256": "0088bb66f9a034a8999297a9007f69eb734c00e3335244127ed285cc31865c7f"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/traces/screencast/page@cd9c86c67eed6cee7ac4dfa8add51787-1791753165254.jpeg",
+      "bytes": 1067,
+      "sha256": "bc94ee1ff02d5b020cf30499eea11c9b9b41832f55028bb753917b19d7ca8653"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/traces/screencast/page@cd9c86c67eed6cee7ac4dfa8add51787-1791753166263.jpeg",
+      "bytes": 5962,
+      "sha256": "1f4c31b7d00259563dccf8968a288ecc59be0334d956b9d3d29187d6b4dc09c9"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/.playwright-artifacts-6/traces/screencast/page@cd9c86c67eed6cee7ac4dfa8add51787-1791753171304.jpeg",
+      "bytes": 5962,
+      "sha256": "1f4c31b7d00259563dccf8968a288ecc59be0334d956b9d3d29187d6b4dc09c9"
     },
     {
       "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-agents-one-visible-page-heading-at-1280px/error-context.md",
@@ -258,9 +448,34 @@
       "sha256": "25f2f5a785601a6b6e33b585ad5c69990876023f5cc2f53afe8704568e4909ad"
     },
     {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-agents-one-visible-page-heading-at-1280px/test-failed-1.png",
+      "bytes": 42865,
+      "sha256": "4444f2fb028689d524951b67a7a8f858e897a5b619137b402c0d92e164c86895"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-agents-one-visible-page-heading-at-1280px/trace.zip",
+      "bytes": 85648,
+      "sha256": "14c9633b36a2a14b9a45e63f4b5a25db90174a30dfd60872d956f14b34c40b40"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-agents-one-visible-page-heading-at-390px/test-failed-1.png",
+      "bytes": 26747,
+      "sha256": "99c0b39968edf77e6739cf079845ed59637dabf2edc02849bf33d96052d967ed"
+    },
+    {
       "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-connectors-17106-ible-page-heading-at-1280px/error-context.md",
       "bytes": 11618,
       "sha256": "2f9546dd89f539aabe2b5c27f7935614b3e5cd0bd6bf150ebe85b2d56019f985"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-connectors-17106-ible-page-heading-at-1280px/test-failed-1.png",
+      "bytes": 69040,
+      "sha256": "3c39831a0e93c5e03882f19aedf02f5ef94afd8765fc2d00e42948adda68a0cc"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-connectors-17106-ible-page-heading-at-1280px/trace.zip",
+      "bytes": 140641,
+      "sha256": "d6dff827260f7df1d7f638979ee4ffb0e72753cdcc1b7662eb5302525494ad6c"
     },
     {
       "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-connectors-one-visible-page-heading-at-390px/error-context.md",
@@ -268,9 +483,29 @@
       "sha256": "edc2f433034bf23bb33c8ae8718979ad3335f1718e318445efdfe7ce6bc0fe00"
     },
     {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-connectors-one-visible-page-heading-at-390px/test-failed-1.png",
+      "bytes": 48947,
+      "sha256": "72282fd90b8c854c6a20cb4420ff5cb84a5a6c8e61be60c706ba01202351158b"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-connectors-one-visible-page-heading-at-390px/trace.zip",
+      "bytes": 114412,
+      "sha256": "a09996fa0cc8a61ec6a314800f729dc738b444b3947494945e3a63e7c8c7501e"
+    },
+    {
       "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-files-one-visible-page-heading-at-1280px/error-context.md",
       "bytes": 11324,
       "sha256": "8dfd1ef985e5926cd430857cfeb0b2d56112985880824aa6f9e1c8782d362c60"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-files-one-visible-page-heading-at-1280px/test-failed-1.png",
+      "bytes": 64094,
+      "sha256": "642bc230910e5094a7063aee85ed9767063c9831f02598309d14676c1b5766bb"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-files-one-visible-page-heading-at-1280px/trace.zip",
+      "bytes": 132481,
+      "sha256": "60f95f7042c2cb9b09df51c8855e09a4771193d26e3a323e38bc4328f9da73d2"
     },
     {
       "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-files-one-visible-page-heading-at-390px/error-context.md",
@@ -278,9 +513,29 @@
       "sha256": "12b94cb6d459c89241a21cf6fe0b4a6503f7920548adfb566fd53548fae5a855"
     },
     {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-files-one-visible-page-heading-at-390px/test-failed-1.png",
+      "bytes": 53007,
+      "sha256": "5a764416de3e11afc1aa445cc33b27cb7b6b609a53875ecc50a5f21028d4786e"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-files-one-visible-page-heading-at-390px/trace.zip",
+      "bytes": 116058,
+      "sha256": "e1b32e1896bfc5d39004e3af143dad80a76ad8f12f004cb67531b5aa5125e211"
+    },
+    {
       "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-guidelines-02555-ible-page-heading-at-1280px/error-context.md",
       "bytes": 43741,
       "sha256": "9b2fd7e1ee784c1546ee4225fe95b312d6bbe542be60fe373d062beefd8be1a2"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-guidelines-02555-ible-page-heading-at-1280px/test-failed-1.png",
+      "bytes": 161959,
+      "sha256": "92ee688de5a46a8975b18a8226973b6fab9c6cfd31fed648a4fbda72aab00095"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/negative-missing-heading/test-results/design--LAY-001-guidelines-02555-ible-page-heading-at-1280px/trace.zip",
+      "bytes": 394731,
+      "sha256": "be20213e1a164a0d73348cb957a936f46f4b347dba34b8b7d6b3835b45cbf922"
     },
     {
       "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/report.json",
@@ -291,6 +546,11 @@
       "path": "history/mutations-browser-2026-10-11T21-06-28-718Z/report.md",
       "bytes": 2344,
       "sha256": "781c5e4b21f9aa14bec22dd3c7f73ca139cd2823688f8d3af17dca87d73bd48e"
+    },
+    {
+      "path": "history/mutations-browser-2026-10-11T21-13-40-991Z/aborted.md",
+      "bytes": 506,
+      "sha256": "cc50126da3d6f6114c27502f649468b0d830e4a16524b0c6660dfe1b3398764c"
     },
     {
       "path": "history/mutations-browser-2026-10-11T21-14-14-207Z/baseline-artifacts/test-results/.last-run.json",
@@ -441,6 +701,211 @@
       "path": "mutations-static-2026-10-11T21-06-12-461Z/report.md",
       "bytes": 1695,
       "sha256": "6ebf4c0e0f6da1fe2c66439970485ed01f204d4f3fb28d604a74a039a6659507"
+    },
+    {
+      "path": "phase-b/final-baseline/check-design.log",
+      "bytes": 255,
+      "sha256": "afa5aec49299f2d67c6e02a131e0a6474d1881d42af2085012d4db936bceb198"
+    },
+    {
+      "path": "phase-b/final-baseline/commands.json",
+      "bytes": 619,
+      "sha256": "93ac89d00af7f9ac7de0a85bf90e5109f42307cd3a34b02d537599c33815ef2f"
+    },
+    {
+      "path": "phase-b/final-baseline/e2e.json",
+      "bytes": 3409609,
+      "sha256": "cb806063226634d06d6e36041d38f0706d5ac488648c65d0adf9a602e5611db1"
+    },
+    {
+      "path": "phase-b/final-baseline/e2e.log",
+      "bytes": 4515,
+      "sha256": "b8ca9389ba8ca6ac35dfe8005de06fe69232171e9a84c709735f0523dd93fd7d"
+    },
+    {
+      "path": "phase-b/final-baseline/lint.log",
+      "bytes": 43,
+      "sha256": "516fa9ea58b4d1ace9a7a9adffb5199c9cac4da24cf4d036a9b66b3ed85ce2d7"
+    },
+    {
+      "path": "phase-b/final-baseline/test-design.log",
+      "bytes": 1231,
+      "sha256": "7baf2cb50ef6ddacbbfdfe4d67061a3b380c0c3cde6463b7f81b7a98f89e4548"
+    },
+    {
+      "path": "phase-b/final-baseline/typecheck.log",
+      "bytes": 52,
+      "sha256": "124904ce926a1c4207813e7138ab95b0e4f519e30bed11d1308a4a5ea6ab61b8"
+    },
+    {
+      "path": "phase-b/visual/snapshots/baseline-review.json",
+      "bytes": 3849,
+      "sha256": "cc983ad1ad9c0e763a8d81273c1b4e6c1896dc0ab160c6cbe1b6d146507f4b19"
+    },
+    {
+      "path": "phase-b/visual/snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/connectors-connected-empty-1280x900-darwin.png",
+      "bytes": 64882,
+      "sha256": "f79e3a286f4c88a33cfcf33add37d3f35051d07fc3b7372e0547130873038d3e"
+    },
+    {
+      "path": "phase-b/visual/snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-darwin.png",
+      "bytes": 64250,
+      "sha256": "86f9fdc99cf91f6ff5b5bba0300cb995d47df084bc3600e909ba43c256b0c123"
+    },
+    {
+      "path": "phase-b/visual/snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-darwin.png",
+      "bytes": 53265,
+      "sha256": "fb3c699424ad37b4844d13f49b6c64a8955622c1f319cabe1f6a9ece064d51a9"
+    },
+    {
+      "path": "phase-b/visual/visual-baseline-review.json",
+      "bytes": 1173,
+      "sha256": "c0730c55af7221f0e94d7d61e9e351baf09764503eb191e91dbc8c79fdcd3e40"
+    },
+    {
+      "path": "phase-b/visual/visual-candidate-environment.json",
+      "bytes": 2522,
+      "sha256": "5c1413606e7f4ab3bcb6125c5f4bcd9c97d07e812294be59e4d042a0cbd70c00"
+    },
+    {
+      "path": "phase-b/visual/visual-candidate-generation.json",
+      "bytes": 13410,
+      "sha256": "38003dccc8c8d432a2e46706e1e5e79084ac32323c752a3afbbda948008ca767"
+    },
+    {
+      "path": "phase-b/visual/visual-frozen-compare.json",
+      "bytes": 9453,
+      "sha256": "493e02c1e628030cd87feaa7abc949fe531c41e315b5eeb6c062e1b593eeeb44"
+    },
+    {
+      "path": "phase-b/visual/visual-reviewed-compare.json",
+      "bytes": 9458,
+      "sha256": "7e78cb1eb7569e15593b444ea37a858f69dff6b89d9ad638640e3ac7b74159ef"
+    },
+    {
+      "path": "phase-b/visual-negative/artifacts/.last-run.json",
+      "bytes": 145,
+      "sha256": "d4acff70554216957ebb1d11dd3495075373307b0c3ef77873c05691c6cb4113"
+    },
+    {
+      "path": "phase-b/visual-negative/artifacts/visual--VISUAL-001-Files-initial-list-at-1280x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-actual.png",
+      "bytes": 64659,
+      "sha256": "50b518910fe2716c00f843d6103e170cca9c1bbb0f163c9ce11c6ecfc9f74a77"
+    },
+    {
+      "path": "phase-b/visual-negative/artifacts/visual--VISUAL-001-Files-initial-list-at-1280x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-diff.png",
+      "bytes": 55729,
+      "sha256": "f0ae8b23c8d7838da0549e74758fb0c8d8d22f1197d1b9d172250e0c51deca86"
+    },
+    {
+      "path": "phase-b/visual-negative/artifacts/visual--VISUAL-001-Files-initial-list-at-1280x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-expected.png",
+      "bytes": 64250,
+      "sha256": "86f9fdc99cf91f6ff5b5bba0300cb995d47df084bc3600e909ba43c256b0c123"
+    },
+    {
+      "path": "phase-b/visual-negative/artifacts/visual--VISUAL-001-Files-initial-list-at-1280x900/error-context.md",
+      "bytes": 7031,
+      "sha256": "02bcb1c365a3107355ed96d9d983904b378bbcf3762c1e3d6a3553fcc9926f8d"
+    },
+    {
+      "path": "phase-b/visual-negative/artifacts/visual--VISUAL-001-Files-initial-list-at-1280x900/test-failed-1.png",
+      "bytes": 64659,
+      "sha256": "50b518910fe2716c00f843d6103e170cca9c1bbb0f163c9ce11c6ecfc9f74a77"
+    },
+    {
+      "path": "phase-b/visual-negative/artifacts/visual--VISUAL-001-Files-initial-list-at-1280x900/trace.zip",
+      "bytes": 315783,
+      "sha256": "454976b6f22a9444e86b78352361927e0559ce42e1e9ab301899045be9311281"
+    },
+    {
+      "path": "phase-b/visual-negative/artifacts/visual--VISUAL-001-Files-initial-list-at-390x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-actual.png",
+      "bytes": 53908,
+      "sha256": "275b8a6d289325af6a456b97d21356edff98ea501253084e7f4d3fba3e6b79f0"
+    },
+    {
+      "path": "phase-b/visual-negative/artifacts/visual--VISUAL-001-Files-initial-list-at-390x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-diff.png",
+      "bytes": 46551,
+      "sha256": "863ced4f180e71ae0b8ead835ad78109cf2aa368ef94ae0da58920b0d47278e4"
+    },
+    {
+      "path": "phase-b/visual-negative/artifacts/visual--VISUAL-001-Files-initial-list-at-390x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-expected.png",
+      "bytes": 53265,
+      "sha256": "fb3c699424ad37b4844d13f49b6c64a8955622c1f319cabe1f6a9ece064d51a9"
+    },
+    {
+      "path": "phase-b/visual-negative/artifacts/visual--VISUAL-001-Files-initial-list-at-390x900/error-context.md",
+      "bytes": 7121,
+      "sha256": "e58eb09a8d721878d3313ed08c09045daa7c4fffd9f864ee4a52ab8710d868b3"
+    },
+    {
+      "path": "phase-b/visual-negative/artifacts/visual--VISUAL-001-Files-initial-list-at-390x900/test-failed-1.png",
+      "bytes": 53908,
+      "sha256": "275b8a6d289325af6a456b97d21356edff98ea501253084e7f4d3fba3e6b79f0"
+    },
+    {
+      "path": "phase-b/visual-negative/artifacts/visual--VISUAL-001-Files-initial-list-at-390x900/trace.zip",
+      "bytes": 264210,
+      "sha256": "33af139ecb2a20146cca145ec7d10a34b3a20c2b1340723c4d2d31dffaf9a601"
+    },
+    {
+      "path": "phase-b/visual-negative/visual-frozen-source-hashes.json",
+      "bytes": 3782,
+      "sha256": "743ad27d6c31807026eb511f5ddc5482c60c883ed0eae48be6b522b782f0bb82"
+    },
+    {
+      "path": "phase-b/visual-negative/visual-negative-build-final.log",
+      "bytes": 814,
+      "sha256": "2c8202404b0f664afbe15f33a400c7b8212ccb47686a10bdb900653796cee68c"
+    },
+    {
+      "path": "phase-b/visual-negative/visual-negative-build.log",
+      "bytes": 817,
+      "sha256": "a4321501222417e6a62903d61818a8b7c886b7db6c1295bad50b038b0c5c4b4b"
+    },
+    {
+      "path": "phase-b/visual-negative/visual-negative-design-check.log",
+      "bytes": 253,
+      "sha256": "de903beb7c8c45e65fa5f0d47ebcacdf9469c888170369bbb898a68cca719e42"
+    },
+    {
+      "path": "phase-b/visual-negative/visual-negative-final.json",
+      "bytes": 26221,
+      "sha256": "2f36c1f005adda11583cc26e1bbb8d2391a9499a42a618644b64fbbf4d9d4d98"
+    },
+    {
+      "path": "phase-b/visual-negative/visual-negative-final.log",
+      "bytes": 9205,
+      "sha256": "3732f93f9bf416c94f87e08a8b2efd31270de138923e50d5c47bd4621296259c"
+    },
+    {
+      "path": "phase-b/visual-negative/visual-negative-setup-incomplete-governance.log",
+      "bytes": 1171,
+      "sha256": "5f01419b150190b3d2de62c3a9380054283c2d7b49e259a8665c3b276cc1cd8a"
+    },
+    {
+      "path": "phase-b/visual-negative/visual-negative-setup-symlink-build.log",
+      "bytes": 3046,
+      "sha256": "93f8b99ef82497b959f62b40098b025bee6e4ca5727c988cdff3b7d419893996"
+    },
+    {
+      "path": "phase-b/visual-negative/visual-negative-source.json",
+      "bytes": 2316,
+      "sha256": "c8e500c776e923c805ec5879a762cf8b3ff000a0c1cdbc7d7f61638d641effd6"
+    },
+    {
+      "path": "phase-b/visual-negative/visual-negative-summary.json",
+      "bytes": 2258,
+      "sha256": "6b6f405336f596e47c9d8496b34e1bec4d3992d32bdc9669c3537eed99031b30"
+    },
+    {
+      "path": "phase-b/visual-negative/visual-negative-typecheck.log",
+      "bytes": 52,
+      "sha256": "124904ce926a1c4207813e7138ab95b0e4f519e30bed11d1308a4a5ea6ab61b8"
+    },
+    {
+      "path": "phase-b/visual-negative/visual-negative.patch",
+      "bytes": 584,
+      "sha256": "0abd7e5b34caee8fe78d28d62441727fb4d0c135f4a1da0666d63ec9c3fb3400"
     },
     {
       "path": "react-doctor/diagnostics.json",

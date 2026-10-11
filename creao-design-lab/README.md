@@ -28,14 +28,15 @@ npm run dev
 ```bash
 npm run typecheck
 npm run lint
+npm run test:design
 npm run check:design
 npm run build
 npx playwright install chromium
-npm run test:e2e
+PW_SERVER_COMMAND="npm run start -- --hostname 127.0.0.1 --port 3100" npm run test:e2e
 npm run test:mutations
 ```
 
-静态设计检查验证受治理源码与 CSS。浏览器检查验证实际 DOM、交互和布局。Mutation 在临时副本改动真实实现后调用原有检查器；不会修改共享基线。结果中的 `killed` 必须是目标规则命中，编译失败、超时和执行基础设施错误分开统计。正例用于测量误报。具体命令和报告位置将在完成验证后补齐收据。
+静态设计检查验证受治理源码与 CSS。浏览器检查验证实际 DOM、交互和布局。Mutation 在临时副本改动真实实现后调用原有检查器；不会修改共享基线。结果中的 `killed` 必须是目标规则命中，编译失败、超时和执行基础设施错误分开统计。正例用于测量误报。实际命令、首次失败、复验与分母见 [验证结果](../exam/validation-results.zh-CN.md)。固定设计 mutation、新增 axe/视觉负例、独立工程师实验分开统计。
 
 ## CI 与发布边界
 
@@ -61,3 +62,25 @@ npm run test:mutations
 | 任意工程师无法绕过 | 此实验不能证明；需要权限边界、更广的覆盖与持续治理 |
 
 文档一致性检查只能确认 ID、路径和格式，不能完全证明自然语言与代码语义等价。静态规则也不能穷尽任意 JavaScript/CSS 写法。浏览器验证只覆盖记录的页面、状态和视口。报告必须保留 survivors、invalid、error、未测项及人工判断。
+
+## 增强门禁与状态目录
+
+- [页面状态目录](governance/page-states.json) 枚举路由、状态、视口、检查和实测证据；不存在的 loading/error/permission 状态明确标注未实现。
+- `npm run test:e2e` 默认运行行为/布局与 axe；`npm run test:a11y` 单独运行 axe。违规与 incomplete（需人工核查）分别记录，不能将无自动违规等同完整 WCAG 合规。
+- `npm run test:visual` 独立比较经审阅截图，默认禁止更新快照。`VISUAL_ENV` 必须等于真实 OS/架构/内核/浏览器版本 namespace。当前受审阅环境是 `darwin-arm64-25.6.0-chromium-154.0.8037.98`，真实字体证据在验收附件中。
+
+本机复现（已有系统 Chrome，精确环境一致时）：
+
+```bash
+PW_CHANNEL=chrome PW_SERVER_COMMAND='npm run start -- --hostname 127.0.0.1 --port 3100' npm run test:e2e
+PW_CHANNEL=chrome VISUAL_ENV=darwin-arm64-25.6.0-chromium-154.0.8037.98 PW_SERVER_COMMAND='npm run start -- --hostname 127.0.0.1 --port 3100' npm run test:visual
+PW_CHANNEL=chrome npm run test:mutations
+```
+
+其他环境会在身份不匹配或缺少对应基线时失败。CI 的 Linux 视觉基线尚需在选定环境生成候选、人工审阅并提交；现有 workflow 不跳过 visual gate，因此不能声称远端 CI 已全绿。合法新功能造成像素变化时，先保存 expected/actual/diff，由独立 reviewer 说明变化并批准基线更新，再普通模式复验；不能把生成基线的命令算成通过。
+
+[完整实施与选型计划](../exam/implementation-plan.zh-CN.md)、[交付包方案](../exam/delivery-packaging-plan.zh-CN.md) 与 [设计漂移巡查职责](../exam/agents/design-drift-auditor.md) 提供后续接入契约。巡查 agent 当前仅交付职责文档，没有启用每日调度或外部通知。
+
+## 已知工程限制
+
+自动检查只覆盖登记的语法、路由与状态。React Doctor 的基线扫描为 0 errors / 6 性能建议；实验副本出现的 0 文件扫描评分不作为有效证据。依赖审计的生产依赖为 0 发现，开发 lint 依赖链存在同一个 braces 公告传播出的 5 条 high；它没有进入当前产品请求路径，仍需跟踪上游修复，不能写成已修复。详情和原始 JSON 均在验证结果索引。

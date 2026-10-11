@@ -18,7 +18,9 @@
     "test:mutations": "node scripts/mutation-runner.mjs --suite all",
     "mutation:static": "node scripts/mutation-runner.mjs --suite static",
     "mutation:browser": "node scripts/mutation-runner.mjs --suite browser",
-    "mutation:all": "node scripts/mutation-runner.mjs --suite all"
+    "mutation:all": "node scripts/mutation-runner.mjs --suite all",
+    "test:visual": "PW_VISUAL=1 playwright test",
+    "test:a11y": "playwright test accessibility.spec.ts"
   },
   "dependencies": {
     "lucide-react": "1.55.0",
@@ -29,6 +31,7 @@
     "remark-gfm": "4.0.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.64.0",
     "@types/node": "24.19.2",
     "@types/react": "19.3.0",

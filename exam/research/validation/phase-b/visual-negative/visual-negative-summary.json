@@ -1,0 +1,70 @@
+{
+  "createdAt": "2026-10-11T21:29:58.144332+00:00",
+  "ruleId": "VISUAL-001",
+  "mutation": "file-name letter-spacing uses registered --space-1 token",
+  "countedMutants": 1,
+  "classification": "killed",
+  "preconditions": {
+    "staticExit": 0,
+    "buildExit": 0,
+    "buildIncludesTypeScript": true,
+    "finalBuildLog": "reports/visual-negative-build-final.log"
+  },
+  "formalTestExit": 1,
+  "stats": {
+    "startTime": "2026-10-11T21:28:47.659Z",
+    "duration": 38208.362,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  },
+  "checks": [
+    {
+      "title": "[VISUAL-001] Files initial list at 1280x900",
+      "status": "failed",
+      "failureIsScreenshotDifference": true,
+      "differentPixels": "4735"
+    },
+    {
+      "title": "[VISUAL-001] Files initial list at 390x900",
+      "status": "failed",
+      "failureIsScreenshotDifference": true,
+      "differentPixels": "4738"
+    },
+    {
+      "title": "[VISUAL-001] Connectors connected empty state at 1280x900",
+      "status": "passed",
+      "failureIsScreenshotDifference": false,
+      "differentPixels": null
+    }
+  ],
+  "changedFrozenSourceFiles": [
+    "src/styles/layouts.css"
+  ],
+  "protectedScreenshotHashes": [
+    {
+      "path": "tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/connectors-connected-empty-1280x900-darwin.png",
+      "sha256": "f79e3a286f4c88a33cfcf33add37d3f35051d07fc3b7372e0547130873038d3e",
+      "matchesReviewedBaseline": true
+    },
+    {
+      "path": "tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-darwin.png",
+      "sha256": "86f9fdc99cf91f6ff5b5bba0300cb995d47df084bc3600e909ba43c256b0c123",
+      "matchesReviewedBaseline": true
+    },
+    {
+      "path": "tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-darwin.png",
+      "sha256": "fb3c699424ad37b4844d13f49b6c64a8955622c1f319cabe1f6a9ece064d51a9",
+      "matchesReviewedBaseline": true
+    }
+  ],
+  "earlierSetupErrors": [
+    "reports/visual-negative-setup-incomplete-governance.log",
+    "reports/visual-negative-setup-symlink-build.log"
+  ],
+  "setupErrorsCountedAsKills": false,
+  "invalid": 0,
+  "error": 0,
+  "survived": 0
+}

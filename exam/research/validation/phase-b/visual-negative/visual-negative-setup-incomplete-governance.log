@@ -1,0 +1,48 @@
+
+> creao-design-lab@0.1.0 check:design
+> node scripts/check-design.mjs
+
+{
+  "version": 1,
+  "root": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/visual-negative/creao-design-lab",
+  "passed": false,
+  "violations": [
+    {
+      "ruleId": "GOV-001",
+      "file": "design.md",
+      "line": 1,
+      "message": "Missing rule index A11Y-002"
+    },
+    {
+      "ruleId": "GOV-001",
+      "file": "design.md",
+      "line": 1,
+      "message": "Missing rule index VISUAL-001"
+    },
+    {
+      "ruleId": "GOV-001",
+      "file": "design.md",
+      "line": 1,
+      "message": "Missing executable file link: tests/e2e/accessibility.spec.ts"
+    },
+    {
+      "ruleId": "GOV-001",
+      "file": "design.md",
+      "line": 1,
+      "message": "Missing executable file link: tests/e2e/visual.spec.ts"
+    },
+    {
+      "ruleId": "GOV-001",
+      "file": "design.md",
+      "line": 1,
+      "message": "Missing executable file link: governance/page-states.json"
+    },
+    {
+      "ruleId": "GOV-001",
+      "file": "design.md",
+      "line": 1,
+      "message": "Missing executable file link: tests/design/page-states.test.mjs"
+    }
+  ],
+  "exceptions": []
+}

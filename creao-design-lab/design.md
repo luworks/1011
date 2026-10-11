@@ -1,6 +1,6 @@
 # CREAO product design contract
 
-Version: 0.1 · 2026-10-11 · Owner: Product Design + Frontend Engineering.
+Version: 0.2 (enhanced verification candidate) · 2026-10-11 · Owner: Product Design + Frontend Engineering.
 
 This is the implementation contract for the **local CREAO Design Lab**. It is an evidence-informed proposal for CREAO's product layer, not CREAO's private design-system source. Read this file before changing a screen; use [AGENTS.md](AGENTS.md) for the delivery workflow. The submission-level rationale is in [design-system-guideline.md](../exam/design-system-guideline.md).
 
@@ -30,7 +30,11 @@ These paths are the implementation interface. Do not copy rules into a second di
 | Rule metadata and supported scope | [governance/rules.json](governance/rules.json) |
 | Time-limited exceptions | [governance/exceptions.json](governance/exceptions.json) |
 | Static enforcement | [scripts/check-design.mjs](scripts/check-design.mjs) |
-| Runtime, accessibility and layout enforcement | [tests/e2e/design.spec.ts](tests/e2e/design.spec.ts) |
+| Explicit runtime, accessible-name and layout contracts | [tests/e2e/design.spec.ts](tests/e2e/design.spec.ts) |
+| Full-page axe state scans | [tests/e2e/accessibility.spec.ts](tests/e2e/accessibility.spec.ts) |
+| Reviewed visual comparisons | [tests/e2e/visual.spec.ts](tests/e2e/visual.spec.ts) |
+| Route/state/viewport coverage inventory | [governance/page-states.json](governance/page-states.json) |
+| State-inventory schema and evidence validation | [tests/design/page-states.test.mjs](tests/design/page-states.test.mjs) |
 | Mutation fixtures and results | [tests/mutations/](tests/mutations/); generated evidence: `reports/` |
 
 The registry identifies concrete checker entrypoints. The package scripts are the command interface. A broken index, unknown rule, missing entrypoint or invalid exception fails GOV-001. Directory links above are navigation aids, not a claim that every directory has an independent check.
@@ -89,7 +93,7 @@ At compact widths, convert file rows to labeled entries: file name first, then e
 
 ## 5. Rules and failure contracts
 
-All eight rules are mandatory within their declared scopes. `block` means the change cannot become a release candidate without a valid scoped exception. Human judgments are explicitly distinguished from automated checks.
+All ten rules are mandatory within their declared scopes. The original eight remain unchanged; A11Y-002 and VISUAL-001 add independent checks. `block` means the change cannot become a release candidate without a valid scoped exception. Human judgments are explicitly distinguished from automated checks.
 
 | Rule | Pass contract | Fails when | Enforcement / boundary |
 | --- | --- | --- | --- |
@@ -101,6 +105,8 @@ All eight rules are mandatory within their declared scopes. `block` means the ch
 | **NAV-001** Destination language | Guidance and controls derive destination names from the same label source; actions reveal that destination. | “Available” is referenced when the actual tab is “Connectable”, or the action activates another tab. | Browser assertions against the canonical Chinese destination name, guidance and actual tab/region. Shared-source reuse is a source-review requirement, not import analysis. Localization requires the same check for each supported locale. |
 | **RESP-001** Field integrity | At tested compact widths, every metadata value stays associated with its visible label, controls stay reachable and key rectangles do not overlap/clip. | Desktop headers no longer correspond to stacked values, or essential content overlaps/offscreen. | Browser geometry and label/structure assertions plus screenshot review. No claim of full visual correctness or every-device coverage. |
 | **GOV-001** Contract integrity | Registry, document/index links, checker paths and exception records are valid and current. Rule/check changes have owner review. | Referenced files are missing, rule IDs drift, or exception records are malformed/expired/outside their declared scope. | Static validation can check records, not the identity of an approver. External required checks and ownership enforce review. |
+| **A11Y-002** Axe state scans | The 16 explicit full-page scans have zero WCAG 2 A/AA and 2.1 A/AA tagged axe violations; incomplete results remain visible for manual review. | Any axe violation, regardless of severity. Setup/navigation/browser errors fail execution but are not reported as design-rule detections. | Eight states at 1280×900 and 390×844. No include/exclude/disabled-rule shortcuts. Does not establish complete accessibility or WCAG conformance. |
+| **VISUAL-001** Reviewed screenshots | The three explicit screenshots match a reviewed baseline for the actual OS/architecture/release/browser namespace. | Missing baseline, environment mismatch, or any differing pixel beyond the per-pixel color threshold (0.2), because allowed differing pixels = 0. | Files list at 1280×900 and 390×900; Connectors connected-empty at 1280×900. Legitimate changes can also fail and need review; a green image comparison is not a usability proof. |
 
 Automated route coverage is `/files`, `/connectors`, `/agents` and `/guidelines`, as recorded in the registry. Future routes and unrepresented dynamic states still require review or new fixtures. DS-001 covers source CSS only; inline styles, CSS-in-JS, dynamically generated styles, external CSS and HTML color attributes are outside its current checker scope. Semantic CSS keywords such as `transparent`, `currentColor` and `inherit` are allowed; they do not define new palette values. Adding a privileged UI implementation or changing token authority requires owner review even if the static check passes.
 
@@ -130,22 +136,40 @@ npm ci
 npm run typecheck
 npm run lint
 npm run check:design
+npm run test:design
 npm run build
-npm run test:e2e
+npx playwright install chromium
+PW_SERVER_COMMAND='npm run start -- --hostname 127.0.0.1 --port 3100' npm run test:e2e
 npm run test:mutations
+# A separate required visual check needs the exact reviewed environment namespace:
+VISUAL_ENV="$REVIEWED_VISUAL_ENV" PW_SERVER_COMMAND='npm run start -- --hostname 127.0.0.1 --port 3100' npm run test:visual
 ```
 
 Use `npm run dev -- --port 3100` for interactive local inspection. Read the test runner configuration for server startup/port ownership; do not launch competing servers on the same port. The listed commands describe the required gate, not a claim that a run has succeeded. Actual receipts live under `reports/` and are summarized in the compliance audit.
+
+### State coverage is a declared, testable inventory
+
+`governance/page-states.json` catalogs six source routes and 31 states: 22 implemented states and nine explicitly unimplemented loading/network/permission states. A row is an inventory entry, not proof that every assertion passed. Keep implementation, check implementation, execution, exact test title, executed viewport and evidence separate. An implemented test with no receipt stays `notVerified`; a future check stays `planned`; unsupported states stay `notImplemented` / `notApplicable`. Do not inflate the denominator by counting planned checks as executed.
+
+The catalog validator discovers App Router page files and rejects uncatalogued routes, duplicate states, unknown rules, invalid setup/scope/viewports, missing implemented check paths, and pass claims without evidence. Browser receipt claims must match the exact test title and expected number of runs; axe's repeated title requires both viewport runs. Existing 22-test behavior receipts are retained as historical evidence, not as proof that a later changed candidate was tested. State completeness and whether a test fully asserts its declared semantics still require review.
+
+The 16 axe scans cover eight states only: Files initial list, no search results, empty-folder validation and preview dialog; Connectors connected-empty; Agents initial empty and detail; Guidelines. Their 390×844 viewport is distinct from the behavior suite's 390×900. Full axe output preserves `violations`, `incomplete`, `passes` and `inapplicable`. Zero violations passes the automated gate; unresolved incomplete findings require an explicit human disposition before release.
+
+### Visual baseline review and environment policy
+
+The visual suite is separate (`npm run test:visual`), never silently skipped inside an ordinary gate. `npm run test:e2e` covers 22 existing contracts plus 16 axe scans; this test count is planned configuration, not a claim of successful execution. `npm run test:a11y` can isolate the axe scans during investigation.
+
+Set `VISUAL_ENV` to the verified `${platform}-${architecture}-${OS release}-chromium-${browser version}` namespace, for example the local Mac candidate environment `darwin-arm64-25.6.0-chromium-154.0.8037.98`. The test recomputes and checks that string. System Chrome can be selected locally with `PW_CHANNEL=chrome`; CI defaults to Playwright's matching Chromium. This distinction must appear in the receipt. A Linux run cannot reuse a Mac baseline: absent Linux images must fail, then be generated and reviewed in the pinned Linux environment. Environment names do not prove identical fonts; pin the runner image, fonts, dependencies and browser and retain their versions.
+
+Snapshots use synthetic fixed data, a fixed clock, `zh-CN`, the Los Angeles time zone, DPR 1, light mode, reduced motion, disabled screenshot animations, a hidden caret, CSS scale and full-page capture. `threshold: 0.2` is a per-pixel color tolerance; `maxDiffPixels: 0` means no pixels beyond that tolerance are accepted. Keep expected/actual/diff images and traces with the run.
+
+Missing-baseline runs fail closed. Generating candidates with `npm run test:visual -- --update-snapshots` is a separate authorized review operation, never the PR/CI success path. Product Design plus a frontend owner inspect candidate/previous/diff images and justify intended UI changes. Record that review, commit only the accepted platform-specific images, then rerun normal comparison without update flags. Legitimate new features may require this workflow; do not broaden thresholds or overwrite images automatically to force green. Review ownership must be enforced outside author-editable files.
 
 The prototype demonstrates a local gate. GitHub required checks, CODEOWNERS enforcement, protected environments and deployment receipts must be configured separately. `AGENTS.md` instructs cooperative agents; it is not an access-control boundary. A contributor able to edit every checker and CI policy can bypass local restrictions.
 
 ## 7. Exceptions and evolution
 
-`exceptions.json` has the root shape `{ "exceptions": [] }`. Each record requires exactly `id`, `ruleId`, `path`, `reason`, `owner`, `approvedBy`, and `expires` (YYYY-MM-DD; current implementation expires at the end of that UTC date). Use an exact existing relative file path and document affected route/state, tracking reference and compensating verification in the reason/review record. An expired exception fails closed. Never use a wildcard exception for an entire app. This legacy file-level implementation supports DS-001 and DS-002 only; unsupported entries still fail closed. This implementation limit is not a permanent ban on human exceptions for browser or visual design findings. The expanded release-decision contract is [Human exceptions and scoped bypass](governance/human-exceptions-policy.md). `approvedBy` alone is not authenticated approval.
-
-Human-approved departures are supported for important features, scoped experiments and documented tradeoffs. Standard exceptions require the Product Design and Frontend owner responsibilities to sign off (a registered dual-role owner may satisfy both), last no more than seven days, and prohibit requester self-approval. A CTO or explicitly delegated release owner can approve an emergency design exception for at most 24 hours, with user impact, compensating verification, rollback and independent follow-up; any requester/approver overlap must be recorded. Engineer and coordinator agents can prepare or execute an approved decision, but cannot impersonate an approver.
-
-Bind the decision to one repository/candidate SHA, policy and evidence digests, exact rule/check/finding scope and UTC expiry. Preserve original failed checks and report `accepted_with_exceptions`, never a fabricated clean pass. New failures, changed candidates, expiration or revocation require reevaluation. Missing evidence, execution failures and invalid approval cannot be waived as successful design checks. The policy provides request/approve/evaluate/revoke protocol instructions, exact coordinator approval wording, CI aggregation semantics and acceptance tests. Runtime/CI integration and verified platform approval are separate evidence; until they exist, that expanded path must be labeled pending or simulation. Once valid authorization exists, proceed within scope without repeatedly asking for the same approval.
+`exceptions.json` has the root shape `{ "exceptions": [] }`. Each record requires exactly `id`, `ruleId`, `path`, `reason`, `owner`, `approvedBy`, and `expires` (YYYY-MM-DD; current implementation expires at the end of that UTC date). Use an exact existing relative file path and document affected route/state, tracking reference and compensating verification in the reason/review record. An expired exception fails closed. Never use a wildcard exception for an entire app. Only DS-001 and DS-002 support scoped waivers in this prototype. GOV-001 and browser-rule exceptions fail closed and require a separately reviewed contract change. `approvedBy` is a declared identity and must be verified through the protected review system.
 
 Repeated exceptions indicate a missing pattern or an incorrect rule. Review them with Product Design + Engineering, then revise the contract and add positive/negative examples. Separate a real product violation from a checker false positive. Keep the original mutation results when improving coverage; report survivors and invalid experiments honestly.
 

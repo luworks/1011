@@ -1,0 +1,49 @@
+
+> creao-design-lab@0.1.0 test:e2e
+> playwright test
+
+
+Running 38 tests using 1 worker
+
+(node:77423) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 tests/e2e/accessibility.spec.ts:33:9 › axe 1280px › [A11Y-002] axe Files initial (1.4s)
+  ✓   2 tests/e2e/accessibility.spec.ts:39:9 › axe 1280px › [A11Y-002] axe Files empty search (727ms)
+  ✓   3 tests/e2e/accessibility.spec.ts:47:9 › axe 1280px › [A11Y-002] axe Files folder validation error (671ms)
+  ✓   4 tests/e2e/accessibility.spec.ts:56:9 › axe 1280px › [A11Y-002] axe Files preview dialog (741ms)
+  ✓   5 tests/e2e/accessibility.spec.ts:68:9 › axe 1280px › [A11Y-002] axe Connectors connected empty (683ms)
+  ✓   6 tests/e2e/accessibility.spec.ts:75:9 › axe 1280px › [A11Y-002] axe Agents empty (558ms)
+  ✓   7 tests/e2e/accessibility.spec.ts:81:9 › axe 1280px › [A11Y-002] axe Agents detail (818ms)
+  ✓   8 tests/e2e/accessibility.spec.ts:89:9 › axe 1280px › [A11Y-002] axe Guidelines (1.0s)
+  ✓   9 tests/e2e/accessibility.spec.ts:33:9 › axe 390px › [A11Y-002] axe Files initial (594ms)
+  ✓  10 tests/e2e/accessibility.spec.ts:39:9 › axe 390px › [A11Y-002] axe Files empty search (776ms)
+  ✓  11 tests/e2e/accessibility.spec.ts:47:9 › axe 390px › [A11Y-002] axe Files folder validation error (2.4s)
+  ✓  12 tests/e2e/accessibility.spec.ts:56:9 › axe 390px › [A11Y-002] axe Files preview dialog (835ms)
+  ✓  13 tests/e2e/accessibility.spec.ts:68:9 › axe 390px › [A11Y-002] axe Connectors connected empty (634ms)
+  ✓  14 tests/e2e/accessibility.spec.ts:75:9 › axe 390px › [A11Y-002] axe Agents empty (561ms)
+  ✓  15 tests/e2e/accessibility.spec.ts:81:9 › axe 390px › [A11Y-002] axe Agents detail (611ms)
+  ✓  16 tests/e2e/accessibility.spec.ts:89:9 › axe 390px › [A11Y-002] axe Guidelines (898ms)
+  ✓  17 tests/e2e/design.spec.ts:18:9 › [LAY-001] /files one visible page heading at 1280px (267ms)
+  ✓  18 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /files visible controls retain accessible names at 1280px (458ms)
+  ✓  19 tests/e2e/design.spec.ts:18:9 › [LAY-001] /connectors one visible page heading at 1280px (792ms)
+  ✓  20 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /connectors visible controls retain accessible names at 1280px (717ms)
+  ✓  21 tests/e2e/design.spec.ts:18:9 › [LAY-001] /agents one visible page heading at 1280px (349ms)
+  ✓  22 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /agents visible controls retain accessible names at 1280px (330ms)
+  ✓  23 tests/e2e/design.spec.ts:18:9 › [LAY-001] /guidelines one visible page heading at 1280px (678ms)
+  ✓  24 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /guidelines visible controls retain accessible names at 1280px (3.0s)
+  ✓  25 tests/e2e/design.spec.ts:18:9 › [LAY-001] /files one visible page heading at 390px (973ms)
+  ✓  26 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /files visible controls retain accessible names at 390px (1.4s)
+  ✓  27 tests/e2e/design.spec.ts:18:9 › [LAY-001] /connectors one visible page heading at 390px (450ms)
+  ✓  28 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /connectors visible controls retain accessible names at 390px (357ms)
+  ✓  29 tests/e2e/design.spec.ts:18:9 › [LAY-001] /agents one visible page heading at 390px (338ms)
+  ✓  30 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /agents visible controls retain accessible names at 390px (1.3s)
+  ✓  31 tests/e2e/design.spec.ts:18:9 › [LAY-001] /guidelines one visible page heading at 390px (562ms)
+  ✓  32 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /guidelines visible controls retain accessible names at 390px (593ms)
+  ✓  33 tests/e2e/design.spec.ts:43:5 › [STATE-001] connector empty state action reaches available services (401ms)
+  ✓  34 tests/e2e/design.spec.ts:54:5 › [NAV-001] empty-state destination copy matches actual available tab (360ms)
+  ✓  35 tests/e2e/design.spec.ts:68:5 › [STATE-001] file search no-results action restores actual entries (295ms)
+  ✓  36 tests/e2e/design.spec.ts:78:5 › [RESP-001] file list preserves field labels and fits 390px viewport (560ms)
+  ✓  37 tests/e2e/design.spec.ts:121:7 › [RESP-001] file list has no horizontal overflow at 320px (362ms)
+  ✓  38 tests/e2e/design.spec.ts:121:7 › [RESP-001] file list has no horizontal overflow at 800px (441ms)
+
+  38 passed (42.5s)

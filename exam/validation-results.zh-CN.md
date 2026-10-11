@@ -1,16 +1,18 @@
 # CREAO 设计约束：验证与实验结果
 
-日期：2026-10-11。状态：持续更新，尚未完成最终验收。本文件记录已经拿到的运行证据，配合 [实施计划](implementation-plan.zh-CN.md)、[产品设计规范](design-system-guideline.md) 和 [合规审计](compliance-audit.md) 使用。
+日期：2026-10-11。状态：基线与独立实验已取得证据，最终 mutation / 视觉实验收口中。本文件记录已经拿到的运行证据，配合 [实施计划](implementation-plan.zh-CN.md)、[产品设计规范](design-system-guideline.md) 和 [合规审计](compliance-audit.md) 使用。
 
 ## 结果总表
 
 | 验证层 | 当前已核实结果 | 证据 / 后续验收 |
 | --- | --- | --- |
 | 类型、通用 lint、生产构建 | 三项命令均退出 0 | [commands.json](research/validation/baseline/commands.json) 与对应日志 |
-| CSS / JSX / 治理检查器单测 | 8/8 通过；全项目设计检查退出 0、无违规 | [单测日志](research/validation/baseline/test-design.log)、[设计检查日志](research/validation/baseline/check-design.log) |
-| 原型浏览器基线 | 生产构建 22/22 通过；0 skipped、0 flaky | [Chrome channel 生产报告](research/validation/e2e-production-chrome.json)；bootstrap 缺浏览器失败单独保留 |
+| CSS / JSX / 治理检查器单测 | v1 8/8；增强阶段 13/13，类型/lint/静态检查全退出 0 | [单测日志](research/validation/baseline/test-design.log)、[设计检查日志](research/validation/baseline/check-design.log) |
+| 原型浏览器基线 | v1 22/22；增强阶段 38/38（原 22 + axe 16），0 skipped、0 flaky | [Chrome channel 生产报告](research/validation/e2e-production-chrome.json)；bootstrap 缺浏览器失败单独保留 |
 | 原型人工截图验收 | 桌面与 390/320px 检查通过；800px 初次溢出，修复后复验通过 | [人工验收收据](research/prototype/manual-review.json)，保留修复前后截图；创建、预览、恢复与详情实际操作已验 |
 | React Doctor | 已归档 6 条 warning、0 条 error，全部属于同一性能规则 | [diagnostics.json](research/validation/react-doctor/diagnostics.json)；保留告警，不写成零问题 |
+| 新 axe 门禁负例 | 1/1 killed；合法构建后命中 aria-valid-attr-value | [新增负例收据](research/accessibility/negative-control/receipt.json)，独立分母 |
+| 视觉基线 / 新视觉负例 | 冻结基线3/3通过；1个视觉负例被拦截 | [视觉审阅复验](research/validation/phase-b/visual/visual-frozen-compare.json)、[视觉负例](research/validation/phase-b/visual-negative/visual-negative-summary.json) |
 | 固定 mutation：首轮静态 | 6 个负例：5 killed、1 survived；2 个正例均 passed；0 invalid、0 error、0 false-positive | [首轮 report.md](research/validation/mutations-static-2026-10-11T21-03-48-256Z/report.md) / [原始 JSON](research/validation/mutations-static-2026-10-11T21-03-48-256Z/report.json) |
 | 固定 mutation：静态第二轮 | 6/6 killed、2/2 正例通过，0 survived/invalid/error/false-positive | [第二轮 report.md](research/validation/mutations-static-2026-10-11T21-06-12-461Z/report.md) / [原始 JSON](research/validation/mutations-static-2026-10-11T21-06-12-461Z/report.json) |
 | 固定 mutation：浏览器 | 前两轮各 7 invalid；没有可用设计拦截分母，最终复验待报告 | 两轮基础设施/基线失效历史已归档，不算 killed |
@@ -86,9 +88,29 @@
 
 [npm audit 原始结果](research/validation/baseline/npm-audit.json) 为 5 个 high 条目，追溯到 ESLint 工具链中的同一个 `braces` 公告 [GHSA-vfj7-8cjw-p6xm](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm)，并非 5 个独立根因。[生产依赖 audit](research/validation/baseline/npm-audit-production.json) 为 0。完整 audit 的非零结果保留为依赖风险，不能说全项目所有检查零问题，也不将它混入设计 mutation 的拦截分母。报告建议的修复涉及 `eslint-config-next` 跨主版本调整，未盲目执行自动降级。
 
-## 增强阶段 B（独立报告，待验证）
+## 增强阶段 B：扩展检查的独立结果
 
-增强副本计划执行 16 项 axe 检查与 3 项视觉检查。这是另一阶段的覆盖扩展，当前没有最终运行收据，不计入 v1 的 22 项浏览器结果或固定 mutation 分母。后续只新增独立结果，不覆盖 v1 首轮与复验历史。
+[增强基线命令](research/validation/phase-b/final-baseline/commands.json) 记录类型、lint、13 项设计单测、静态设计检查全部退出 0。[完整浏览器报告](research/validation/phase-b/final-baseline/e2e.json) 为 **38/38 通过**（原有设计检查 22 项 + axe 16 项），0 unexpected、0 skipped、0 flaky。增强结果不改写 v1 的 22 项历史。
+
+### axe 扫描与真实修复
+
+[无障碍完整索引](research/accessibility/README.md) 保留三轮基线、完整扫描 JSON、截图与 incomplete 人工复核：
+
+| 运行 | 结果 | 解释 |
+| --- | --- | --- |
+| [axe 初轮](research/accessibility/axe-baseline-20261011T211342Z/report.json) | 13/16 通过 | 2 项 locator 与 Next route announcer 冲突、在扫描前失败；1 项是 Guidelines 横向表格不可键盘聚焦 |
+| [axe 第二轮](research/accessibility/axe-baseline-v2-20261011T212200Z/report.json) | 14/16 通过 | 修正定位与表格后，新增代码块在两个视口不可键盘聚焦 |
+| [axe 第三轮](research/accessibility/axe-baseline-v3-20261011T212800Z/report.json) | 16/16 通过 | 修复真实元素后复验；保留 incomplete 复核记录 |
+
+[键盘实际操作](research/accessibility/axe-baseline-v3-20261011T212800Z/keyboard-scroll.json) 证明 table/pre 聚焦后 ArrowRight 使 scrollLeft 增长。Dialog 的重叠背景和窄屏 Guidelines 裁剪内容的 contrast incomplete 由截图、计算样式与抽样滚动复核；不能把自动零违规说成 axe 自动确认了全部对比度，更不等于完整 WCAG 认证。
+
+[新增 axe 负例收据](research/accessibility/negative-control/receipt.json) 记录将真实按钮的 `aria-pressed` 改为非法值 `sometimes`，类型检查通过，生产构建/HTTP 200 后，原测试命中 `aria-valid-attr-value`，因此 **1/1 killed**。首次 Turbopack symlink 构建失败单独保留为基础设施尝试；实际计入 killed 的是随后可运行页面上的目标违规。此 1 个新增 gate 负例与原固定 mutation 分母分开。
+
+### 视觉基线与环境边界
+
+[人工基线审阅](research/validation/phase-b/visual/visual-baseline-review.json) 独立确认三个截图可读后，[已审阅基线比较](research/validation/phase-b/visual/visual-reviewed-compare.json) 与 [冻结源码复验](research/validation/phase-b/visual/visual-frozen-compare.json) 均 **3/3 通过**。最初的 `--update-snapshots` 仅生成候选，不算验收通过。
+
+[环境记录](research/validation/phase-b/visual/visual-candidate-environment.json) 保存 macOS arm64、Chrome 154.0.8037.98、Playwright 1.64.0 与实际字体；候选 PNG 和审核元数据在 [snapshots/](research/validation/phase-b/visual/snapshots/)。这些图不能直接冒充 Linux 基线；CI 缺少对应已审阅环境基线时必须阻断。[视觉负例汇总](research/validation/phase-b/visual-negative/visual-negative-summary.json) 与 [原报告](research/validation/phase-b/visual-negative/visual-negative-final.json) 验证一个使用合法已登记 token 的错误字间距修改：静态检查和生产构建均退出 0，视觉测试退出 1。Files 桌面/窄屏分别出现 4735/4738 个差异像素，Connectors 保持通过；因此是 **1 个视觉负例 killed**，不是 2 个独立 mutation。审阅过的基线 PNG 哈希未变，expected/actual/diff/trace 在独立归档中。旧 setup 失败保留且不计拦截。增强 A/B 复验仍等待最终收据。
 
 ## 最终待补充的收据
 

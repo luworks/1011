@@ -1,0 +1,9 @@
+--- a/src/styles/layouts.css
++++ b/src/styles/layouts.css
+@@ -101,3 +101,6 @@
+ .offline-reference { color: var(--color-muted); font-size: 11px; }
+ .source-view { white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--font-mono); font-size: 12px; padding: 20px; background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius); }
+ .reference-list { display: grid; gap: 12px; overflow-wrap: anywhere; }
++
++/* Intentional isolated visual mutation: valid token, incorrect typography. */
++.file-name-button { letter-spacing: var(--space-1); }

@@ -1,0 +1,64 @@
+{
+  "kind": "visual-candidate-environment",
+  "capturedAt": "2026-10-11T21:14:26.673Z",
+  "namespace": "darwin-arm64-25.6.0-chromium-154.0.8037.98",
+  "system": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6\nBuildVersion:\t\t25G72",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "kernel": "25.6.0",
+  "node": "v24.21.0",
+  "playwright": "1.64.0",
+  "browserChannel": "chrome",
+  "browserVersion": "154.0.8037.98",
+  "fonts": {
+    "h1": {
+      "declared": "\"Instrument Sans Variable\", \"Inter Variable\", \"Inter Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "actual": [
+        {
+          "familyName": "PingFang SC",
+          "postScriptName": "PingFangSC-Semibold",
+          "isCustomFont": false,
+          "glyphCount": 2
+        }
+      ]
+    },
+    ".wordmark": {
+      "declared": "\"Instrument Sans Variable\", \"Inter Variable\", \"Inter Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "actual": []
+    },
+    ".file-name-button": {
+      "declared": "\"Instrument Sans Variable\", \"Inter Variable\", \"Inter Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+      "actual": [
+        {
+          "familyName": "PingFang SC",
+          "postScriptName": "PingFangSC-Medium",
+          "isCustomFont": false,
+          "glyphCount": 6
+        },
+        {
+          "familyName": ".SF NS",
+          "postScriptName": ".SFNS-Regular",
+          "isCustomFont": false,
+          "glyphCount": 3
+        }
+      ]
+    }
+  },
+  "screenshots": [
+    {
+      "path": "tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/connectors-connected-empty-1280x900-darwin.png",
+      "sha256": "f79e3a286f4c88a33cfcf33add37d3f35051d07fc3b7372e0547130873038d3e"
+    },
+    {
+      "path": "tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-darwin.png",
+      "sha256": "86f9fdc99cf91f6ff5b5bba0300cb995d47df084bc3600e909ba43c256b0c123"
+    },
+    {
+      "path": "tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-darwin.png",
+      "sha256": "fb3c699424ad37b4844d13f49b6c64a8955622c1f319cabe1f6a9ece064d51a9"
+    }
+  ],
+  "baselineReview": "pending-root-review",
+  "generationCommand": "BASE_URL=http://127.0.0.1:3120 PW_EXTERNAL_SERVER=1 PW_CHANNEL=chrome VISUAL_ENV=darwin-arm64-25.6.0-chromium-154.0.8037.98 npm run test:visual -- --update-snapshots",
+  "generationIsAcceptance": false
+}

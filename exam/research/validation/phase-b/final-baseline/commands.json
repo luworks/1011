@@ -1,0 +1,42 @@
+[
+  {
+    "command": [
+      "npm",
+      "run",
+      "typecheck"
+    ],
+    "exit": 0,
+    "seconds": 1.6404469013214111,
+    "log": "typecheck.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "lint"
+    ],
+    "exit": 0,
+    "seconds": 3.6319079399108887,
+    "log": "lint.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "test:design"
+    ],
+    "exit": 0,
+    "seconds": 0.8618192672729492,
+    "log": "test-design.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "check:design"
+    ],
+    "exit": 0,
+    "seconds": 0.46576881408691406,
+    "log": "check-design.log"
+  }
+]

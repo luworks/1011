@@ -8,6 +8,10 @@ export const referenceFiles = [
   'governance/rules.json', 'governance/exceptions.json',
   'scripts/check-design.mjs', 'scripts/mutation-runner.mjs',
   'tests/e2e/design.spec.ts', 'tests/mutations/cases.mjs',
+  'tests/e2e/accessibility.spec.ts',
+  'tests/e2e/visual.spec.ts',
+  'governance/page-states.json',
+  'tests/design/page-states.test.mjs',
 ] as const;
 export function referenceHref(href: string): string | null {
   const clean = href.replace(/^\.\//, '');

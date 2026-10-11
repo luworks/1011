@@ -23,5 +23,9 @@ export function readReference(file: typeof referenceFiles[number]) {
     case 'scripts/mutation-runner.mjs': return readFile(path.join(process.cwd(), 'scripts/mutation-runner.mjs'), 'utf8');
     case 'tests/e2e/design.spec.ts': return readFile(path.join(process.cwd(), 'tests/e2e/design.spec.ts'), 'utf8');
     case 'tests/mutations/cases.mjs': return readFile(path.join(process.cwd(), 'tests/mutations/cases.mjs'), 'utf8');
+    case 'tests/e2e/accessibility.spec.ts': return readFile(path.join(process.cwd(), 'tests/e2e/accessibility.spec.ts'), 'utf8');
+    case 'tests/e2e/visual.spec.ts': return readFile(path.join(process.cwd(), 'tests/e2e/visual.spec.ts'), 'utf8');
+    case 'governance/page-states.json': return readFile(path.join(process.cwd(), 'governance/page-states.json'), 'utf8');
+    case 'tests/design/page-states.test.mjs': return readFile(path.join(process.cwd(), 'tests/design/page-states.test.mjs'), 'utf8');
   }
 }
