@@ -1,7 +1,7 @@
 {
   "surface": "report",
   "title": "准确率优先，速度决定模型选择",
-  "generatedAt": "2026-10-11T20:22:16.914964+00:00",
+  "generatedAt": "2026-10-11T20:30:45.341947+00:00",
   "status": "partial",
   "buildStatus": "complete",
   "queries": {
@@ -1816,6 +1816,257 @@
         ],
         "caveats": [
           "Owner progress snapshots are not new live checks; each source retains its own observation time."
+        ]
+      }
+    },
+    "heldout_acceptance_v2": {
+      "rows": [
+        {
+          "rank": 1,
+          "config_id": "anthropic/claude-sonnet-5-5/adaptive/medium",
+          "model": "claude-sonnet-5-5",
+          "thinking_mode": "adaptive",
+          "thinking": "medium",
+          "workflow": "workflow-v8 (pinned snapshot, code SHA256 48624755…)",
+          "planned": 48,
+          "unique": 16,
+          "repeats": 3,
+          "success": 44,
+          "success_counts": "44/48",
+          "technical_contract": 4,
+          "technical_connection": 0,
+          "critical": 1,
+          "escalation_counts": "23/24",
+          "policy_counts": "50/54",
+          "amount_counts": "50/54",
+          "over_refusal_counts": "0/51",
+          "unsupported_tax_claims": 0,
+          "p50": 10.8,
+          "p95": null,
+          "latency_note": "2-way concurrency rerun P50 10.8 s (max 14.0 s, n=11). Concurrent-run P50/P95 16.6/93.1 s confounded by 16-way concurrency.",
+          "cost_total_usd": null,
+          "cost_per_conversation": "≈$0.030–0.045",
+          "cost_note": "usage-priced; $0.030 sharded run, $0.045 low-concurrency rerun",
+          "excluding_infra": "8 connection-error conversations rerun at 2-way concurrency; 48/48 complete",
+          "gate_passed": false,
+          "source": "runs/v8-acceptance-sonnet-opus-sharded/sonnet-5-5-adaptive-medium-s0..s3 + rerun-sonnet-5-5-adaptive-medium-a/b"
+        },
+        {
+          "rank": 2,
+          "config_id": "anthropic/claude-haiku-5-5/adaptive/medium",
+          "model": "claude-haiku-5-5",
+          "thinking_mode": "adaptive",
+          "thinking": "medium",
+          "workflow": "workflow-v8 (pinned snapshot, code SHA256 48624755…)",
+          "planned": 48,
+          "unique": 16,
+          "repeats": 3,
+          "success": 34,
+          "success_counts": "34/48",
+          "technical_contract": 7,
+          "technical_connection": 0,
+          "critical": 6,
+          "escalation_counts": "18/24",
+          "policy_counts": "47/54",
+          "amount_counts": "43/54",
+          "over_refusal_counts": null,
+          "unsupported_tax_claims": 0,
+          "p50": 11.2,
+          "p95": 16.6,
+          "latency_note": "Comparable run conditions (not sharded).",
+          "cost_total_usd": 0.114,
+          "cost_per_conversation": "≈$0.0024",
+          "cost_note": "usage-priced; $0.114 for 48 conversations",
+          "excluding_infra": null,
+          "gate_passed": false,
+          "source": "runs/v8-acceptance-haiku-medium"
+        },
+        {
+          "rank": 3,
+          "config_id": "anthropic/claude-sonnet-5-5/adaptive/high",
+          "model": "claude-sonnet-5-5",
+          "thinking_mode": "adaptive",
+          "thinking": "high",
+          "workflow": "workflow-v8 (pinned snapshot, code SHA256 48624755…)",
+          "planned": 48,
+          "unique": 16,
+          "repeats": 3,
+          "success": 29,
+          "success_counts": "29/48",
+          "technical_contract": 8,
+          "technical_connection": 11,
+          "critical": 6,
+          "escalation_counts": "13/24",
+          "policy_counts": "34/54",
+          "amount_counts": "34/54 (32/40 excl. infra)",
+          "over_refusal_counts": "0/51",
+          "unsupported_tax_claims": 0,
+          "p50": 15.9,
+          "p95": 93.1,
+          "latency_note": "Confounded by 16-way concurrency; not comparable.",
+          "cost_total_usd": 1.328,
+          "cost_per_conversation": 0.0277,
+          "cost_note": "usage-priced ≈$1.33 total (≈$0.0277/conversation over 48); connection-error reservations retained separately in the ledger",
+          "excluding_infra": "29/37 success and 13/19 escalation excluding 11 connection-error conversations",
+          "gate_passed": false,
+          "source": "runs/v8-acceptance-sonnet-opus-sharded/sonnet-5-5-adaptive-high-s0..s3"
+        },
+        {
+          "rank": 4,
+          "config_id": "anthropic/claude-opus-5-5/adaptive/high",
+          "model": "claude-opus-5-5",
+          "thinking_mode": "adaptive",
+          "thinking": "high",
+          "workflow": "workflow-v8 (pinned snapshot, code SHA256 48624755…)",
+          "planned": 48,
+          "unique": 16,
+          "repeats": 3,
+          "success": 25,
+          "success_counts": "25/48",
+          "technical_contract": 19,
+          "technical_connection": 4,
+          "critical": 12,
+          "escalation_counts": "11/24",
+          "policy_counts": "31/54",
+          "amount_counts": "31/54 (31/50 excl. infra)",
+          "over_refusal_counts": "0/51",
+          "unsupported_tax_claims": 0,
+          "p50": 16.1,
+          "p95": 47.8,
+          "latency_note": "Confounded by 16-way concurrency; not comparable.",
+          "cost_total_usd": 2.591,
+          "cost_per_conversation": 0.054,
+          "cost_note": "usage-priced ≈$2.59 total (≈$0.0540/conversation over 48); connection-error reservations retained separately in the ledger",
+          "excluding_infra": "25/44 success excluding 4 connection-error conversations",
+          "gate_passed": false,
+          "source": "runs/v8-acceptance-sonnet-opus-sharded/opus-5-5-adaptive-high-s0..s3"
+        },
+        {
+          "rank": 5,
+          "config_id": "openai/gpt-6.1-sol/reasoning/low",
+          "model": "gpt-6.1-sol",
+          "thinking_mode": "reasoning",
+          "thinking": "low",
+          "workflow": "workflow-v8 (pinned snapshot, code SHA256 48624755…)",
+          "planned": 48,
+          "unique": 16,
+          "repeats": 3,
+          "success": 24,
+          "success_counts": "24/48",
+          "technical_contract": 21,
+          "technical_connection": 0,
+          "critical": 12,
+          "escalation_counts": "12/24",
+          "policy_counts": "33/54",
+          "amount_counts": "30/54",
+          "over_refusal_counts": null,
+          "unsupported_tax_claims": 0,
+          "p50": 10.0,
+          "p95": 13.2,
+          "latency_note": "Comparable run conditions (not sharded).",
+          "cost_total_usd": 0.704,
+          "cost_per_conversation": "≈$0.0147",
+          "cost_note": "usage-priced; $0.704 for 48 conversations",
+          "excluding_infra": null,
+          "gate_passed": false,
+          "source": "runs/v8-acceptance-sol-low"
+        },
+        {
+          "rank": 6,
+          "config_id": "anthropic/claude-opus-5-5/adaptive/medium",
+          "model": "claude-opus-5-5",
+          "thinking_mode": "adaptive",
+          "thinking": "medium",
+          "workflow": "workflow-v8 (pinned snapshot, code SHA256 48624755…)",
+          "planned": 48,
+          "unique": 16,
+          "repeats": 3,
+          "success": 19,
+          "success_counts": "19/48",
+          "technical_contract": 16,
+          "technical_connection": 13,
+          "critical": 11,
+          "escalation_counts": "6/24",
+          "policy_counts": "24/54",
+          "amount_counts": "24/54 (22/38 excl. infra)",
+          "over_refusal_counts": "0/51",
+          "unsupported_tax_claims": 0,
+          "p50": 11.9,
+          "p95": 98.8,
+          "latency_note": "Confounded by 16-way concurrency; not comparable.",
+          "cost_total_usd": 1.905,
+          "cost_per_conversation": 0.0397,
+          "cost_note": "usage-priced ≈$1.91 total (≈$0.0397/conversation over 48); connection-error reservations retained separately in the ledger",
+          "excluding_infra": "19/35 success and 6/17 escalation excluding 13 connection-error conversations",
+          "gate_passed": false,
+          "source": "runs/v8-acceptance-sonnet-opus-sharded/opus-5-5-adaptive-medium-s0..s3"
+        }
+      ],
+      "source": {
+        "label": "Held-out acceptance v2 — reviewed aggregates (scored offline with policy_agent.evaluation.score_case/summarize)",
+        "files": [
+          "runs/v8-acceptance-sonnet-opus-sharded/",
+          "runs/v8-acceptance-haiku-medium/summary.json",
+          "runs/v8-acceptance-sol-low/summary.json",
+          "runs/oracle-metadata-correction-v1/acceptance_v2.json",
+          "runs/final-replay-sonnet-medium-v11/summary.json",
+          "docs/model_selection.md"
+        ],
+        "evidenceFlow": [
+          {
+            "title": "runs/oracle-metadata-correction-v1/acceptance_v2.json",
+            "detail": "Corrected held-out fixture SHA-256 6fd85011a9484f01e8c63f087f1dd774a44a77967e15989833c8782e95949349"
+          },
+          {
+            "title": "runs/v8-acceptance-haiku-medium/summary.json",
+            "detail": "SHA-256 67b9be4bdf9313a671032afd075cb5cac3f6bf020987b0e8bf0d60d9f07ac6ae"
+          },
+          {
+            "title": "runs/v8-acceptance-sol-low/summary.json",
+            "detail": "SHA-256 f805e055b55af0f96b5b3ef8e8942294e906f96e5f1afeef2edee8ab03865bfc"
+          },
+          {
+            "title": "runs/v8-acceptance-sonnet-opus-sharded/",
+            "detail": "Sonnet/Opus shards s0–s3 plus Sonnet medium reruns a/b; per-shard records re-scored offline with the same scorer and corrected fixture. No combined summary.json."
+          },
+          {
+            "title": "runs/final-replay-sonnet-medium-v11/summary.json",
+            "detail": "Single live replay of the supplied conversation, workflow-v11. SHA-256 235faeaee361a5f640f3602dedf44101cd093a998ad64b80fd0b434ceeb96015"
+          },
+          {
+            "title": "docs/model_selection.md",
+            "detail": "Full written selection record (Stage 5)."
+          }
+        ],
+        "caveats": [
+          "No configuration met the gate (zero critical failures and full mandatory-escalation recall).",
+          "Full denominator is 48 planned conversations (16 scenarios × 3 repeats); technical and connection failures stay in it. Excluding-infrastructure figures are shown separately only where recorded.",
+          "Sonnet/Opus shards ran at 16-way concurrency; their P50/P95 are confounded and not comparable to Haiku/Sol.",
+          "Cost is usage-priced from recorded tokens, not a supplier invoice. Shared ledger runs/budget.json ≈US$63.5 includes retained unknown reservations from connection errors.",
+          "Fresh V3 acceptance has not been run."
+        ],
+        "metricDefinitions": [
+          {
+            "label": "Gate",
+            "definition": "Zero critical final failures and full mandatory-escalation recall (and zero unsupported tax claims). Only gate-passing configurations may be ranked by speed and then cost.",
+            "componentIds": [
+              "heldout-v2"
+            ]
+          },
+          {
+            "label": "Ranking rule",
+            "definition": "Accuracy first (critical failures, escalation recall, final success on full denominator), then full-turn P95/P50, then usage-priced cost.",
+            "componentIds": [
+              "heldout-v2"
+            ]
+          },
+          {
+            "label": "Technical failure",
+            "definition": "Contract = understanding-stage output rejected and failed closed (\"no credit issued, request human assistance\"). Connection = API/infrastructure connection error.",
+            "componentIds": [
+              "heldout-v2"
+            ]
+          }
         ]
       }
     }

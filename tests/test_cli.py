@@ -101,8 +101,9 @@ def test_package_selection_excludes_credentials_caches_and_runs():
     assert Path('.env.example') in paths
     assert Path('README.md') in paths
     assert Path('src/policy_agent/cli.py') in paths
+    assert Path('frontend/package-lock.json') in paths
     for path in paths:
-        assert not set(path.parts) & {'.venv', '.git', '__pycache__', '.pytest_cache', 'runs'}
+        assert not set(path.parts) & {'.venv', '.git', '__pycache__', '.pytest_cache', 'runs', 'node_modules', '.next'}
         assert 'dist' not in path.parts or path == Path('report/dist/index.html')
         assert path.name == '.env.example' or not path.name.startswith('.env')
         assert path.suffix not in ('.pyc', '.pyo')

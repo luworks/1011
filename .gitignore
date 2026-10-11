@@ -52,3 +52,6 @@ Thumbs.db
 *.swo
 *~
 *.log
+
+# Final submission archive built by scripts/package.py (kept at root for hand-off).
+/policy-grounded-agent-prototype.zip

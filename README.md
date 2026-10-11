@@ -115,6 +115,19 @@ The backend CLI MVP and model selection have separate completion states. Curated
 
 The submission includes the report as a **prebuilt standalone HTML file**. Its frontend source and build workspace are not included in the inner ZIP. A report-build helper under `scripts/` may require those workspace-only sources; it is not a supported report-rebuild command from the extracted submission. The CLI, tests, offline replay, and static HTML remain usable independently.
 
+## Local demo frontend
+
+`frontend/` is a Next.js console over the same workflow: live multi-turn chat, transcript replay (offline fixture or live), and recorded run traces, with per-turn evidence, policy-gate corrections and fact provenance. The bridge `scripts/web_api.py` (stdlib only) calls the existing workflow; no policy logic is duplicated in the frontend. Requires Node.js 20+:
+
+```sh
+uv run --frozen python scripts/web_api.py   # http://127.0.0.1:8790
+npm --prefix frontend ci && npm --prefix frontend run dev   # http://localhost:3010
+```
+
+Screenshots of the console (offline replay turns 4–5 and the recorded workflow-v11 live run) are in [docs/screenshots/](docs/screenshots/README.md).
+
+Live chat uses `.env` keys and a separate demo ledger (`runs/web-budget.json`). See [frontend/README.md](frontend/README.md). The package includes frontend sources and lockfile, not `node_modules` or build output.
+
 ## Proposed agent service principles
 
 [Agent Service Charter](src/policy_agent/agent_service_charter.md) is a one-page, team-proposed service standard, not official Nimbus Wireless values or a customer-approved policy. The customer's real-world identity and mission remain unverified. The existing policy gate retains authority; a deterministic response composer adds respectful framing and next steps without additional model calls. The charter is excluded from billing retrieval and cannot authorize credits or invent tax rules. Turn traces and new run manifests record its version and SHA256. Historical evaluation artifacts predate this presentation change and are not evidence of its live-model performance.

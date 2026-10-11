@@ -10,7 +10,7 @@ Two terminals from the project root:
 
 ```sh
 uv run --frozen python scripts/web_api.py   # bridge on http://127.0.0.1:8790
-npm --prefix frontend install                # first time only
+npm --prefix frontend ci                     # first time only
 npm --prefix frontend run dev                # UI on http://localhost:3010
 ```
 
