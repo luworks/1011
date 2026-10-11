@@ -29,6 +29,56 @@ The user confirmed there are no additional screenshots or feature briefs. Live c
 | Approval / run review | Actor/operation → target/scope/consequence → approve/cancel → resulting state | No automatic approval from mere screen navigation; retain a reviewable outcome | Canonical proposal; requires runtime fixtures before production acceptance |
 | Dashboard | Stack/Grid root → Cards/group headings → data/chart/table widgets | Preserve reading order; meaningful labels; local scroll only for genuinely two-dimensional content | Official documented widget composition; not all widgets recreated |
 
+### Pattern skeletons
+
+Regions are listed top to bottom in DOM and visual order. All numbers are **local proposals** (8px spacing base; page gutter 24px desktop / 16px at ≤760px; region gap 24px, control gap 8–16px); they are not observed private CREAO values and need owner review before adoption.
+
+```text
+COLLECTION (files, agents, connectors, skills)           content max-width 1120px (local proposal)
+Shell [nav | main]
+  PageHeader      h1 + optional description ............ [Button filled: one primary action]
+  Controls row    Input(search) → Tabs(view/status) → FilterChips(category) → result count
+  Results         list rows | Card grid (auto-fill, min 280px) — one view switch, filters preserved
+  State region    EmptyState(initial: create/connect | filtered: clear filters) | error: retry | permission
+
+DETAIL / PREVIEW                                         content max-width 1120px; modal preview max 960px
+Shell
+  Back/close (named) · object identity (h1 on route; h2 in modal preview)
+  Status + metadata   label/value pairs, status as text + color
+  Content             Card / Widget tree; 2-D tables/charts scroll locally in a named region
+  Contextual actions  Button outline · destructive action on the object, consequence stated
+
+CHAT WORKBENCH                                           message column max 760px, centered
+Shell
+  Conversation identity (title or home greeting)
+  Message stream      user turns · agent turns · Card/Widget results · run status · Approval cards
+  Composer (sticky)   Input(multiline) + toolbar [mode · model · attach] ......... [IconButton send]
+  Side panel (opt.)   wide artifacts; 480px min, collapses to full detail at ≤900px
+
+CONFIGURATION                                            form column max 720px
+Shell
+  Back + PageHeader   h1 + scope explanation
+  Sections            labeled groups (h2) → Input/select via primitives → field error under field
+  Footer actions      [Button outline: Cancel] [Button filled: Save] — disabled while submitting
+
+APPROVAL / RUN REVIEW                                    inline Card in chat, or dialog max 560px
+  Actor + operation   "<agent> wants to <operation>"
+  Target / scope / consequence   explicit list; external effects named
+  Actions             [Button outline: Cancel] [Button filled: Approve]
+  Result state        Approved/Cancelled/Failed as text + color, retained in the stream
+```
+
+### Chat workbench (the primary screen)
+
+CREAO is chat-first, so this pattern takes precedence over every other screen; deviations require the new-pattern process below. Rules are **CHAT-001** (see Component consistency rules).
+
+- **Home state.** One greeting identity (the only place display/serif type is allowed), the composer as the dominant element, at most one promo/announcement strip that is dismissible and sits above or below the composer without displacing it, and suggestion cards that are visually subordinate to the composer (outline Card, smaller type, no filled buttons).
+- **Conversation state.** Messages live in a single centered column (max 760px, local proposal). Agent outputs render as Card/Widget trees inside that column; an agent result must never mount a new app shell, second navigation or second page `h1`.
+- **Wide artifacts.** Tables, documents, code or dashboards that cannot fit the column open in a side panel (desktop) or a full Detail/preview (compact). They must not overflow the message column or cause horizontal page scroll; a compact summary Card with an "Open" action stays in the stream.
+- **Run state.** Every run shows one of Running / Awaiting approval / Failed / Completed as visible text plus color (and an icon where available); color alone is never the signal. Failed shows the reason and a retry or next step.
+- **Approvals.** Approval requests render inline as the Approval/run review pattern: actor, target, consequence, then Cancel (outline) and Approve (filled). Navigation or scrolling never approves; the outcome stays in the stream.
+- **Composer.** Always reachable (sticky at the bottom of the conversation; never scrolled away or covered by panels). Mode and model selectors, attachments and send are grouped in the composer toolbar, not scattered into the page header.
+
 ### How to choose and compose a screen
 
 Start from the user's primary task. If they compare or manage multiple objects, choose Collection. If they inspect one object's contents or result, choose Detail/preview. If they express intent and monitor execution through conversation, choose Chat workbench. If they edit structured settings, choose Configuration. If they authorize an external consequence, choose Approval/run review. A Dashboard belongs inside a chat result or detail view when the user needs structured data; it is not a reason to create a new app shell.
@@ -118,6 +168,36 @@ For connectors, “No connected services” leads directly to the tab actually n
 
 These are testable product decisions above the component layer. A Card or Button being valid does not make a screen composed from them valid.
 
+## Component consistency rules
+
+These rules are **mandatory** for new and changed screens. They are **review-gated today**: they are not yet in [rules.json](../creao-design-lab/governance/rules.json) and no checker enforces them, so Product Design review blocks a violation. Each names an automation proposal; when a check lands, add the rule to the registry and `design.md` together (GOV-001).
+
+| ID | Mandatory rule | Acceptance check | Gate now → automation proposal |
+| --- | --- | --- | --- |
+| LAY-002 | Page header anatomy: every top-level route uses the same PageHeader — `h1` + optional description + at most one primary action at the right. Display/serif type is reserved for the chat home greeting only. | Same component import on each route; header screenshots at 1280/390 compared in review | Review → Playwright compares computed `font-family`, `font-size`, `font-weight` of the main `h1` across all route fixtures; any mismatch fails |
+| CMP-001 | Tabs vs FilterChips: Tabs switch views/status (single-select, `role="tab"`, `aria-selected`); FilterChips narrow results by category. Never render two visual styles for the same role on one screen. Order: search → tabs → chips → result count. | Collection fixture shows one tablist, one chip group, the required DOM order | Review → per-collection role/structure assertion (tablist count, `aria-selected` exactly one, DOM order) |
+| CMP-002 | Action hierarchy: primary = filled Button (one per page or region); secondary = outline Button; tertiary = text link with arrow. Icon-only "+" add actions use IconButton with an accessible name and the same variant across a collection. | Primary count and IconButton variant checked per main region | Review → count filled primary buttons per main region (fail if >1); reuse A11Y-001 for IconButton names |
+| CONTENT-001 | Locale consistency: all user-visible copy in a collection uses the active locale. Catalog descriptions missing a translation use one explicit fallback (show a localized summary, or label the source language); never silently mix languages item by item. | Collection fixture in each supported locale reviewed | Review → script flags items whose description script (CJK vs Latin) differs from the active locale without a fallback marker |
+| CHAT-001 | Chat workbench composition as specified in "Chat workbench (the primary screen)": subordinate suggestions, ≤1 dismissible promo, results inside the message column, wide artifacts in panel/detail, text+color run state, inline approvals, reachable composer with grouped toolbar. | Fixtures for home, conversation, each run state and an approval request, at 1280 and 390 | Review → proposed fixtures assert composer in viewport, no second `h1`/shell inside messages, no column overflow, run-state text present |
+
+## Worked example: composing a new feature
+
+Synthetic brief (written for this guideline; **not an official CREAO brief**): "Users can see their scheduled agent runs and open one to see what happened."
+
+1. **Choose patterns.** Run list → Collection. Single run → Detail/preview. A run that needs permission to act → Approval/run review rendered inline in the detail and in the originating chat.
+2. **Skeleton.**
+   ```text
+   Shell
+     PageHeader   h1 "Scheduled runs" · description ........ [Button filled: New schedule]
+     Controls     Input(search) → Tabs(All | Running | Awaiting approval | Failed | Completed) → FilterChips(agent) → count
+     Results      list rows: name · agent · next run · last status (text + color) · IconButton(more, named)
+     State        EmptyState(initial: "New schedule") | EmptyState(filtered: "Clear filters") | error: Retry | permission
+   Detail route   Back · h1 run name · status + metadata pairs · step log (Card) · Approval card if awaiting
+   ```
+3. **Required states (fixtures).** Initial empty, filtered empty, loading, load error, permission failure; run states Running, Awaiting approval, Failed (with reason + retry), Completed; long run/agent names; 390px compact.
+4. **Rules that must pass.** Automated: DS-001, DS-002, LAY-001 (add both route fixtures), A11Y-001, A11Y-002 (add new state scans), STATE-001 (add initial/filtered recovery fixtures), RESP-001 (add compact geometry checks), GOV-001; VISUAL-001 baseline only after reviewed approval. Review-gated: LAY-002, CMP-001 (status as Tabs, agent as FilterChips), CMP-002, CONTENT-001, CHAT-001 for the inline approval.
+5. **PR must attach.** Chosen patterns and affected routes/states; command receipts from the local gate; screenshots at 1280 and 390 for every state above; axe results; updated `page-states.json` entries (implemented vs not); any exception record with scope and expiry.
+
 ## Delivery mechanism
 
 | Moment | Engineer / coding agent action | Evidence and owner |
@@ -196,3 +276,27 @@ The [compliance audit](compliance-audit.md) maps each observed defect to its rul
 Report **killed**, **survived**, **invalid**, and **error** separately. Count only a rule-attributed rejection of a valid candidate as killed; compile failure or missing dependency is not a design-rule success. Retain surviving mutations and first-round failures. No finite suite proves arbitrary future code cannot evade the rules.
 
 This guideline is ready to load and execute in the local adapter. Integration into CREAO's actual repository consists of binding the approved imports/tokens and fixtures to the real library, then enabling protected CI and release policy without weakening the product contracts.
+
+## Agent / PR checklist
+
+- MUST name the canonical pattern(s) and affected routes/states before writing code.
+- MUST compose Shell, PageHeader, Tabs, FilterChips, Input, Card, EmptyState, Button/IconButton from the approved library (DS-002).
+- MUST use registered semantic tokens only; new values are proposals with owner review (DS-001).
+- MUST render exactly one visible matching `h1` per top-level route via the shared PageHeader (LAY-001, LAY-002).
+- MUST keep at most one filled primary Button per page or region; secondary outline, tertiary text link (CMP-002).
+- MUST order collection controls search → Tabs → FilterChips → count; Tabs for views/status, chips for categories (CMP-001).
+- MUST give every icon-only control an accessible name (A11Y-001).
+- MUST show status as text plus color; never color alone.
+- MUST implement initial empty, filtered empty, loading, error and permission states with working next steps (STATE-001).
+- MUST reuse shared copy for destination labels and keep one locale per collection with an explicit fallback (NAV-001, CONTENT-001).
+- MUST keep chat results inside the message column, approvals inline, composer reachable (CHAT-001).
+- MUST NOT add a second app shell, navigation or page `h1` inside a chat result or preview.
+- MUST NOT use display/serif type outside the chat home greeting (LAY-002).
+- MUST NOT hide overflow globally or introduce horizontal page scroll at 320–1280px (RESP-001).
+- MUST NOT regenerate visual baselines or add exceptions to make a gate pass (VISUAL-001, GOV-001).
+- MUST NOT claim review-gated rules (LAY-002, CMP-001, CMP-002, CONTENT-001, CHAT-001) as automatically verified.
+- VERIFY BY running the full local gate in order (typecheck, lint, test:design, check:design, build, test:e2e).
+- VERIFY BY adding route/state fixtures for every new route and state (LAY-001, A11Y-002, RESP-001).
+- VERIFY BY attaching screenshots at 1280 and 390 for each required state.
+- VERIFY BY recording command receipts, browser/channel and version in the PR.
+- VERIFY BY updating `page-states.json` and keeping `rules.json` and `design.md` in sync when a rule changes (GOV-001).

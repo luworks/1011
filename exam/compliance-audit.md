@@ -2,7 +2,7 @@
 
 Audit date: 11 October 2026 (PDT). Standard: [design-system-guideline.md](design-system-guideline.md) and the executable [design.md](../creao-design-lab/design.md), version 0.2 (with retained v1 experiment history).
 
-**Finding:** the inspected product contains five directly evidenced issues across page identity, empty-state navigation/recovery, and compact file layouts. A sixth, lower-priority improvement applies the proposed stricter in-state recovery rule to file search. The issues can be translated into specific pre-release checks without redesigning CREAO's token or component library.
+**Finding:** the inspected product contains five directly evidenced issues across page identity, empty-state navigation/recovery, and compact file layouts. A sixth, lower-priority improvement applies the proposed stricter in-state recovery rule to file search. Four further screenshot-evidenced findings (AUD-07–AUD-10) cover cross-screen component consistency and the Chat home: mixed-locale connector copy, two competing selector styles on Connectors, an inconsistent action hierarchy across routes, and upsell surfaces fused to the chat composer. These four are judged against review-gated rules that do not yet have automated checks. The issues can be translated into specific pre-release checks without redesigning CREAO's token or component library.
 
 **Evidence status:** the source-product observations below are complete. Local receipts are summarized separately below; the runtime-mutation run is explicitly partial at the user-requested closeout, while the visual negative control is archived. No claim is made that these checks already run inside CREAO's production repository, that the live defects were fixed, or that CREAO's unpublished internal rules were violated.
 
@@ -28,8 +28,14 @@ Severity is a proposed triage decision, not a measured incident rate: P1 means a
 | AUD-04 | Files, 390px | A11Y-001 | P1 | Folder button's text is hidden; icon is hidden from accessibility; no alternate name | Compute the visible control's accessible name at compact width |
 | AUD-05 | Files, 390px list | RESP-001 | P2 | Desktop-style headers remain above a differently stacked metadata layout | Hide stale headers, preserve known label/value pairs, check field geometry and review screenshot |
 | AUD-06 | Files, search with no matches | STATE-001 | P3 | Empty region has no action, although the search box does have a clear affordance | Require an in-state clear action and assert query reset plus restored results |
+| AUD-07 | Connectors, catalog grid | CONTENT-001 | P2 | Chinese UI; most visible card descriptions are English, Instagram and Box are Chinese | Review-gated; proposed rendered-text locale scan per catalog item |
+| AUD-08 | Connectors, catalog controls | CMP-001 | P3 | Status tabs and category chips are adjacent selectors with different styles and unclear scope | Review-gated; proposed role/structure assertion for tablist vs filter group |
+| AUD-09 | Chat home, Files, Agents, Connectors | CMP-002 | P3 | Filled, outlined, ghost, text-arrow and icon-only actions with no consistent primary/secondary mapping | Review-gated; proposed per-region primary-action count and variant inventory |
+| AUD-10 | Chat home | CHAT-001 | P3 | Dismissible team upsell fused to the composer, repeated in sidebar card and header plan control | Review-gated; proposed composer-region composition check plus screenshot review |
 
 AUD-02 and AUD-03 occur in one state but are different failure conditions: fixing the wording does not add a recovery action, and adding a button does not guarantee it reaches the correctly named destination. AUD-04 and AUD-05 similarly expose different consequences of the same compact breakpoint.
+
+AUD-07 to AUD-10 are visual-composition findings taken from desktop screenshots. Unlike AUD-01 to AUD-06, the local lab does not yet run an automated check for them: CONTENT-001, CMP-001, CMP-002 and CHAT-001 are newly proposed, review-gated rules whose automation is named below but is not registered in [rules.json](../creao-design-lab/governance/rules.json).
 
 ## AUD-01 — Files loses semantic page identity
 
@@ -113,6 +119,71 @@ AUD-02 and AUD-03 occur in one state but are different failure conditions: fixin
 
 **How it is caught before shipping.** `[STATE-001] file search no-results action restores actual entries` enters a deterministic unmatched query, asserts zero result items, invokes the clear action within the empty region, asserts the query becomes empty and a seeded result returns. A nearby clear button outside the region does not satisfy the locator contract. This catches the proposed consistency requirement; it is not proof the original product had no recovery affordance.
 
+## AUD-07 — Connector catalog mixes languages item by item
+
+**Observed state.** The [Connectors screenshot](research/screenshots/04-connectors.png) is a Chinese UI: navigation, page title “连接器”, search placeholder “搜索连接器”, status tabs, category chips, “45 个结果” and the featured carousel copy are Chinese. In the catalog grid below, descriptions alternate by item: Shopify, Google Ads, Slack, Notion, Gmail, Asana, Canva and Discord are English (for example “Manage products, orders, customers, and your online…”), while Instagram (“读取 Instagram 专业账户的…”) and Box (“搜索、读取、上传、下载和共享 Box 文件与文件夹…”) are Chinese. The Shopify featured card above is Chinese while the Shopify grid card below is English.
+
+**Violation.** CONTENT-001 requires user-facing copy within one view to follow the active UI locale, with a declared fallback rather than per-item mixing. Product names (Shopify, Notion) are legitimately untranslated; the finding concerns the descriptive sentences.
+
+**User impact.** A reader who relies on Chinese must scan a grid where most descriptions are in another language, and the same service is described in two languages on one screen. Comparison across cards is harder because the reading mode changes item by item. No claim is made about how many users cannot read English.
+
+**Exact correction.** Source connector descriptions from a localized catalog keyed by connector ID and UI locale. When a translation is missing, apply one declared fallback (for example, show the Chinese category label plus an untranslated-content marker) and log the gap, rather than silently mixing languages. Featured and grid entries for the same connector must resolve from the same localized record.
+
+**How it is caught before shipping.** Today this is review-gated: Product Design checks catalog screenshots in each supported locale. Proposed automation (not yet in rules.json): a rendered-text locale scan that, for each catalog item under `zh-CN`, flags descriptions whose script does not match the UI locale after excluding an allowlist of product names, plus a contract test that featured and grid entries of the same connector resolve to the same description key.
+
+**Automation limit.** Script detection cannot judge translation quality or mixed-language sentences that are intentionally bilingual. Content fixtures must include the real catalog, because a synthetic fixture with complete translations would pass trivially.
+
+## AUD-08 — Two adjacent selector styles with unclear scope on Connectors
+
+**Observed state.** In the same [Connectors screenshot](research/screenshots/04-connectors.png), the row containing the search box also holds plain text tabs “全部 / 可连接 / 内置 / 已连接 (0)”, with “全部” marked by an underline. Directly below, a second row holds category chips “所有分类 / 商业 / 电子商务 / 营销 / 社交媒体 / 生产力”, with “所有分类” marked by a filled pill. Both rows filter the same grid; “45 个结果” sits at the right of the chip row.
+
+**Violation.** CMP-001 requires tabs to switch between peer views and filter chips to narrow a collection, with a clear visual hierarchy when both appear. Here two selectors of similar size and weight sit in adjacent rows, with different selected-state treatments, and nothing on screen states whether the status tab and category chip combine or reset each other.
+
+**User impact.** Users must infer which control is the primary view switch and whether a category persists when switching status. The connected-empty state in AUD-02/AUD-03 is reached through these tabs, so their role matters for recovery. No combination defect was exercised; the finding is about ambiguous composition.
+
+**Exact correction.** Promote status to a clearly primary tab list (placed above the search, with `role="tablist"` and selected-state semantics), keep categories as a filter-chip group scoped to the active tab, and keep the result count next to the filter that changes it. Document whether category selection persists across status tabs and preserve that behavior.
+
+**How it is caught before shipping.** Review-gated today against the CMP-001 anatomy. Proposed automation (not yet in rules.json): assert one `tablist` with exactly one `aria-selected="true"` tab and one filter group with `aria-pressed` chips in the expected DOM order, then select a category, switch status and assert the documented persistence rule.
+
+**Automation limit.** Roles and order can be asserted; whether the visual hierarchy reads as primary versus secondary still needs screenshot review.
+
+## AUD-09 — Action styles do not map consistently to action importance
+
+**Observed state.** Across top-level screens the same importance level uses different treatments:
+
+- [Chat home](research/screenshots/01-chat.png): two adjacent suggestion cards each carry a filled black button (“试用 Visual Studio →”, “试用 /slide”), so the region has two visually equal primary actions; the promo strip uses a text link “创建团队 →”, and the “热门智能体” section uses another text link “探索 →”.
+- [Files](research/screenshots/03-files.png): the header pairs a ghost icon+text action (“新建文件夹”) with a filled black “+ 上传”.
+- [Agents empty](research/screenshots/02-agents-empty.png): the header has an outlined icon+text “导入”, and the empty state has a filled black “创建您的第一个智能体” without an icon.
+- [Connectors](research/screenshots/04-connectors.png): every catalog card uses an outlined square icon-only “+” button, while the featured carousel cards show no explicit action.
+
+**Violation.** CMP-002 requires one primary action per region and a stable mapping from importance to variant (primary filled, secondary outlined/ghost, tertiary text link), including consistent icon and arrow use. The screens above use the filled variant for repeated card actions, alternate trailing arrows and leading icons without a rule, and use icon-only buttons for the main per-item action on Connectors.
+
+**User impact.** Visual weight stops predicting importance, so users cannot rely on “filled means the main task”. On the chat home, repeated filled buttons compete with the composer. Each new feature is likely to pick another variant because no rule is visible in the product. The accessible names of the connector “+” buttons were not captured, so no A11Y-001 claim is made here.
+
+**Exact correction.** Use the library `Button` variants by role: one filled primary per region (Files “上传”, Agents empty “创建您的第一个智能体”); outlined secondary for card-level actions such as suggestion cards and connector “Connect”; text links with trailing arrow only for navigation (“探索 →”). Give connector card actions a visible label or a tooltip plus an accessible name such as “连接 Shopify”.
+
+**How it is caught before shipping.** Review-gated against the CMP-002 mapping table. Proposed automation (not yet in rules.json): per declared region, count visible buttons with the primary variant and fail above one, and fail icon-only buttons that lack an accessible name; an inventory report lists variant usage per route for Product Design review.
+
+**Automation limit.** A checker can count variants but cannot decide which action is semantically most important; that mapping must be declared per screen and reviewed. This is a finding about visible composition, not a claim about which component or code path renders each button.
+
+## AUD-10 — Chat home places upsell surfaces against the composer
+
+**Observed state.** The [Chat home](research/screenshots/01-chat.png) shows the serif greeting “Y，有什么可以帮你的？” and the composer. A promo strip is attached directly under the composer card, sharing its edge: “和团队一起使用？创建团队即送 30 免费 credits…购买席位，再送 100 奖励 credits。” with “创建团队 →” and a close “×”. The same offer appears again in the sidebar bottom card “创建团队 · 免费送 30 credits——试用…”, and the header shows “免费套餐 | 升级”. Further down the same viewport, two suggestion cards carry filled buttons (AUD-09).
+
+**Violation.** CHAT-001 requires the composer to be the single primary task on the chat workbench, with commercial or onboarding prompts placed in a separate, non-attached region and not duplicated within one viewport. Here the upsell is visually fused to the composer, and the same offer appears twice in one viewport.
+
+**User impact.** The input area reads as a composer plus advertisement, which adds reading load at the moment the user is formulating a request, and the duplicated offer adds noise without adding information. The strip is dismissible and the composer remains the largest element, so this is P3; no effect on task completion was measured.
+
+**Exact correction.** Detach the strip from the composer card (separate container with its own spacing, or move it to the sidebar card only), show one instance of the same offer per viewport, and remember dismissal. Keep the header plan control as the persistent upgrade entry.
+
+**How it is caught before shipping.** Review-gated with a chat-home screenshot in the visual gate. Proposed automation (not yet in rules.json): assert that the composer region contains only composer controls (no promotional link/button descendants or attached siblings sharing its container), and that a given promotion ID renders at most once per route.
+
+**Automation limit.** A DOM check can detect attachment and duplication but not whether a separate promotion is still too prominent; that remains a Product Design judgment.
+
+## Page header anatomy — considered, not raised as a separate finding
+
+LAY-002 (shared page-header anatomy) was checked across the captured routes. Files, Agents and Connectors show the same visual pattern: a bold sans title at top left, with route actions at top right where present. The chat home uses a serif greeting instead of a title, which is a deliberate workbench treatment rather than evidence of drift. The only evidenced header deviation is Files' semantic structure, already recorded as AUD-01 under LAY-001; no additional LAY-002 finding is made from screenshots alone.
+
 ## Positive evidence and findings deliberately not made
 
 | Evidence | Useful existing behavior | What is not inferred |
@@ -124,7 +195,7 @@ AUD-02 and AUD-03 occur in one state but are different failure conditions: fixin
 | [Widgets gallery](research/deep/10-widgets-layout.png) and [CSS snapshot](research/deep/widgets-dom.json) | Existing components and design variables are directly evidenced | No private component imports, source reuse policy or token usage can be recovered from appearance alone |
 | [File preview](research/deep/09-file-preview.png) and [video settings](research/deep/17-video-default-settings.png) | Overlay/detail and configuration patterns are already present | Screenshot appearance does not prove focus trapping, focus restoration or keyboard behavior |
 
-No finding is made that engineers hard-coded colors or bypassed CREAO's internal components. DS-001 and DS-002 are preventive gates demonstrated on the local adapter; only repository source can establish such a violation in CREAO itself. Similarly, mixed radii do not establish incorrect component usage: the official Dashboard description and general app controls have different scopes. Screenshot-only color estimates are not accepted as a contrast audit.
+No finding is made that engineers hard-coded colors or bypassed CREAO's internal components. DS-001 and DS-002 are preventive gates demonstrated on the local adapter; only repository source can establish such a violation in CREAO itself. Similarly, mixed radii alone do not establish incorrect component usage: the official Dashboard description and general app controls have different scopes. AUD-07 to AUD-10 are therefore stated as findings about visible composition (language, selector roles, action hierarchy and placement on screen), not about hard-coded values or which internal component rendered an element. Screenshot-only color estimates are not accepted as a contrast audit.
 
 ## How the worked audit becomes a release gate
 

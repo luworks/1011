@@ -1,26 +1,44 @@
-# CREAO 题目与交付索引
+# CREAO Design Submission: Reviewer Entry Point
 
-## 正式必交文件
+This package delivers two required English documents: a product-layer [design-system-guideline.md](design-system-guideline.md) and a [compliance-audit.md](compliance-audit.md) of real CREAO pages. It also includes a local Next.js enforcement lab ([creao-design-lab](../creao-design-lab/README.md)) that turns the guideline into executable gates (static design checks, Playwright behavior/layout, axe, visual comparison, mutation testing), a [CI workflow](../.github/workflows/creao-design.yml), and the research and validation evidence behind every claim. Required deliverables are in English; process and evidence docs are in Chinese (`*.zh-CN.md`).
 
-1. [design-system-guideline.md](design-system-guideline.md)：产品层布局规范、组件/样式约束、可检查的执行机制。
-2. [compliance-audit.md](compliance-audit.md)：真实页面发现、对应规则、上线前检查与本地验证证据。
+> 中文说明：正式交付两份为英文；过程、研究与证据文档为中文 `*.zh-CN.md`，原题见 [task.md](task.md) / [中文翻译](task.zh-CN.md)。
 
-## 中文阅读与工程证据
+## 5-minute path
 
-- [题目原文](task.md) / [中文翻译](task.zh-CN.md)。
-- [实施计划与完整交付清单](implementation-plan.zh-CN.md)。
-- [产品探索与公开设计资料](research-findings.zh-CN.md)。
-- [验证结果与证据索引](validation-results.zh-CN.md)。
-- [两位独立工程师的实现审查](engineer-experiment-review.zh-CN.md)。
-- [Next.js 原型运行说明](../creao-design-lab/README.md)、[design.md](../creao-design-lab/design.md)、[AGENTS.md](../creao-design-lab/AGENTS.md)。
-- [CI 配置](../.github/workflows/creao-design.yml)。
+1. [design-system-guideline.md](design-system-guideline.md): layout patterns, component/style constraints, and how each rule is enforced.
+2. [compliance-audit.md](compliance-audit.md): observed page findings, mapped rules, pre-release checks, and local verification evidence.
 
-`research/` 保存公开资料、原站截图/DOM、原型截图与实验收据。原站证据仅用于本地研究，未发布。原型采用合成数据；本地验证不代表已修复或部署 CREAO 线上产品。
+## 15-minute path: watch a rule block a violation
 
-[approach.zh-CN.md](approach.zh-CN.md) 是早期探索思路，当前交付范围以实施计划、正式两文件和实际验证结果为准。
+From `../creao-design-lab` (Node.js 24, npm; scripts as declared in `package.json`):
 
-## 收口与交接
+```bash
+npm ci
+npm run check:design      # static design rules on governed source + CSS
+npm run build
+npx playwright install chromium
+PW_SERVER_COMMAND="npm run start -- --hostname 127.0.0.1 --port 3100" npm run test:e2e   # behavior, layout, axe
+npm run test:mutations    # optional: mutates an isolated copy, re-runs the same checkers
+```
 
-- [Claude 接手说明](CLAUDE-HANDOFF.zh-CN.md)。
-- [全过程交付包方案](delivery-packaging-plan.zh-CN.md)。
-- [每日设计漂移巡查职责](agents/design-drift-auditor.md)：仅职责文档，未启用调度。
+Negative example (see [validation-results.zh-CN.md](validation-results.zh-CN.md)): changing a real button's `aria-pressed` to the invalid value `sometimes` typechecks and builds, but the e2e axe gate fails on `aria-valid-attr-value` (1/1 killed). The first static mutation round also kept an honest survivor (5 killed, 1 survived), and the second round killed 6/6 with both positive controls passing.
+
+Lab contracts: [design.md](../creao-design-lab/design.md), [AGENTS.md](../creao-design-lab/AGENTS.md).
+
+## Deep dive
+
+- Research: [research-findings.zh-CN.md](research-findings.zh-CN.md); raw public sources, site screenshots/DOM, and experiment receipts live in `research/` (site evidence is for local research only, not published).
+- Plan and experiments: [implementation-plan.zh-CN.md](implementation-plan.zh-CN.md); [approach.zh-CN.md](approach.zh-CN.md) is early exploration, superseded by the plan and actual results.
+- Validation history (first failures, invalid runs, denominators): [validation-results.zh-CN.md](validation-results.zh-CN.md).
+- Independent engineer experiments: [engineer-experiment-review.zh-CN.md](engineer-experiment-review.zh-CN.md).
+- Design-drift agent: [agents/design-drift-auditor.md](agents/design-drift-auditor.md) (responsibility doc only; no schedule enabled).
+- CI: [../.github/workflows/creao-design.yml](../.github/workflows/creao-design.yml) (baseline gates, then mutations, then candidate).
+- Handoff and packaging: [CLAUDE-HANDOFF.zh-CN.md](CLAUDE-HANDOFF.zh-CN.md), [delivery-packaging-plan.zh-CN.md](delivery-packaging-plan.zh-CN.md).
+
+## Scope boundaries
+
+- Local lab with synthetic data; it does not fix or deploy anything to the live CREAO product.
+- The CI workflow is a config file only: no remote required checks, branch protection, or deployment were enabled.
+- Linux visual baselines are not yet reviewed, so the CI visual gate fails closed by design; remote CI is not claimed green.
+- The final full mutation run is sealed as partial (9/12 negatives killed, remainder pending), not a 100% detection claim.
