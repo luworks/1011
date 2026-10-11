@@ -1,0 +1,17 @@
+{
+  "reviewer": "root",
+  "time": "2026-10-11T21:30:01.195839+00:00",
+  "reason": "Independently viewed desktop and mobile actual screenshots: new Important controls requested by feature, approved components and visual language retained, field labels and long names readable. First diff retained. Only candidate A snapshots updated; canonical unchanged.",
+  "files": [
+    {
+      "file": "tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-darwin.png",
+      "before": "86f9fdc99cf91f6ff5b5bba0300cb995d47df084bc3600e909ba43c256b0c123",
+      "after": "81f51e1c0d3057eb326fd31dadcce02c746a538aa19c356e2b8015f472183972"
+    },
+    {
+      "file": "tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-darwin.png",
+      "before": "fb3c699424ad37b4844d13f49b6c64a8955622c1f319cabe1f6a9ece064d51a9",
+      "after": "0cdd7ff18445d1fa5e81805d2943ee14071a3c341c492685833b20afa9c0d1de"
+    }
+  ]
+}

@@ -98,3 +98,12 @@ B 的两个浏览器失败均为 A11Y-001：`/files` 在 1280px 和 390px 下的
 在 [A 筛选截图](research/validation/engineers/a-important-filter.png)、[A 窄屏截图](research/validation/engineers/a-mobile.png) 和 [B 筛选截图](research/validation/engineers/b-important-filter.png) 中保留了人工操作状态；B 的失败截图、trace 和 error context 保存在 `research/validation/engineers/engineer-b/test-results/`。冻结清单另有 [持久归档](research/validation/engineers/baseline-manifest.json)，避免仅依赖被忽略的实验运行目录。
 
 最终判定：**A 可接受；B 被现有静态与浏览器设计门禁阻断。** B 另有当前自动化未覆盖的焦点恢复缺陷，说明仍需新增功能人工验收。该实验仅包含一个合成功能与两名按指定方向实现的 agent，与固定 mutation 结果分开，不能推导真实工程师总体合规率。
+
+
+## 7. 增强门禁复验（v2，同两名 agent）
+
+本轮复用 A/B 两名 agent，在增强基线中再次实现相同“重要标记与筛选”请求；它是原实验的复验，不能算另外两名独立工程师。原 v1 结果、补丁与失败证据保持不变。
+
+A 的 [增强浏览器结果](research/validation/engineers-v2/a/final/evaluator-e2e.json) 为 38/38 通过。首次 [视觉比较](research/validation/engineers-v2/a/final/evaluator-visual-first.json) 有两张 Files 变化，是新功能增加控件导致；主代理独立查看桌面、窄屏实际截图后，批准对应候选基线变更，见 [审阅收据](research/validation/engineers-v2/a/final/visual-review.json)。原始 diff 保留在 `research/validation/engineers-v2/a/visual-first/`，仅更新 A 副本基线，没有自动覆盖 canonical；随后不带更新参数的 [视觉复验](research/validation/engineers-v2/a/final/evaluator-visual-reviewed.json) 3/3 通过。
+
+B 的 [首次视觉结果](research/validation/engineers-v2/b/final/evaluator-visual-first.json) 为 1/3 通过、2 张 Files 失败，未批准其变化。主代理已在两个候选中实际操作标记→筛选一条→搜索无结果→清除恢复四条；这证明基础功能可运行，不替代无障碍与视觉接受。B 的 [完整增强报告](research/validation/engineers-v2/b/final/evaluator-e2e.json) 最终为 **32/38 通过、6 项失败**，0 skipped/flaky，失败截图与 trace 已归档在 `research/validation/engineers-v2/b/final/e2e-artifacts/`；B 继续被门禁阻断。

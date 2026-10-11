@@ -1,0 +1,75 @@
+{
+  "sourceCommit": "5a91054be19a49ca2815e738e77b647c91b18d3a",
+  "files": [
+    {
+      "path": "creao-design-5a91054be19a.receipt.json",
+      "size": 753,
+      "sha256": "75745db10b15a2da92a91069cb842004d8573d14e638123162bf21571c5e77d4"
+    },
+    {
+      "path": "creao-design-5a91054be19a.verification-20261011T213258Z.json",
+      "size": 3203,
+      "sha256": "a1c8db413f393ce0b93fd57586884b58c01f82b24e6f9dacbb2988f85bcf8e59"
+    },
+    {
+      "path": "reports/e2e.json",
+      "size": 3410054,
+      "sha256": "1233da50c442e7af7e77f017049d338265247c82e7736e70e287bddb857b4ea6"
+    },
+    {
+      "path": "reports/visual.json",
+      "size": 9804,
+      "sha256": "2c1552598534573a5e54100e72bcee9b643846bcd98d92c7e0d776bf93b76d89"
+    },
+    {
+      "path": "test-results/e2e/.last-run.json",
+      "size": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "test-results/visual/.last-run.json",
+      "size": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "verification-1.log",
+      "size": 711,
+      "sha256": "e86ef0f4caf0c16702d620ea6d85a7508abf13b5b967e87d5bd7e069698f7e1c"
+    },
+    {
+      "path": "verification-2.log",
+      "size": 52,
+      "sha256": "124904ce926a1c4207813e7138ab95b0e4f519e30bed11d1308a4a5ea6ab61b8"
+    },
+    {
+      "path": "verification-3.log",
+      "size": 43,
+      "sha256": "516fa9ea58b4d1ace9a7a9adffb5199c9cac4da24cf4d036a9b66b3ed85ce2d7"
+    },
+    {
+      "path": "verification-4.log",
+      "size": 1221,
+      "sha256": "4c77ae3bd0282306b637a1629fca3540c04afebb5888fb650caf99ac290858ae"
+    },
+    {
+      "path": "verification-5.log",
+      "size": 267,
+      "sha256": "32b1f94cd896ac570a451b861e3c6723e816f20f44f1b39f5eb69423bac271e7"
+    },
+    {
+      "path": "verification-6.log",
+      "size": 815,
+      "sha256": "c096e73592f807a00f056a275326964ca5da9f2a4a17124a31d81eeadd2b73de"
+    },
+    {
+      "path": "verification-7.log",
+      "size": 4291,
+      "sha256": "e1385125e75d826a1c463a24997384035438ef64e87e1c789b211f4f407ec494"
+    },
+    {
+      "path": "verification-8.log",
+      "size": 420,
+      "sha256": "50e0a509cdf318f30f60bc4c9248a9893fdf77390c7d77354bd9abc81babe260"
+    }
+  ]
+}

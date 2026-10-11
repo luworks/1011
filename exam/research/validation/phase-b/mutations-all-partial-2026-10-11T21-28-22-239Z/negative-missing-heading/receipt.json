@@ -1,0 +1,434 @@
+{
+  "id": "negative-missing-heading",
+  "kind": "negative",
+  "suite": "browser",
+  "rule": "LAY-001",
+  "description": "Rendered page identity downgraded from h1 to h2.",
+  "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+  "patches": [
+    {
+      "file": "src/components/patterns/PageHeader.tsx",
+      "before": "import type { ReactNode } from 'react';\nexport function PageHeader({ title, description, actions }: { title: string; description?: string; actions?: ReactNode }) {\n  return <header className=\"page-header\"><div><h1>{title}</h1>{description && <p className=\"page-description\">{description}</p>}</div>{actions && <div className=\"page-actions\">{actions}</div>}</header>;\n}\n",
+      "after": "import type { ReactNode } from 'react';\nexport function PageHeader({ title, description, actions }: { title: string; description?: string; actions?: ReactNode }) {\n  return <header className=\"page-header\"><div><h2>{title}</h2>{description && <p className=\"page-description\">{description}</p>}</div>{actions && <div className=\"page-actions\">{actions}</div>}</header>;\n}\n"
+    }
+  ],
+  "startedAt": "2026-10-11T21:30:45.824Z",
+  "caseBaselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+  "mutatedHash": "c64a66557e57b6a8afce9966f47253daecc3662443747edd0503e42de5245719",
+  "typecheck": {
+    "command": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--incremental",
+      "false"
+    ],
+    "exit": 0,
+    "signal": null,
+    "stdout": "",
+    "stderr": "",
+    "timedOut": false,
+    "durationMs": 1126
+  },
+  "check": {
+    "command": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/node_modules/@playwright/test/cli.js",
+      "test",
+      "--grep",
+      "\\[(?:LAY-001)\\]",
+      "--reporter=json",
+      "--workers=1",
+      "--max-failures=1"
+    ],
+    "exit": 1,
+    "signal": null,
+    "stdout": "{\n  \"config\": {\n    \"argv\": [\n      \"/Users/yuanlu/.local/node-v24.21.0/bin/node\",\n      \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/node_modules/@playwright/test/cli.js\",\n      \"test\",\n      \"--grep\",\n      \"\\\\[(?:LAY-001)\\\\]\",\n      \"--reporter=json\",\n      \"--workers=1\",\n      \"--max-failures=1\"\n    ],\n    \"configFile\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/playwright.config.ts\",\n    \"rootDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e\",\n    \"failOnFlakyTests\": false,\n    \"forbidOnly\": false,\n    \"fullyParallel\": false,\n    \"globalSetup\": null,\n    \"globalTeardown\": null,\n    \"globalTimeout\": 0,\n    \"grep\": {},\n    \"grepInvert\": null,\n    \"maxFailures\": 1,\n    \"metadata\": {\n      \"actualWorkers\": 1\n    },\n    \"preserveOutput\": \"always\",\n    \"projects\": [\n      {\n        \"outputDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/test-results/e2e\",\n        \"repeatEach\": 1,\n        \"retries\": 0,\n        \"metadata\": {\n          \"actualWorkers\": 1\n        },\n        \"id\": \"\",\n        \"name\": \"\",\n        \"testDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e\",\n        \"testIgnore\": [\n          \"**/visual.spec.ts\"\n        ],\n        \"testMatch\": [\n          \"**/*.spec.ts\"\n        ],\n        \"timeout\": 30000\n      }\n    ],\n    \"filteredProjects\": [\n      {\n        \"grep\": {},\n        \"grepInvert\": null,\n        \"outputDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/test-results/e2e\",\n        \"repeatEach\": 1,\n        \"retries\": 0,\n        \"metadata\": {\n          \"actualWorkers\": 1\n        },\n        \"name\": \"\",\n        \"testDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e\",\n        \"snapshotDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e\",\n        \"testIgnore\": [\n          \"**/visual.spec.ts\"\n        ],\n        \"testMatch\": \"**/*.spec.ts\",\n        \"timeout\": 30000,\n        \"use\": {\n          \"userAgent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36\",\n          \"viewport\": {\n            \"width\": 1280,\n            \"height\": 720\n          },\n          \"screen\": {\n            \"width\": 1920,\n            \"height\": 1080\n          },\n          \"deviceScaleFactor\": 1,\n          \"isMobile\": false,\n          \"hasTouch\": false,\n          \"defaultBrowserType\": \"chromium\",\n          \"channel\": \"chrome\",\n          \"baseURL\": \"http://127.0.0.1:55594\",\n          \"trace\": \"retain-on-failure\",\n          \"screenshot\": \"only-on-failure\"\n        },\n        \"dependencies\": [],\n        \"ignoreSnapshots\": false,\n        \"__projectId\": \"\"\n      }\n    ],\n    \"quiet\": false,\n    \"reporter\": [\n      [\n        \"json\"\n      ]\n    ],\n    \"reportSlowTests\": {\n      \"max\": 5,\n      \"threshold\": 300000\n    },\n    \"shard\": null,\n    \"tags\": [],\n    \"updateSnapshots\": \"none\",\n    \"updateSourceMethod\": \"patch\",\n    \"version\": \"1.64.0\",\n    \"workers\": 1,\n    \"webServer\": null\n  },\n  \"suites\": [\n    {\n      \"title\": \"design.spec.ts\",\n      \"file\": \"design.spec.ts\",\n      \"column\": 0,\n      \"line\": 0,\n      \"specs\": [\n        {\n          \"title\": \"[LAY-001] /files one visible page heading at 1280px\",\n          \"ok\": false,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [\n                {\n                  \"type\": \"browser-version\",\n                  \"description\": \"154.0.8037.98\"\n                },\n                {\n                  \"type\": \"browser-channel\",\n                  \"description\": \"chrome\"\n                }\n              ],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [\n                {\n                  \"workerIndex\": 0,\n                  \"parallelIndex\": 0,\n                  \"status\": \"failed\",\n                  \"duration\": 7798,\n                  \"error\": {\n                    \"message\": \"Error: \\u001b[2mexpect(\\u001b[22m\\u001b[31mlocator\\u001b[39m\\u001b[2m).\\u001b[22mtoHaveCount\\u001b[2m(\\u001b[22m\\u001b[32mexpected\\u001b[39m\\u001b[2m)\\u001b[22m failed\\n\\nLocator:  getByRole('main').getByRole('heading', { level: 1 })\\nExpected: \\u001b[32m1\\u001b[39m\\nReceived: \\u001b[31m0\\u001b[39m\\nTimeout:  5000ms\\n\\nCall log:\\n\\u001b[2m  - Expect \\\"toHaveCount\\\" getByRole('main').getByRole('heading', { level: 1 }) with timeout 5000ms\\u001b[22m\\n\\u001b[2m  - waiting for getByRole('main').getByRole('heading', { level: 1 })\\u001b[22m\\n\\u001b[2m    13 × locator resolved to 0 elements\\u001b[22m\\n\\u001b[2m       - unexpected value \\\"0\\\"\\u001b[22m\\n\",\n                    \"stack\": \"Error: \\u001b[2mexpect(\\u001b[22m\\u001b[31mlocator\\u001b[39m\\u001b[2m).\\u001b[22mtoHaveCount\\u001b[2m(\\u001b[22m\\u001b[32mexpected\\u001b[39m\\u001b[2m)\\u001b[22m failed\\n\\nLocator:  getByRole('main').getByRole('heading', { level: 1 })\\nExpected: \\u001b[32m1\\u001b[39m\\nReceived: \\u001b[31m0\\u001b[39m\\nTimeout:  5000ms\\n\\nCall log:\\n\\u001b[2m  - Expect \\\"toHaveCount\\\" getByRole('main').getByRole('heading', { level: 1 }) with timeout 5000ms\\u001b[22m\\n\\u001b[2m  - waiting for getByRole('main').getByRole('heading', { level: 1 })\\u001b[22m\\n\\u001b[2m    13 × locator resolved to 0 elements\\u001b[22m\\n\\u001b[2m       - unexpected value \\\"0\\\"\\u001b[22m\\n\\n    at /private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e/design.spec.ts:24:30\",\n                    \"location\": {\n                      \"file\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e/design.spec.ts\",\n                      \"column\": 30,\n                      \"line\": 24\n                    },\n                    \"snippet\": \"  22 |       await expect(main).toHaveCount(1);\\n  23 |       const headings = main.getByRole('heading', { level: 1 });\\n> 24 |       await expect(headings).toHaveCount(1);\\n     |                              ^\\n  25 |       await expect(headings).toBeVisible();\\n  26 |       await expect(headings).toHaveText(route.heading);\\n  27 |     });\"\n                  },\n                  \"errors\": [\n                    {\n                      \"location\": {\n                        \"file\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e/design.spec.ts\",\n                        \"column\": 30,\n                        \"line\": 24\n                      },\n                      \"message\": \"Error: \\u001b[2mexpect(\\u001b[22m\\u001b[31mlocator\\u001b[39m\\u001b[2m).\\u001b[22mtoHaveCount\\u001b[2m(\\u001b[22m\\u001b[32mexpected\\u001b[39m\\u001b[2m)\\u001b[22m failed\\n\\nLocator:  getByRole('main').getByRole('heading', { level: 1 })\\nExpected: \\u001b[32m1\\u001b[39m\\nReceived: \\u001b[31m0\\u001b[39m\\nTimeout:  5000ms\\n\\nCall log:\\n\\u001b[2m  - Expect \\\"toHaveCount\\\" getByRole('main').getByRole('heading', { level: 1 }) with timeout 5000ms\\u001b[22m\\n\\u001b[2m  - waiting for getByRole('main').getByRole('heading', { level: 1 })\\u001b[22m\\n\\u001b[2m    13 × locator resolved to 0 elements\\u001b[22m\\n\\u001b[2m       - unexpected value \\\"0\\\"\\u001b[22m\\n\\n\\n  22 |       await expect(main).toHaveCount(1);\\n  23 |       const headings = main.getByRole('heading', { level: 1 });\\n> 24 |       await expect(headings).toHaveCount(1);\\n     |                              ^\\n  25 |       await expect(headings).toBeVisible();\\n  26 |       await expect(headings).toHaveText(route.heading);\\n  27 |     });\\n    at /private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e/design.spec.ts:24:30\"\n                    }\n                  ],\n                  \"stdout\": [],\n                  \"stderr\": [],\n                  \"retry\": 0,\n                  \"startTime\": \"2026-10-11T21:31:20.049Z\",\n                  \"annotations\": [\n                    {\n                      \"type\": \"browser-version\",\n                      \"description\": \"154.0.8037.98\"\n                    },\n                    {\n                      \"type\": \"browser-channel\",\n                      \"description\": \"chrome\"\n                    }\n                  ],\n                  \"attachments\": [\n                    {\n                      \"name\": \"screenshot\",\n                      \"contentType\": \"image/png\",\n                      \"path\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/test-results/e2e/design--LAY-001-files-one-visible-page-heading-at-1280px/test-failed-1.png\"\n                    },\n                    {\n                      \"name\": \"error-context\",\n                      \"contentType\": \"text/markdown\",\n                      \"path\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/test-results/e2e/design--LAY-001-files-one-visible-page-heading-at-1280px/error-context.md\"\n                    },\n                    {\n                      \"name\": \"trace\",\n                      \"contentType\": \"application/zip\",\n                      \"path\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/test-results/e2e/design--LAY-001-files-one-visible-page-heading-at-1280px/trace.zip\"\n                    }\n                  ],\n                  \"errorLocation\": {\n                    \"file\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e/design.spec.ts\",\n                    \"column\": 30,\n                    \"line\": 24\n                  }\n                }\n              ],\n              \"status\": \"unexpected\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-b8039844cef3298bb4a2\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 18,\n          \"column\": 9\n        },\n        {\n          \"title\": \"[LAY-001] /connectors one visible page heading at 1280px\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-589db6bc8ddfd128058f\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 18,\n          \"column\": 9\n        },\n        {\n          \"title\": \"[LAY-001] /agents one visible page heading at 1280px\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-6265a17b61352dabe0ae\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 18,\n          \"column\": 9\n        },\n        {\n          \"title\": \"[LAY-001] /guidelines one visible page heading at 1280px\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-d3916b3985454c9aa0b7\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 18,\n          \"column\": 9\n        },\n        {\n          \"title\": \"[LAY-001] /files one visible page heading at 390px\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-036a92d066da367dbcc0\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 18,\n          \"column\": 9\n        },\n        {\n          \"title\": \"[LAY-001] /connectors one visible page heading at 390px\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-533ab646dbf76857aa68\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 18,\n          \"column\": 9\n        },\n        {\n          \"title\": \"[LAY-001] /agents one visible page heading at 390px\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-abab3e906d8561712aa9\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 18,\n          \"column\": 9\n        },\n        {\n          \"title\": \"[LAY-001] /guidelines one visible page heading at 390px\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-3b5813f6a70b0ef0c2ea\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 18,\n          \"column\": 9\n        }\n      ]\n    }\n  ],\n  \"errors\": [\n    {\n      \"message\": \"\\u001b[31mTesting stopped early after 1 maximum allowed failures.\\u001b[39m\"\n    }\n  ],\n  \"stats\": {\n    \"startTime\": \"2026-10-11T21:31:19.664Z\",\n    \"duration\": 19055.578,\n    \"expected\": 0,\n    \"skipped\": 7,\n    \"unexpected\": 1,\n    \"flaky\": 0\n  }\n}\n",
+    "stderr": "",
+    "timedOut": false,
+    "durationMs": 19819,
+    "browserHealth": {
+      "command": [
+        "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+        "-e",
+        "const {chromium}=require('@playwright/test'); (async()=>{const browser=await chromium.launch(process.env.PW_CHANNEL?{channel:process.env.PW_CHANNEL}:{});const results=[];try{for(const route of ['/files','/connectors','/agents','/guidelines']){const page=await browser.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));const response=await page.goto(process.env.BASE_URL+route);await page.waitForLoadState('networkidle');results.push({route,status:response?.status(),pageErrors:errors});await page.close();}console.log(JSON.stringify(results));process.exitCode=results.some(r=>r.status!==200||r.pageErrors.length)?1:0;}finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=2;});"
+      ],
+      "exit": 0,
+      "signal": null,
+      "stdout": "[{\"route\":\"/files\",\"status\":200,\"pageErrors\":[]},{\"route\":\"/connectors\",\"status\":200,\"pageErrors\":[]},{\"route\":\"/agents\",\"status\":200,\"pageErrors\":[]},{\"route\":\"/guidelines\",\"status\":200,\"pageErrors\":[]}]\n",
+      "stderr": "",
+      "timedOut": false,
+      "durationMs": 27085
+    },
+    "serverLog": "▲ Next.js 16.4.0 (webpack)\n- Local:         http://127.0.0.1:55594\n- Network:       http://127.0.0.1:55594\n✓ Ready in 353ms\n✓ Running next.config.ts took 126ms\n\n GET /files 200 in 651ms (next.js: 267ms, application-code: 384ms)\n GET /files 200 in 87ms (next.js: 9ms, application-code: 78ms)\n GET /connectors 200 in 143ms (next.js: 63ms, application-code: 80ms)\n○ Compiling /agents/page ...\n GET /agents 200 in 338ms (next.js: 107ms, application-code: 231ms)\n○ Compiling /guidelines/page ...\n GET /guidelines 200 in 437ms (next.js: 65ms, application-code: 373ms)\n GET /files 200 in 369ms (next.js: 18ms, application-code: 351ms)\n"
+  },
+  "evidence": {
+    "config": {
+      "argv": [
+        "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+        "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/node_modules/@playwright/test/cli.js",
+        "test",
+        "--grep",
+        "\\[(?:LAY-001)\\]",
+        "--reporter=json",
+        "--workers=1",
+        "--max-failures=1"
+      ],
+      "configFile": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/playwright.config.ts",
+      "rootDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e",
+      "failOnFlakyTests": false,
+      "forbidOnly": false,
+      "fullyParallel": false,
+      "globalSetup": null,
+      "globalTeardown": null,
+      "globalTimeout": 0,
+      "grep": {},
+      "grepInvert": null,
+      "maxFailures": 1,
+      "metadata": {
+        "actualWorkers": 1
+      },
+      "preserveOutput": "always",
+      "projects": [
+        {
+          "outputDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/test-results/e2e",
+          "repeatEach": 1,
+          "retries": 0,
+          "metadata": {
+            "actualWorkers": 1
+          },
+          "id": "",
+          "name": "",
+          "testDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e",
+          "testIgnore": [
+            "**/visual.spec.ts"
+          ],
+          "testMatch": [
+            "**/*.spec.ts"
+          ],
+          "timeout": 30000
+        }
+      ],
+      "filteredProjects": [
+        {
+          "grep": {},
+          "grepInvert": null,
+          "outputDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/test-results/e2e",
+          "repeatEach": 1,
+          "retries": 0,
+          "metadata": {
+            "actualWorkers": 1
+          },
+          "name": "",
+          "testDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e",
+          "snapshotDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e",
+          "testIgnore": [
+            "**/visual.spec.ts"
+          ],
+          "testMatch": "**/*.spec.ts",
+          "timeout": 30000,
+          "use": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+            "viewport": {
+              "width": 1280,
+              "height": 720
+            },
+            "screen": {
+              "width": 1920,
+              "height": 1080
+            },
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "defaultBrowserType": "chromium",
+            "channel": "chrome",
+            "baseURL": "http://127.0.0.1:55594",
+            "trace": "retain-on-failure",
+            "screenshot": "only-on-failure"
+          },
+          "dependencies": [],
+          "ignoreSnapshots": false,
+          "__projectId": ""
+        }
+      ],
+      "quiet": false,
+      "reporter": [
+        [
+          "json"
+        ]
+      ],
+      "reportSlowTests": {
+        "max": 5,
+        "threshold": 300000
+      },
+      "shard": null,
+      "tags": [],
+      "updateSnapshots": "none",
+      "updateSourceMethod": "patch",
+      "version": "1.64.0",
+      "workers": 1,
+      "webServer": null
+    },
+    "suites": [
+      {
+        "title": "design.spec.ts",
+        "file": "design.spec.ts",
+        "column": 0,
+        "line": 0,
+        "specs": [
+          {
+            "title": "[LAY-001] /files one visible page heading at 1280px",
+            "ok": false,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [
+                  {
+                    "type": "browser-version",
+                    "description": "154.0.8037.98"
+                  },
+                  {
+                    "type": "browser-channel",
+                    "description": "chrome"
+                  }
+                ],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [
+                  {
+                    "workerIndex": 0,
+                    "parallelIndex": 0,
+                    "status": "failed",
+                    "duration": 7798,
+                    "error": {
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('main').getByRole('heading', { level: 1 })\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" getByRole('main').getByRole('heading', { level: 1 }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('main').getByRole('heading', { level: 1 })\u001b[22m\n\u001b[2m    13 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('main').getByRole('heading', { level: 1 })\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" getByRole('main').getByRole('heading', { level: 1 }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('main').getByRole('heading', { level: 1 })\u001b[22m\n\u001b[2m    13 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at /private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e/design.spec.ts:24:30",
+                      "location": {
+                        "file": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e/design.spec.ts",
+                        "column": 30,
+                        "line": 24
+                      },
+                      "snippet": "  22 |       await expect(main).toHaveCount(1);\n  23 |       const headings = main.getByRole('heading', { level: 1 });\n> 24 |       await expect(headings).toHaveCount(1);\n     |                              ^\n  25 |       await expect(headings).toBeVisible();\n  26 |       await expect(headings).toHaveText(route.heading);\n  27 |     });"
+                    },
+                    "errors": [
+                      {
+                        "location": {
+                          "file": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e/design.spec.ts",
+                          "column": 30,
+                          "line": 24
+                        },
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('main').getByRole('heading', { level: 1 })\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" getByRole('main').getByRole('heading', { level: 1 }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('main').getByRole('heading', { level: 1 })\u001b[22m\n\u001b[2m    13 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  22 |       await expect(main).toHaveCount(1);\n  23 |       const headings = main.getByRole('heading', { level: 1 });\n> 24 |       await expect(headings).toHaveCount(1);\n     |                              ^\n  25 |       await expect(headings).toBeVisible();\n  26 |       await expect(headings).toHaveText(route.heading);\n  27 |     });\n    at /private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e/design.spec.ts:24:30"
+                      }
+                    ],
+                    "stdout": [],
+                    "stderr": [],
+                    "retry": 0,
+                    "startTime": "2026-10-11T21:31:20.049Z",
+                    "annotations": [
+                      {
+                        "type": "browser-version",
+                        "description": "154.0.8037.98"
+                      },
+                      {
+                        "type": "browser-channel",
+                        "description": "chrome"
+                      }
+                    ],
+                    "attachments": [
+                      {
+                        "name": "screenshot",
+                        "contentType": "image/png",
+                        "path": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/test-results/e2e/design--LAY-001-files-one-visible-page-heading-at-1280px/test-failed-1.png"
+                      },
+                      {
+                        "name": "error-context",
+                        "contentType": "text/markdown",
+                        "path": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/test-results/e2e/design--LAY-001-files-one-visible-page-heading-at-1280px/error-context.md"
+                      },
+                      {
+                        "name": "trace",
+                        "contentType": "application/zip",
+                        "path": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/test-results/e2e/design--LAY-001-files-one-visible-page-heading-at-1280px/trace.zip"
+                      }
+                    ],
+                    "errorLocation": {
+                      "file": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-PUuSVP/creao-design-lab/tests/e2e/design.spec.ts",
+                      "column": 30,
+                      "line": 24
+                    }
+                  }
+                ],
+                "status": "unexpected"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-b8039844cef3298bb4a2",
+            "file": "design.spec.ts",
+            "line": 18,
+            "column": 9
+          },
+          {
+            "title": "[LAY-001] /connectors one visible page heading at 1280px",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-589db6bc8ddfd128058f",
+            "file": "design.spec.ts",
+            "line": 18,
+            "column": 9
+          },
+          {
+            "title": "[LAY-001] /agents one visible page heading at 1280px",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-6265a17b61352dabe0ae",
+            "file": "design.spec.ts",
+            "line": 18,
+            "column": 9
+          },
+          {
+            "title": "[LAY-001] /guidelines one visible page heading at 1280px",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-d3916b3985454c9aa0b7",
+            "file": "design.spec.ts",
+            "line": 18,
+            "column": 9
+          },
+          {
+            "title": "[LAY-001] /files one visible page heading at 390px",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-036a92d066da367dbcc0",
+            "file": "design.spec.ts",
+            "line": 18,
+            "column": 9
+          },
+          {
+            "title": "[LAY-001] /connectors one visible page heading at 390px",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-533ab646dbf76857aa68",
+            "file": "design.spec.ts",
+            "line": 18,
+            "column": 9
+          },
+          {
+            "title": "[LAY-001] /agents one visible page heading at 390px",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-abab3e906d8561712aa9",
+            "file": "design.spec.ts",
+            "line": 18,
+            "column": 9
+          },
+          {
+            "title": "[LAY-001] /guidelines one visible page heading at 390px",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-3b5813f6a70b0ef0c2ea",
+            "file": "design.spec.ts",
+            "line": 18,
+            "column": 9
+          }
+        ]
+      }
+    ],
+    "errors": [
+      {
+        "message": "\u001b[31mTesting stopped early after 1 maximum allowed failures.\u001b[39m"
+      }
+    ],
+    "stats": {
+      "startTime": "2026-10-11T21:31:19.664Z",
+      "duration": 19055.578,
+      "expected": 0,
+      "skipped": 7,
+      "unexpected": 1,
+      "flaky": 0
+    }
+  },
+  "classification": "killed",
+  "reason": "Original browser assertion for target rule failed.",
+  "artifacts": [
+    "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/reports/mutations-all-2026-10-11T21-28-22-239Z/negative-missing-heading/test-results"
+  ],
+  "finishedAt": "2026-10-11T21:31:39.090Z"
+}

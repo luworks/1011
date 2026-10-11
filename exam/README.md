@@ -18,3 +18,9 @@
 `research/` 保存公开资料、原站截图/DOM、原型截图与实验收据。原站证据仅用于本地研究，未发布。原型采用合成数据；本地验证不代表已修复或部署 CREAO 线上产品。
 
 [approach.zh-CN.md](approach.zh-CN.md) 是早期探索思路，当前交付范围以实施计划、正式两文件和实际验证结果为准。
+
+## 收口与交接
+
+- [Claude 接手说明](CLAUDE-HANDOFF.zh-CN.md)。
+- [全过程交付包方案](delivery-packaging-plan.zh-CN.md)。
+- [每日设计漂移巡查职责](agents/design-drift-auditor.md)：仅职责文档，未启用调度。

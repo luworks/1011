@@ -1,6 +1,6 @@
 # CREAO 设计约束：验证与实验结果
 
-日期：2026-10-11。状态：基线与独立实验已取得证据，最终 mutation / 视觉实验收口中。本文件记录已经拿到的运行证据，配合 [实施计划](implementation-plan.zh-CN.md)、[产品设计规范](design-system-guideline.md) 和 [合规审计](compliance-audit.md) 使用。
+日期：2026-10-11。状态：按用户要求封存当前交付；完整 mutation 运行尚未完成，明确保留 pending。本文件记录已经拿到的运行证据，配合 [实施计划](implementation-plan.zh-CN.md)、[产品设计规范](design-system-guideline.md) 和 [合规审计](compliance-audit.md) 使用。
 
 ## 结果总表
 
@@ -15,7 +15,7 @@
 | 视觉基线 / 新视觉负例 | 冻结基线3/3通过；1个视觉负例被拦截 | [视觉审阅复验](research/validation/phase-b/visual/visual-frozen-compare.json)、[视觉负例](research/validation/phase-b/visual-negative/visual-negative-summary.json) |
 | 固定 mutation：首轮静态 | 6 个负例：5 killed、1 survived；2 个正例均 passed；0 invalid、0 error、0 false-positive | [首轮 report.md](research/validation/mutations-static-2026-10-11T21-03-48-256Z/report.md) / [原始 JSON](research/validation/mutations-static-2026-10-11T21-03-48-256Z/report.json) |
 | 固定 mutation：静态第二轮 | 6/6 killed、2/2 正例通过，0 survived/invalid/error/false-positive | [第二轮 report.md](research/validation/mutations-static-2026-10-11T21-06-12-461Z/report.md) / [原始 JSON](research/validation/mutations-static-2026-10-11T21-06-12-461Z/report.json) |
-| 固定 mutation：浏览器 | 前两轮各 7 invalid；没有可用设计拦截分母，最终复验待报告 | 两轮基础设施/基线失效历史已归档，不算 killed |
+| 固定 mutation：最终 all 部分结果 | 9/12 个计划负例已 killed，2/3 正例 passed；其余 3 负例 + 1 正例 pending | [封存收据](research/validation/phase-b/mutations-all-partial-2026-10-11T21-28-22-239Z/partial-summary.json)；不是完整运行成功，历史两轮 invalid 保留 |
 | 独立工程师合规实验 | A：22/22 浏览器通过且静态 0 违规；B：静态 7 违规、浏览器 20/22 通过、2 条 A11Y 失败 | [独立实验审查](engineer-experiment-review.zh-CN.md)；两者新功能可用，B 的焦点丢失为人工额外发现 |
 | GitHub CI / CD | v1 三 job YAML 解析通过；增强版增加 visual-gate，新的运行/解析证据待归档 | [v1 解析收据](research/validation/baseline/workflow-parse.json)；远端执行与保护设置未核实 |
 | 依赖审计（独立于设计规则） | 全依赖 5 high，生产依赖 0；5 项属于同一 braces 开发工具依赖链 | [完整 audit](research/validation/baseline/npm-audit.json)、[生产 audit](research/validation/baseline/npm-audit-production.json) |
@@ -110,12 +110,14 @@
 
 [人工基线审阅](research/validation/phase-b/visual/visual-baseline-review.json) 独立确认三个截图可读后，[已审阅基线比较](research/validation/phase-b/visual/visual-reviewed-compare.json) 与 [冻结源码复验](research/validation/phase-b/visual/visual-frozen-compare.json) 均 **3/3 通过**。最初的 `--update-snapshots` 仅生成候选，不算验收通过。
 
-[环境记录](research/validation/phase-b/visual/visual-candidate-environment.json) 保存 macOS arm64、Chrome 154.0.8037.98、Playwright 1.64.0 与实际字体；候选 PNG 和审核元数据在 [snapshots/](research/validation/phase-b/visual/snapshots/)。这些图不能直接冒充 Linux 基线；CI 缺少对应已审阅环境基线时必须阻断。[视觉负例汇总](research/validation/phase-b/visual-negative/visual-negative-summary.json) 与 [原报告](research/validation/phase-b/visual-negative/visual-negative-final.json) 验证一个使用合法已登记 token 的错误字间距修改：静态检查和生产构建均退出 0，视觉测试退出 1。Files 桌面/窄屏分别出现 4735/4738 个差异像素，Connectors 保持通过；因此是 **1 个视觉负例 killed**，不是 2 个独立 mutation。审阅过的基线 PNG 哈希未变，expected/actual/diff/trace 在独立归档中。旧 setup 失败保留且不计拦截。增强 A/B 复验仍等待最终收据。
+[环境记录](research/validation/phase-b/visual/visual-candidate-environment.json) 保存 macOS arm64、Chrome 154.0.8037.98、Playwright 1.64.0 与实际字体；候选 PNG 和审核元数据在 [snapshots/](research/validation/phase-b/visual/snapshots/)。这些图不能直接冒充 Linux 基线；CI 缺少对应已审阅环境基线时必须阻断。[视觉负例汇总](research/validation/phase-b/visual-negative/visual-negative-summary.json) 与 [原报告](research/validation/phase-b/visual-negative/visual-negative-final.json) 验证一个使用合法已登记 token 的错误字间距修改：静态检查和生产构建均退出 0，视觉测试退出 1。Files 桌面/窄屏分别出现 4735/4738 个差异像素，Connectors 保持通过；因此是 **1 个视觉负例 killed**，不是 2 个独立 mutation。审阅过的基线 PNG 哈希未变，expected/actual/diff/trace 在独立归档中。旧 setup 失败保留且不计拦截。增强 A/B 使用**同两名 agent 再次实现同一功能**，是迁移到增强门禁的复验，不是新增独立样本。A 的 [38项测试](research/validation/engineers-v2/a/final/evaluator-e2e.json) 全通过；首次 [视觉结果](research/validation/engineers-v2/a/final/evaluator-visual-first.json) 因新增重要按钮产生两处 Files 差异，主代理逐张独立审阅后仅更新 A 候选两张基线，保留首次 diff 与 [审阅收据](research/validation/engineers-v2/a/final/visual-review.json)，随后 [普通视觉复验](research/validation/engineers-v2/a/final/evaluator-visual-reviewed.json) 3/3 通过。B 的 [视觉结果](research/validation/engineers-v2/b/final/evaluator-visual-first.json) 为 1/3 通过、两张 Files 失败，未批准更新；B 的 [完整增强结果](research/validation/engineers-v2/b/final/evaluator-e2e.json) 为 **32/38 通过、6 项失败**，0 skipped/flaky；自动化失败与视觉变化均保留，不批准其候选。
 
-## 最终待补充的收据
+## 集成构建与收尾边界
 
-- 安装收据与最终整体验收：已归档的五项基线命令及生产浏览器结果见上；后续变更如影响这些路径需对应复验。
-- 浏览器 mutation：逐例分类、准确分母、目标规则、不可变报告路径、基线摘要。
+增强实现合入 canonical 后，初次构建误将被忽略的 `experiments/runs` 子项目纳入 TypeScript 范围而失败；仅在 canonical `tsconfig` 排除此运行目录后，[生产构建日志](research/validation/phase-b/canonical-integration/final-build-fixed.log) 明确构建成功，保留 [首次失败](research/validation/phase-b/canonical-integration/final-build.log)。这是工作区隔离修复，不是设计违规或 mutation kill。
+
+- 安装与整体验收：已保存 [promote 安装日志](research/validation/phase-b/canonical-integration/promote-install.log)、两版基线与独立实验收据；后续变更仍需按受影响路径复验。
+- 最终 mutation 按用户立即收尾要求封存：[partial-summary](research/validation/phase-b/mutations-all-partial-2026-10-11T21-28-22-239Z/partial-summary.json)。已完成 9 个负例 killed、2 个正例 passed，3 负例与 1 正例 pending；不宣称整体退出 0、最终基线摘要复核完成或100%检出率。
 - 独立工程师实验最终命令已补齐：[A](research/validation/engineers/engineer-a/evaluator-commands.json) 类型/lint/设计检查/build 全退出 0；[B](research/validation/engineers/engineer-b/evaluator-commands.json) 类型/lint/build 退出 0、设计检查退出 1。
 - 视觉与交互的最终范围：上面已归档人工验收；若最终实现继续变化，应按受影响路径复验。
 - CI：本地已验证命令与尚未接入的远端执行、required checks、审批和部署步骤分别记录。

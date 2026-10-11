@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "status": "stopped-for-handoff",
+  "stoppedAt": "2026-10-11T21:33:33.641Z",
+  "sourceRoot": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab",
+  "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+  "counts": {
+    "configuredNegative": 12,
+    "configuredPositive": 3,
+    "killed": 9,
+    "positivePassed": 2,
+    "pendingNegative": 3,
+    "pendingPositive": 1,
+    "survived": 0,
+    "invalid": 0,
+    "error": 0
+  },
+  "cases": [
+    {
+      "id": "negative-hex-color",
+      "kind": "negative",
+      "rule": "DS-001",
+      "classification": "killed",
+      "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+      "receipt": "negative-hex-color/receipt.json",
+      "reason": "Original checker reported target rule."
+    },
+    {
+      "id": "negative-rgb-color",
+      "kind": "negative",
+      "rule": "DS-001",
+      "classification": "killed",
+      "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+      "receipt": "negative-rgb-color/receipt.json",
+      "reason": "Original checker reported target rule."
+    },
+    {
+      "id": "negative-unknown-token",
+      "kind": "negative",
+      "rule": "DS-001",
+      "classification": "killed",
+      "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+      "receipt": "negative-unknown-token/receipt.json",
+      "reason": "Original checker reported target rule."
+    },
+    {
+      "id": "negative-raw-button",
+      "kind": "negative",
+      "rule": "DS-002",
+      "classification": "killed",
+      "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+      "receipt": "negative-raw-button/receipt.json",
+      "reason": "Original checker reported target rule."
+    },
+    {
+      "id": "negative-aliased-button",
+      "kind": "negative",
+      "rule": "DS-002",
+      "classification": "killed",
+      "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+      "receipt": "negative-aliased-button/receipt.json",
+      "reason": "Original checker reported target rule."
+    },
+    {
+      "id": "negative-expired-exception",
+      "kind": "negative",
+      "rule": "GOV-001",
+      "classification": "killed",
+      "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+      "receipt": "negative-expired-exception/receipt.json",
+      "reason": "Original checker reported target rule."
+    },
+    {
+      "id": "positive-registered-token",
+      "kind": "positive",
+      "rule": "DS-001",
+      "classification": "passed",
+      "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+      "receipt": "positive-registered-token/receipt.json",
+      "reason": "Positive control accepted."
+    },
+    {
+      "id": "positive-approved-button",
+      "kind": "positive",
+      "rule": "DS-002",
+      "classification": "passed",
+      "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+      "receipt": "positive-approved-button/receipt.json",
+      "reason": "Positive control accepted."
+    },
+    {
+      "id": "negative-missing-heading",
+      "kind": "negative",
+      "rule": "LAY-001",
+      "classification": "killed",
+      "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+      "receipt": "negative-missing-heading/receipt.json",
+      "reason": "Original browser assertion for target rule failed."
+    },
+    {
+      "id": "negative-icon-name",
+      "kind": "negative",
+      "rule": "A11Y-001",
+      "classification": "killed",
+      "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+      "receipt": "negative-icon-name/receipt.json",
+      "reason": "Original browser assertion for target rule failed."
+    },
+    {
+      "id": "negative-empty-recovery",
+      "kind": "negative",
+      "rule": "STATE-001",
+      "classification": "killed",
+      "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+      "receipt": "negative-empty-recovery/receipt.json",
+      "reason": "Original browser assertion for target rule failed."
+    },
+    {
+      "id": "negative-wrong-destination",
+      "kind": "negative",
+      "rule": "NAV-001",
+      "classification": "pending",
+      "reason": "Stopped at coordinator/user handoff before a complete receipt; no success inferred."
+    },
+    {
+      "id": "negative-fixed-mobile-width",
+      "kind": "negative",
+      "rule": "RESP-001",
+      "classification": "pending",
+      "reason": "Stopped at coordinator/user handoff before a complete receipt; no success inferred."
+    },
+    {
+      "id": "negative-swapped-file-fields",
+      "kind": "negative",
+      "rule": "RESP-001",
+      "classification": "pending",
+      "reason": "Stopped at coordinator/user handoff before a complete receipt; no success inferred."
+    },
+    {
+      "id": "positive-long-filename",
+      "kind": "positive",
+      "rule": "RESP-001",
+      "classification": "pending",
+      "reason": "Stopped at coordinator/user handoff before a complete receipt; no success inferred."
+    }
+  ],
+  "completedWholeSuite": false,
+  "runLevelFinalHashCheck": "not reached; completed case baseline hashes are preserved",
+  "resumeCommand": "PW_CHANNEL=chrome node scripts/mutation-runner.mjs --suite browser --ids negative-wrong-destination,negative-fixed-mobile-width,negative-swapped-file-fields,positive-long-filename",
+  "fullRerunCommand": "PW_CHANNEL=chrome node scripts/mutation-runner.mjs --suite all",
+  "limitations": "No overall pass or 100% kill-rate claim. Historical infrastructure iterations and independent engineer experiments are excluded from these denominators."
+}

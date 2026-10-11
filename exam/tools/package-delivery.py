@@ -13,6 +13,7 @@ import os
 import platform
 from pathlib import Path, PurePosixPath
 import re
+import shutil
 import stat
 import subprocess
 import sys
@@ -168,7 +169,7 @@ def package(root, commit, output):
 
 def verify(archive_path, run_checks, browser_args, visual=False):
     # Always use a fresh extraction; never follow symlinks or reuse the source checkout.
-    target = Path(tempfile.mkdtemp(prefix="creao-delivery-verify-"))
+    target = Path(tempfile.mkdtemp(prefix="creao-delivery-verify-")).resolve()
     result = {"archive": str(archive_path), "archiveSha256": sha(archive_path.read_bytes()),
               "extractedTo": str(target), "checks": [], "mutationRerun": False,
               "environment": {"system": platform.system(), "release": platform.release(), "machine": platform.machine(),
@@ -229,7 +230,18 @@ def verify(archive_path, run_checks, browser_args, visual=False):
     result["browserChecksRequested"] = bool(browser_args)
     result["visualChecksRequested"] = visual
     result["checksRequested"] = run_checks
-    receipt = archive_path.with_name(archive_path.stem + ".verification-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + ".json")
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    artifacts = archive_path.with_name(archive_path.stem + ".verification-" + stamp)
+    artifacts.mkdir()
+    for log in target.glob("verification-*.log"):
+        shutil.copy2(log, artifacts / log.name)
+    for folder in ("reports", "test-results"):
+        source = target / "creao-design-lab" / folder
+        if source.exists():
+            shutil.copytree(source, artifacts / folder)
+    result["retainedArtifacts"] = [{"path": str(p.relative_to(archive_path.parent)), "sha256": sha(p.read_bytes()), "size": p.stat().st_size}
+                                    for p in sorted(artifacts.rglob("*")) if p.is_file()]
+    receipt = archive_path.with_name(archive_path.stem + ".verification-" + stamp + ".json")
     receipt.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
     return result
 

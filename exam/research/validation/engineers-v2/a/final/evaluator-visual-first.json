@@ -1,0 +1,415 @@
+{
+  "config": {
+    "argv": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/playwright.config.ts",
+    "rootDir": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/test-results/visual",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/visual.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/test-results/visual",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e",
+        "snapshotDir": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/visual.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "channel": "chrome",
+          "baseURL": "http://127.0.0.1:3110",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/evaluator-visual-first.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "none",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "visual.spec.ts",
+      "file": "visual.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[VISUAL-001] Files initial list at 1280x900",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "visual-environment",
+                  "description": "darwin-arm64-25.6.0-chromium-154.0.8037.98"
+                },
+                {
+                  "type": "browser-version",
+                  "description": "154.0.8037.98"
+                },
+                {
+                  "type": "browser-channel",
+                  "description": "chrome"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3011,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  8322 pixels (ratio 0.01 of all image pixels) are different.\n\n  Snapshot: darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 8322 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 8322 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  8322 pixels (ratio 0.01 of all image pixels) are different.\n\n  Snapshot: darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 8322 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 8322 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\n    at /Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e/visual.spec.ts:36:24",
+                    "location": {
+                      "file": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e/visual.spec.ts",
+                      "column": 24,
+                      "line": 36
+                    },
+                    "snippet": "  34 |     await expect(page.getByRole('button', { name: '列表视图', exact: true })).toHaveAttribute('aria-pressed', 'true');\n  35 |     await page.evaluate(() => document.fonts.ready);\n> 36 |     await expect(page).toHaveScreenshot([environment!, `files-list-${width}x900.png`], {\n     |                        ^\n  37 |       animations: 'disabled', caret: 'hide', fullPage: true, scale: 'css',\n  38 |       maxDiffPixels: 0, threshold: 0.2,\n  39 |     });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e/visual.spec.ts",
+                        "column": 24,
+                        "line": 36
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  8322 pixels (ratio 0.01 of all image pixels) are different.\n\n  Snapshot: darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 8322 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 8322 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\n\n  34 |     await expect(page.getByRole('button', { name: '列表视图', exact: true })).toHaveAttribute('aria-pressed', 'true');\n  35 |     await page.evaluate(() => document.fonts.ready);\n> 36 |     await expect(page).toHaveScreenshot([environment!, `files-list-${width}x900.png`], {\n     |                        ^\n  37 |       animations: 'disabled', caret: 'hide', fullPage: true, scale: 'css',\n  38 |       maxDiffPixels: 0, threshold: 0.2,\n  39 |     });\n    at /Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e/visual.spec.ts:36:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T21:29:15.556Z",
+                  "annotations": [
+                    {
+                      "type": "visual-environment",
+                      "description": "darwin-arm64-25.6.0-chromium-154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-version",
+                      "description": "154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-channel",
+                      "description": "chrome"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-expected.png",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-darwin.png"
+                    },
+                    {
+                      "name": "darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-actual.png",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/test-results/visual/visual--VISUAL-001-Files-initial-list-at-1280x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-actual.png"
+                    },
+                    {
+                      "name": "darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-diff.png",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/test-results/visual/visual--VISUAL-001-Files-initial-list-at-1280x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-1280x900-diff.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/test-results/visual/visual--VISUAL-001-Files-initial-list-at-1280x900/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/test-results/visual/visual--VISUAL-001-Files-initial-list-at-1280x900/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/test-results/visual/visual--VISUAL-001-Files-initial-list-at-1280x900/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e/visual.spec.ts",
+                    "column": 24,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8324bb52c49185e48ff4-5910d0ad8778bb497209",
+          "file": "visual.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "[VISUAL-001] Files initial list at 390x900",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "visual-environment",
+                  "description": "darwin-arm64-25.6.0-chromium-154.0.8037.98"
+                },
+                {
+                  "type": "browser-version",
+                  "description": "154.0.8037.98"
+                },
+                {
+                  "type": "browser-channel",
+                  "description": "chrome"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3165,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  9567 pixels (ratio 0.03 of all image pixels) are different.\n\n  Snapshot: darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 9567 pixels (ratio 0.03 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 9567 pixels (ratio 0.03 of all image pixels) are different.\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  9567 pixels (ratio 0.03 of all image pixels) are different.\n\n  Snapshot: darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 9567 pixels (ratio 0.03 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 9567 pixels (ratio 0.03 of all image pixels) are different.\u001b[22m\n\n    at /Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e/visual.spec.ts:36:24",
+                    "location": {
+                      "file": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e/visual.spec.ts",
+                      "column": 24,
+                      "line": 36
+                    },
+                    "snippet": "  34 |     await expect(page.getByRole('button', { name: '列表视图', exact: true })).toHaveAttribute('aria-pressed', 'true');\n  35 |     await page.evaluate(() => document.fonts.ready);\n> 36 |     await expect(page).toHaveScreenshot([environment!, `files-list-${width}x900.png`], {\n     |                        ^\n  37 |       animations: 'disabled', caret: 'hide', fullPage: true, scale: 'css',\n  38 |       maxDiffPixels: 0, threshold: 0.2,\n  39 |     });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e/visual.spec.ts",
+                        "column": 24,
+                        "line": 36
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  9567 pixels (ratio 0.03 of all image pixels) are different.\n\n  Snapshot: darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 9567 pixels (ratio 0.03 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 9567 pixels (ratio 0.03 of all image pixels) are different.\u001b[22m\n\n\n  34 |     await expect(page.getByRole('button', { name: '列表视图', exact: true })).toHaveAttribute('aria-pressed', 'true');\n  35 |     await page.evaluate(() => document.fonts.ready);\n> 36 |     await expect(page).toHaveScreenshot([environment!, `files-list-${width}x900.png`], {\n     |                        ^\n  37 |       animations: 'disabled', caret: 'hide', fullPage: true, scale: 'css',\n  38 |       maxDiffPixels: 0, threshold: 0.2,\n  39 |     });\n    at /Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e/visual.spec.ts:36:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T21:29:33.498Z",
+                  "annotations": [
+                    {
+                      "type": "visual-environment",
+                      "description": "darwin-arm64-25.6.0-chromium-154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-version",
+                      "description": "154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-channel",
+                      "description": "chrome"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-expected.png",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e/visual.spec.ts-snapshots/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-darwin.png"
+                    },
+                    {
+                      "name": "darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-actual.png",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/test-results/visual/visual--VISUAL-001-Files-initial-list-at-390x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-actual.png"
+                    },
+                    {
+                      "name": "darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-diff.png",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/test-results/visual/visual--VISUAL-001-Files-initial-list-at-390x900/darwin-arm64-25.6.0-chromium-154.0.8037.98/files-list-390x900-diff.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/test-results/visual/visual--VISUAL-001-Files-initial-list-at-390x900/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/test-results/visual/visual--VISUAL-001-Files-initial-list-at-390x900/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/test-results/visual/visual--VISUAL-001-Files-initial-list-at-390x900/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/engineers-v2/engineer-a/creao-design-lab/tests/e2e/visual.spec.ts",
+                    "column": 24,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8324bb52c49185e48ff4-5ee71df963672317ddce",
+          "file": "visual.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "[VISUAL-001] Connectors connected empty state at 1280x900",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "visual-environment",
+                  "description": "darwin-arm64-25.6.0-chromium-154.0.8037.98"
+                },
+                {
+                  "type": "browser-version",
+                  "description": "154.0.8037.98"
+                },
+                {
+                  "type": "browser-channel",
+                  "description": "chrome"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7000,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T21:29:57.277Z",
+                  "annotations": [
+                    {
+                      "type": "visual-environment",
+                      "description": "darwin-arm64-25.6.0-chromium-154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-version",
+                      "description": "154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-channel",
+                      "description": "chrome"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8324bb52c49185e48ff4-61c6f3c596da205664ff",
+          "file": "visual.spec.ts",
+          "line": 43,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-11T21:29:15.206Z",
+    "duration": 71872.714,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

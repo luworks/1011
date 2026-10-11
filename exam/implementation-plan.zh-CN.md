@@ -1,6 +1,6 @@
 # CREAO 可执行设计规范：实施与验证计划
 
-日期：2026-10-11。状态：已授权实施。范围：本地研究、独立 Next.js 原型、规范、检查器、变异实验与 CI 配置；不修改 CREAO 线上产品，不部署或推送。
+日期：2026-10-11。状态：本地实现与增强门禁已完成，最终实验和交付包收口；详细状态以 validation-results.zh-CN.md 的实际收据为准。范围：本地研究、独立 Next.js 原型、规范、检查器、变异实验与 CI 配置；不修改 CREAO 线上产品，不部署或推送。
 
 ## 目标和验收
 
@@ -22,8 +22,8 @@
 
 | 必交文件 | 必须包含 | 验收条件 | 当前状态 |
 | --- | --- | --- | --- |
-| [design-system-guideline.md](design-system-guideline.md) | 产品层布局模式、既有设计系统的使用边界、规则 ID、工程师/agent 执行步骤、具体检查入口、例外与发布门禁 | 读者无需追问即可选布局、找到 CSS/组件、运行检查并理解失败；每条自动规则映射实际实现，人工规则明确标注 | 初稿已写入，待最终运行结果核对 |
-| `compliance-audit.md` | 将规范应用于已探索的真实页面；逐条记录页面/状态/视口、截图和 DOM 证据、违反的规则、影响、修复方式、上线前哪个检查能发现 | 每个发现有证据与规则编号；区分真实线上观察、原型复现、尚未覆盖；引用实际命令、失败结果和实验收据，不能虚构在 CREAO 私有源码执行过检查 | 待基线与实验完成后定稿 |
+| [design-system-guideline.md](design-system-guideline.md) | 产品层布局模式、既有设计系统的使用边界、规则 ID、工程师/agent 执行步骤、具体检查入口、例外与发布门禁 | 读者无需追问即可选布局、找到 CSS/组件、运行检查并理解失败；每条自动规则映射实际实现，人工规则明确标注 | 已定稿，含增强门禁与执行范围 |
+| `compliance-audit.md` | 将规范应用于已探索的真实页面；逐条记录页面/状态/视口、截图和 DOM 证据、违反的规则、影响、修复方式、上线前哪个检查能发现 | 每个发现有证据与规则编号；区分真实线上观察、原型复现、尚未覆盖；引用实际命令、失败结果和实验收据，不能虚构在 CREAO 私有源码执行过检查 | 已写入真实审计，最终实验收据收口中 |
 
 题目原文与中文译文分别保留在 [task.md](task.md)、[task.zh-CN.md](task.zh-CN.md)。研究、计划和实验是附加材料，不混入题面原文。
 
@@ -34,16 +34,16 @@
 | 交付项 | 产物位置 | 必须验证什么 | 当前状态 |
 | --- | --- | --- | --- |
 | 可执行设计入口 | `creao-design-lab/design.md`、`AGENTS.md` | 官方/观察/提案来源分开；索引真实 CSS、组件、规则和执行命令；agent 不得删检查以通过 | 已写入 |
-| 三层 CSS 与组件 | `src/styles/tokens.css`、`components.css`、`layouts.css`，`src/components/{ui,patterns}/` | 颜色映射有来源；布局/响应式与组件分层；受治理样式不新增裸色和未知变量 | 已写入，待完整检查 |
-| Next.js 原型 | `creao-design-lab/src/app/`、`package.json`、`package-lock.json` | Files/Connectors/Agents 实际可操作；Guidelines 阅读 Markdown，受控源码查看能打开 CSS；开发启动与生产构建通过 | 实现与依赖准备中 |
-| CSS/JSX 设计 lint | `scripts/check-design.mjs`、`tests/design/` | CSS AST 检查裸色/未知 token；TS AST 检查绕过控件；验证合法例子与违规例子，准确披露别名/动态写法边界 | 已实现，单元检查执行中 |
+| 三层 CSS 与组件 | `src/styles/tokens.css`、`components.css`、`layouts.css`，`src/components/{ui,patterns}/` | 颜色映射有来源；布局/响应式与组件分层；受治理样式不新增裸色和未知变量 | 已通过静态/类型/构建与浏览器检查 |
+| Next.js 原型 | `creao-design-lab/src/app/`、`package.json`、`package-lock.json` | Files/Connectors/Agents 实际可操作；Guidelines 阅读 Markdown，受控源码查看能打开 CSS；开发启动与生产构建通过 | 已实现并完成构建 |
+| CSS/JSX 设计 lint | `scripts/check-design.mjs`、`tests/design/` | CSS AST 检查裸色/未知 token；TS AST 检查绕过控件；验证合法例子与违规例子，准确披露别名/动态写法边界 | 13项单元检查通过 |
 | 通用 lint 与类型 | `eslint.config.*`、`tsconfig.json`、package scripts | `npm run lint`、`npm run typecheck` 通过；与设计 lint 分别报告 | 执行中 |
 | 规则与例外治理 | `governance/rules.json`、`exceptions.json` | ID、入口、文档链接有效；例外精确限定文件与规则、有原因/owner/截止日；过期失败 | 已实现 |
-| 浏览器检查 | `tests/e2e/design.spec.ts`、`playwright.config.ts` | 桌面与窄屏标题、名称、可操作恢复、目的地、字段 label/value 对应与几何；CI 对生产构建运行 | 已实现，正在加强字段配对断言 |
+| 浏览器检查 | `tests/e2e/design.spec.ts`、`playwright.config.ts` | 桌面与窄屏标题、名称、可操作恢复、目的地、字段 label/value 对应与几何；CI 对生产构建运行 | 38项行为/axe通过；视觉基线3/3通过 |
 | 原站截图与观察 | `exam/research/screenshots/`、`deep/`、DOM/AX 快照及 capture manifest | 来源 URL、时间、视口和状态可定位；截图有人工审阅，避免把加载中/AX 映射误当真实缺陷 | 已采集并审阅 |
-| 原型截图与视觉验收 | `exam/research/prototype/`（计划位置）及浏览器失败截图/trace | 桌面、390px、关键交互/空状态；补查窄屏与中间宽度；截图人工检查与自动断言分开 | 待基线可启动 |
-| 固定 mutation 实验 | `scripts/mutation-runner.mjs`、`tests/mutations/`、`reports/` | 真正修改隔离实现；正例证明不过度拦截；负例命中实际规则；保留 killed/survived/invalid/error 与初次漏检 | runner/案例已写入，待冻结基线 |
-| 独立工程师合规实验 | `experiments/engineer-protocol.md`、隔离副本、补丁与验收收据 | 两位 subagent 做同一新功能，一位遵循、一位走捷径；检查资产不变；分别验功能与规范；不能把预设 mutation 冒充独立实验 | 协议已写入，待冻结后分派 |
+| 原型截图与视觉验收 | `exam/research/prototype/`（计划位置）及浏览器失败截图/trace | 桌面、390px、关键交互/空状态；补查窄屏与中间宽度；截图人工检查与自动断言分开 | 已完成，含800px修复前后证据 |
+| 固定 mutation 实验 | `scripts/mutation-runner.mjs`、`tests/mutations/`、`reports/` | 真正修改隔离实现；正例证明不过度拦截；负例命中实际规则；保留 killed/survived/invalid/error 与初次漏检 | 静态复验6/6；最终增强all运行中 |
+| 独立工程师合规实验 | `experiments/engineer-protocol.md`、隔离副本、补丁与验收收据 | 两位 subagent 做同一新功能，一位遵循、一位走捷径；检查资产不变；分别验功能与规范；不能把预设 mutation 冒充独立实验 | v1完成；增强v2已实施并验收中 |
 | CI 与候选产物契约 | `.github/workflows/creao-design.yml` | 锁文件安装、lint/类型/单测/设计检查、build、浏览器、mutation；失败上传证据；只有 gate 通过才生成源码版本收据 | YAML 已写入；未远端执行 |
 | 运行说明与结果 | `creao-design-lab/README.md`、`exam/compliance-audit.md` | 可复制命令、版本、实际通过/失败数、报告索引、未验证路径；本地成功不写成线上部署成功 | 待最终回填 |
 
@@ -230,3 +230,10 @@ creao-design-lab/
 ## 风险与报告原则
 
 有限测试通过不代表任意工程师都无法绕过。明确支持的代码写法、动态样式/别名/包装组件限制、浏览器与状态覆盖、剩余人工规则。观察到的页面样式值不等于官方推荐 API。所有演示数据与真实产品证据分开。最终汇报包含实际结果和残余风险，不只展示一个漂亮页面或 mutation 分数。
+
+
+## 按用户要求立即收尾的交付状态
+
+两份题目必交文件、Next.js 原型、AGENTS/design/CSS 索引、13 项设计单测、增强浏览器 38/38、审阅后的视觉 3/3，以及 axe/视觉各 1 个真实负例均已落地。A/B 原实验与同 agent 的增强复验分别保存；A 增强38/38，B32/38并被阻断。CI配置已写，Linux视觉基线与远端保护尚未接入。
+
+最终固定 mutation 在用户要求立即收尾时仍运行：已封存 9/12 个计划负例 killed、2/3 个正例 passed，另 3 个负例 + 1 个正例 pending。完整运行未完成，不能将整份计划标成全部完成；首轮别名漏检、两次基础设施失效与所有修复证据保留。详见 [验证结果](validation-results.zh-CN.md) 与 [部分运行收据](research/validation/phase-b/mutations-all-partial-2026-10-11T21-28-22-239Z/partial-summary.json)。

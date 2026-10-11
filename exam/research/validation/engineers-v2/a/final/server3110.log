@@ -1,0 +1,9 @@
+
+> creao-design-lab@0.1.0 start
+> next start --port 3100 --port 3110
+
+▲ Next.js 16.4.0
+- Local:         http://localhost:3110
+- Network:       http://10.243.59.58:3110
+✓ Ready in 187ms
+✓ Running next.config.ts took 40ms

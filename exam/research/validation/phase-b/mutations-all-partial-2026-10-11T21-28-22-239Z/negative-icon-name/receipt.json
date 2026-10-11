@@ -1,0 +1,434 @@
+{
+  "id": "negative-icon-name",
+  "kind": "negative",
+  "suite": "browser",
+  "rule": "A11Y-001",
+  "description": "Visible list-view icon loses its accessible name.",
+  "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+  "patches": [
+    {
+      "file": "src/app/files/page.tsx",
+      "before": "'use client';\nimport { useRef, useState } from 'react';\nimport { Button, Input, Icon } from '@/components/ui';\nimport { PageHeader } from '@/components/patterns/PageHeader';\nimport { EmptyState } from '@/components/patterns/EmptyState';\nimport { copy } from '@/lib/copy';\nimport { initialFiles, type DemoFile } from '@/lib/data';\nexport default function FilesPage() {\n  const [files, setFiles] = useState(initialFiles); const [query, setQuery] = useState(''); const [view, setView] = useState<'list' | 'grid'>('list');\n  const [creating, setCreating] = useState(false); const [folderName, setFolderName] = useState(''); const [error, setError] = useState(''); const [status, setStatus] = useState(''); const [preview, setPreview] = useState<DemoFile | null>(null);\n  const dialog = useRef<HTMLDialogElement>(null); const previewTrigger = useRef<HTMLButtonElement | null>(null);\n  const visibleFiles = files.filter(file => file.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()));\n  function createFolder(event: React.FormEvent) { event.preventDefault(); const name = folderName.trim(); if (!name) return setError(copy.files.invalid); if (files.some(file => file.name === name)) return setError(copy.files.duplicate); setFiles([{ id: `folder-${Date.now()}`, name, modified: '刚刚', size: '—', source: copy.files.demo, kind: 'folder', content: '此文件夹尚无内容。' }, ...files]); setFolderName(''); setCreating(false); setError(''); setStatus(`${copy.files.created}：${name}`); }\n  function openPreview(file: DemoFile, target: HTMLButtonElement) { previewTrigger.current = target; setPreview(file); dialog.current?.showModal(); }\n  function closePreview() { dialog.current?.close(); previewTrigger.current?.focus(); }\n  return <><PageHeader title={copy.files.title} actions={<Button onClick={() => { setCreating(!creating); setError(''); }}><Icon name=\"folderPlus\" />{copy.files.create}</Button>} />\n    <div className=\"search-field\"><Icon name=\"search\" /><Input type=\"search\" aria-label={copy.files.search} placeholder={copy.files.search} value={query} onChange={event => setQuery(event.target.value)} />{query && <Button variant=\"ghost\" aria-label={copy.files.clear} onClick={() => setQuery('')}><Icon name=\"x\" /></Button>}</div>\n    <div className=\"list-toolbar\"><p className=\"muted\">{visibleFiles.length} 个项目</p><div className=\"view-toggle\" role=\"group\" aria-label=\"文件显示方式\"><Button variant=\"ghost\" aria-label={copy.files.list} aria-pressed={view === 'list'} onClick={() => setView('list')}><Icon name=\"list\" /></Button><Button variant=\"ghost\" aria-label={copy.files.grid} aria-pressed={view === 'grid'} onClick={() => setView('grid')}><Icon name=\"grid\" /></Button></div></div>\n    {creating && <form className=\"inline-form\" onSubmit={createFolder}><label htmlFor=\"folder-name\">{copy.files.folderName}</label><Input id=\"folder-name\" autoFocus value={folderName} onChange={event => setFolderName(event.target.value)} aria-invalid={!!error} aria-describedby={error ? 'folder-error' : undefined} /><Button type=\"submit\" variant=\"primary\">{copy.files.save}</Button><Button onClick={() => { setCreating(false); setError(''); }}>{copy.files.cancel}</Button>{error && <p className=\"error\" role=\"alert\" id=\"folder-error\">{error}</p>}</form>}\n    <p className=\"sr-only\" role=\"status\">{status}</p>\n    {visibleFiles.length ? <div className={`file-collection ${view === 'grid' ? 'file-grid' : ''}`} data-testid=\"file-list\"><div className=\"desktop-file-header\" data-testid=\"desktop-file-header\" aria-hidden=\"true\"><span>{copy.files.name}</span><span>{copy.files.modified}</span><span>{copy.files.size}</span><span>{copy.files.source}</span></div><ul className=\"file-items\">{visibleFiles.map(file => <li className=\"file-item\" data-testid=\"file-item\" key={file.id}><div className=\"file-name\"><span className=\"file-thumbnail\"><Icon name={file.kind} size={22} /></span><Button className=\"file-name-button\" variant=\"ghost\" title={file.name} onClick={event => openPreview(file, event.currentTarget)}>{file.name}</Button></div><div className=\"file-meta\"><span className=\"file-meta-label\" data-testid=\"file-meta-label\">{copy.files.modified}</span><span>{file.modified}</span></div><div className=\"file-meta\"><span className=\"file-meta-label\" data-testid=\"file-meta-label\">{copy.files.size}</span><span>{file.size}</span></div><div className=\"file-meta\"><span className=\"file-meta-label\" data-testid=\"file-meta-label\">{copy.files.source}</span><span>{file.source}</span></div></li>)}</ul></div> : <EmptyState title={copy.files.emptyTitle} description={copy.files.emptyDescription} action={{ label: copy.files.clear, onClick: () => setQuery('') }} />}\n    <dialog className=\"preview-dialog\" ref={dialog} aria-labelledby=\"preview-title\" onClose={() => previewTrigger.current?.focus()}><div className=\"dialog-heading\"><h2 id=\"preview-title\">{preview?.name}</h2><Button variant=\"ghost\" aria-label={copy.files.close} onClick={closePreview}><Icon name=\"x\" /></Button></div><p className=\"muted\">{copy.files.previewNote}</p><pre className=\"preview-content\">{preview?.content}</pre></dialog>\n  </>;\n}\n",
+      "after": "'use client';\nimport { useRef, useState } from 'react';\nimport { Button, Input, Icon } from '@/components/ui';\nimport { PageHeader } from '@/components/patterns/PageHeader';\nimport { EmptyState } from '@/components/patterns/EmptyState';\nimport { copy } from '@/lib/copy';\nimport { initialFiles, type DemoFile } from '@/lib/data';\nexport default function FilesPage() {\n  const [files, setFiles] = useState(initialFiles); const [query, setQuery] = useState(''); const [view, setView] = useState<'list' | 'grid'>('list');\n  const [creating, setCreating] = useState(false); const [folderName, setFolderName] = useState(''); const [error, setError] = useState(''); const [status, setStatus] = useState(''); const [preview, setPreview] = useState<DemoFile | null>(null);\n  const dialog = useRef<HTMLDialogElement>(null); const previewTrigger = useRef<HTMLButtonElement | null>(null);\n  const visibleFiles = files.filter(file => file.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()));\n  function createFolder(event: React.FormEvent) { event.preventDefault(); const name = folderName.trim(); if (!name) return setError(copy.files.invalid); if (files.some(file => file.name === name)) return setError(copy.files.duplicate); setFiles([{ id: `folder-${Date.now()}`, name, modified: '刚刚', size: '—', source: copy.files.demo, kind: 'folder', content: '此文件夹尚无内容。' }, ...files]); setFolderName(''); setCreating(false); setError(''); setStatus(`${copy.files.created}：${name}`); }\n  function openPreview(file: DemoFile, target: HTMLButtonElement) { previewTrigger.current = target; setPreview(file); dialog.current?.showModal(); }\n  function closePreview() { dialog.current?.close(); previewTrigger.current?.focus(); }\n  return <><PageHeader title={copy.files.title} actions={<Button onClick={() => { setCreating(!creating); setError(''); }}><Icon name=\"folderPlus\" />{copy.files.create}</Button>} />\n    <div className=\"search-field\"><Icon name=\"search\" /><Input type=\"search\" aria-label={copy.files.search} placeholder={copy.files.search} value={query} onChange={event => setQuery(event.target.value)} />{query && <Button variant=\"ghost\" aria-label={copy.files.clear} onClick={() => setQuery('')}><Icon name=\"x\" /></Button>}</div>\n    <div className=\"list-toolbar\"><p className=\"muted\">{visibleFiles.length} 个项目</p><div className=\"view-toggle\" role=\"group\" aria-label=\"文件显示方式\"><Button variant=\"ghost\"  aria-pressed={view === 'list'} onClick={() => setView('list')}><Icon name=\"list\" /></Button><Button variant=\"ghost\" aria-label={copy.files.grid} aria-pressed={view === 'grid'} onClick={() => setView('grid')}><Icon name=\"grid\" /></Button></div></div>\n    {creating && <form className=\"inline-form\" onSubmit={createFolder}><label htmlFor=\"folder-name\">{copy.files.folderName}</label><Input id=\"folder-name\" autoFocus value={folderName} onChange={event => setFolderName(event.target.value)} aria-invalid={!!error} aria-describedby={error ? 'folder-error' : undefined} /><Button type=\"submit\" variant=\"primary\">{copy.files.save}</Button><Button onClick={() => { setCreating(false); setError(''); }}>{copy.files.cancel}</Button>{error && <p className=\"error\" role=\"alert\" id=\"folder-error\">{error}</p>}</form>}\n    <p className=\"sr-only\" role=\"status\">{status}</p>\n    {visibleFiles.length ? <div className={`file-collection ${view === 'grid' ? 'file-grid' : ''}`} data-testid=\"file-list\"><div className=\"desktop-file-header\" data-testid=\"desktop-file-header\" aria-hidden=\"true\"><span>{copy.files.name}</span><span>{copy.files.modified}</span><span>{copy.files.size}</span><span>{copy.files.source}</span></div><ul className=\"file-items\">{visibleFiles.map(file => <li className=\"file-item\" data-testid=\"file-item\" key={file.id}><div className=\"file-name\"><span className=\"file-thumbnail\"><Icon name={file.kind} size={22} /></span><Button className=\"file-name-button\" variant=\"ghost\" title={file.name} onClick={event => openPreview(file, event.currentTarget)}>{file.name}</Button></div><div className=\"file-meta\"><span className=\"file-meta-label\" data-testid=\"file-meta-label\">{copy.files.modified}</span><span>{file.modified}</span></div><div className=\"file-meta\"><span className=\"file-meta-label\" data-testid=\"file-meta-label\">{copy.files.size}</span><span>{file.size}</span></div><div className=\"file-meta\"><span className=\"file-meta-label\" data-testid=\"file-meta-label\">{copy.files.source}</span><span>{file.source}</span></div></li>)}</ul></div> : <EmptyState title={copy.files.emptyTitle} description={copy.files.emptyDescription} action={{ label: copy.files.clear, onClick: () => setQuery('') }} />}\n    <dialog className=\"preview-dialog\" ref={dialog} aria-labelledby=\"preview-title\" onClose={() => previewTrigger.current?.focus()}><div className=\"dialog-heading\"><h2 id=\"preview-title\">{preview?.name}</h2><Button variant=\"ghost\" aria-label={copy.files.close} onClick={closePreview}><Icon name=\"x\" /></Button></div><p className=\"muted\">{copy.files.previewNote}</p><pre className=\"preview-content\">{preview?.content}</pre></dialog>\n  </>;\n}\n"
+    }
+  ],
+  "startedAt": "2026-10-11T21:31:39.184Z",
+  "caseBaselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+  "mutatedHash": "7fccead2020019bd2bf18cc006248e7ca8bd93a1241aa3f8403409fd9fbc758e",
+  "typecheck": {
+    "command": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--incremental",
+      "false"
+    ],
+    "exit": 0,
+    "signal": null,
+    "stdout": "",
+    "stderr": "",
+    "timedOut": false,
+    "durationMs": 3229
+  },
+  "check": {
+    "command": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/node_modules/@playwright/test/cli.js",
+      "test",
+      "--grep",
+      "\\[(?:A11Y-001)\\]",
+      "--reporter=json",
+      "--workers=1",
+      "--max-failures=1"
+    ],
+    "exit": 1,
+    "signal": null,
+    "stdout": "{\n  \"config\": {\n    \"argv\": [\n      \"/Users/yuanlu/.local/node-v24.21.0/bin/node\",\n      \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/node_modules/@playwright/test/cli.js\",\n      \"test\",\n      \"--grep\",\n      \"\\\\[(?:A11Y-001)\\\\]\",\n      \"--reporter=json\",\n      \"--workers=1\",\n      \"--max-failures=1\"\n    ],\n    \"configFile\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/playwright.config.ts\",\n    \"rootDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e\",\n    \"failOnFlakyTests\": false,\n    \"forbidOnly\": false,\n    \"fullyParallel\": false,\n    \"globalSetup\": null,\n    \"globalTeardown\": null,\n    \"globalTimeout\": 0,\n    \"grep\": {},\n    \"grepInvert\": null,\n    \"maxFailures\": 1,\n    \"metadata\": {\n      \"actualWorkers\": 1\n    },\n    \"preserveOutput\": \"always\",\n    \"projects\": [\n      {\n        \"outputDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/test-results/e2e\",\n        \"repeatEach\": 1,\n        \"retries\": 0,\n        \"metadata\": {\n          \"actualWorkers\": 1\n        },\n        \"id\": \"\",\n        \"name\": \"\",\n        \"testDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e\",\n        \"testIgnore\": [\n          \"**/visual.spec.ts\"\n        ],\n        \"testMatch\": [\n          \"**/*.spec.ts\"\n        ],\n        \"timeout\": 30000\n      }\n    ],\n    \"filteredProjects\": [\n      {\n        \"grep\": {},\n        \"grepInvert\": null,\n        \"outputDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/test-results/e2e\",\n        \"repeatEach\": 1,\n        \"retries\": 0,\n        \"metadata\": {\n          \"actualWorkers\": 1\n        },\n        \"name\": \"\",\n        \"testDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e\",\n        \"snapshotDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e\",\n        \"testIgnore\": [\n          \"**/visual.spec.ts\"\n        ],\n        \"testMatch\": \"**/*.spec.ts\",\n        \"timeout\": 30000,\n        \"use\": {\n          \"userAgent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36\",\n          \"viewport\": {\n            \"width\": 1280,\n            \"height\": 720\n          },\n          \"screen\": {\n            \"width\": 1920,\n            \"height\": 1080\n          },\n          \"deviceScaleFactor\": 1,\n          \"isMobile\": false,\n          \"hasTouch\": false,\n          \"defaultBrowserType\": \"chromium\",\n          \"channel\": \"chrome\",\n          \"baseURL\": \"http://127.0.0.1:57114\",\n          \"trace\": \"retain-on-failure\",\n          \"screenshot\": \"only-on-failure\"\n        },\n        \"dependencies\": [],\n        \"ignoreSnapshots\": false,\n        \"__projectId\": \"\"\n      }\n    ],\n    \"quiet\": false,\n    \"reporter\": [\n      [\n        \"json\"\n      ]\n    ],\n    \"reportSlowTests\": {\n      \"max\": 5,\n      \"threshold\": 300000\n    },\n    \"shard\": null,\n    \"tags\": [],\n    \"updateSnapshots\": \"none\",\n    \"updateSourceMethod\": \"patch\",\n    \"version\": \"1.64.0\",\n    \"workers\": 1,\n    \"webServer\": null\n  },\n  \"suites\": [\n    {\n      \"title\": \"design.spec.ts\",\n      \"file\": \"design.spec.ts\",\n      \"column\": 0,\n      \"line\": 0,\n      \"specs\": [\n        {\n          \"title\": \"[A11Y-001] /files visible controls retain accessible names at 1280px\",\n          \"ok\": false,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [\n                {\n                  \"type\": \"browser-version\",\n                  \"description\": \"154.0.8037.98\"\n                },\n                {\n                  \"type\": \"browser-channel\",\n                  \"description\": \"chrome\"\n                }\n              ],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [\n                {\n                  \"workerIndex\": 0,\n                  \"parallelIndex\": 0,\n                  \"status\": \"failed\",\n                  \"duration\": 11775,\n                  \"error\": {\n                    \"message\": \"Error: \\u001b[2mexpect(\\u001b[22m\\u001b[31mlocator\\u001b[39m\\u001b[2m).\\u001b[22mtoHaveAccessibleName\\u001b[2m(\\u001b[22m\\u001b[32mexpected\\u001b[39m\\u001b[2m)\\u001b[22m failed\\n\\nLocator: locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9)\\nExpected pattern: \\u001b[32m/\\\\S/\\u001b[39m\\nReceived string:  \\u001b[31m\\\"\\\"\\u001b[39m\\nTimeout: 5000ms\\n\\nCall log:\\n\\u001b[2m  - Expect \\\"toHaveAccessibleName\\\" locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9) with timeout 5000ms\\u001b[22m\\n\\u001b[2m  - waiting for locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9)\\u001b[22m\\n\\u001b[2m    14 × locator resolved to <button type=\\\"button\\\" aria-pressed=\\\"true\\\" class=\\\"button button-ghost \\\">…</button>\\u001b[22m\\n\\u001b[2m       - unexpected value \\\"\\\"\\u001b[22m\\n\",\n                    \"stack\": \"Error: \\u001b[2mexpect(\\u001b[22m\\u001b[31mlocator\\u001b[39m\\u001b[2m).\\u001b[22mtoHaveAccessibleName\\u001b[2m(\\u001b[22m\\u001b[32mexpected\\u001b[39m\\u001b[2m)\\u001b[22m failed\\n\\nLocator: locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9)\\nExpected pattern: \\u001b[32m/\\\\S/\\u001b[39m\\nReceived string:  \\u001b[31m\\\"\\\"\\u001b[39m\\nTimeout: 5000ms\\n\\nCall log:\\n\\u001b[2m  - Expect \\\"toHaveAccessibleName\\\" locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9) with timeout 5000ms\\u001b[22m\\n\\u001b[2m  - waiting for locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9)\\u001b[22m\\n\\u001b[2m    14 × locator resolved to <button type=\\\"button\\\" aria-pressed=\\\"true\\\" class=\\\"button button-ghost \\\">…</button>\\u001b[22m\\n\\u001b[2m       - unexpected value \\\"\\\"\\u001b[22m\\n\\n    at /private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e/design.spec.ts:37:62\",\n                    \"location\": {\n                      \"file\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e/design.spec.ts\",\n                      \"column\": 62,\n                      \"line\": 37\n                    },\n                    \"snippet\": \"  35 |       expect(await controls.count()).toBeGreaterThan(0);\\n  36 |       for (const control of await controls.all()) {\\n> 37 |         if (await control.isVisible()) await expect(control).toHaveAccessibleName(/\\\\S/);\\n     |                                                              ^\\n  38 |       }\\n  39 |     });\\n  40 |   }\"\n                  },\n                  \"errors\": [\n                    {\n                      \"location\": {\n                        \"file\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e/design.spec.ts\",\n                        \"column\": 62,\n                        \"line\": 37\n                      },\n                      \"message\": \"Error: \\u001b[2mexpect(\\u001b[22m\\u001b[31mlocator\\u001b[39m\\u001b[2m).\\u001b[22mtoHaveAccessibleName\\u001b[2m(\\u001b[22m\\u001b[32mexpected\\u001b[39m\\u001b[2m)\\u001b[22m failed\\n\\nLocator: locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9)\\nExpected pattern: \\u001b[32m/\\\\S/\\u001b[39m\\nReceived string:  \\u001b[31m\\\"\\\"\\u001b[39m\\nTimeout: 5000ms\\n\\nCall log:\\n\\u001b[2m  - Expect \\\"toHaveAccessibleName\\\" locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9) with timeout 5000ms\\u001b[22m\\n\\u001b[2m  - waiting for locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9)\\u001b[22m\\n\\u001b[2m    14 × locator resolved to <button type=\\\"button\\\" aria-pressed=\\\"true\\\" class=\\\"button button-ghost \\\">…</button>\\u001b[22m\\n\\u001b[2m       - unexpected value \\\"\\\"\\u001b[22m\\n\\n\\n  35 |       expect(await controls.count()).toBeGreaterThan(0);\\n  36 |       for (const control of await controls.all()) {\\n> 37 |         if (await control.isVisible()) await expect(control).toHaveAccessibleName(/\\\\S/);\\n     |                                                              ^\\n  38 |       }\\n  39 |     });\\n  40 |   }\\n    at /private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e/design.spec.ts:37:62\"\n                    }\n                  ],\n                  \"stdout\": [],\n                  \"stderr\": [],\n                  \"retry\": 0,\n                  \"startTime\": \"2026-10-11T21:32:15.187Z\",\n                  \"annotations\": [\n                    {\n                      \"type\": \"browser-version\",\n                      \"description\": \"154.0.8037.98\"\n                    },\n                    {\n                      \"type\": \"browser-channel\",\n                      \"description\": \"chrome\"\n                    }\n                  ],\n                  \"attachments\": [\n                    {\n                      \"name\": \"screenshot\",\n                      \"contentType\": \"image/png\",\n                      \"path\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/test-results/e2e/design--A11Y-001-files-vis-75b56--accessible-names-at-1280px/test-failed-1.png\"\n                    },\n                    {\n                      \"name\": \"error-context\",\n                      \"contentType\": \"text/markdown\",\n                      \"path\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/test-results/e2e/design--A11Y-001-files-vis-75b56--accessible-names-at-1280px/error-context.md\"\n                    },\n                    {\n                      \"name\": \"trace\",\n                      \"contentType\": \"application/zip\",\n                      \"path\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/test-results/e2e/design--A11Y-001-files-vis-75b56--accessible-names-at-1280px/trace.zip\"\n                    }\n                  ],\n                  \"errorLocation\": {\n                    \"file\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e/design.spec.ts\",\n                    \"column\": 62,\n                    \"line\": 37\n                  }\n                }\n              ],\n              \"status\": \"unexpected\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-c66782dd17fa24af3406\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 29,\n          \"column\": 9\n        },\n        {\n          \"title\": \"[A11Y-001] /connectors visible controls retain accessible names at 1280px\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-c9782f6ed552eaed53bc\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 29,\n          \"column\": 9\n        },\n        {\n          \"title\": \"[A11Y-001] /agents visible controls retain accessible names at 1280px\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-1e6f45f9e6f8b0a107e7\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 29,\n          \"column\": 9\n        },\n        {\n          \"title\": \"[A11Y-001] /guidelines visible controls retain accessible names at 1280px\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-42a1f3cbd7c4f35f2c99\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 29,\n          \"column\": 9\n        },\n        {\n          \"title\": \"[A11Y-001] /files visible controls retain accessible names at 390px\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-7243ca7e0bf75f7e8d50\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 29,\n          \"column\": 9\n        },\n        {\n          \"title\": \"[A11Y-001] /connectors visible controls retain accessible names at 390px\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-835c07b1e247a53a88e4\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 29,\n          \"column\": 9\n        },\n        {\n          \"title\": \"[A11Y-001] /agents visible controls retain accessible names at 390px\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-cc51709a15ba61e3627c\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 29,\n          \"column\": 9\n        },\n        {\n          \"title\": \"[A11Y-001] /guidelines visible controls retain accessible names at 390px\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-88060b762c86e1ecfc43\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 29,\n          \"column\": 9\n        }\n      ]\n    }\n  ],\n  \"errors\": [\n    {\n      \"message\": \"\\u001b[31mTesting stopped early after 1 maximum allowed failures.\\u001b[39m\"\n    }\n  ],\n  \"stats\": {\n    \"startTime\": \"2026-10-11T21:32:13.267Z\",\n    \"duration\": 25395.923000000003,\n    \"expected\": 0,\n    \"skipped\": 7,\n    \"unexpected\": 1,\n    \"flaky\": 0\n  }\n}\n",
+    "stderr": "",
+    "timedOut": false,
+    "durationMs": 26757,
+    "browserHealth": {
+      "command": [
+        "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+        "-e",
+        "const {chromium}=require('@playwright/test'); (async()=>{const browser=await chromium.launch(process.env.PW_CHANNEL?{channel:process.env.PW_CHANNEL}:{});const results=[];try{for(const route of ['/files','/connectors','/agents','/guidelines']){const page=await browser.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));const response=await page.goto(process.env.BASE_URL+route);await page.waitForLoadState('networkidle');results.push({route,status:response?.status(),pageErrors:errors});await page.close();}console.log(JSON.stringify(results));process.exitCode=results.some(r=>r.status!==200||r.pageErrors.length)?1:0;}finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=2;});"
+      ],
+      "exit": 0,
+      "signal": null,
+      "stdout": "[{\"route\":\"/files\",\"status\":200,\"pageErrors\":[]},{\"route\":\"/connectors\",\"status\":200,\"pageErrors\":[]},{\"route\":\"/agents\",\"status\":200,\"pageErrors\":[]},{\"route\":\"/guidelines\",\"status\":200,\"pageErrors\":[]}]\n",
+      "stderr": "",
+      "timedOut": false,
+      "durationMs": 20922
+    },
+    "serverLog": "▲ Next.js 16.4.0 (webpack)\n- Local:         http://127.0.0.1:57114\n- Network:       http://127.0.0.1:57114\n✓ Ready in 539ms\n✓ Running next.config.ts took 101ms\n\n○ Compiling /files/page ...\n GET /files 200 in 550ms (next.js: 403ms, application-code: 147ms)\n GET /files 200 in 68ms (next.js: 1.8ms, application-code: 66ms)\n GET /connectors 200 in 118ms (next.js: 53ms, application-code: 65ms)\n GET /agents 200 in 223ms (next.js: 141ms, application-code: 82ms)\n GET /guidelines 200 in 369ms (next.js: 81ms, application-code: 288ms)\n GET /files 200 in 1404ms (next.js: 263ms, application-code: 1140ms)\n"
+  },
+  "evidence": {
+    "config": {
+      "argv": [
+        "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+        "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/node_modules/@playwright/test/cli.js",
+        "test",
+        "--grep",
+        "\\[(?:A11Y-001)\\]",
+        "--reporter=json",
+        "--workers=1",
+        "--max-failures=1"
+      ],
+      "configFile": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/playwright.config.ts",
+      "rootDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e",
+      "failOnFlakyTests": false,
+      "forbidOnly": false,
+      "fullyParallel": false,
+      "globalSetup": null,
+      "globalTeardown": null,
+      "globalTimeout": 0,
+      "grep": {},
+      "grepInvert": null,
+      "maxFailures": 1,
+      "metadata": {
+        "actualWorkers": 1
+      },
+      "preserveOutput": "always",
+      "projects": [
+        {
+          "outputDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/test-results/e2e",
+          "repeatEach": 1,
+          "retries": 0,
+          "metadata": {
+            "actualWorkers": 1
+          },
+          "id": "",
+          "name": "",
+          "testDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e",
+          "testIgnore": [
+            "**/visual.spec.ts"
+          ],
+          "testMatch": [
+            "**/*.spec.ts"
+          ],
+          "timeout": 30000
+        }
+      ],
+      "filteredProjects": [
+        {
+          "grep": {},
+          "grepInvert": null,
+          "outputDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/test-results/e2e",
+          "repeatEach": 1,
+          "retries": 0,
+          "metadata": {
+            "actualWorkers": 1
+          },
+          "name": "",
+          "testDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e",
+          "snapshotDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e",
+          "testIgnore": [
+            "**/visual.spec.ts"
+          ],
+          "testMatch": "**/*.spec.ts",
+          "timeout": 30000,
+          "use": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+            "viewport": {
+              "width": 1280,
+              "height": 720
+            },
+            "screen": {
+              "width": 1920,
+              "height": 1080
+            },
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "defaultBrowserType": "chromium",
+            "channel": "chrome",
+            "baseURL": "http://127.0.0.1:57114",
+            "trace": "retain-on-failure",
+            "screenshot": "only-on-failure"
+          },
+          "dependencies": [],
+          "ignoreSnapshots": false,
+          "__projectId": ""
+        }
+      ],
+      "quiet": false,
+      "reporter": [
+        [
+          "json"
+        ]
+      ],
+      "reportSlowTests": {
+        "max": 5,
+        "threshold": 300000
+      },
+      "shard": null,
+      "tags": [],
+      "updateSnapshots": "none",
+      "updateSourceMethod": "patch",
+      "version": "1.64.0",
+      "workers": 1,
+      "webServer": null
+    },
+    "suites": [
+      {
+        "title": "design.spec.ts",
+        "file": "design.spec.ts",
+        "column": 0,
+        "line": 0,
+        "specs": [
+          {
+            "title": "[A11Y-001] /files visible controls retain accessible names at 1280px",
+            "ok": false,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [
+                  {
+                    "type": "browser-version",
+                    "description": "154.0.8037.98"
+                  },
+                  {
+                    "type": "browser-channel",
+                    "description": "chrome"
+                  }
+                ],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [
+                  {
+                    "workerIndex": 0,
+                    "parallelIndex": 0,
+                    "status": "failed",
+                    "duration": 11775,
+                    "error": {
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAccessibleName\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9)\nExpected pattern: \u001b[32m/\\S/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAccessibleName\" locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9)\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"button\" aria-pressed=\"true\" class=\"button button-ghost \">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
+                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAccessibleName\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9)\nExpected pattern: \u001b[32m/\\S/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAccessibleName\" locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9)\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"button\" aria-pressed=\"true\" class=\"button button-ghost \">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at /private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e/design.spec.ts:37:62",
+                      "location": {
+                        "file": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e/design.spec.ts",
+                        "column": 62,
+                        "line": 37
+                      },
+                      "snippet": "  35 |       expect(await controls.count()).toBeGreaterThan(0);\n  36 |       for (const control of await controls.all()) {\n> 37 |         if (await control.isVisible()) await expect(control).toHaveAccessibleName(/\\S/);\n     |                                                              ^\n  38 |       }\n  39 |     });\n  40 |   }"
+                    },
+                    "errors": [
+                      {
+                        "location": {
+                          "file": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e/design.spec.ts",
+                          "column": 62,
+                          "line": 37
+                        },
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAccessibleName\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9)\nExpected pattern: \u001b[32m/\\S/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAccessibleName\" locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('button, input:not([type=hidden]), select, textarea, a[href], [role=button], [role=tab]').nth(9)\u001b[22m\n\u001b[2m    14 × locator resolved to <button type=\"button\" aria-pressed=\"true\" class=\"button button-ghost \">…</button>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n\n  35 |       expect(await controls.count()).toBeGreaterThan(0);\n  36 |       for (const control of await controls.all()) {\n> 37 |         if (await control.isVisible()) await expect(control).toHaveAccessibleName(/\\S/);\n     |                                                              ^\n  38 |       }\n  39 |     });\n  40 |   }\n    at /private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e/design.spec.ts:37:62"
+                      }
+                    ],
+                    "stdout": [],
+                    "stderr": [],
+                    "retry": 0,
+                    "startTime": "2026-10-11T21:32:15.187Z",
+                    "annotations": [
+                      {
+                        "type": "browser-version",
+                        "description": "154.0.8037.98"
+                      },
+                      {
+                        "type": "browser-channel",
+                        "description": "chrome"
+                      }
+                    ],
+                    "attachments": [
+                      {
+                        "name": "screenshot",
+                        "contentType": "image/png",
+                        "path": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/test-results/e2e/design--A11Y-001-files-vis-75b56--accessible-names-at-1280px/test-failed-1.png"
+                      },
+                      {
+                        "name": "error-context",
+                        "contentType": "text/markdown",
+                        "path": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/test-results/e2e/design--A11Y-001-files-vis-75b56--accessible-names-at-1280px/error-context.md"
+                      },
+                      {
+                        "name": "trace",
+                        "contentType": "application/zip",
+                        "path": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/test-results/e2e/design--A11Y-001-files-vis-75b56--accessible-names-at-1280px/trace.zip"
+                      }
+                    ],
+                    "errorLocation": {
+                      "file": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-cmDkUa/creao-design-lab/tests/e2e/design.spec.ts",
+                      "column": 62,
+                      "line": 37
+                    }
+                  }
+                ],
+                "status": "unexpected"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-c66782dd17fa24af3406",
+            "file": "design.spec.ts",
+            "line": 29,
+            "column": 9
+          },
+          {
+            "title": "[A11Y-001] /connectors visible controls retain accessible names at 1280px",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-c9782f6ed552eaed53bc",
+            "file": "design.spec.ts",
+            "line": 29,
+            "column": 9
+          },
+          {
+            "title": "[A11Y-001] /agents visible controls retain accessible names at 1280px",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-1e6f45f9e6f8b0a107e7",
+            "file": "design.spec.ts",
+            "line": 29,
+            "column": 9
+          },
+          {
+            "title": "[A11Y-001] /guidelines visible controls retain accessible names at 1280px",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-42a1f3cbd7c4f35f2c99",
+            "file": "design.spec.ts",
+            "line": 29,
+            "column": 9
+          },
+          {
+            "title": "[A11Y-001] /files visible controls retain accessible names at 390px",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-7243ca7e0bf75f7e8d50",
+            "file": "design.spec.ts",
+            "line": 29,
+            "column": 9
+          },
+          {
+            "title": "[A11Y-001] /connectors visible controls retain accessible names at 390px",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-835c07b1e247a53a88e4",
+            "file": "design.spec.ts",
+            "line": 29,
+            "column": 9
+          },
+          {
+            "title": "[A11Y-001] /agents visible controls retain accessible names at 390px",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-cc51709a15ba61e3627c",
+            "file": "design.spec.ts",
+            "line": 29,
+            "column": 9
+          },
+          {
+            "title": "[A11Y-001] /guidelines visible controls retain accessible names at 390px",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-88060b762c86e1ecfc43",
+            "file": "design.spec.ts",
+            "line": 29,
+            "column": 9
+          }
+        ]
+      }
+    ],
+    "errors": [
+      {
+        "message": "\u001b[31mTesting stopped early after 1 maximum allowed failures.\u001b[39m"
+      }
+    ],
+    "stats": {
+      "startTime": "2026-10-11T21:32:13.267Z",
+      "duration": 25395.923000000003,
+      "expected": 0,
+      "skipped": 7,
+      "unexpected": 1,
+      "flaky": 0
+    }
+  },
+  "classification": "killed",
+  "reason": "Original browser assertion for target rule failed.",
+  "artifacts": [
+    "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/reports/mutations-all-2026-10-11T21-28-22-239Z/negative-icon-name/test-results"
+  ],
+  "finishedAt": "2026-10-11T21:32:38.821Z"
+}

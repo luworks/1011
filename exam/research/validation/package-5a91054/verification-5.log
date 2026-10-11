@@ -1,0 +1,11 @@
+
+> creao-design-lab@0.1.0 check:design
+> node scripts/check-design.mjs
+
+{
+  "version": 1,
+  "root": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-delivery-verify-j54dw795/creao-design-lab",
+  "passed": true,
+  "violations": [],
+  "exceptions": []
+}

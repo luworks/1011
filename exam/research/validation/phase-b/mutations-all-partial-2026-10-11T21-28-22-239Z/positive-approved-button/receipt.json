@@ -1,0 +1,58 @@
+{
+  "id": "positive-approved-button",
+  "kind": "positive",
+  "suite": "static",
+  "rule": "DS-002",
+  "description": "Recovery Button uses its supported primary variant.",
+  "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+  "patches": [
+    {
+      "file": "src/components/patterns/EmptyState.tsx",
+      "before": "import { Button, Icon } from '@/components/ui';\nexport function EmptyState({ title, description, action, icon = 'files' }: { title: string; description: string; action: { label: string; onClick: () => void }; icon?: string }) {\n  return <section className=\"empty-state\"><div className=\"empty-icon\"><Icon name={icon} size={28} /></div><h2>{title}</h2><p data-testid=\"empty-state-description\">{description}</p><Button onClick={action.onClick}>{action.label}</Button></section>;\n}\n",
+      "after": "import { Button, Icon } from '@/components/ui';\nexport function EmptyState({ title, description, action, icon = 'files' }: { title: string; description: string; action: { label: string; onClick: () => void }; icon?: string }) {\n  return <section className=\"empty-state\"><div className=\"empty-icon\"><Icon name={icon} size={28} /></div><h2>{title}</h2><p data-testid=\"empty-state-description\">{description}</p><Button variant=\"primary\" onClick={action.onClick}>{action.label}</Button></section>;\n}\n"
+    }
+  ],
+  "startedAt": "2026-10-11T21:30:44.359Z",
+  "caseBaselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+  "mutatedHash": "c45279bb929469b0e9338da304b84fce3fb92900d3e5f1639e7caea38bde1a00",
+  "typecheck": {
+    "command": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-8AdHfb/creao-design-lab/node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--incremental",
+      "false"
+    ],
+    "exit": 0,
+    "signal": null,
+    "stdout": "",
+    "stderr": "",
+    "timedOut": false,
+    "durationMs": 1143
+  },
+  "check": {
+    "command": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/scripts/check-design.mjs",
+      "--root",
+      "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-8AdHfb/creao-design-lab"
+    ],
+    "exit": 0,
+    "signal": null,
+    "stdout": "{\n  \"version\": 1,\n  \"root\": \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-8AdHfb/creao-design-lab\",\n  \"passed\": true,\n  \"violations\": [],\n  \"exceptions\": []\n}\n",
+    "stderr": "",
+    "timedOut": false,
+    "durationMs": 283
+  },
+  "evidence": {
+    "version": 1,
+    "root": "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-8AdHfb/creao-design-lab",
+    "passed": true,
+    "violations": [],
+    "exceptions": []
+  },
+  "classification": "passed",
+  "reason": "Positive control accepted.",
+  "artifacts": [],
+  "finishedAt": "2026-10-11T21:30:45.797Z"
+}

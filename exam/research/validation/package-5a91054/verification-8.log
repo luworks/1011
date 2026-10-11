@@ -1,0 +1,12 @@
+
+> creao-design-lab@0.1.0 test:visual
+> PW_VISUAL=1 playwright test
+
+
+Running 3 tests using 1 worker
+
+  ✓  1 tests/e2e/visual.spec.ts:29:7 › [VISUAL-001] Files initial list at 1280x900 (884ms)
+  ✓  2 tests/e2e/visual.spec.ts:29:7 › [VISUAL-001] Files initial list at 390x900 (393ms)
+  ✓  3 tests/e2e/visual.spec.ts:43:5 › [VISUAL-001] Connectors connected empty state at 1280x900 (513ms)
+
+  3 passed (14.6s)

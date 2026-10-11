@@ -1,0 +1,314 @@
+{
+  "id": "negative-empty-recovery",
+  "kind": "negative",
+  "suite": "browser",
+  "rule": "STATE-001",
+  "description": "Empty state has guidance but its recovery action disappears.",
+  "baselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+  "patches": [
+    {
+      "file": "src/components/patterns/EmptyState.tsx",
+      "before": "import { Button, Icon } from '@/components/ui';\nexport function EmptyState({ title, description, action, icon = 'files' }: { title: string; description: string; action: { label: string; onClick: () => void }; icon?: string }) {\n  return <section className=\"empty-state\"><div className=\"empty-icon\"><Icon name={icon} size={28} /></div><h2>{title}</h2><p data-testid=\"empty-state-description\">{description}</p><Button onClick={action.onClick}>{action.label}</Button></section>;\n}\n",
+      "after": "import { Icon } from '@/components/ui';\nexport function EmptyState({ title, description, action, icon = 'files' }: { title: string; description: string; action: { label: string; onClick: () => void }; icon?: string }) {\n  return <section className=\"empty-state\"><div className=\"empty-icon\"><Icon name={icon} size={28} /></div><h2>{title}</h2><p data-testid=\"empty-state-description\">{description}</p><span>{action.label}</span></section>;\n}\n"
+    }
+  ],
+  "startedAt": "2026-10-11T21:32:38.876Z",
+  "caseBaselineHash": "f7a578e36f2d94115c02cd8afb0b5a4578b2f866a4e5b13d9d95f734104b75bc",
+  "mutatedHash": "9f9f2f0d6a4cedaa005bfc422982356b4559f3b52bddb6ddb4ff6625ddd62ad7",
+  "typecheck": {
+    "command": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--incremental",
+      "false"
+    ],
+    "exit": 0,
+    "signal": null,
+    "stdout": "",
+    "stderr": "",
+    "timedOut": false,
+    "durationMs": 1414
+  },
+  "check": {
+    "command": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/node_modules/@playwright/test/cli.js",
+      "test",
+      "--grep",
+      "\\[(?:STATE-001)\\]",
+      "--reporter=json",
+      "--workers=1",
+      "--max-failures=1"
+    ],
+    "exit": 1,
+    "signal": null,
+    "stdout": "{\n  \"config\": {\n    \"argv\": [\n      \"/Users/yuanlu/.local/node-v24.21.0/bin/node\",\n      \"/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/node_modules/@playwright/test/cli.js\",\n      \"test\",\n      \"--grep\",\n      \"\\\\[(?:STATE-001)\\\\]\",\n      \"--reporter=json\",\n      \"--workers=1\",\n      \"--max-failures=1\"\n    ],\n    \"configFile\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/playwright.config.ts\",\n    \"rootDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e\",\n    \"failOnFlakyTests\": false,\n    \"forbidOnly\": false,\n    \"fullyParallel\": false,\n    \"globalSetup\": null,\n    \"globalTeardown\": null,\n    \"globalTimeout\": 0,\n    \"grep\": {},\n    \"grepInvert\": null,\n    \"maxFailures\": 1,\n    \"metadata\": {\n      \"actualWorkers\": 1\n    },\n    \"preserveOutput\": \"always\",\n    \"projects\": [\n      {\n        \"outputDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/test-results/e2e\",\n        \"repeatEach\": 1,\n        \"retries\": 0,\n        \"metadata\": {\n          \"actualWorkers\": 1\n        },\n        \"id\": \"\",\n        \"name\": \"\",\n        \"testDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e\",\n        \"testIgnore\": [\n          \"**/visual.spec.ts\"\n        ],\n        \"testMatch\": [\n          \"**/*.spec.ts\"\n        ],\n        \"timeout\": 30000\n      }\n    ],\n    \"filteredProjects\": [\n      {\n        \"grep\": {},\n        \"grepInvert\": null,\n        \"outputDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/test-results/e2e\",\n        \"repeatEach\": 1,\n        \"retries\": 0,\n        \"metadata\": {\n          \"actualWorkers\": 1\n        },\n        \"name\": \"\",\n        \"testDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e\",\n        \"snapshotDir\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e\",\n        \"testIgnore\": [\n          \"**/visual.spec.ts\"\n        ],\n        \"testMatch\": \"**/*.spec.ts\",\n        \"timeout\": 30000,\n        \"use\": {\n          \"userAgent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36\",\n          \"viewport\": {\n            \"width\": 1280,\n            \"height\": 720\n          },\n          \"screen\": {\n            \"width\": 1920,\n            \"height\": 1080\n          },\n          \"deviceScaleFactor\": 1,\n          \"isMobile\": false,\n          \"hasTouch\": false,\n          \"defaultBrowserType\": \"chromium\",\n          \"channel\": \"chrome\",\n          \"baseURL\": \"http://127.0.0.1:58409\",\n          \"trace\": \"retain-on-failure\",\n          \"screenshot\": \"only-on-failure\"\n        },\n        \"dependencies\": [],\n        \"ignoreSnapshots\": false,\n        \"__projectId\": \"\"\n      }\n    ],\n    \"quiet\": false,\n    \"reporter\": [\n      [\n        \"json\"\n      ]\n    ],\n    \"reportSlowTests\": {\n      \"max\": 5,\n      \"threshold\": 300000\n    },\n    \"shard\": null,\n    \"tags\": [],\n    \"updateSnapshots\": \"none\",\n    \"updateSourceMethod\": \"patch\",\n    \"version\": \"1.64.0\",\n    \"workers\": 1,\n    \"webServer\": null\n  },\n  \"suites\": [\n    {\n      \"title\": \"design.spec.ts\",\n      \"file\": \"design.spec.ts\",\n      \"column\": 0,\n      \"line\": 0,\n      \"specs\": [\n        {\n          \"title\": \"[STATE-001] connector empty state action reaches available services\",\n          \"ok\": false,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [\n                {\n                  \"type\": \"browser-version\",\n                  \"description\": \"154.0.8037.98\"\n                },\n                {\n                  \"type\": \"browser-channel\",\n                  \"description\": \"chrome\"\n                }\n              ],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [\n                {\n                  \"workerIndex\": 0,\n                  \"parallelIndex\": 0,\n                  \"status\": \"failed\",\n                  \"duration\": 6610,\n                  \"error\": {\n                    \"message\": \"Error: \\u001b[2mexpect(\\u001b[22m\\u001b[31mlocator\\u001b[39m\\u001b[2m).\\u001b[22mtoBeVisible\\u001b[2m(\\u001b[22m\\u001b[2m)\\u001b[22m failed\\n\\nLocator: getByRole('button', { name: '浏览可连接服务', exact: true })\\nExpected: visible\\nTimeout: 5000ms\\nError: element(s) not found\\n\\nCall log:\\n\\u001b[2m  - Expect \\\"toBeVisible\\\" getByRole('button', { name: '浏览可连接服务', exact: true }) with timeout 5000ms\\u001b[22m\\n\\u001b[2m  - waiting for getByRole('button', { name: '浏览可连接服务', exact: true })\\u001b[22m\\n\",\n                    \"stack\": \"Error: \\u001b[2mexpect(\\u001b[22m\\u001b[31mlocator\\u001b[39m\\u001b[2m).\\u001b[22mtoBeVisible\\u001b[2m(\\u001b[22m\\u001b[2m)\\u001b[22m failed\\n\\nLocator: getByRole('button', { name: '浏览可连接服务', exact: true })\\nExpected: visible\\nTimeout: 5000ms\\nError: element(s) not found\\n\\nCall log:\\n\\u001b[2m  - Expect \\\"toBeVisible\\\" getByRole('button', { name: '浏览可连接服务', exact: true }) with timeout 5000ms\\u001b[22m\\n\\u001b[2m  - waiting for getByRole('button', { name: '浏览可连接服务', exact: true })\\u001b[22m\\n\\n    at /private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e/design.spec.ts:47:26\",\n                    \"location\": {\n                      \"file\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e/design.spec.ts\",\n                      \"column\": 26,\n                      \"line\": 47\n                    },\n                    \"snippet\": \"  45 |   await page.getByRole('tab', { name: /^已连接(?: \\\\(\\\\d+\\\\))?$/ }).click();\\n  46 |   const recovery = page.getByRole('button', { name: '浏览可连接服务', exact: true });\\n> 47 |   await expect(recovery).toBeVisible();\\n     |                          ^\\n  48 |   await recovery.click();\\n  49 |   await expect(page.getByRole('tab', { name: '可连接', exact: true })).toHaveAttribute('aria-selected', 'true');\\n  50 |   await expect(page.getByRole('button', { name: /连接/ }).first()).toBeVisible();\"\n                  },\n                  \"errors\": [\n                    {\n                      \"location\": {\n                        \"file\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e/design.spec.ts\",\n                        \"column\": 26,\n                        \"line\": 47\n                      },\n                      \"message\": \"Error: \\u001b[2mexpect(\\u001b[22m\\u001b[31mlocator\\u001b[39m\\u001b[2m).\\u001b[22mtoBeVisible\\u001b[2m(\\u001b[22m\\u001b[2m)\\u001b[22m failed\\n\\nLocator: getByRole('button', { name: '浏览可连接服务', exact: true })\\nExpected: visible\\nTimeout: 5000ms\\nError: element(s) not found\\n\\nCall log:\\n\\u001b[2m  - Expect \\\"toBeVisible\\\" getByRole('button', { name: '浏览可连接服务', exact: true }) with timeout 5000ms\\u001b[22m\\n\\u001b[2m  - waiting for getByRole('button', { name: '浏览可连接服务', exact: true })\\u001b[22m\\n\\n\\n  45 |   await page.getByRole('tab', { name: /^已连接(?: \\\\(\\\\d+\\\\))?$/ }).click();\\n  46 |   const recovery = page.getByRole('button', { name: '浏览可连接服务', exact: true });\\n> 47 |   await expect(recovery).toBeVisible();\\n     |                          ^\\n  48 |   await recovery.click();\\n  49 |   await expect(page.getByRole('tab', { name: '可连接', exact: true })).toHaveAttribute('aria-selected', 'true');\\n  50 |   await expect(page.getByRole('button', { name: /连接/ }).first()).toBeVisible();\\n    at /private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e/design.spec.ts:47:26\"\n                    }\n                  ],\n                  \"stdout\": [],\n                  \"stderr\": [],\n                  \"retry\": 0,\n                  \"startTime\": \"2026-10-11T21:33:04.999Z\",\n                  \"annotations\": [\n                    {\n                      \"type\": \"browser-version\",\n                      \"description\": \"154.0.8037.98\"\n                    },\n                    {\n                      \"type\": \"browser-channel\",\n                      \"description\": \"chrome\"\n                    }\n                  ],\n                  \"attachments\": [\n                    {\n                      \"name\": \"screenshot\",\n                      \"contentType\": \"image/png\",\n                      \"path\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/test-results/e2e/design--STATE-001-connecto-d3a54--reaches-available-services/test-failed-1.png\"\n                    },\n                    {\n                      \"name\": \"error-context\",\n                      \"contentType\": \"text/markdown\",\n                      \"path\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/test-results/e2e/design--STATE-001-connecto-d3a54--reaches-available-services/error-context.md\"\n                    },\n                    {\n                      \"name\": \"trace\",\n                      \"contentType\": \"application/zip\",\n                      \"path\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/test-results/e2e/design--STATE-001-connecto-d3a54--reaches-available-services/trace.zip\"\n                    }\n                  ],\n                  \"errorLocation\": {\n                    \"file\": \"/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e/design.spec.ts\",\n                    \"column\": 26,\n                    \"line\": 47\n                  }\n                }\n              ],\n              \"status\": \"unexpected\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-a71f3ff373cf6d878562\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 43,\n          \"column\": 5\n        },\n        {\n          \"title\": \"[STATE-001] file search no-results action restores actual entries\",\n          \"ok\": true,\n          \"tags\": [],\n          \"tests\": [\n            {\n              \"timeout\": 30000,\n              \"annotations\": [],\n              \"expectedStatus\": \"passed\",\n              \"projectId\": \"\",\n              \"projectName\": \"\",\n              \"results\": [],\n              \"status\": \"skipped\"\n            }\n          ],\n          \"id\": \"a97bb9db443074d9bdd1-638aa58c8468015eff10\",\n          \"file\": \"design.spec.ts\",\n          \"line\": 68,\n          \"column\": 5\n        }\n      ]\n    }\n  ],\n  \"errors\": [\n    {\n      \"message\": \"\\u001b[31mTesting stopped early after 1 maximum allowed failures.\\u001b[39m\"\n    }\n  ],\n  \"stats\": {\n    \"startTime\": \"2026-10-11T21:33:04.638Z\",\n    \"duration\": 17737.517,\n    \"expected\": 0,\n    \"skipped\": 1,\n    \"unexpected\": 1,\n    \"flaky\": 0\n  }\n}\n",
+    "stderr": "",
+    "timedOut": false,
+    "durationMs": 18161,
+    "browserHealth": {
+      "command": [
+        "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+        "-e",
+        "const {chromium}=require('@playwright/test'); (async()=>{const browser=await chromium.launch(process.env.PW_CHANNEL?{channel:process.env.PW_CHANNEL}:{});const results=[];try{for(const route of ['/files','/connectors','/agents','/guidelines']){const page=await browser.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));const response=await page.goto(process.env.BASE_URL+route);await page.waitForLoadState('networkidle');results.push({route,status:response?.status(),pageErrors:errors});await page.close();}console.log(JSON.stringify(results));process.exitCode=results.some(r=>r.status!==200||r.pageErrors.length)?1:0;}finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=2;});"
+      ],
+      "exit": 0,
+      "signal": null,
+      "stdout": "[{\"route\":\"/files\",\"status\":200,\"pageErrors\":[]},{\"route\":\"/connectors\",\"status\":200,\"pageErrors\":[]},{\"route\":\"/agents\",\"status\":200,\"pageErrors\":[]},{\"route\":\"/guidelines\",\"status\":200,\"pageErrors\":[]}]\n",
+      "stderr": "",
+      "timedOut": false,
+      "durationMs": 19542
+    },
+    "serverLog": "▲ Next.js 16.4.0 (webpack)\n- Local:         http://127.0.0.1:58409\n- Network:       http://127.0.0.1:58409\n✓ Ready in 337ms\n✓ Running next.config.ts took 76ms\n\n GET /files 200 in 366ms (next.js: 151ms, application-code: 215ms)\n GET /files 200 in 98ms (next.js: 5ms, application-code: 93ms)\n GET /connectors 200 in 118ms (next.js: 49ms, application-code: 68ms)\n GET /agents 200 in 165ms (next.js: 66ms, application-code: 98ms)\n GET /guidelines 200 in 297ms (next.js: 44ms, application-code: 252ms)\n GET /connectors 200 in 60ms (next.js: 10ms, application-code: 50ms)\n"
+  },
+  "evidence": {
+    "config": {
+      "argv": [
+        "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+        "/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/node_modules/@playwright/test/cli.js",
+        "test",
+        "--grep",
+        "\\[(?:STATE-001)\\]",
+        "--reporter=json",
+        "--workers=1",
+        "--max-failures=1"
+      ],
+      "configFile": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/playwright.config.ts",
+      "rootDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e",
+      "failOnFlakyTests": false,
+      "forbidOnly": false,
+      "fullyParallel": false,
+      "globalSetup": null,
+      "globalTeardown": null,
+      "globalTimeout": 0,
+      "grep": {},
+      "grepInvert": null,
+      "maxFailures": 1,
+      "metadata": {
+        "actualWorkers": 1
+      },
+      "preserveOutput": "always",
+      "projects": [
+        {
+          "outputDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/test-results/e2e",
+          "repeatEach": 1,
+          "retries": 0,
+          "metadata": {
+            "actualWorkers": 1
+          },
+          "id": "",
+          "name": "",
+          "testDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e",
+          "testIgnore": [
+            "**/visual.spec.ts"
+          ],
+          "testMatch": [
+            "**/*.spec.ts"
+          ],
+          "timeout": 30000
+        }
+      ],
+      "filteredProjects": [
+        {
+          "grep": {},
+          "grepInvert": null,
+          "outputDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/test-results/e2e",
+          "repeatEach": 1,
+          "retries": 0,
+          "metadata": {
+            "actualWorkers": 1
+          },
+          "name": "",
+          "testDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e",
+          "snapshotDir": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e",
+          "testIgnore": [
+            "**/visual.spec.ts"
+          ],
+          "testMatch": "**/*.spec.ts",
+          "timeout": 30000,
+          "use": {
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+            "viewport": {
+              "width": 1280,
+              "height": 720
+            },
+            "screen": {
+              "width": 1920,
+              "height": 1080
+            },
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "defaultBrowserType": "chromium",
+            "channel": "chrome",
+            "baseURL": "http://127.0.0.1:58409",
+            "trace": "retain-on-failure",
+            "screenshot": "only-on-failure"
+          },
+          "dependencies": [],
+          "ignoreSnapshots": false,
+          "__projectId": ""
+        }
+      ],
+      "quiet": false,
+      "reporter": [
+        [
+          "json"
+        ]
+      ],
+      "reportSlowTests": {
+        "max": 5,
+        "threshold": 300000
+      },
+      "shard": null,
+      "tags": [],
+      "updateSnapshots": "none",
+      "updateSourceMethod": "patch",
+      "version": "1.64.0",
+      "workers": 1,
+      "webServer": null
+    },
+    "suites": [
+      {
+        "title": "design.spec.ts",
+        "file": "design.spec.ts",
+        "column": 0,
+        "line": 0,
+        "specs": [
+          {
+            "title": "[STATE-001] connector empty state action reaches available services",
+            "ok": false,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [
+                  {
+                    "type": "browser-version",
+                    "description": "154.0.8037.98"
+                  },
+                  {
+                    "type": "browser-channel",
+                    "description": "chrome"
+                  }
+                ],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [
+                  {
+                    "workerIndex": 0,
+                    "parallelIndex": 0,
+                    "status": "failed",
+                    "duration": 6610,
+                    "error": {
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '浏览可连接服务', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: '浏览可连接服务', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '浏览可连接服务', exact: true })\u001b[22m\n",
+                      "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '浏览可连接服务', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: '浏览可连接服务', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '浏览可连接服务', exact: true })\u001b[22m\n\n    at /private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e/design.spec.ts:47:26",
+                      "location": {
+                        "file": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e/design.spec.ts",
+                        "column": 26,
+                        "line": 47
+                      },
+                      "snippet": "  45 |   await page.getByRole('tab', { name: /^已连接(?: \\(\\d+\\))?$/ }).click();\n  46 |   const recovery = page.getByRole('button', { name: '浏览可连接服务', exact: true });\n> 47 |   await expect(recovery).toBeVisible();\n     |                          ^\n  48 |   await recovery.click();\n  49 |   await expect(page.getByRole('tab', { name: '可连接', exact: true })).toHaveAttribute('aria-selected', 'true');\n  50 |   await expect(page.getByRole('button', { name: /连接/ }).first()).toBeVisible();"
+                    },
+                    "errors": [
+                      {
+                        "location": {
+                          "file": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e/design.spec.ts",
+                          "column": 26,
+                          "line": 47
+                        },
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '浏览可连接服务', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: '浏览可连接服务', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '浏览可连接服务', exact: true })\u001b[22m\n\n\n  45 |   await page.getByRole('tab', { name: /^已连接(?: \\(\\d+\\))?$/ }).click();\n  46 |   const recovery = page.getByRole('button', { name: '浏览可连接服务', exact: true });\n> 47 |   await expect(recovery).toBeVisible();\n     |                          ^\n  48 |   await recovery.click();\n  49 |   await expect(page.getByRole('tab', { name: '可连接', exact: true })).toHaveAttribute('aria-selected', 'true');\n  50 |   await expect(page.getByRole('button', { name: /连接/ }).first()).toBeVisible();\n    at /private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e/design.spec.ts:47:26"
+                      }
+                    ],
+                    "stdout": [],
+                    "stderr": [],
+                    "retry": 0,
+                    "startTime": "2026-10-11T21:33:04.999Z",
+                    "annotations": [
+                      {
+                        "type": "browser-version",
+                        "description": "154.0.8037.98"
+                      },
+                      {
+                        "type": "browser-channel",
+                        "description": "chrome"
+                      }
+                    ],
+                    "attachments": [
+                      {
+                        "name": "screenshot",
+                        "contentType": "image/png",
+                        "path": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/test-results/e2e/design--STATE-001-connecto-d3a54--reaches-available-services/test-failed-1.png"
+                      },
+                      {
+                        "name": "error-context",
+                        "contentType": "text/markdown",
+                        "path": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/test-results/e2e/design--STATE-001-connecto-d3a54--reaches-available-services/error-context.md"
+                      },
+                      {
+                        "name": "trace",
+                        "contentType": "application/zip",
+                        "path": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/test-results/e2e/design--STATE-001-connecto-d3a54--reaches-available-services/trace.zip"
+                      }
+                    ],
+                    "errorLocation": {
+                      "file": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-mutation-kDxvcr/creao-design-lab/tests/e2e/design.spec.ts",
+                      "column": 26,
+                      "line": 47
+                    }
+                  }
+                ],
+                "status": "unexpected"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-a71f3ff373cf6d878562",
+            "file": "design.spec.ts",
+            "line": 43,
+            "column": 5
+          },
+          {
+            "title": "[STATE-001] file search no-results action restores actual entries",
+            "ok": true,
+            "tags": [],
+            "tests": [
+              {
+                "timeout": 30000,
+                "annotations": [],
+                "expectedStatus": "passed",
+                "projectId": "",
+                "projectName": "",
+                "results": [],
+                "status": "skipped"
+              }
+            ],
+            "id": "a97bb9db443074d9bdd1-638aa58c8468015eff10",
+            "file": "design.spec.ts",
+            "line": 68,
+            "column": 5
+          }
+        ]
+      }
+    ],
+    "errors": [
+      {
+        "message": "\u001b[31mTesting stopped early after 1 maximum allowed failures.\u001b[39m"
+      }
+    ],
+    "stats": {
+      "startTime": "2026-10-11T21:33:04.638Z",
+      "duration": 17737.517,
+      "expected": 0,
+      "skipped": 1,
+      "unexpected": 1,
+      "flaky": 0
+    }
+  },
+  "classification": "killed",
+  "reason": "Original browser assertion for target rule failed.",
+  "artifacts": [
+    "/Users/yuanlu/code/1011/creao-design-lab/experiments/runs/enhanced-baseline/creao-design-lab/reports/mutations-all-2026-10-11T21-28-22-239Z/negative-empty-recovery/test-results"
+  ],
+  "finishedAt": "2026-10-11T21:33:22.519Z"
+}

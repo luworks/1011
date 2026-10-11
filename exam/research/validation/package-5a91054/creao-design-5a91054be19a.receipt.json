@@ -1,0 +1,17 @@
+{
+  "sourceCommit": "5a91054be19a49ca2815e738e77b647c91b18d3a",
+  "archive": "creao-design-5a91054be19a.zip",
+  "size": 12854425,
+  "sha256": "bfcf8743c758eff835b49e66302b5114078c3c7162579d922b9c36d66c6a562b",
+  "fileCount": 352,
+  "createdAt": "2026-10-11T21:31:09.181225+00:00",
+  "manifestDigests": {
+    "candidate-manifest.json": "5c7630c779ab7981c8963840821c100247731bcbffed24088157be6268742fb1",
+    "evidence-manifest.json": "1681ba63fc64dd2a3a3bbf67079c4d61488acd44e416d303f2d91def733b2070"
+  },
+  "verification": "notRun",
+  "uploaded": false,
+  "workspaceHeadAtPackaging": "5a91054be19a49ca2815e738e77b647c91b18d3a",
+  "uncommittedChangesExcluded": [],
+  "packagerSha256": "694a16170e02fec289ab2b29baf2e13a98b9f565ee1c66c47b9f2426a7a812c8"
+}

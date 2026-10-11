@@ -1,0 +1,107 @@
+{
+  "archive": "/Users/yuanlu/code/1011/exam/delivery/creao-design-5a91054be19a.zip",
+  "archiveSha256": "bfcf8743c758eff835b49e66302b5114078c3c7162579d922b9c36d66c6a562b",
+  "extractedTo": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-delivery-verify-j54dw795",
+  "checks": [
+    {
+      "command": [
+        "npm",
+        "ci"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-10-11T21:31:24.356162+00:00",
+      "log": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-delivery-verify-j54dw795/verification-1.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-10-11T21:31:33.203641+00:00",
+      "log": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-delivery-verify-j54dw795/verification-2.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-10-11T21:31:35.377155+00:00",
+      "log": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-delivery-verify-j54dw795/verification-3.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:design"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-10-11T21:31:38.429383+00:00",
+      "log": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-delivery-verify-j54dw795/verification-4.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "check:design"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-10-11T21:31:40.004316+00:00",
+      "log": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-delivery-verify-j54dw795/verification-5.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-10-11T21:31:40.763210+00:00",
+      "log": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-delivery-verify-j54dw795/verification-6.log"
+    },
+    {
+      "command": [
+        "npx",
+        "playwright",
+        "test",
+        "tests/e2e/design.spec.ts",
+        "tests/e2e/accessibility.spec.ts"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-10-11T21:31:51.415798+00:00",
+      "log": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-delivery-verify-j54dw795/verification-7.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:visual"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-10-11T21:32:43.224118+00:00",
+      "log": "/private/var/folders/zr/hp5t3xpd16b9b_vjf10dd4nm0000gn/T/creao-delivery-verify-j54dw795/verification-8.log"
+    }
+  ],
+  "mutationRerun": false,
+  "environment": {
+    "system": "Darwin",
+    "release": "25.6.0",
+    "machine": "arm64",
+    "node": "v24.21.0",
+    "npm": "11.19.0",
+    "PW_CHANNEL": "chrome",
+    "VISUAL_ENV": "darwin-arm64-25.6.0-chromium-154.0.8037.98"
+  },
+  "visualEnvironment": "Caller must select the documented reviewed environment; no snapshot updates.",
+  "links": {
+    "checked": 238,
+    "broken": []
+  },
+  "status": "passed",
+  "browserChecksRequested": true,
+  "visualChecksRequested": true,
+  "checksRequested": true
+}
