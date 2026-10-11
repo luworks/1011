@@ -94,25 +94,25 @@ def markdown_links(root):
 
 
 def readme(commit):
-    return f"""# CREAO 设计规范：源码与证据交付包
+    return f"""# CREAO Design Guideline: Source and Evidence Package
 
-来源提交：`{commit}`。此包只在本地生成，未上传；不证明远端 CI、部署或每日巡查已启用。
+Source commit: `{commit}`. This package is generated locally and not uploaded; it does not prove that remote CI, deployment, or a daily patrol is enabled.
 
-## 阅读顺序
+## Reading order
 
-1. **正式交付**：[设计规范](exam/design-system-guideline.md)、[合规审计](exam/compliance-audit.md)。
-2. **题面与探索**：[原题](exam/task.md)、[中文题面](exam/task.zh-CN.md)、[研究发现](exam/research-findings.zh-CN.md)。
-3. **实施过程**：[计划](exam/implementation-plan.zh-CN.md)、[验收结果](exam/validation-results.zh-CN.md)、[工程师实验](exam/engineer-experiment-review.zh-CN.md)。
-4. **可运行实现**：[项目 README](creao-design-lab/README.md)、[设计契约](creao-design-lab/design.md)、[Agent 约束](creao-design-lab/AGENTS.md)。
-5. **持续治理**：[巡查职责](exam/agents/design-drift-auditor.md)、[打包边界](exam/delivery-packaging-plan.zh-CN.md)。
+1. **Required deliverables**: [design system guideline](exam/design-system-guideline.md), [compliance audit](exam/compliance-audit.md).
+2. **Brief and exploration**: [original brief](exam/task.md), [research findings](exam/research-findings.md).
+3. **Process and validation**: [implementation plan](exam/process/implementation-plan.md), [validation results](exam/validation/validation-results.md), [engineer experiments](exam/validation/engineer-experiment-review.md).
+4. **Runnable implementation**: [lab README](creao-design-lab/README.md), [design contract](creao-design-lab/design.md), [agent constraints](creao-design-lab/AGENTS.md).
+5. **Ongoing governance**: [drift auditor](exam/agents/design-drift-auditor.md), [packaging boundaries](exam/process/delivery-packaging-plan.md).
 
-`exam/research/` 保留原站研究、首轮失败和漏检、复验与合成原型证据；历史收据中的绝对路径仅作来源说明。原站与合成数据不可混为一谈。原站截图仅保留本地，外发前需审阅。
+`exam/research/` keeps original-site research, first-round failures and misses, re-verification, and synthetic prototype evidence; absolute paths in historical receipts are provenance only. Original-site and synthetic data must not be conflated. Original-site screenshots are for local use and must be reviewed before external sharing.
 
-## 复现
+## Reproduce
 
-使用 Node 24，在 `creao-design-lab/` 执行 `npm ci`、`npm run typecheck`、`npm run lint`、`npm run test:design`、`npm run check:design`、`npm run build`。浏览器安装、环境选择和视觉基线要求见项目 README；不同平台的截图不可替代已审阅基线。
+With Node 24, run `npm ci`, `npm run typecheck`, `npm run lint`, `npm run test:design`, `npm run check:design`, `npm run build` in `creao-design-lab/`. Browser installation, environment selection, and visual baseline requirements are in the lab README; screenshots from a different platform cannot replace a reviewed baseline.
 
-`candidate-manifest.json` 标识本次源码和文档；`evidence-manifest.json` 标识历史及最终运行证据。历史 mutation 不在打包时重复运行，也不能自动视为覆盖最终源码；须核对其源码摘要及验证文档。包级摘要与独立解压验收结果在压缩包外的收据中，避免递归哈希。
+`candidate-manifest.json` identifies this source and documentation; `evidence-manifest.json` identifies historical and final run evidence. Historical mutation runs are not re-run at packaging time and do not automatically cover the final source; check their source digests and the validation document. The package-level digest and independent unzip verification live in a receipt outside the archive to avoid recursive hashing.
 """
 
 

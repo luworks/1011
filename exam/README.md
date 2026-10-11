@@ -1,15 +1,29 @@
 # CREAO Design Submission: Reviewer Entry Point
 
-This package delivers two required English documents: a product-layer [design-system-guideline.md](design-system-guideline.md) and a [compliance-audit.md](compliance-audit.md) of real CREAO pages. It also includes a local Next.js enforcement lab ([creao-design-lab](../creao-design-lab/README.md)) that turns the guideline into executable gates (static design checks, Playwright behavior/layout, axe, visual comparison, mutation testing), a [CI workflow](../.github/workflows/creao-design.yml), and the research and validation evidence behind every claim. Required deliverables are in English; process and evidence docs are in Chinese (`*.md`).
+The submission has three parts: (1) two required documents, (2) the enforcement implementation that turns the guideline into executable gates, and (3) the evidence behind every claim.
 
-> 中文说明：正式交付两份为英文；过程、研究与证据文档为中文 `*.md`，原题见 [task.md](task.md) / [中文翻译](task.md)。
+## 1. Required documents
 
-## 5-minute path
+- [design-system-guideline.md](design-system-guideline.md): product-layer layout patterns, component/style constraints, and how each rule is enforced.
+- [compliance-audit.md](compliance-audit.md): audit of real CREAO pages with findings, mapped rules, pre-release checks, and verification evidence.
 
-1. [design-system-guideline.md](design-system-guideline.md): layout patterns, component/style constraints, and how each rule is enforced.
-2. [compliance-audit.md](compliance-audit.md): observed page findings, mapped rules, pre-release checks, and local verification evidence.
+The original brief is [task.md](task.md).
 
-## 15-minute path: watch a rule block a violation
+## 2. Enforcement implementation
+
+| Entry point | Purpose |
+| --- | --- |
+| [creao-design-lab/scripts/check-design.mjs](../creao-design-lab/scripts/check-design.mjs) | Static design checker for governed CSS, JSX, and governance files |
+| [creao-design-lab/scripts/mutation-runner.mjs](../creao-design-lab/scripts/mutation-runner.mjs) | Injects deliberate violations into an isolated copy and re-runs the same checkers |
+| [creao-design-lab/tests/e2e/](../creao-design-lab/tests/e2e/) | Playwright behavior/layout, axe accessibility, and visual regression gates |
+| [creao-design-lab/governance/rules.json](../creao-design-lab/governance/rules.json) | Machine-readable rule registry that links rule IDs to their checks |
+| [creao-design-lab/AGENTS.md](../creao-design-lab/AGENTS.md) | Constraints coding agents must follow when changing the UI |
+| [creao-design-lab/design.md](../creao-design-lab/design.md) | Design contract of the lab, derived from the guideline |
+| [.github/workflows/creao-design.yml](../.github/workflows/creao-design.yml) | Proposed CI gate: baseline checks, then mutations, then candidate |
+| [agents/design-drift-auditor.md](agents/design-drift-auditor.md) | Responsibility spec for a design-drift patrol agent (no schedule enabled) |
+| [tools/package-delivery.py](tools/package-delivery.py) | Builds and verifies the delivery ZIP from an explicit commit |
+
+### Watch a rule block a violation (about 15 minutes)
 
 From `../creao-design-lab` (Node.js 24, npm; scripts as declared in `package.json`):
 
@@ -22,19 +36,30 @@ PW_SERVER_COMMAND="npm run start -- --hostname 127.0.0.1 --port 3100" npm run te
 npm run test:mutations    # optional: mutates an isolated copy, re-runs the same checkers
 ```
 
-Negative example (see [validation-results.md](validation/validation-results.md)): changing a real button's `aria-pressed` to the invalid value `sometimes` typechecks and builds, but the e2e axe gate fails on `aria-valid-attr-value` (1/1 killed). The first static mutation round also kept an honest survivor (5 killed, 1 survived), and the second round killed 6/6 with both positive controls passing.
+Negative example (see [validation results](validation/validation-results.md)): changing a real button's `aria-pressed` to the invalid value `sometimes` typechecks and builds, but the e2e axe gate fails on `aria-valid-attr-value` (1/1 killed). The first static mutation round kept an honest survivor (5 killed, 1 survived); the second round killed 6/6 with both positive controls passing.
 
-Lab contracts: [design.md](../creao-design-lab/design.md), [AGENTS.md](../creao-design-lab/AGENTS.md).
+## 3. Evidence
 
-## Deep dive
+- [validation/validation-results.md](validation/validation-results.md): receipts, first failures, invalid runs, and denominators.
+- [validation/engineer-experiment-review.md](validation/engineer-experiment-review.md): independent engineer experiments.
+- [research-findings.md](research-findings.md): product exploration and source boundaries; raw screenshots, DOM, public sources, and run receipts live in [research/](research/) (site evidence is for local research only).
+- Process history in [process/](process/): [implementation plan](process/implementation-plan.md), [early approach](process/approach.md) (superseded by the plan), [handoff](process/handoff.md), [packaging plan](process/delivery-packaging-plan.md), and [staging notes](process/staging-notes/).
 
-- Research: [research-findings.md](research-findings.md); raw public sources, site screenshots/DOM, and experiment receipts live in `research/` (site evidence is for local research only, not published).
-- Plan and experiments: [implementation-plan.md](process/implementation-plan.md); [approach.md](process/approach.md) is early exploration, superseded by the plan and actual results.
-- Validation history (first failures, invalid runs, denominators): [validation-results.md](validation/validation-results.md).
-- Independent engineer experiments: [engineer-experiment-review.md](validation/engineer-experiment-review.md).
-- Design-drift agent: [agents/design-drift-auditor.md](agents/design-drift-auditor.md) (responsibility doc only; no schedule enabled).
-- CI: [../.github/workflows/creao-design.yml](../.github/workflows/creao-design.yml) (baseline gates, then mutations, then candidate).
-- Handoff and packaging: [CLAUDE-HANDOFF.md](process/handoff.md), [delivery-packaging-plan.md](process/delivery-packaging-plan.md).
+## Layout
+
+```text
+exam/
+  README.md                    # this entry point
+  task.md                      # original brief
+  design-system-guideline.md   # required document
+  compliance-audit.md          # required document
+  research-findings.md         # research synthesis
+  agents/                      # design-drift auditor spec
+  process/                     # plan, approach, handoff, packaging plan, staging notes, path map
+  validation/                  # validation results, engineer experiment review
+  research/                    # raw evidence (screenshots, DOM, receipts)
+  tools/                       # package-delivery.py
+```
 
 ## Scope boundaries
 

@@ -26,8 +26,8 @@ Paths are relative to the repository root; npm commands run with `creao-design-l
 | `creao-design-lab/tests/e2e/design.spec.ts` | Page identity, accessible names, interaction, and geometry checks |
 | `creao-design-lab/tests/mutations/` | Deliberate violations and legitimate control cases |
 | `.github/workflows/creao-design.yml` | Proposed CI gate; does not prove it is enabled remotely |
-| `exam/staging/page-states.json` | Current draft state inventory; not an approved production inventory |
-| `exam/staging/accessibility.spec.ts`, `exam/staging/visual.spec.ts` | Enhanced check drafts; must not be recorded as effective merely because they exist |
+| `creao-design-lab/governance/page-states.json` | State inventory (coverage plan); entries marked not implemented are gaps, not passes |
+| `creao-design-lab/tests/e2e/accessibility.spec.ts`, `creao-design-lab/tests/e2e/visual.spec.ts` | Enhanced axe and visual checks; must not be recorded as effective merely because they exist (verify run receipts) |
 
 The initial deployment must bind the above references to a fixed commit or approved content digest. Files will keep evolving; rediscover actual entry points from that version's `package.json`, rule registry, and config; do not treat future paths listed here as already implemented.
 

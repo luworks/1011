@@ -36,10 +36,10 @@ creao-design-submission/
   exam/
     design-system-guideline.md       # Required document
     compliance-audit.md              # Required document
-    implementation-plan.md
-    delivery-packaging-plan.md
-    validation-results.md
-    engineer-experiment-review.md
+    process/implementation-plan.md
+    process/delivery-packaging-plan.md
+    validation/validation-results.md
+    validation/engineer-experiment-review.md
     agents/design-drift-auditor.md
     research/                       # Evidence cited by the documents plus necessary context
   creao-design-lab/
