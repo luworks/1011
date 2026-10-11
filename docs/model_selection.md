@@ -1,6 +1,6 @@
 # Model selection record
 
-**Decision:** Claude Haiku 5.5 (`claude-haiku-5-5`), adaptive thinking, medium effort — config ID `anthropic/claude-haiku-5-5/adaptive/medium` — is the default model for this prototype.
+**Gate status:** no configuration met the zero-critical / full-escalation gate. **Best observed (updated after Stage 5):** Claude Sonnet 5.5 (`claude-sonnet-5-5`), adaptive thinking, medium effort — config ID `anthropic/claude-sonnet-5-5/adaptive/medium`. Haiku 5.5 adaptive/medium (the earlier development default) remains the low-cost fallback. Stages 1–4 below record the original Haiku decision; Stage 5 supersedes it.
 
 This is a decision for this prototype on the evidence below, not a claim of population-level superiority. Screening many configurations and promoting stage winners introduces selection optimism.
 
@@ -70,7 +70,28 @@ Failure analysis for Haiku:
 - **All 6 critical failures are technical failures.** The understanding-stage output failed the workflow's own contract checks, so no decision was produced. The customer received the fixed safe reply (“No credit has been issued. Please retry or request human assistance.”). The scorer counts this as a missed mandatory escalation because no structured decision exists; every missed escalation above comes from these runs. No wrong amount, wrong governing policy or unsupported tax claim was emitted.
 - The 7 non-technical failures are all non-critical and conservative: an amount withheld as `pending_verification` where the oracle expected a calculable, eligible credit (4: cases 01 and 15), and an extra `unknown` intent (3: case 08).
 
-## Decision rationale
+## Stage 5 — Sonnet and Opus on the same held-out cohort
+
+Requested because Sonnet/Opus had higher raw accuracy in development. Same pinned v8 snapshot (code SHA256 `4862475…`, verified), same corrected fixture (`6fd85011…`), 3 repeats. Runs: `runs/v8-acceptance-sonnet-opus-sharded/` (each configuration split into 4 case shards and run concurrently, 16 processes). The concurrency caused API connection errors, which are infrastructure failures rather than model failures. They are reported separately and excluded below. Sonnet medium's 8 affected conversations were rerun at 2-way concurrency (`rerun-*` directories), so its 48/48 is complete. An earlier unsharded attempt (`runs/v8-acceptance-sonnet-opus/`, 5 conversations) was stopped for speed and is not scored.
+
+| Configuration | Scored executions | Final success | Contract fail-closed | Critical | Escalation recall | Amount accuracy | Unsupported tax claims |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| **Sonnet 5.5 adaptive/medium** | 48 | **44/48 (92%)** | 4 | **1** | **23/24** | 50/54 | 0 |
+| Sonnet 5.5 adaptive/high | 37 (11 infra) | 29/37 (78%); 29/48 full | 8 | 6 | 13/19 | 32/40 | 0 |
+| Haiku 5.5 adaptive/medium | 48 | 34/48 (71%) | 7 | 6 | 18/24 | 43/54 | 0 |
+| Opus 5.5 adaptive/high | 44 (4 infra) | 25/44 (57%); 25/48 full | 19 | 12 | 11/23 | 31/50 | 0 |
+| Opus 5.5 adaptive/medium | 35 (13 infra) | 19/35 (54%); 19/48 full | 16 | 11 | 6/17 | 22/38 | 0 |
+| GPT-6.1 Sol low | 48 | 24/48 (50%) | 21 | 12 | 12/24 | 30/54 | 0 |
+
+- Every critical failure in every configuration was an understanding-contract rejection that failed closed. The customer got the safe “no credit issued, request human assistance” reply, never a wrong amount or policy.
+- Sonnet medium: 0/51 over-refusals. Its four failures were all fail-closed (cases 05, 08, 12×2).
+- Higher effort did not help: Sonnet high and both Opus settings failed the understanding contract more often.
+- Cost: usage-priced ≈ $0.030 per conversation in the sharded run, $0.045 in the low-concurrency rerun, roughly 15× Haiku. The ledger rose to ≈ US$63 mainly because reservations for failed connection attempts are conservatively retained as unknown charges.
+- Latency: concurrent-run latencies are not comparable. At 2-way concurrency Sonnet medium turn P50 was 10.8 s (max 14.0 s, n=11), comparable to Haiku's 11.2 s. In the uncontended stage-1 screen, Sonnet adaptive/medium P50/P95 was 3.7/7.1 s vs Haiku 8.7/9.5 s.
+
+**Updated decision:** Sonnet medium has one critical failure and 23/24 escalation recall, so it does not pass the gate; it is the best observed configuration, pending fresh V3. It ranks first under the accuracy-first rule, with the fewest critical failures and the best escalation recall. Its speed is comparable or better, and its cost is higher but small in absolute terms.
+
+## Original Haiku decision rationale (Stages 1–4)
 
 - **Accuracy:** Haiku adaptive/medium tied the best final accuracy in development (via adaptive/high) and on the v8 regression, with zero critical failures and 9/9 escalation recall there. On the fresh held-out cohort it reached 34/48 versus 24/48 for Sol low and failed closed far less often (15% vs 44% of executions).
 - **Speed:** Haiku is slower than Sol low (about +1.5 s P50, +3 s P95). Under the rule, speed only ranks configurations within the same accuracy tier, so this trade-off is accepted.
