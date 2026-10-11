@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-10-11T19:44:38.211243+00:00",
+  "captured_at": "2026-10-11T19:56:48.107602+00:00",
   "sources": [
     {
       "file": "docs/coordination_plan.md",
@@ -7,75 +7,81 @@
     },
     {
       "file": "docs/mvp_fix_status.md",
-      "sha256": "4e259cbda2a5e1c057ee46e7cf26a3f8352e847cf10595b8e6e85c238b46ad50"
+      "sha256": "4cb6161126ea6b861eac6cae32fd939e3aa499722ca20bb5ffe1d64520d02433"
     },
     {
       "file": "docs/eval_handoff_status.md",
-      "sha256": "5c35d2c9c5ae48188a49fdaf549d8fa197632eb6b03064ac224f16f55ae4be25"
+      "sha256": "964be2c78732f52a578909b3c89f701ef4204205d1ec1bb1c7e22a264bd4261d"
     },
     {
       "file": "docs/policy_eval_handoff.md",
-      "sha256": "8e2766f14f108813cbacfd28f336a208067ed434fab3215e431ee11c33b56c83"
+      "sha256": "3652e2c05ccfdfd39e60185319f7254744b0d2b74811e99d0bcd9cb87edf86ae"
     },
     {
       "file": "docs/service_charter_handoff.md",
-      "sha256": "1a848886c473e1d42302b2e2a308f904a289c86ee7b5d2c8a231d6bde10f20e4"
-    },
-    {
-      "file": "runs/mvp-live-demo-haiku-medium-v6/repair_acceptance.json",
-      "sha256": "35768f5485064d56c2ce8e9fc2a107601a29150a774781e53815ce520382b3b7"
-    },
-    {
-      "file": "runs/mvp-live-demo-haiku-medium-v6/walkthrough.md",
-      "sha256": "c342f7a0280e2938b32b05040c2918ed395c1e5a1fc58c88f1b4f04bf68cc5c5"
+      "sha256": "19247eb9be3338c9dce26d6b3ffe8c51fdfcf34cd682c81e228bfb95387662d3"
     },
     {
       "file": "docs/coordination_progress.md",
-      "sha256": "30e0719c28d6e9551fa556b32e9e6d15408bca54328975e6aa17acf9f9b0bf40"
+      "sha256": "b3bc0af3ee676c792a19c7044253f23cce3b773545f182de6cbfd7bcdcb06b0d"
+    },
+    {
+      "file": "runs/mvp-live-demo-haiku-medium-v8/repair_acceptance.json",
+      "sha256": "7218fc275b574fe7974bfba488ec2d947ca7f8ca43b6dd7ddef13c3dffaf4b76"
+    },
+    {
+      "file": "docs/remaining_semantic_limits.md",
+      "sha256": "06ead5841b06b1c3ccba6bfc31dad1590b257ff69a942888e5fcd9a8b2455857"
+    },
+    {
+      "file": "runs/oracle-metadata-correction-v1/checkpoint_compact_1255.json",
+      "sha256": "efaa00f4367cc533e86633b47763ae829cc73e7a48ad8a4ce53a80b1e306a5fc"
+    },
+    {
+      "file": "docs/policy_comparison/20261011-full-v5-audited/summary.json",
+      "sha256": "7b63bc3ec43ec854ff16db7b772bab99fb21b64627a44de9898fd870607a4c75"
     }
   ],
   "rows": [
     {
       "owner": "MVP",
-      "status": "READY / 单次真实回放",
+      "status": "READY-v8 / 单次真实回放",
       "checks_passed": 7,
       "checks_total": 7,
       "calls": 13,
-      "cost_usd": 0.0118601,
-      "total_turn_seconds": 65.08419175015297,
-      "workflow": "workflow-v6",
-      "config_id": "anthropic/claude-haiku-5-5/adaptive/medium"
+      "cost_usd": 0.011434,
+      "total_turn_seconds": 63.154353500227444,
+      "workflow": "workflow-v8",
+      "config_id": "anthropic/claude-haiku-5-5/adaptive/medium",
+      "commit": "40abfd86ead9717e3a4e8dc0cbf505bdf676b46d"
+    },
+    {
+      "owner": "Authority audit",
+      "status": "null / blank 已修复；独立测试通过",
+      "passed": 12,
+      "planned": 12
     },
     {
       "owner": "模型评测",
-      "status": "v6 独立回归 running；最终模型推荐 pending",
-      "screen_configs": 22,
-      "screen_scenarios": 3,
-      "thinking_ceiling": "high"
+      "status": "固定部分检查点；无final winner",
+      "observed_at": "2026-10-11T19:54:59.345747+00:00",
+      "completed": 62,
+      "planned": 84
     },
     {
       "owner": "Policy A/B",
-      "status": "workflow-v5 冻结批次 active；不用于晋升 v6",
-      "sol_pairs_completed": 24,
-      "sol_pairs_planned": 120,
-      "luna_pairs_completed": 24,
-      "luna_pairs_planned": 120,
-      "source_as_of": "2026-10-11T19:42:34.727980+00:00"
-    },
-    {
-      "owner": "Service Charter",
-      "status": "账单日期文案缺口已修复；独立权限风险待处理",
-      "passed": 35,
-      "xfailed": 0,
-      "source_as_of": "Latest applied-patch independent readback"
+      "status": "正式完成；不推荐整体晋升",
+      "completed_pairs": 240,
+      "planned_pairs": 240,
+      "completed_runs": 480,
+      "planned_runs": 480,
+      "cost_usd": 5.23917547
     },
     {
       "owner": "Integration",
-      "status": "当前测试通过，不替代模型/权限风险验收",
-      "passed": 251,
-      "xfailed": 0,
-      "source_as_of": "2026-10-11 12:44 PDT"
+      "status": "当前本地测试通过；独立模型结论pending",
+      "passed": 316
     }
   ],
-  "narrative": "## 四个工作流的协同进度\n\n**MVP 已完成 workflow-v6 的单次真实回放；模型最终选型与政策晋升仍待独立验证。** 本窗口统筹主流程、模型评测、Policy A/B 与 Service Charter，状态依据各负责人交接记录，不能把不同版本的成绩合并。\n\n- **主流程：READY。** Haiku 5.5 adaptive / medium 的原始会话回放完成六轮，七项验收检查全部通过；13 次 API 调用，估算费用 US$0.0118601，整段逐轮耗时合计 65.08 秒。它验证了本次修复路径，不是跨场景准确率证明。\n- **模型评测：v6 独立回归正在运行，最终推荐 pending。** 正式初筛已完成 22 个 thinking ≤ high 配置 × 同样 3 个开发场景；下表只显示这批初筛。旧 32 配置实验已中断，不进入本报告。模型负责人已确认不可变快照 runs/snapshots/workflow-v6-high-regression，运行目录为 runs/v6-understanding-regression。旧工作流的开发成绩不能代表 v6 验收；尚无最终推荐。\n- **Policy A/B：旧 v5 冻结批次继续隔离。** 交接快照（19:42:34 UTC）中，Sol 和 Luna 各完成 24/120 个质量配对；两模型共计划 240 pairs / 480 scenario runs。已落盘场景分别为 62/240、50/240，不能代替完整配对分母。该交接记录的已报告费用分别为 US$1.473519、US$0.073431，均为部分费用且不含活动预留。没有自动切换默认政策，也没有 v6 policy promotion。\n- **Service Charter：账单日期文案缺口已关闭。** 不可变评测快照确认后，主流程应用独立展示补丁。负责人已回读验证：35 passed / 0 xfailed；缺少或尚未核验的账单日期均有明确下一步，决策、金额、权限与证据保持不变。\n- **当前整合检查：251 passed，无预期失败。** 这是 12:44 PDT 交接记录中的完整测试结果，不能替代独立真实模型验收。此前的 32 passed / 1 xfailed、报告措辞断言失败已保留为历史快照，均不再列作当前阻塞。\n\n**另一个权限缺口仍待处理：** Service Charter 负责人发现初始 context 中显式 null 字段仍可能被加入 verified_fields；之后客户补填日期可能被当作已核验数据。该问题与已修复的文案缺口不同，35 项服务测试及 251 项整合测试不能证明它已关闭。\n\n**仍需保留的限制：** v6 税费 unknown 由已审核覆盖范围的 schema 约束，并非无约束模型自主推理得分；日期摘录校验及候选 policy/status 不一致仍可见。独立新验收集不进入报告导入器，也未读取其 expected 答案。\n\n本报告没有将重试、活动预留或其他实验费用归并成新的总账数值。全部付费工作使用同一账本；交接文档记载总累计授权 US$70，而模型选型仍保守使用 US$25 累计上限，未经协调分配不追加预算。\n"
+  "narrative": "## 已完成修复；模型最终推荐仍待验收\n\n**MVP 主流程、政策对照实验与阶段报告已经交付；模型选型仍没有最终 winner。** 原始 v8 真实回放和独立模型回归使用固定快照，不与后续诊断补丁源码混称同一版本。\n\n- **v8 原始会话：7/7 scoped checks 通过。** Haiku 5.5 adaptive / medium 完成六轮，13 次 API 调用，估算 US$0.011434，整段逐轮耗时合计 63.15 秒；金额 $82.50、税费知识缺口与 30 天窗口正确，没有实际批准或发放。单次回放不证明一般准确率或速度优势。\n- **独立 v8 回归检查点：62/84 计划会话已评分。** 2026-10-11 19:54:59 UTC（12:54:59 PDT）的固定快照中，Sol-low 27/28、Sol-high 10/28、Haiku-medium 25/28。采用修正的 oracle metadata 对已保存 trace 离线重评分，没有重跑模型；原始分数保留。各模型窗口不同，不能用部分成绩横向宣布胜者；未完成分母不消失。该检查点没有完整逐配置 token、费用与延迟遥测，因此表中保留 —，不掺入晚到数据。Fresh acceptance 仍 pending。\n- **政策版本对照：240/240 pairs、480/480 scenario runs 完成。** 两模型在旧 workflow-v5 内分别完成 120/120 配对，统一 v2 离线审计。正式批次估算 US$5.23917547，未知预留为 0；结论是不将整份优化文档提升为默认政策。raw 有改善，固定关口后的最终结果没有改善，详见后表。\n- **当前代码验证：316 项本地测试通过。** 独立 authority audit 12/12、null/blank 权限修复与 Charter 账单日期下一步均已完成。新增 27 项脚本化对抗检查与内容无关的协议拒绝诊断；诊断保留固定错误码、枚举、布尔值和有效来源索引，不记录被拒绝的自由文本，不改变提示词或决策，也不回填历史丢失的内容。\n\n**仍未关闭的语义局限：** 引文片段出现在原文，不代表它表达了当前客户请求；税费提问引用背景 credit 时，模型仍可能额外重开补偿计算。可信账单条目与客户简称也可能形成保守冲突：当前没有可信 item ID 或权威别名表，不能靠子串或模型判断授予权限。这些是保留在成绩中的效用缺陷，不能伪装为已修复，也不等于已观察到不安全的实际发放。\n\n**版本边界：** 原始 v8 workflow 哈希为 2a561f1aa2bcc42d5ef245c473983417dcd90472d53304601f6da9d2ec30b753；后续 diagnostic-only 源码哈希为 8ce60a12d3200fc73116d205d5489df6b020c3e58e8424b73c9e5e175e8de88f。早期真实回放与固定回归不认证后一个哈希。税费 unknown 是 schema 覆盖约束，不是无约束推理能力得分。\n\n所有付费工作使用同一账本，累计授权上限 US$70；这里不混合不同快照与活动预留生成账单总额。旧 v6/v7 失败保留为历史，已修复的权限问题不列作当前阻塞。\n"
 }

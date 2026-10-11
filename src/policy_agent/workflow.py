@@ -15,6 +15,7 @@ from .schema import AccountContext, QuestionDecision
 from .policy import evaluate
 from .corpus import Corpus
 from .service import charter_metadata, compose_reply
+from .diagnostics import UnderstandingContractError, UnderstandingDiagnostic, contract_diagnostic
 
 INTENTS = Literal['outage_credit', 'general_credit', 'taxes', 'outage_deadline', 'dispute_deadline', 'bill_explanation', 'unknown']
 PROMPT_VERSION = 'workflow-v8'
@@ -58,15 +59,15 @@ class LiveUnderstanding(Understanding):
 def validate_understanding(value: LiveUnderstanding, message: str) -> None:
     reviews = {r.field: r.presence for r in value.field_review}
     if len(value.field_review) != len(FACT_FIELDS) or set(reviews) != set(FACT_FIELDS):
-        raise ValueError('Incomplete field review')
+        raise UnderstandingContractError('incomplete_field_review')
     for field in FACT_FIELDS:
         if (reviews[field] == 'stated') != any(f.field == field for f in value.facts):
-            raise ValueError('Field review and extracted facts disagree')
+            raise UnderstandingContractError('field_fact_mismatch')
     requests = value.requested_answers
     if len(requests) != len(value.intents) or sorted(r.intent for r in requests) != sorted(value.intents):
-        raise ValueError('Requested answers and intents disagree')
+        raise UnderstandingContractError('request_intent_mismatch')
     if any(not r.quote.strip() or r.quote not in message or not r.requested_outcome.strip() for r in requests):
-        raise ValueError('Requested answer lacks current-message support')
+        raise UnderstandingContractError('request_source_support_missing')
 
 
 class Citation(StrictModel):
@@ -106,6 +107,7 @@ class TurnResult(BaseModel):
     reply: str
     service_charter: dict
     understanding: dict | None = None
+    understanding_diagnostic: UnderstandingDiagnostic | None = None
     context: dict
     source_messages: list[dict]
     latency_seconds: float
@@ -128,7 +130,8 @@ Use source_id exactly as supplied (do not prepend document names or put KB IDs i
 
 def redact(text: str) -> str:
     text = re.sub(r'NMB-\d+', '[ACCOUNT]', text)
-    text = re.sub(r'(?i)((?:card (?:ending|on file)|last 4 digits)[^\n\d]{0,25})\d{4}', r'\1[REDACTED]', text)
+    # Any card/last-four phrasing; '$' excluded from the gap so amounts are untouched.
+    text = re.sub(r'(?i)((?:\bcard\b|\bending(?: in)?\b|last (?:4|four)(?: digits)?)[^\n\d$]{0,25})\d{4}(?!\d)', r'\1[REDACTED]', text)
     return text
 
 
@@ -234,7 +237,13 @@ class Workflow:
             else:
                 raise ValueError('Offline mode requires an explicit recorded fixture')
             if self.provider:
-                validate_understanding(understanding, self.messages[-1]['content'])
+                try:
+                    validate_understanding(understanding, self.messages[-1]['content'])
+                except UnderstandingContractError as exc:
+                    result['understanding_diagnostic'] = contract_diagnostic(
+                        understanding, self.messages[-1]['content'], len(self.messages)-1,
+                        FACT_FIELDS, exc.code)
+                    raise
             result['understanding'] = understanding.model_dump()
             proposals = list(understanding.facts)
             # A missing required slot gets one narrowly scoped independent check.
@@ -314,7 +323,7 @@ class Workflow:
             result['reply'] = compose_reply(result['decisions'])
         except Exception as exc:
             # Never persist exception messages from SDKs: they can echo requests or credentials.
-            result['error'] = type(exc).__name__
+            result['error'] = 'ValueError' if isinstance(exc, UnderstandingContractError) else type(exc).__name__
             result['decisions'] = []
             result['reply'] = 'I could not complete the evidence check due to a technical issue. No credit has been issued. Please retry or request human assistance.'
         result['facts'] = list(self.facts)

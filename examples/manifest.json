@@ -37,7 +37,13 @@
     "offline-summary.json": "b7b9fd2f918340bb405901000caaf6f14f09f5bec49c17dd6fadf4cd9fe5b897",
     "historical-baseline-manifest.json": "d1d3d97d6b2720d028d4c8a64a388c2b12d90fafc519fa5a02c8bf8b3fded4d1",
     "frozen_baseline.zip": "91299da10d760dab710da5567427d6dd473109dd14b0201ed76b962cab153c43",
-    "README.md": "9a8aab37729cc48dfcec96551bad7842bd1ab670dc5f833cd88d01f94cb70bf1"
+    "README.md": "d2644f340fd5e4859e37ec53d2391585bfee66c45c50f13be75c61990ebcca56",
+    "workflow-v8/summary.json": "235faeaee361a5f640f3602dedf44101cd093a998ad64b80fd0b434ceeb96015",
+    "workflow-v8/turns.jsonl": "55a9fb543b5cb20313867194f34521ba71a4f347f992849c3153725f0ceeef11",
+    "workflow-v8/export_provenance.json": "613bbcc14721ef24acc428db07f4270c6bd842490f7c7ebaaa3e16d6dd270665",
+    "workflow-v8/repair_acceptance.json": "7218fc275b574fe7974bfba488ec2d947ca7f8ca43b6dd7ddef13c3dffaf4b76",
+    "workflow-v8/manifest.json": "215c0b83731c71b233ab53798fb8ce9d51724757511f74eeccf7bec2965ec0a8",
+    "workflow-v8/walkthrough.md": "435256f54d30b3a1cee25b61b123062c6118bab84eb0f28bae62a894b260b370"
   },
   "status": "mvp_examples_only_final_model_selection_pending",
   "selection_eligible": false,
@@ -59,5 +65,13 @@
     "manifest": "historical-baseline-manifest.json",
     "archive": "frozen_baseline.zip",
     "selection_eligible": false
+  },
+  "current_live_repair": {
+    "directory": "workflow-v8",
+    "source": "runs/mvp-live-demo-haiku-medium-v8",
+    "workflow_sha256": "2a561f1aa2bcc42d5ef245c473983417dcd90472d53304601f6da9d2ec30b753",
+    "scope": "Single real API v8 replay, seven scoped acceptance checks; not comparative model acceptance or unconstrained reasoning proof.",
+    "selection_eligible": false,
+    "post_freeze_note": "Later diagnostics changed workspace workflow to 8ce60a12d3200fc73116d205d5489df6b020c3e58e8424b73c9e5e175e8de88f; preserved live replay validates only its 2a561f1 snapshot."
   }
 }

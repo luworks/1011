@@ -36,3 +36,11 @@ No API calls were made for these checks. Default `doctor` still sees the legacy 
 README now selects `config/eval-models-high.json` and distinguishes the shared US$70 cumulative ceiling from the model-selection branch's conservative US$25 cumulative cap. Prior costs and reservations remain on one shared ledger.
 
 Final report refresh, v7 live acceptance, and the final ZIP rebuild remain separate coordinator steps. Rebuilding after this checkpoint changes the archive hash. This document is created after the tested archive and should be included on the next rebuild; its recorded hash intentionally identifies the previous tested snapshot rather than attempting a self-referential archive hash.
+
+## Final stage-delivery freeze
+
+The report owner and coordinator froze and browser-checked HTML SHA256 `abfc9b99cc0214b56c9fc8f929e673183eb1bee2fb87ec2e503b3779cd32a908`. This is the immutable 2026-10-11 12:54:59 PDT report checkpoint, with 62/84 screening runs complete. Fresh/high model acceptance remains pending; no final winner or completed all-model acceptance is claimed.
+
+Workspace final suite: **316 passed**. Current workspace workflow hash remains `8ce60a12d3200fc73116d205d5489df6b020c3e58e8424b73c9e5e175e8de88f`; the real v8 replay continues to identify the earlier `2a561f1aa2bcc42d5ef245c473983417dcd90472d53304601f6da9d2ec30b753` frozen source. The stage package includes post-freeze diagnostics without relabeling that historical live run as validation of the new hash.
+
+A final clean-package check follows this documentation freeze: locked installation, full tests, credential-free doctor, six-turn offline replay, required nested archive layout, and byte-identical HTML. Its exact outer ZIP hash is reported in the release handoff rather than embedded in this file (which would make the archive hash self-referential). Earlier hashes above identify earlier checkpoints only.

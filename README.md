@@ -1,14 +1,5 @@
 # Policy-Grounded Agent Prototype
 
-Policy-pair snapshots and matched version experiments are documented in
-[docs/policy_versions/README.md](docs/policy_versions/README.md). Use
-`--policy-version` for an explicit snapshot or `compare-policies` for an exact
-model/configuration comparison. Versioned evaluation excludes reviewed open
-business decisions from unique-answer scoring and separately checks evidence
-boundaries. The latest user authorization raises the **same cumulative ledger
-cap to US$70** for these experiments; pass `--max-cost-usd 70` explicitly.
-This is the overall shared ceiling, not a per-task allowance. The model-selection branch retains a conservative US$25 cumulative cap until the coordinator allocates further capacity. All owners use the same absolute `runs/budget.json` ledger and include prior spend/reservations.
-
 A runnable CLI for Nimbus Wireless billing questions. It separates language-model understanding from a reviewed, deterministic policy decision gate. It exposes the retrieved source text, governing policies, candidate decisions, final decisions, and missing verification for each customer turn.
 
 ## Quick start
@@ -30,11 +21,11 @@ For real model calls, create a local `.env` using `.env.example`, set `OPENAI_AP
 ./run.sh doctor --matrix config/eval-models-high.json --check-api --provider openai --model gpt-6.1-sol
 ./run.sh replay --matrix config/eval-models-high.json --provider openai --model gpt-6.1-sol
 ./run.sh chat --matrix config/eval-models-high.json --provider openai --model gpt-6.1-sol
-./run.sh evaluate --matrix config/eval-models-high.json --suite dev --max-cost-usd 25
+./run.sh evaluate --matrix config/eval-models-high.json --suite dev --max-cost-usd 40
 ./run.sh report --run-dir runs/REPLACE_WITH_RUN_DIRECTORY
 ```
 
-The candidate families are **GPT 6.1 Sol** (`gpt-6.1-sol`), **GPT 6 Luna** (`gpt-6-luna`), **Claude Opus 5.5** (`claude-opus-5-5`), **Claude Sonnet 5.5** (`claude-sonnet-5-5`), and **Claude Haiku 5.5** (`claude-haiku-5-5`). Each supported model plus thinking/reasoning setting is a separate configuration with its own `config_id`; the same model at different thinking levels must not be merged into one score. Anthropic candidates use `--provider anthropic`. Earlier GPT 5.4 / GPT 5.4 mini experiments are retained only as development history and excluded from final model selection. Access is account-dependent; a configured model is not evidence that credentials or access work. No provider/model fallback is performed silently. Live commands spend API credits. All live commands share the default `runs/budget.json` ledger. The user authorized a **US$70 overall cumulative budget**; the model-selection branch currently applies the conservative **US$25 cumulative cap**. Both include all prior shared-ledger spend; read the ledger for the current total. The CLI retains its conservative US$5 default; pass `--max-cost-usd 25` to use the model-selection branch cap on the same ledger, including probes and replays. `--ledger` must resolve to the existing shared absolute ledger for this coordinated experiment; `--max-cost-usd` changes its cap. Evaluation reserves estimated costs before requests, includes retries, and stops when its budget cannot fund another request. Estimates are not provider invoices. Do not publish `.env` or unreviewed run logs.
+The candidate families are **GPT 6.1 Sol** (`gpt-6.1-sol`), **GPT 6 Luna** (`gpt-6-luna`), **Claude Opus 5.5** (`claude-opus-5-5`), **Claude Sonnet 5.5** (`claude-sonnet-5-5`), and **Claude Haiku 5.5** (`claude-haiku-5-5`). Each supported model plus thinking/reasoning setting is a separate configuration with its own `config_id`; the same model at different thinking levels must not be merged into one score. Anthropic candidates use `--provider anthropic`. Earlier GPT 5.4 / GPT 5.4 mini experiments are retained only as development history and excluded from final model selection. Access is account-dependent; a configured model is not evidence that credentials or access work. No provider/model fallback is performed silently. Live commands spend API credits. All live commands share the default `runs/budget.json` ledger. The user authorized a **US$70 overall cumulative budget**; the model-selection branch currently applies the conservative **US$40 process stopping line on the shared ledger**. Both include all prior shared-ledger spend; read the ledger for the current total. The CLI retains its conservative US$5 default; pass `--max-cost-usd 40` to use the model-selection branch cap on the same ledger, including probes and replays. `--ledger` must resolve to the existing shared absolute ledger for this coordinated experiment; `--max-cost-usd` changes its cap. Evaluation reserves estimated costs before requests, includes retries, and stops when its budget cannot fund another request. Estimates are not provider invoices. Do not publish `.env` or unreviewed run logs.
 
 ## What a reviewer should see
 
@@ -70,7 +61,7 @@ Use development cases to change prompts. Run frozen cases only after candidate s
 
 ```sh
 ./run.sh evaluate --matrix config/eval-models-high.json --suite dev --limit 4 --only-model gpt-6.1-sol --output runs/pilot
-./run.sh evaluate --matrix config/eval-models-high.json --suite frozen --repeats 3 --max-cost-usd 25 --output runs/frozen
+./run.sh evaluate --matrix config/eval-models-high.json --suite frozen --repeats 3 --max-cost-usd 40 --output runs/frozen
 ```
 
 `--only-model` may be repeated; it filters model IDs in the matrix (evaluation does not select models through `--provider`). `--limit` explicitly selects a subset, so do not describe that result as the full suite. `--output` must name a new directory. `report --run-dir` prints that directory’s stored summary; it does not rerun models.
@@ -83,7 +74,7 @@ Selection follows the user's strict priority: **accuracy first, then response sp
 
 Screen the 22 at-most-high configurations on the same three development cases (`tax_gap`, `above_three_hundred`, and `deadline`). This is a small screening signal, not a full accuracy score or proof of a globally best configuration. Advance the most accurate, then fastest configuration per model family to all 24 development cases. Run matched 16-case frozen tests with three repetitions only for finalists, as the remaining budget permits. The benchmark runner supports exact case/configuration selection and bounded concurrency (`--case-id`, `--only-config`, and `--jobs 4`); these controls must not alter the common case subset between screening candidates. Clearly preserve each configuration's development/frozen stage and test denominator. Missing coverage, failed probes, or budget-limited evaluations cannot establish a global winner; even a completed finalist comparison ranks only the tested finalists. Report exclusions and timing sample counts alongside any scoped recommendation.
 
-The US$70 overall authorization and US$25 model-selection branch cap are cumulative. Estimate each stage against the shared ledger before starting; further model-branch allocation is coordinated centrally, while exceeding the overall US$70 requires new user authorization. Preserve partial results instead of silently expanding spend. Semantic disagreements require review. Zero failures in a small suite is not a zero-hallucination guarantee. Current measured results and limitations are summarized in the accompanying design memo.
+The US$70 overall authorization and US$40 model-selection process stopping line are cumulative. Estimate each stage against the shared ledger before starting; further model-branch allocation is coordinated centrally, while exceeding the overall US$70 requires new user authorization. Preserve partial results instead of silently expanding spend. Semantic disagreements require review. Zero failures in a small suite is not a zero-hallucination guarantee. Current measured results and limitations are summarized in the accompanying design memo.
 
 ## Curating evaluation artifacts
 
@@ -107,10 +98,26 @@ Creates `dist/policy-grounded-agent-prototype.zip` containing `agent_prototype.z
 
 When available at packaging time, the standalone `report/dist/index.html` is included at the inner archive root as `model-evaluation-report.html`. Open that file in a browser to inspect the curated model-evaluation report. Its presence and stated coverage must be checked before final delivery; packaging can run while the report is still pending.
 
-The backend CLI MVP and model selection have separate completion states. Curated `examples/` currently identify historical live replay versus current offline fixtures; neither implies a completed final model comparison. Final model evaluation is being advanced in the dedicated evaluation chat, with source/version and cohort alignment required before promoting results.
+The backend CLI MVP and model selection have separate completion states. Curated `examples/workflow-v8/` contains the current scoped live repair, while root-level older live/offline examples retain their historical versions; neither implies a completed final model comparison. Final model evaluation is being advanced in the dedicated evaluation chat, with source/version and cohort alignment required before promoting results.
 
 The submission includes the report as a **prebuilt standalone HTML file**. Its frontend source and build workspace are not included in the inner ZIP. A report-build helper under `scripts/` may require those workspace-only sources; it is not a supported report-rebuild command from the extracted submission. The CLI, tests, offline replay, and static HTML remain usable independently.
 
 ## Proposed agent service principles
 
 [Agent Service Charter](src/policy_agent/agent_service_charter.md) is a one-page, team-proposed service standard, not official Nimbus Wireless values or a customer-approved policy. The customer's real-world identity and mission remain unverified. The existing policy gate retains authority; a deterministic response composer adds respectful framing and next steps without additional model calls. The charter is excluded from billing retrieval and cannot authorize credits or invent tax rules. Turn traces and new run manifests record its version and SHA256. Historical evaluation artifacts predate this presentation change and are not evidence of its live-model performance.
+
+## Current workflow-v8 repair evidence
+
+`examples/workflow-v8/` preserves the real Haiku 5.5 adaptive/medium replay, original manifest, walkthrough, and seven scoped acceptance checks: six turns, retained bill item, current tax question only, tax candidate unknown, correct amount, correct deadline, and no issuance. All seven passed; 13 calls cost an estimated US$0.011434, with 63.154 seconds summed end-to-end turn time. This demonstrates the original conversation on that exact workflow snapshot, not a global model winner.
+
+The repair requires quoted fact inventory and current-request scope, uses a narrow source-quoted bill-item extraction fallback when necessary, prevents null unknowns from inheriting trusted verification, and restricts downstream tax claims to reviewed coverage. The native tax schema enforces unknown rather than proving autonomous model reasoning. Candidate amount/action/status/policy-ID mismatches remain visible and gated. Independent paraphrase, adversarial, and matched held-out comparisons remain separate acceptance work. The coordinator reports a subsequent 315+ local-test checkpoint; the final release test count will be recorded after the report freezes. Release-validation records identify the specific package snapshot actually checked.
+
+## Post-freeze evidence status
+
+The v8 live replay and immutable benchmark snapshot retain workflow SHA256 `2a561f1aa2bcc42d5ef245c473983417dcd90472d53304601f6da9d2ec30b753`. Post-freeze diagnostics are now integrated into workspace workflow SHA256 `8ce60a12d3200fc73116d205d5489df6b020c3e58e8424b73c9e5e175e8de88f`. The older live replay is not a real-model rerun of this new hash. Diagnostics improve failure visibility and do not close the two utility failures documented in [remaining semantic limits](docs/remaining_semantic_limits.md): background credit references can be treated as requests, and potentially synonymous item labels can remain conservatively conflicting. Their benchmark penalties are retained.
+
+The complete policy-text experiment in [the audited report](docs/policy_comparison/20261011-full-v5-audited/report.md) is a separate frozen **workflow-v5** cohort: Sol medium and Luna medium each completed 120 paired comparisons. Raw composite results improved (85→100 and 63→75), but final composite results each decreased by one (105→104 and 95→94). The optimized policy is **not promoted**. These results cannot select the best v8 model or validate post-freeze code. A further 27 charter attacks passed locally according to the coordinator; that finite structural result is separate from live-model performance. Final model-selection and report evidence may remain explicitly pending in a stage delivery.
+
+## Stage-delivery freeze — 2026-10-11
+
+The packaged report is an immutable **12:54:59 PDT** checkpoint with **62/84** screening runs completed, not a live progress page or final winner. Fresh/high model acceptance remains pending. The backend CLI, scoped v8 live repair, and local release checks can be delivered independently of that unfinished comparison. Final local suite at this freeze: **316 passed**. Report HTML SHA256: `abfc9b99cc0214b56c9fc8f929e673183eb1bee2fb87ec2e503b3779cd32a908`.

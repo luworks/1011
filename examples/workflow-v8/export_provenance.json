@@ -1,0 +1,34 @@
+{
+  "scope": "Single real API v8 replay, seven scoped acceptance checks; not comparative model acceptance or unconstrained reasoning proof.",
+  "source": "runs/mvp-live-demo-haiku-medium-v8",
+  "workflow_sha256": "2a561f1aa2bcc42d5ef245c473983417dcd90472d53304601f6da9d2ec30b753",
+  "matches_workflow_file_at_export": true,
+  "files": [
+    {
+      "source": "runs/mvp-live-demo-haiku-medium-v8/repair_acceptance.json",
+      "file": "repair_acceptance.json",
+      "sha256": "7218fc275b574fe7974bfba488ec2d947ca7f8ca43b6dd7ddef13c3dffaf4b76"
+    },
+    {
+      "source": "runs/mvp-live-demo-haiku-medium-v8/walkthrough.md",
+      "file": "walkthrough.md",
+      "sha256": "435256f54d30b3a1cee25b61b123062c6118bab84eb0f28bae62a894b260b370"
+    },
+    {
+      "source": "runs/mvp-live-demo-haiku-medium-v8/manifest.json",
+      "file": "manifest.json",
+      "sha256": "215c0b83731c71b233ab53798fb8ce9d51724757511f74eeccf7bec2965ec0a8"
+    },
+    {
+      "source": "runs/mvp-live-demo-haiku-medium-v8/turns.jsonl",
+      "file": "turns.jsonl",
+      "sha256": "55a9fb543b5cb20313867194f34521ba71a4f347f992849c3153725f0ceeef11"
+    },
+    {
+      "source": "runs/mvp-live-demo-haiku-medium-v8/summary.json",
+      "file": "summary.json",
+      "sha256": "235faeaee361a5f640f3602dedf44101cd093a998ad64b80fd0b434ceeb96015"
+    }
+  ],
+  "selection_eligible": false
+}

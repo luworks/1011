@@ -1,5 +1,7 @@
 # Policy evaluation handoff
 
+**Status: READY — formal frozen-v5 policy pair batch complete; no policy promotion or additional paid confirmation.**
+
 Updated UTC: 2026-10-11T19:42:34.727980+00:00
 
 本线程负责 policy pair 版本、比较入口、待决 oracle overlay、冻结与对比报告；不修改主 workflow/CLI/providers 的后续通用修复，也不切换默认 policy。已在 CLI 接入的版本选择保留。
@@ -65,3 +67,28 @@ Updated UTC: 2026-10-11T19:42:34.727980+00:00
 - 比较 supported assertions、citations、unresolved evidence boundaries、raw candidate 与 fixed-gate final，分母分别保留。现有 gate 的未批准计算假设可能两版都失败，不能改 oracle 让它通过。
 - E 编号只作场景关联；整组文档改写不能独立归因单条编辑。案例非新 holdout，provider 未固定 seed，理解阶段未读 policy、也存在随机差异。
 - 当前 Corpus 不读取文档头部；E01/E12 和 E02 的总则不被这批直接测试。OD-01/02/06/07 没有专门案例。
+
+## 12:47 PDT milestone
+
+- 正式冻结 cohort 的实际 prompt 是 workflow-v5（不是目录名中的 v4），两模型各完成 80/120 有效 pairs；已覆盖共同 40 例的前两次重复。暂无技术失败。
+- 原始严格 v1 分数：Sol raw improved10/regressed9，final improved0/regressed1；Luna raw improved19/regressed14，final improved0/regressed2。**这些不是最终文档收益结论**，第三次仍进行中，且存在税费唯一引用位置评分伪回退。
+- 评分审计 v2 已生成并测试：两版一致删除 OD-09 “必须引用KB-1004”约束，因为修订版 Rule3/KB-1003 也直接支持缺口说明。v1 保存在 fixtures/policy-comparison-oracle-v1.json；default与explicit-v2一致。冻结运行仍保持 v1 输入；后续只对保存结果用同一冻结 evaluator 离线重算，原始分数保留，不重跑API、不新增税费规则。
+- 已观察到的方向：OD-05/08 明示有助于减少未批准金额/资格的确定断言；Luna 部分已知计算案例出现 amount=None 或金额带说明文本（格式/完整性问题，不应直接称算术错误）。固定 gate 仍覆盖 pending，造成原文与优化版都存在相同边界失败。
+- V5原生tax输出由 EvidenceBoundCandidate 约束为unknown/not_applicable；不能把零yes/no计为文档提升自由推理。理解阶段不读policy；final随机差异不能自动归因于文档。
+- 主workflow已升级v7：下一棒只在model owner的v7回归结论后做少量固定v7 matched确认，不运行v6，也不重复全矩阵。当前先完成并正确解释v5文档cohort。
+- Policy比较入口新增fail-before-call above-high guard，13项相关测试通过；本批固定medium符合上限，冻结旧输入未改变。仍未改默认policy。
+
+## Final READY receipt
+
+- Reviewed compact machine summary: `docs/policy_comparison/20261011-full-v5-audited/summary.json`. This is the HTML consumer entry; artifact_type=policy_pair_comparison, status=complete.
+- Readable judgement: `docs/policy_comparison/20261011-full-v5-audited/assessment.md`; tables: `report.md`; compact per-case/repeat diagnostics: `results.json`.
+- Completed denominators: 2 models × 40 cases × 3 repeats × 2 policy sides = 480/480 scenario runs, 240/240 matched pairs; zero technical failures. Both processes completed without budget abort.
+- Cohort actual workflow-v5/code `a1e13e3b83d1be6de090d9eeb11829d85f5f65b8fe9b9cdb6f274d9098dcd099`; source frozen and checksum verified. Folder `v4` is historical naming only; do not present as v4 or current v8.
+- v2 audit raw composite: Sol85→100/120 (improved19/regressed4); Luna63→75/120 (improved29/regressed17). Final: Sol105→104/120 (improved0/regressed1), Luna95→94/120 (improved1/regressed2).
+- Supported closed-field raw: Sol102→105; Luna93→85. This includes amount formats/status conventions, not unrestricted business-semantic correctness.
+- Raw open-policy boundary failures: Sol15→3, Luna6→0. Final boundary failures12→12 per model; four unresolved cases ×3 repeats.
+- Formal API client-estimated cost $5.23917547, formal unknown reservations0. Global ledger also contains other owner usage and interrupted calls; see live ledger for its cumulative bound.
+- V1 original scoring, raw data and hashes retained. V2 common offline audit removes uniqueKB1004 citation gold for OD09. No model reruns, no invented tax rule, no oracle change to make fixedgate assumptions pass. All12 final pending-boundary failures remain.
+- Machine summary includes exact configs/prompt/code/corpus/version manifests, v1/v2 overlay provenance, side summaries/usage, paired transitions, source hashes and recommendation not to promote whole revision.
+- Core owner accepted **no promotion** and explicitly deferred additional v8 paid confirmation. No further policy API process will be started. Default policy remains original.
+- Local compatibility recheck:280 tests passed; owned comparison tests13 passed. Formal frozen source checkpoint208 passed. These are distinct checkpoints, not live semantic measurements.

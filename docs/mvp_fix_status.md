@@ -1,6 +1,6 @@
 # MVP extraction and evidence repair
 
-Status: READY — workflow-v7. Explicit-null authority fix independently verified; 256 local tests and all seven full live replay checks passed. Freeze current inputs before new acceptance. V6 is diagnostic only.
+Status: READY — workflow-v8. Null and blank-field authority fixes verified; 280 local tests and all seven full live replay checks passed. Final core freeze for independent regression; older cohorts diagnostic only.
 
 ## Root causes
 
@@ -46,3 +46,15 @@ Post-freeze presentation follow-up: applied the service-charter statement-date n
 Charter cross-review identified that an explicit `None` in trusted account state counted as verified, allowing a later customer value to inherit authority. Initialization now grants verification only to non-null normalized fields; tool updates to null revoke verification. False and numeric zero remain valid known values. Null fact records are explicitly unknown. Five new tests cover statement-date and amount initialization/tool-clear paths plus false/zero controls. No new business rule was added. Full suite checkpoint: 256 passed. V7 live replay is `runs/mvp-live-demo-haiku-medium-v7` (in progress).
 
 V7 final replay: `runs/mvp-live-demo-haiku-medium-v7/repair_acceptance.json`, 13 calls, US$0.0116744, 63.37 total turn seconds. Workflow file SHA256 `f3df353e02affd6da19f21bebcf3114eee1b645959965ff11237f7216dee8a85`. No source changes after this release receipt.
+
+## Final core receipt: v8
+
+Blank line items normalize to unknown across trusted/tool/customer sources; normalized-null extracted facts are rejected. Independent authority audit 12/12 passed. CLI evaluate/compare-policies now default to high-ceiling matrix and reject higher effort before calls. All local tests: 280 passed.
+
+V8 live replay: `runs/mvp-live-demo-haiku-medium-v8/repair_acceptance.json`, 13 calls, US$0.011434, 63.15 summed turn seconds; seven scoped checks pass. Candidate mismatches still recorded, so this is not perfect-model validation. Core workflow SHA256 `2a561f1aa2bcc42d5ef245c473983417dcd90472d53304601f6da9d2ec30b753`. Local source checkpoint commit `40abfd86ead9717e3a4e8dc0cbf505bdf676b46d`.
+
+## Post-freeze diagnostic-only repair
+
+Current source retains workflow-v8 prompts and decision behavior, with an optional content-free `understanding_diagnostic` on four protocol rejection paths. Fixed error codes and enum/boolean/valid source-index projections now preserve the cause; free-text values, quotes, search queries, requested outcomes and exception messages are excluded. External error remains ValueError and no rejected facts are merged.
+
+Current workflow SHA256: `8ce60a12d3200fc73116d205d5489df6b020c3e58e8424b73c9e5e175e8de88f`. Full local suite:315 passed. Earlier live replay and immutable model regression use the prior hash `2a561f1aa2bcc42d5ef245c473983417dcd90472d53304601f6da9d2ec30b753`; their provenance is unchanged and they do not certify the later diagnostic hash. Historical rejected content is not reconstructed.

@@ -20,3 +20,25 @@ Owner receipts: `mvp_fix_status.md`, `eval_handoff_status.md`, `policy_eval_hand
 ## Integration follow-up (12:44 PDT)
 
 The v6 model owner has acknowledged an immutable snapshot (`runs/snapshots/workflow-v6-high-regression`). After that receipt, the coordinator applied the reviewed statement-date presentation patch outside the snapshot. The complete current suite now passes **251 tests with no expected failures**. No policy decision or model prompt changed in that follow-up. Independent model regression is running at `runs/v6-understanding-regression`.
+
+## Core freeze and commit follow-up (12:49 PDT)
+
+The cross-review null-inheritance and whitespace-line-item authority defects are both repaired in workflow-v8. Latest local suite: **280 passed**; independent authority audit:12 passed. The full Haiku adaptive/medium original replay passed all seven scoped checks,13 requests,US$0.011434,63.15 summed turn seconds. Candidate policy/status mismatches remain visible; no claim of perfect model reasoning. `runs/mvp-live-demo-haiku-medium-v8/repair_acceptance.json` is the receipt.
+
+Local code commit: `40abfd86ead9717e3a4e8dc0cbf505bdf676b46d`,358 files, no push. The commit excludes credentials, run outputs and dependency caches. Owner progress documents continue evolving afterward.
+
+Eval owner froze v8 with28 independent regression cases; prior v6/v7 runs remain diagnostic. The coordinator allocated at mostUS$6 additional model-stage estimated usage inside the user-approved cumulativeUS$70 ceiling. That process uses a conservative shared-ledger cap40; it is not a freshUS$40 spending authorization. Policy owner was informed to avoid duplicate or expanding batches. No new model weight training was started; changes are workflow/protocol tuning.
+
+## Reviewed cross-thread update (12:55 PDT)
+
+- Repository hygiene is pushed: main `74ad743775ed4e06ebc94d76dcdf7ad831f06c20` includes MVP, expanded `.gitignore`, and the remote's existing CI commits. Active owner changes were deliberately left unstaged until ready. No force push or secret publication.
+- Policy experiment finished both models: each 120/120 pairs (40 scenarios × 3 repeats × two versions); 480 scenario executions overall. Audited v2 raw pass counts original→clarified are Sol 85→100 and Luna 63→75. Final counts are Sol 105→104 and Luna 95→94. Do not promote the clarified corpus: candidate gains have not produced final gains, and Luna's supported-assertion count regressed 93→85. See `policy_comparison/20261011-full-v5-audited/report.md`. These are frozen workflow-v5 results, not current-v8 acceptance.
+- The Charter owner independently added 27 deterministic attack/boundary tests; all pass, with 91 related checks passing. Fake tool identity, combined injection, cross-turn corrections, null and blank values did not bypass the tested authority gates. This does not measure live model attack recognition. Current full suite checkpoint: 308 passed.
+- V8 model regression is still active (84 planned conversations); no final model winner. Do not merge prior workflows into this denominator.
+- A historical diagnostic gap is confirmed: a TurnResult was saved on protocol failure, but rejected understanding and exact contract cause were not. A metadata-only diagnostic repair is being integrated separately, with no prompt or policy behavior changes; current immutable live benchmark remains on its original code hash.
+
+## HTML checkpoint and implementation verification
+
+The stage HTML now includes the immutable 12:54:59 PDT corrected regression checkpoint (62/84 planned conversations), the complete audited v5 policy comparison, the 27 new adversarial checks and unresolved semantic limits. It declares no final model recommendation. The coordinator verified the rendered headings, exact pair counts, raw/final numbers, snapshot timestamps and missing telemetry treatment in the browser.
+
+Current full test checkpoint:316 passed. The post-freeze diagnostic repair is content-free and tested; its code hash is explicitly separated from earlier live results. Subsequent model progress remains owned by eval-model selection; late results are not silently mixed into this immutable report snapshot.

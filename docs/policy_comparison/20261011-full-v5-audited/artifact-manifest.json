@@ -1,0 +1,10 @@
+{
+  "status": "reviewed",
+  "cohort": "workflow-v5",
+  "files": {
+    "summary.json": "7b63bc3ec43ec854ff16db7b772bab99fb21b64627a44de9898fd870607a4c75",
+    "report.md": "912795b42f03ad301dd211c0b2e50ea6b008559693cb0da76a60fe7edb8a42de",
+    "results.json": "f3f5f3fb906ee4aeab19252353f67aa33abfcc950894e8e48054eea83e8f1715",
+    "assessment.md": "de4ba8d0ce54f18eb842d780a215a3bca5be3fa244b1b2643c0447da764a3a0d"
+  }
+}

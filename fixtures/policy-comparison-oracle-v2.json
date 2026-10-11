@@ -130,7 +130,8 @@
       "change_ids": [
         "E02",
         "E09",
-        "E11"
+        "E11",
+        "E08"
       ],
       "unresolved": [],
       "omit": {},
@@ -140,7 +141,8 @@
       "change_ids": [
         "E02",
         "E09",
-        "E11"
+        "E11",
+        "E08"
       ],
       "unresolved": [],
       "omit": {},
@@ -160,7 +162,8 @@
       "change_ids": [
         "E02",
         "E09",
-        "E11"
+        "E11",
+        "E08"
       ],
       "unresolved": [],
       "omit": {},
@@ -185,7 +188,8 @@
       "change_ids": [
         "E02",
         "E09",
-        "E11"
+        "E11",
+        "E08"
       ],
       "unresolved": [],
       "omit": {},
@@ -237,7 +241,8 @@
         "E02",
         "E09",
         "E11",
-        "E06"
+        "E06",
+        "E08"
       ],
       "unresolved": [
         "OD-08"
@@ -265,7 +270,8 @@
       "change_ids": [
         "E02",
         "E09",
-        "E11"
+        "E11",
+        "E08"
       ],
       "unresolved": [],
       "omit": {},
@@ -403,7 +409,8 @@
       "change_ids": [
         "E02",
         "E09",
-        "E11"
+        "E11",
+        "E08"
       ],
       "unresolved": [],
       "omit": {},
@@ -413,7 +420,8 @@
       "change_ids": [
         "E02",
         "E09",
-        "E11"
+        "E11",
+        "E08"
       ],
       "unresolved": [],
       "omit": {},
@@ -519,5 +527,6 @@
     }
   },
   "parent_overlay_sha256": "5fcd6f4595f1d3226516c4794f173815eaa6e5e85ad9b7d5f32b1acda91e37e7",
-  "revision_reason": "OD-09 is an evidence gap, not a uniquely required article. Optimized Rule 3 and KB-1003 also explicitly state the gap. Remove the unique KB-1004 citation assertion from both final and turn golds for both source versions; preserve citation fidelity and explicit raw/final boundary diagnostics. This is a common offline scoring audit, not model tuning or a new tax policy."
+  "revision_reason": "OD-09 is an evidence gap, not a uniquely required article. Optimized Rule 3 and KB-1003 also explicitly state the gap. Remove the unique KB-1004 citation assertion from both final and turn golds for both source versions; preserve citation fidelity and explicit raw/final boundary diagnostics. This is a common offline scoring audit, not model tuning or a new tax policy.",
+  "annotation_reason": "E08 Rule 4 note correction is associated with escalation cases; these metadata associations are not a causal claim or model input."
 }

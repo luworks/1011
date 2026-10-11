@@ -1,0 +1,40 @@
+{
+  "checks": {
+    "six_live_turns": true,
+    "line_item_retained": true,
+    "tax_only_current_question": true,
+    "tax_candidate_unknown": true,
+    "amount_correct": true,
+    "deadline_correct": true,
+    "no_issuance": true
+  },
+  "all_passed": true,
+  "model": {
+    "provider": "anthropic",
+    "model": "claude-haiku-5-5",
+    "input_per_million": 0.1,
+    "output_per_million": 0.5,
+    "cached_input_per_million": 0.01,
+    "max_output_tokens": 8192,
+    "max_input_token_bound": 90000,
+    "role": "screen",
+    "price_source": "https://platform.claude.com/docs/en/models/haiku-5-5/overview",
+    "price_checked": "2026-10-11",
+    "selection_reason": "User-requested model and supported effort sweep; accuracy first, then speed among equal accuracy, then cost.",
+    "config_id": "anthropic/claude-haiku-5-5/adaptive/medium",
+    "capability_source": "https://platform.claude.com/docs/en/build-with-claude/effort",
+    "effort": "medium",
+    "thinking": {
+      "type": "adaptive"
+    }
+  },
+  "cost_usd": 0.011434,
+  "calls": 13,
+  "total_turn_seconds": 63.154353500227444,
+  "workflow_file_sha256": "2a561f1aa2bcc42d5ef245c473983417dcd90472d53304601f6da9d2ec30b753",
+  "limitations": [
+    "Single live replay, not statistical proof.",
+    "Tax unknown is schema coverage, not autonomous reasoning.",
+    "Candidate amount/action/status/policy-id mismatches remain visible and blocked."
+  ]
+}

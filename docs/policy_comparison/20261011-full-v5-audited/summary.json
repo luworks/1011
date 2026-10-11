@@ -1,0 +1,797 @@
+{
+  "schema_version": 1,
+  "artifact_type": "policy_pair_comparison",
+  "status": "complete",
+  "generated_at_utc": "2026-10-11T19:54:31.663955+00:00",
+  "cohort": {
+    "workflow_version": "workflow-v5",
+    "code_sha256": "a1e13e3b83d1be6de090d9eeb11829d85f5f65b8fe9b9cdb6f274d9098dcd099",
+    "prompt_sha256": "6856be14db2e251857479788199ccc276f75b96c643e00215589a400ae76d137",
+    "frozen_input_manifest_sha256": "bcba559e364bf3cd87db55456789f9c090030e910f56c15857f9943faee0e42d",
+    "frozen_input_directory": "/Users/yuanlu/code/1011/runs/policy-inputs-validated-v4-20261011",
+    "cases_file_sha256": "1a0e556f27f8539effbebfb07dc0e13f9440b03dd0d744e6a293a5f297ae2fd6",
+    "scenario_count": 40,
+    "repeats": 3,
+    "jobs_per_model": 8,
+    "model_count": 2,
+    "planned_pairs_total": 240,
+    "completed_pairs_total": 240,
+    "planned_scenario_runs": 480,
+    "completed_scenario_runs": 480,
+    "technical_failure_runs": 0,
+    "holdout_status": "Previously exposed cases; not a fresh holdout.",
+    "baseline": {
+      "schema_version": 1,
+      "version_id": "20261011T192840169969Z-original",
+      "created_at_utc": "2026-10-11T19:28:40.169969+00:00",
+      "status": "original",
+      "parent_version_id": null,
+      "parent_manifest_sha256": null,
+      "corpus_version": "dbb59ca9a429ab22142b76f32c0704dc3477c5e7ff0a33289efc12d700a05a5f",
+      "files": {
+        "config/corpus-lock.json": "a163fcc3b2c55a8cb30aad145e64a490de1fc8344fe22438f28306f2f41e178a",
+        "exam/Nimbus Wireless — Billing Dispute & Refund Policy.md": "2e95cd29f6bf231ddac4f19e72e02b448c28ff7393ae2648b78994df5a09e48d",
+        "exam/NimbusCare Knowledge Base — Billing & Credits Excerpt.md": "5d05d5d5ab4a77c9a5352ba89e8855731c568f3723eb1d1264c1d03fb460eafd"
+      },
+      "manifest_sha256": "259df1ca2407d1f6b357ebe492ba269f5863cb115773e644701fa3e492550891"
+    },
+    "candidate": {
+      "schema_version": 1,
+      "version_id": "20261011T192840174385Z-clarified",
+      "created_at_utc": "2026-10-11T19:28:40.174385+00:00",
+      "status": "editorial-draft",
+      "parent_version_id": "20261011T192840169969Z-original",
+      "parent_manifest_sha256": "259df1ca2407d1f6b357ebe492ba269f5863cb115773e644701fa3e492550891",
+      "corpus_version": "6d6979ebb6bd6aae2fbe25640d4c96c5e2dd11ce39a2e6a1e7dd6cfc01d6a42a",
+      "files": {
+        "CHANGES.md": "5a9d8c651d6f3c6f1a92b53622173a0a88b7ba3484bf10ff64fa07067f32d795",
+        "OPEN_DECISIONS.md": "1b5650686502a9564cb32debd00188c2b5fcbf1953978acfeb3ae595fb8aab25",
+        "config/corpus-lock.json": "9084c68bfa079b3c2dedc0c80fa1d978b8e3c30fb227d09ee7c7a15c73e51226",
+        "exam/Nimbus Wireless — Billing Dispute & Refund Policy.md": "c1ad811e0d44ec45b45ad0e5c007d9510d39679fbfed6a14d981092dc66721f7",
+        "exam/NimbusCare Knowledge Base — Billing & Credits Excerpt.md": "546ad0e8093fba7a6f71f49a7cab073272bf3a20b26ca12fe62eee1531ce5d66"
+      },
+      "manifest_sha256": "4ca4c9000b4b024eb69ff8203920e78662a4b7233286b6e8921ca8451d4a0034"
+    }
+  },
+  "metric_profile": "frozen-v5-closed-assertions-plus-open-policy-boundaries-audited-v2",
+  "metric_notes": [
+    "Raw composite checks supported closed fields, citation fidelity and open-policy boundaries; it is not unrestricted semantic correctness.",
+    "Some status assertions and amount strings are protocol/format checks, not proof of a business-policy violation.",
+    "The tax outcome vocabulary was schema-constrained before this experiment; zero yes/no cannot show autonomous model reasoning gains.",
+    "Common v2 audit removes the unique KB-1004 citation requirement for OD-09, retaining the original v1 scores and source files."
+  ],
+  "oracle": {
+    "frozen_input_v1_sha256": "5fcd6f4595f1d3226516c4794f173815eaa6e5e85ad9b7d5f32b1acda91e37e7",
+    "audit_v2": {
+      "overlay_path": "/Users/yuanlu/code/1011/fixtures/policy-comparison-oracle-v2.json",
+      "overlay_sha256": "3f92040357733890c78159567626818e2642084746608fee712fa0e9df956640",
+      "scope": "Common offline re-score of saved outputs; original strict counts retained. No API calls."
+    },
+    "default_overlay": "fixtures/policy-comparison-oracle.json",
+    "archived_v1": "fixtures/policy-comparison-oracle-v1.json",
+    "business_pending": "No unique business gold for omitted fields; supported assertions and conservative evidence-boundary diagnostics remain separate."
+  },
+  "models": [
+    {
+      "model": "gpt-6.1-sol",
+      "config_id": "openai/gpt-6.1-sol/reasoning/medium",
+      "config": {
+        "provider": "openai",
+        "model": "gpt-6.1-sol",
+        "input_per_million": 2,
+        "output_per_million": 10,
+        "cached_input_per_million": 0.1,
+        "max_output_tokens": 8192,
+        "max_input_token_bound": 90000,
+        "role": "screen",
+        "price_source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+        "price_checked": "2026-10-11",
+        "selection_reason": "User-requested model and supported effort sweep; accuracy first, then speed among equal accuracy, then cost.",
+        "cache_write_per_million": 2.5,
+        "config_id": "openai/gpt-6.1-sol/reasoning/medium",
+        "capability_source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+        "reasoning_effort": "medium"
+      },
+      "planned_pairs": 120,
+      "completed_pairs": 120,
+      "raw_transitions": {
+        "improved": 19,
+        "regressed": 4,
+        "unchanged_pass": 81,
+        "unchanged_fail": 16
+      },
+      "final_transitions": {
+        "improved": 0,
+        "regressed": 1,
+        "unchanged_pass": 104,
+        "unchanged_fail": 15
+      },
+      "component_transitions": {
+        "raw": {
+          "supported_assertions": {
+            "improved": 5,
+            "regressed": 2,
+            "unchanged_pass": 100,
+            "unchanged_fail": 13
+          },
+          "boundary": {
+            "improved": 12,
+            "regressed": 0,
+            "unchanged_pass": 105,
+            "unchanged_fail": 3
+          }
+        },
+        "final": {
+          "supported_assertions": {
+            "improved": 0,
+            "regressed": 1,
+            "unchanged_pass": 116,
+            "unchanged_fail": 3
+          },
+          "boundary": {
+            "improved": 0,
+            "regressed": 0,
+            "unchanged_pass": 108,
+            "unchanged_fail": 12
+          }
+        }
+      },
+      "baseline": {
+        "summary": {
+          "planned_runs": 120,
+          "completed_runs": 120,
+          "skipped_runs": 0,
+          "fix_contract_success": {
+            "numerator": 0,
+            "denominator": 0,
+            "rate": null
+          },
+          "unique_scenarios": 40,
+          "unique_completed_scenarios": 40,
+          "completion_status": "complete",
+          "critical_final_failures": 15,
+          "final_unsupported_tax_claims": 0,
+          "final_tax_decisions_audited": 12,
+          "final_audit_scope": "Closed expected assertions, turn invariants, and exact reviewed tax reply template. Tax mismatches conservatively flagged, not semantic hallucination judgements.",
+          "conversation_success": {
+            "numerator": 105,
+            "denominator": 120,
+            "rate": 0.875
+          },
+          "success_against_planned": {
+            "numerator": 105,
+            "denominator": 120,
+            "rate": 0.875
+          },
+          "pre_gate_assertion_success": {
+            "numerator": 108,
+            "denominator": 126,
+            "rate": 0.8571428571428571
+          },
+          "post_gate_assertion_success": {
+            "numerator": 123,
+            "denominator": 126,
+            "rate": 0.9761904761904762
+          },
+          "policy_accuracy": {
+            "numerator": 90,
+            "denominator": 93,
+            "rate": 0.967741935483871
+          },
+          "amount_accuracy": {
+            "numerator": 51,
+            "denominator": 51,
+            "rate": 1.0
+          },
+          "answerable_completion": {
+            "numerator": 51,
+            "denominator": 51,
+            "rate": 1.0
+          },
+          "over_refusal_rate": {
+            "numerator": 0,
+            "denominator": 51,
+            "rate": 0.0
+          },
+          "unsupported_structured_tax_conversation_rate": {
+            "numerator": 0,
+            "denominator": 12,
+            "rate": 0.0
+          },
+          "mandatory_escalation_recall": {
+            "numerator": 21,
+            "denominator": 24,
+            "rate": 0.875
+          },
+          "unsupported_structured_tax_claim_rate": {
+            "numerator": 0,
+            "denominator": 12,
+            "rate": 0.0
+          },
+          "candidate_conversation_success": {
+            "numerator": 85,
+            "denominator": 120,
+            "rate": 0.7083333333333334
+          },
+          "unexpected_intent_runs": 3,
+          "unexpected_candidate_intent_runs": 3,
+          "citation_status_counts": {
+            "exact": 471,
+            "markdown_normalized": 0,
+            "unknown_source": 0,
+            "unmatched_quote": 0,
+            "missing_evidence": 2
+          },
+          "amount_format_diagnostic_count": 9,
+          "natural_language_hallucination_rate": null,
+          "assessment_limit": "Closed structured assertions only; unrestricted natural-language claims require human audit.",
+          "technical_failure_runs": 0,
+          "api_error_runs": 0,
+          "api_failure_assessment": "ProviderError is a provider or structured-output failure; exact HTTP/API counts require call telemetry.",
+          "turn_oracle_failures": 3,
+          "invariant_failure_runs": 0
+        },
+        "usage": {
+          "turn_latency_p50_seconds": 11.888401167001575,
+          "turn_latency_p95_seconds": 16.841505042044446,
+          "turn_latency_sample_count": 132,
+          "turn_latency_complete": true,
+          "call_count": 264,
+          "api_error_calls": 0,
+          "validation_error_calls": 0,
+          "input_tokens": 837452,
+          "output_tokens": 79132,
+          "cached_input_tokens": 248063,
+          "cache_write_tokens": 588597,
+          "token_usage_complete": true,
+          "reported_cost_usd": 2.2892028,
+          "reserved_or_unknown_cost_usd": 0,
+          "cost_status": "complete",
+          "cost_per_successful_conversation_usd": 0.02180193142857143,
+          "call_latency_p50_seconds": 5.286630125017837,
+          "call_latency_p95_seconds": 9.81394900009036,
+          "call_latency_sample_count": 264
+        }
+      },
+      "candidate": {
+        "summary": {
+          "planned_runs": 120,
+          "completed_runs": 120,
+          "skipped_runs": 0,
+          "fix_contract_success": {
+            "numerator": 0,
+            "denominator": 0,
+            "rate": null
+          },
+          "unique_scenarios": 40,
+          "unique_completed_scenarios": 40,
+          "completion_status": "complete",
+          "critical_final_failures": 16,
+          "final_unsupported_tax_claims": 0,
+          "final_tax_decisions_audited": 12,
+          "final_audit_scope": "Closed expected assertions, turn invariants, and exact reviewed tax reply template. Tax mismatches conservatively flagged, not semantic hallucination judgements.",
+          "conversation_success": {
+            "numerator": 104,
+            "denominator": 120,
+            "rate": 0.8666666666666667
+          },
+          "success_against_planned": {
+            "numerator": 104,
+            "denominator": 120,
+            "rate": 0.8666666666666667
+          },
+          "pre_gate_assertion_success": {
+            "numerator": 111,
+            "denominator": 126,
+            "rate": 0.8809523809523809
+          },
+          "post_gate_assertion_success": {
+            "numerator": 122,
+            "denominator": 126,
+            "rate": 0.9682539682539683
+          },
+          "policy_accuracy": {
+            "numerator": 90,
+            "denominator": 93,
+            "rate": 0.967741935483871
+          },
+          "amount_accuracy": {
+            "numerator": 50,
+            "denominator": 51,
+            "rate": 0.9803921568627451
+          },
+          "answerable_completion": {
+            "numerator": 50,
+            "denominator": 51,
+            "rate": 0.9803921568627451
+          },
+          "over_refusal_rate": {
+            "numerator": 1,
+            "denominator": 51,
+            "rate": 0.0196078431372549
+          },
+          "unsupported_structured_tax_conversation_rate": {
+            "numerator": 0,
+            "denominator": 12,
+            "rate": 0.0
+          },
+          "mandatory_escalation_recall": {
+            "numerator": 21,
+            "denominator": 24,
+            "rate": 0.875
+          },
+          "unsupported_structured_tax_claim_rate": {
+            "numerator": 0,
+            "denominator": 12,
+            "rate": 0.0
+          },
+          "candidate_conversation_success": {
+            "numerator": 100,
+            "denominator": 120,
+            "rate": 0.8333333333333334
+          },
+          "unexpected_intent_runs": 3,
+          "unexpected_candidate_intent_runs": 3,
+          "citation_status_counts": {
+            "exact": 472,
+            "markdown_normalized": 0,
+            "unknown_source": 0,
+            "unmatched_quote": 2,
+            "missing_evidence": 0
+          },
+          "amount_format_diagnostic_count": 14,
+          "natural_language_hallucination_rate": null,
+          "assessment_limit": "Closed structured assertions only; unrestricted natural-language claims require human audit.",
+          "technical_failure_runs": 0,
+          "api_error_runs": 0,
+          "api_failure_assessment": "ProviderError is a provider or structured-output failure; exact HTTP/API counts require call telemetry.",
+          "turn_oracle_failures": 4,
+          "invariant_failure_runs": 0
+        },
+        "usage": {
+          "turn_latency_p50_seconds": 12.487497332971543,
+          "turn_latency_p95_seconds": 16.808678958914243,
+          "turn_latency_sample_count": 132,
+          "turn_latency_complete": true,
+          "call_count": 264,
+          "api_error_calls": 0,
+          "validation_error_calls": 0,
+          "input_tokens": 997290,
+          "output_tokens": 79704,
+          "cached_input_tokens": 275469,
+          "cache_write_tokens": 721029,
+          "token_usage_complete": true,
+          "reported_cost_usd": 2.6287434,
+          "reserved_or_unknown_cost_usd": 0,
+          "cost_status": "complete",
+          "cost_per_successful_conversation_usd": 0.025276378846153844,
+          "call_latency_p50_seconds": 5.494065999984741,
+          "call_latency_p95_seconds": 10.395898375078104,
+          "call_latency_sample_count": 264
+        }
+      },
+      "original_v1_transitions": {
+        "raw": {
+          "improved": 17,
+          "regressed": 14,
+          "unchanged_pass": 71,
+          "unchanged_fail": 18
+        },
+        "final": {
+          "improved": 0,
+          "regressed": 1,
+          "unchanged_pass": 104,
+          "unchanged_fail": 15
+        }
+      },
+      "run_directory": "/Users/yuanlu/code/1011/runs/policy-pair-sol-medium-frozen-v4-20261011",
+      "source_hashes": {
+        "manifest.json": "0dc183569c6f452abd0c63319d1e5992d3457b133bd97033c7bc7053de3a056d",
+        "summary.json": "51e2306a42b5d16279d05c939f212dcbd050ee04b767a247c0c01544979e5c99",
+        "turns.jsonl": "c7b77fdb3cdb0f55551f9fe1544fb7f47935520672db8eb88441ecee09d44cfe",
+        "oracle.json": "549574e907767b8aa623c7aac0e97c92c5834359137989fe43b5301ce73f84b9"
+      }
+    },
+    {
+      "model": "gpt-6-luna",
+      "config_id": "openai/gpt-6-luna/reasoning/medium",
+      "config": {
+        "provider": "openai",
+        "model": "gpt-6-luna",
+        "input_per_million": 0.1,
+        "output_per_million": 0.5,
+        "cached_input_per_million": 0.01,
+        "max_output_tokens": 8192,
+        "max_input_token_bound": 90000,
+        "role": "screen",
+        "price_source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+        "price_checked": "2026-10-11",
+        "selection_reason": "User-requested model and supported effort sweep; accuracy first, then speed among equal accuracy, then cost.",
+        "cache_write_per_million": 0.125,
+        "config_id": "openai/gpt-6-luna/reasoning/medium",
+        "capability_source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+        "reasoning_effort": "medium"
+      },
+      "planned_pairs": 120,
+      "completed_pairs": 120,
+      "raw_transitions": {
+        "improved": 29,
+        "regressed": 17,
+        "unchanged_pass": 46,
+        "unchanged_fail": 28
+      },
+      "final_transitions": {
+        "improved": 1,
+        "regressed": 2,
+        "unchanged_pass": 93,
+        "unchanged_fail": 24
+      },
+      "component_transitions": {
+        "raw": {
+          "supported_assertions": {
+            "improved": 7,
+            "regressed": 15,
+            "unchanged_pass": 78,
+            "unchanged_fail": 20
+          },
+          "boundary": {
+            "improved": 6,
+            "regressed": 0,
+            "unchanged_pass": 114,
+            "unchanged_fail": 0
+          }
+        },
+        "final": {
+          "supported_assertions": {
+            "improved": 1,
+            "regressed": 2,
+            "unchanged_pass": 105,
+            "unchanged_fail": 12
+          },
+          "boundary": {
+            "improved": 0,
+            "regressed": 0,
+            "unchanged_pass": 108,
+            "unchanged_fail": 12
+          }
+        }
+      },
+      "baseline": {
+        "summary": {
+          "planned_runs": 120,
+          "completed_runs": 120,
+          "skipped_runs": 0,
+          "fix_contract_success": {
+            "numerator": 0,
+            "denominator": 0,
+            "rate": null
+          },
+          "unique_scenarios": 40,
+          "unique_completed_scenarios": 40,
+          "completion_status": "complete",
+          "critical_final_failures": 25,
+          "final_unsupported_tax_claims": 0,
+          "final_tax_decisions_audited": 12,
+          "final_audit_scope": "Closed expected assertions, turn invariants, and exact reviewed tax reply template. Tax mismatches conservatively flagged, not semantic hallucination judgements.",
+          "conversation_success": {
+            "numerator": 95,
+            "denominator": 120,
+            "rate": 0.7916666666666666
+          },
+          "success_against_planned": {
+            "numerator": 95,
+            "denominator": 120,
+            "rate": 0.7916666666666666
+          },
+          "pre_gate_assertion_success": {
+            "numerator": 99,
+            "denominator": 126,
+            "rate": 0.7857142857142857
+          },
+          "post_gate_assertion_success": {
+            "numerator": 113,
+            "denominator": 126,
+            "rate": 0.8968253968253969
+          },
+          "policy_accuracy": {
+            "numerator": 86,
+            "denominator": 93,
+            "rate": 0.9247311827956989
+          },
+          "amount_accuracy": {
+            "numerator": 41,
+            "denominator": 51,
+            "rate": 0.803921568627451
+          },
+          "answerable_completion": {
+            "numerator": 41,
+            "denominator": 51,
+            "rate": 0.803921568627451
+          },
+          "over_refusal_rate": {
+            "numerator": 6,
+            "denominator": 51,
+            "rate": 0.11764705882352941
+          },
+          "unsupported_structured_tax_conversation_rate": {
+            "numerator": 0,
+            "denominator": 12,
+            "rate": 0.0
+          },
+          "mandatory_escalation_recall": {
+            "numerator": 20,
+            "denominator": 24,
+            "rate": 0.8333333333333334
+          },
+          "unsupported_structured_tax_claim_rate": {
+            "numerator": 0,
+            "denominator": 12,
+            "rate": 0.0
+          },
+          "candidate_conversation_success": {
+            "numerator": 63,
+            "denominator": 120,
+            "rate": 0.525
+          },
+          "unexpected_intent_runs": 9,
+          "unexpected_candidate_intent_runs": 9,
+          "citation_status_counts": {
+            "exact": 362,
+            "markdown_normalized": 8,
+            "unknown_source": 0,
+            "unmatched_quote": 38,
+            "missing_evidence": 3
+          },
+          "amount_format_diagnostic_count": 44,
+          "natural_language_hallucination_rate": null,
+          "assessment_limit": "Closed structured assertions only; unrestricted natural-language claims require human audit.",
+          "technical_failure_runs": 0,
+          "api_error_runs": 0,
+          "api_failure_assessment": "ProviderError is a provider or structured-output failure; exact HTTP/API counts require call telemetry.",
+          "turn_oracle_failures": 13,
+          "invariant_failure_runs": 0
+        },
+        "usage": {
+          "turn_latency_p50_seconds": 11.780806583003141,
+          "turn_latency_p95_seconds": 16.487330166972242,
+          "turn_latency_sample_count": 132,
+          "turn_latency_complete": true,
+          "call_count": 264,
+          "api_error_calls": 0,
+          "validation_error_calls": 0,
+          "input_tokens": 826079,
+          "output_tokens": 140284,
+          "cached_input_tokens": 200352,
+          "cache_write_tokens": 624935,
+          "token_usage_complete": true,
+          "reported_cost_usd": 0.150341595,
+          "reserved_or_unknown_cost_usd": 0,
+          "cost_status": "complete",
+          "cost_per_successful_conversation_usd": 0.0015825431052631578,
+          "call_latency_p50_seconds": 4.7890757920686156,
+          "call_latency_p95_seconds": 10.86021237494424,
+          "call_latency_sample_count": 264
+        }
+      },
+      "candidate": {
+        "summary": {
+          "planned_runs": 120,
+          "completed_runs": 120,
+          "skipped_runs": 0,
+          "fix_contract_success": {
+            "numerator": 0,
+            "denominator": 0,
+            "rate": null
+          },
+          "unique_scenarios": 40,
+          "unique_completed_scenarios": 40,
+          "completion_status": "complete",
+          "critical_final_failures": 26,
+          "final_unsupported_tax_claims": 0,
+          "final_tax_decisions_audited": 12,
+          "final_audit_scope": "Closed expected assertions, turn invariants, and exact reviewed tax reply template. Tax mismatches conservatively flagged, not semantic hallucination judgements.",
+          "conversation_success": {
+            "numerator": 94,
+            "denominator": 120,
+            "rate": 0.7833333333333333
+          },
+          "success_against_planned": {
+            "numerator": 94,
+            "denominator": 120,
+            "rate": 0.7833333333333333
+          },
+          "pre_gate_assertion_success": {
+            "numerator": 91,
+            "denominator": 126,
+            "rate": 0.7222222222222222
+          },
+          "post_gate_assertion_success": {
+            "numerator": 112,
+            "denominator": 126,
+            "rate": 0.8888888888888888
+          },
+          "policy_accuracy": {
+            "numerator": 85,
+            "denominator": 93,
+            "rate": 0.9139784946236559
+          },
+          "amount_accuracy": {
+            "numerator": 40,
+            "denominator": 51,
+            "rate": 0.7843137254901961
+          },
+          "answerable_completion": {
+            "numerator": 40,
+            "denominator": 51,
+            "rate": 0.7843137254901961
+          },
+          "over_refusal_rate": {
+            "numerator": 6,
+            "denominator": 51,
+            "rate": 0.11764705882352941
+          },
+          "unsupported_structured_tax_conversation_rate": {
+            "numerator": 0,
+            "denominator": 12,
+            "rate": 0.0
+          },
+          "mandatory_escalation_recall": {
+            "numerator": 19,
+            "denominator": 24,
+            "rate": 0.7916666666666666
+          },
+          "unsupported_structured_tax_claim_rate": {
+            "numerator": 0,
+            "denominator": 12,
+            "rate": 0.0
+          },
+          "candidate_conversation_success": {
+            "numerator": 75,
+            "denominator": 120,
+            "rate": 0.625
+          },
+          "unexpected_intent_runs": 11,
+          "unexpected_candidate_intent_runs": 11,
+          "citation_status_counts": {
+            "exact": 398,
+            "markdown_normalized": 6,
+            "unknown_source": 0,
+            "unmatched_quote": 27,
+            "missing_evidence": 0
+          },
+          "amount_format_diagnostic_count": 31,
+          "natural_language_hallucination_rate": null,
+          "assessment_limit": "Closed structured assertions only; unrestricted natural-language claims require human audit.",
+          "technical_failure_runs": 0,
+          "api_error_runs": 0,
+          "api_failure_assessment": "ProviderError is a provider or structured-output failure; exact HTTP/API counts require call telemetry.",
+          "turn_oracle_failures": 14,
+          "invariant_failure_runs": 0
+        },
+        "usage": {
+          "turn_latency_p50_seconds": 12.502700499957427,
+          "turn_latency_p95_seconds": 19.26881045801565,
+          "turn_latency_sample_count": 132,
+          "turn_latency_complete": true,
+          "call_count": 264,
+          "api_error_calls": 0,
+          "validation_error_calls": 0,
+          "input_tokens": 985621,
+          "output_tokens": 151739,
+          "cached_input_tokens": 244910,
+          "cache_write_tokens": 739919,
+          "token_usage_complete": true,
+          "reported_cost_usd": 0.170887675,
+          "reserved_or_unknown_cost_usd": 0,
+          "cost_status": "complete",
+          "cost_per_successful_conversation_usd": 0.001817953989361702,
+          "call_latency_p50_seconds": 4.745919166016392,
+          "call_latency_p95_seconds": 12.934448292013258,
+          "call_latency_sample_count": 264
+        }
+      },
+      "original_v1_transitions": {
+        "raw": {
+          "improved": 29,
+          "regressed": 17,
+          "unchanged_pass": 45,
+          "unchanged_fail": 29
+        },
+        "final": {
+          "improved": 1,
+          "regressed": 2,
+          "unchanged_pass": 93,
+          "unchanged_fail": 24
+        }
+      },
+      "run_directory": "/Users/yuanlu/code/1011/runs/policy-pair-luna-medium-frozen-v4-20261011",
+      "source_hashes": {
+        "manifest.json": "9e1e2c174ce56d4489acb82a906d382cfdb0764b01a3e8658329ad272f7f9912",
+        "summary.json": "47a1bebc691ed8e4793a8985538ba146d23f5806c684b992ec6db382bd00e451",
+        "turns.jsonl": "752d4db3eb573105ba56dd435721f5f080f1f71e14a0891edab355d39d9c4e4a",
+        "oracle.json": "549574e907767b8aa623c7aac0e97c92c5834359137989fe43b5301ce73f84b9"
+      }
+    }
+  ],
+  "cost": {
+    "formal_batch_reported_estimate_usd": 5.23917547,
+    "formal_batch_unknown_reservations_usd": 0,
+    "global_cumulative_cap_usd": 70,
+    "ledger": "runs/budget.json",
+    "cost_status": "Client matrix/token estimates, not provider invoices."
+  },
+  "promotion": {
+    "recommendation": "do_not_promote_entire_revision_to_default",
+    "default_changed": false,
+    "scope": "Formal document experiment on frozen workflow-v5; not current workflow-v8 acceptance or model selection.",
+    "reason": "Raw composite improved, but Luna supported closed-field completion regressed and final outputs did not improve. Open business definitions and fixed-gate assumptions remain.",
+    "next_confirmation": "Await model-owner final-core regression findings before a small matched latest-core confirmation; no duplicate large batch launched."
+  },
+  "conclusions": [
+    {
+      "id": "P01",
+      "kind": "observed",
+      "text": "Explicit pending annotations improved raw evidence-boundary handling: Sol failures15→3; Luna6→0.",
+      "changes": [
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "examples": [
+        "over_four_hours",
+        "whole_days",
+        "rounding",
+        "wrong_address"
+      ]
+    },
+    {
+      "id": "P02",
+      "kind": "observed",
+      "text": "Luna raw closed-field completion93→85; all-lines calculation case three_lines went3/3→0/3 with amount omitted. Some other failures were format/state conventions, not arithmetic errors.",
+      "changes": [
+        "E06"
+      ],
+      "examples": [
+        "three_lines",
+        "above_three_hundred",
+        "unconfirmed_error"
+      ]
+    },
+    {
+      "id": "P03",
+      "kind": "observed",
+      "text": "Rule4 global-escalation clarification remains logically justified. Luna fraud raw composite1/3→3/3; Sol3/3→3/3. This is scenario association, not isolated edit causality.",
+      "changes": [
+        "E08",
+        "E09"
+      ],
+      "examples": [
+        "fraud"
+      ]
+    },
+    {
+      "id": "P04",
+      "kind": "observed",
+      "text": "Both versions retained12 final open-policy boundary failures per model. Fixed gate computed/promised definite answers under unresolved conventions.",
+      "changes": [
+        "E06"
+      ],
+      "examples": [
+        "over_four_hours",
+        "whole_days",
+        "rounding",
+        "thirty_day_request"
+      ]
+    },
+    {
+      "id": "P05",
+      "kind": "limitation",
+      "text": "No per-edit causal claim; no fixed seed. Document headers are not retrieved. OD-01/02/06/07 key divergences lack dedicated scenarios."
+    }
+  ],
+  "artifacts": {
+    "report": "/Users/yuanlu/code/1011/docs/policy_comparison/20261011-full-v5-audited/report.md",
+    "assessment": "/Users/yuanlu/code/1011/docs/policy_comparison/20261011-full-v5-audited/assessment.md",
+    "full_compact_results": "/Users/yuanlu/code/1011/docs/policy_comparison/20261011-full-v5-audited/results.json"
+  }
+}
