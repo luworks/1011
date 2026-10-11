@@ -1,0 +1,84 @@
+$ PW_CHANNEL=chrome npx playwright test tests/e2e/design.spec.ts -g 'CMP-002'   # default webServer: npm run dev (live compile of mutated source)
+2026-10-11T21:42:37Z
+
+Running 8 tests using 1 worker
+
+  ✓  1 tests/e2e/design.spec.ts:41:9 › [CMP-002] /files at most one filled primary action in main at 1280px (656ms)
+  ✘  2 tests/e2e/design.spec.ts:41:9 › [CMP-002] /connectors at most one filled primary action in main at 1280px (651ms)
+  ✓  3 tests/e2e/design.spec.ts:41:9 › [CMP-002] /agents at most one filled primary action in main at 1280px (803ms)
+  ✓  4 tests/e2e/design.spec.ts:41:9 › [CMP-002] /guidelines at most one filled primary action in main at 1280px (938ms)
+  ✓  5 tests/e2e/design.spec.ts:41:9 › [CMP-002] /files at most one filled primary action in main at 390px (503ms)
+  ✘  6 tests/e2e/design.spec.ts:41:9 › [CMP-002] /connectors at most one filled primary action in main at 390px (433ms)
+  ✓  7 tests/e2e/design.spec.ts:41:9 › [CMP-002] /agents at most one filled primary action in main at 390px (868ms)
+  ✓  8 tests/e2e/design.spec.ts:41:9 › [CMP-002] /guidelines at most one filled primary action in main at 390px (775ms)
+
+
+  1) tests/e2e/design.spec.ts:41:9 › [CMP-002] /connectors at most one filled primary action in main at 1280px 
+
+    Error: More than one filled primary Button in the main region
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 1
+    Received:    2
+
+      46 |       // Primary variant is expressed by the Button primitive as class `button-primary`; count every instance in main, visible or not.
+      47 |       const primaries = await main.locator('.button-primary').count();
+    > 48 |       expect(primaries, 'More than one filled primary Button in the main region').toBeLessThanOrEqual(1);
+         |                                                                                   ^
+      49 |     });
+      50 |
+      51 |     test(`[CMP-001] ${route.path} tabs are single-select with exactly one selected tab at ${width}px`, async ({ page }) => {
+        at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts:48:83
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/round2-cmp-neg/design--CMP-002-connectors-8cd4f-ry-action-in-main-at-1280px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/round2-cmp-neg/design--CMP-002-connectors-8cd4f-ry-action-in-main-at-1280px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/round2-cmp-neg/design--CMP-002-connectors-8cd4f-ry-action-in-main-at-1280px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/round2-cmp-neg/design--CMP-002-connectors-8cd4f-ry-action-in-main-at-1280px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests/e2e/design.spec.ts:41:9 › [CMP-002] /connectors at most one filled primary action in main at 390px 
+
+    Error: More than one filled primary Button in the main region
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 1
+    Received:    2
+
+      46 |       // Primary variant is expressed by the Button primitive as class `button-primary`; count every instance in main, visible or not.
+      47 |       const primaries = await main.locator('.button-primary').count();
+    > 48 |       expect(primaries, 'More than one filled primary Button in the main region').toBeLessThanOrEqual(1);
+         |                                                                                   ^
+      49 |     });
+      50 |
+      51 |     test(`[CMP-001] ${route.path} tabs are single-select with exactly one selected tab at ${width}px`, async ({ page }) => {
+        at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts:48:83
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/round2-cmp-neg/design--CMP-002-connectors-14fab-ary-action-in-main-at-390px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/round2-cmp-neg/design--CMP-002-connectors-14fab-ary-action-in-main-at-390px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/round2-cmp-neg/design--CMP-002-connectors-14fab-ary-action-in-main-at-390px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/round2-cmp-neg/design--CMP-002-connectors-14fab-ary-action-in-main-at-390px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    tests/e2e/design.spec.ts:41:9 › [CMP-002] /connectors at most one filled primary action in main at 1280px 
+    tests/e2e/design.spec.ts:41:9 › [CMP-002] /connectors at most one filled primary action in main at 390px 
+  6 passed (41.3s)
+EXIT=1

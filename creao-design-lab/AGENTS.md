@@ -13,7 +13,7 @@ This directory is an isolated Next.js experiment, not CREAO production. Explain 
 
 - Choose an existing pattern before writing a new screen. Feature controls must use the approved local components under `src/components/ui/`; this folder is a local adapter, not a recovered private library.
 - Use registered CSS tokens. `src/styles/tokens.css` owns palette literals, `components.css` owns primitive appearance, and `layouts.css` owns page geometry. Do not invent inline palettes or copy control styles into feature pages.
-- Apply DS-001, DS-002, LAY-001, A11Y-001, STATE-001, NAV-001, RESP-001, GOV-001, A11Y-002 and VISUAL-001 within the registry scopes. Destination names must come from the shared copy module; empty-state actions must perform the advertised transition.
+- Apply DS-001, DS-002, LAY-001, A11Y-001, STATE-001, NAV-001, RESP-001, GOV-001, A11Y-002, VISUAL-001, CMP-001 and CMP-002 within the registry scopes. Destination names must come from the shared copy module; empty-state actions must perform the advertised transition.
 - Preserve accessible names when visible labels collapse. Test long names, empty results and compact layout. A visual title is not a substitute for a semantic heading.
 - Use synthetic data. Clearly label simulated connection/agent actions. Do not send chat messages, call OAuth, trigger real jobs, upload files or modify the user's CREAO data as part of this experiment.
 

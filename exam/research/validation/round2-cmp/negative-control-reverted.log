@@ -1,0 +1,16 @@
+$ PW_CHANNEL=chrome npx playwright test tests/e2e/design.spec.ts -g 'CMP-002'   # after revert, default webServer npm run dev
+2026-10-11T21:43:24Z
+
+Running 8 tests using 1 worker
+
+  ✓  1 tests/e2e/design.spec.ts:41:9 › [CMP-002] /files at most one filled primary action in main at 1280px (665ms)
+  ✓  2 tests/e2e/design.spec.ts:41:9 › [CMP-002] /connectors at most one filled primary action in main at 1280px (539ms)
+  ✓  3 tests/e2e/design.spec.ts:41:9 › [CMP-002] /agents at most one filled primary action in main at 1280px (502ms)
+  ✓  4 tests/e2e/design.spec.ts:41:9 › [CMP-002] /guidelines at most one filled primary action in main at 1280px (662ms)
+  ✓  5 tests/e2e/design.spec.ts:41:9 › [CMP-002] /files at most one filled primary action in main at 390px (410ms)
+  ✓  6 tests/e2e/design.spec.ts:41:9 › [CMP-002] /connectors at most one filled primary action in main at 390px (400ms)
+  ✓  7 tests/e2e/design.spec.ts:41:9 › [CMP-002] /agents at most one filled primary action in main at 390px (451ms)
+  ✓  8 tests/e2e/design.spec.ts:41:9 › [CMP-002] /guidelines at most one filled primary action in main at 390px (543ms)
+
+  8 passed (17.1s)
+EXIT=0

@@ -1,112 +1,112 @@
 # Human exceptions and scoped bypass
 
-版本：2026-10-11。本文定义人工特例的目标契约；主线程负责 CI、审批适配器和测试集成。未经实际运行证据，不得把本契约标成已启用的远端放行能力。现有 `exceptions.json` 的 DS-001/DS-002 精确文件豁免仍是旧接口，不要把下述扩展字段直接写入其旧 schema。
+Version: 2026-10-11. This document defines the target contract for human exceptions; the main thread is responsible for CI, the approval adapter, and test integration. Without actual run evidence, this contract must not be labeled as an enabled remote release capability. The existing DS-001/DS-002 exact-file waivers in `exceptions.json` remain the legacy interface; do not write the extended fields below directly into its legacy schema.
 
-## 原则与适用情况
+## Principles and applicability
 
-系统默认给出合规修复建议，但允许负责人因重要功能、限时试验、规则误报或真实产品取舍，明确接受已知设计偏离。工程师不必反复说服 agent；有效批准一旦存在，coordinator 应执行范围内的放行，不再次索要同一批准。
+By default the system offers a compliant fix recommendation, but allows an owner to explicitly accept a known design deviation for an important feature, a time-boxed experiment, a rule false positive, or a genuine product trade-off. Engineers do not need to repeatedly persuade the agent; once a valid approval exists, the coordinator should carry out the in-scope release and not ask again for the same approval.
 
-人工 bypass 是受限的发布接受决定，不删除失败、不关闭整套 QA、不修改截图基线、不把被豁免的检查改写成通过。最终状态为 `accepted_with_exceptions`，与 `passed` 分开。规则本身不因此成为可选项，也不自动扩展为所有后续提交的许可。
+A human bypass is a bounded release-acceptance decision: it does not delete failures, turn off the whole QA suite, modify screenshot baselines, or rewrite waived checks as passing. The final status is `accepted_with_exceptions`, distinct from `passed`. The rule itself does not become optional, nor does the approval automatically extend to all later commits.
 
-允许范围：布局、组件/token 用法、文案/恢复流程、可访问性规则的明确实例，以及经人工审阅的视觉差异。浏览器/axe/视觉发现不应永远排除在特例流程外。每项需要说明用户影响和替代验证；严重影响核心操作或可访问性的例外走紧急审批等级。
+Allowed scope: explicit instances of layout, component/token usage, copy/recovery flow, and accessibility rules, plus human-reviewed visual differences. Browser/axe/visual findings should not be permanently excluded from the exception process. Each item must state user impact and substitute verification; exceptions that seriously affect core operations or accessibility go through the emergency approval tier.
 
-不能用设计特例抹去：审批来源无效、范围或目标不匹配、记录被改写、过期/撤销、构建不可执行、报告缺失、浏览器未启动、目标状态未执行、未知额外失败。它们应报告 `rejected`、`blocked` 或 `not_verified`，而非设计规则通过。若发布负责人仍决定在未验证条件下发布，那是另行明确记录的发布决策，不能冒称本设计门禁完成或由 engineer/agent 自行推定授权。
+Design exceptions cannot erase: invalid approval source, mismatched scope or target, rewritten records, expiry/revocation, non-executable build, missing report, browser failed to start, target state not executed, unknown additional failures. These should be reported as `rejected`, `blocked`, or `not_verified`, not as design rules passing. If the release owner still decides to ship under unverified conditions, that is a separately and explicitly recorded release decision; it cannot be passed off as this design gate completing, nor can an engineer/agent presume that authorization.
 
-## 谁申请、谁批准
+## Who requests, who approves
 
-| 角色 | 权限 |
+| Role | Authority |
 | --- | --- |
-| Engineer / coding agent | 运行检查、准备申请、给出修复建议及取舍；不能自填批准身份完成授权 |
-| Coordinator | 汇总证据、生成可复制的批准措辞、校验批准、执行范围内重验并报告；不能代替人接受风险 |
-| Product Design owner / 正式委派设计负责人 | 批准页面模式、视觉、组件/token 偏离的产品合理性 |
-| Frontend owner / 正式委派技术负责人 | 核实影响范围、替代验证、回退和修复计划；标准特例需要设计与技术两项职责签核，已登记兼任者可以承担两项 |
-| CTO / 明确登记的 release owner | 可批准紧急特例，接受重大功能发布的设计残余风险；说明为什么不采用建议修复，并指定后续设计/工程复核 |
+| Engineer / coding agent | Run checks, prepare requests, give fix recommendations and trade-offs; cannot self-fill an approver identity to complete authorization |
+| Coordinator | Aggregate evidence, generate copyable approval wording, validate approvals, run in-scope re-verification, and report; cannot accept risk on a human's behalf |
+| Product Design owner / formally delegated design lead | Approve the product rationale of page pattern, visual, and component/token deviations |
+| Frontend owner / formally delegated technical lead | Verify impact scope, substitute verification, rollback, and fix plan; standard exceptions require sign-off for both the design and technical responsibilities; a registered person holding both roles may cover both |
+| CTO / explicitly registered release owner | May approve emergency exceptions and accept residual design risk for major feature releases; explains why the recommended fix is not adopted and assigns follow-up design/engineering review |
 
-标准流程不接受申请人自批准。紧急流程由配置的 release owner 作明确决定；如该负责人同时是申请人，必须记录 `selfApproval=true`、紧急理由和独立事后复核负责人，不能隐瞒身份重合或让普通工程师自动获得同等权限。
+The standard flow does not accept self-approval by the requester. In the emergency flow, the configured release owner makes an explicit decision; if that owner is also the requester, `selfApproval=true`, the emergency rationale, and an independent post-hoc review owner must be recorded; the identity overlap cannot be hidden, and ordinary engineers do not automatically gain equivalent authority.
 
-角色映射来自受保护的配置和平台身份，不由 PR 中任意字符串赋予。尚未配置真实身份时只能本地 fixture 演练，输出 `approvalMode=simulation`，不能用于远端候选或声称真实批准。
+Role mapping comes from protected configuration and platform identity, not from arbitrary strings in a PR. Before real identities are configured, only local fixture rehearsals are possible, outputting `approvalMode=simulation`; these cannot be used for remote candidates or to claim real approval.
 
-## 范围、时效与失效
+## Scope, time limits, and invalidation
 
-- **标准特例：** 默认最长 7 天；批准记录必须给出精确 UTC 时间。**紧急特例：** 最长 24 小时，注明事后复核责任人和期限。更长需求应重新评审成正式模式/规则变更，不能无限续期。
-- 绑定一个 repository、一个完整 `targetSha`、原检查 `runId` 和证据摘要、规则/测试版本、请求内容摘要。无 commit 的本地实验绑定 `sourceManifestDigest` 并标 simulation，不虚构 SHA。
-- scope 列举具体 `ruleId`、`checkId`、已观察的 finding fingerprint；静态问题附精确文件，运行时附 route/state/viewport；视觉问题附原基线与差异摘要。禁止 `*`、全仓、所有失败、无限期范围。
-- 每条发现独立匹配。仅批准 DS-001 不会豁免同一文件中的 DS-002；同路由新出现的无名称按钮不会因为该页面已有视觉特例而放行。
-- 新提交、申请正文改动、规则版本/证据变更、批准撤销或到期使原决定失效。重跑可引用原批准，仅限目标与请求相同、证据可重新校验且批准明确允许同一候选的复验；新增失败仍需处理。
-- 续期是新的批准事件，保留旧记录，不改写原 expiry；合并/候选生成以及发布前均重新验证有效期。部署后到期由巡查员提示整改，不擅自执行回滚或生产修改。
+- **Standard exception:** default maximum 7 days; the approval record must give an exact UTC time. **Emergency exception:** maximum 24 hours, naming the post-hoc review owner and deadline. Longer needs should be re-reviewed as a formal pattern/rule change and cannot be renewed indefinitely.
+- Bind to one repository, one full `targetSha`, the original check `runId` and evidence digest, the rule/test version, and the request content digest. Local experiments without a commit bind `sourceManifestDigest` and are labeled simulation; do not fabricate a SHA.
+- Scope lists specific `ruleId`, `checkId`, and observed finding fingerprints; static issues include the exact file, runtime issues include route/state/viewport; visual issues include the original baseline and diff digest. `*`, whole-repo, all-failures, and unlimited scopes are prohibited.
+- Each finding is matched independently. Approving only DS-001 does not waive DS-002 in the same file; a newly appearing unnamed button on the same route is not released because the page already has a visual exception.
+- A new commit, changes to the request text, rule version/evidence changes, approval revocation, or expiry invalidate the decision. A re-run may reference the original approval only when the target and request are the same, the evidence can be re-validated, and the approval explicitly allows re-verification of the same candidate; new failures still need handling.
+- Renewal is a new approval event; keep the old record and do not rewrite the original expiry. Validity is re-checked at merge/candidate generation and before release. Expiry after deployment is flagged by the inspector for remediation; it does not unilaterally perform rollback or production changes.
 
-## Coordinator 操作与人工措辞
+## Coordinator operations and human wording
 
-下面是**协调协议指令**，不是声称已经存在的 shell/CLI 命令。集成 owner 必须将它们映射到实际工具，并在 README 记录真实调用方式；不得执行不存在的 npm script。
+The following are **coordination protocol instructions**, not claims of existing shell/CLI commands. The integration owner must map them to actual tools and record the real invocation in the README; do not run npm scripts that do not exist.
 
-1. `REQUEST_DESIGN_EXCEPTION <request-id>`：读取本次失败，先展示建议修复、影响、替代验证、目标身份和期限；生成待批准申请。
-2. `APPROVE_DESIGN_EXCEPTION <request-id>`：只能由已验证的授权人作出，批准内容必须绑定申请摘要和范围。coordinator 收到后核对身份及完整记录，不把文本 token 当作秘密通行口令。
-3. `EVALUATE_DESIGN_EXCEPTION <request-id>`：原检查照跑/读取同一候选的完整可信结果，再合并批准记录与实际 findings；给出 `passed`、`accepted_with_exceptions`、`rejected` 或 `blocked`。
-4. `REVOKE_DESIGN_EXCEPTION <request-id>`：授权负责人撤销，下一次候选/发布判断立即重新检查；保留历史接受结果及撤销事件。
+1. `REQUEST_DESIGN_EXCEPTION <request-id>`: read this failure, first present the recommended fix, impact, substitute verification, target identity, and duration; generate a request pending approval.
+2. `APPROVE_DESIGN_EXCEPTION <request-id>`: may only be made by a verified authorized person; the approval content must bind the request digest and scope. On receipt, the coordinator verifies identity and the complete record, and does not treat the text token as a secret passphrase.
+3. `EVALUATE_DESIGN_EXCEPTION <request-id>`: run/read the complete trusted results of the original checks for the same candidate, then merge approval records with actual findings; output `passed`, `accepted_with_exceptions`, `rejected`, or `blocked`.
+4. `REVOKE_DESIGN_EXCEPTION <request-id>`: revoked by an authorized owner; the next candidate/release decision re-checks immediately; historical acceptance results and the revocation event are kept.
 
-coordinator 在需要人工判断时给出下面的具体模板，填入已观察到的真实值，不能要求人说一句泛泛“继续”：
+When human judgment is needed, the coordinator provides the following concrete template filled with real observed values; it cannot ask a person for a vague "continue":
 
-> 我以【已验证角色】批准设计特例【request-id】，申请摘要为【request digest】，仅适用于【repository + target SHA】中【rule/check + 文件或 route/state/viewport + finding fingerprint】。我已查看【run ID + evidence digest】及建议修复，因【业务理由】接受【具体用户影响】，以【已完成的替代验证】作为补偿。有效至【UTC timestamp】，由【owner】在【追踪项】处理，必要时采用【回退方案】。这不批准新增失败、其他提交、修改测试或自动更新视觉基线。coordinator 可执行该范围的特例评估，无需重复询问本项批准。
+> As [verified role], I approve design exception [request-id], request digest [request digest], applicable only to [rule/check + file or route/state/viewport + finding fingerprint] in [repository + target SHA]. I have reviewed [run ID + evidence digest] and the recommended fix, and for [business rationale] accept [specific user impact], compensated by [completed substitute verification]. Valid until [UTC timestamp]; [owner] will handle it in [tracking item], using [rollback plan] if needed. This does not approve new failures, other commits, modified tests, or automatic visual baseline updates. The coordinator may run the exception evaluation within this scope without asking again for this approval.
 
-紧急模板另加：
+Emergency template additionally:
 
-> 本次为 emergency，最长 24 小时，由【CTO/release owner】接受风险；不采用常规修复的原因是【原因】，独立事后复核人为【reviewer】，复核截止为【时间】；申请与审批是否同人为【true/false】。
+> This is an emergency, maximum 24 hours, with risk accepted by [CTO/release owner]; the reason for not adopting the regular fix is [reason]; the independent post-hoc reviewer is [reviewer], review deadline [time]; requester and approver are the same person: [true/false].
 
-工程师可以在 CI dispatch/UI 提交申请 ID、目标 SHA 和证据 run；申请本身不等于批准。CI/QA 失败输出应给出上述措辞及申请入口，并告诉协调者缺少哪个字段/批准角色，而不是只显示笼统的红灯。
+Engineers can submit the request ID, target SHA, and evidence run via CI dispatch/UI; the request itself is not an approval. CI/QA failure output should provide the wording above and the request entry point, and tell the coordinator which field/approval role is missing, rather than showing only a generic red light.
 
-## 申请与审计记录
+## Request and audit records
 
-新机制建议使用独立 `governance/release-exceptions/` 请求记录与报告收据，保持旧 `exceptions.json` 兼容；最终路径/schema 以实现 owner 经测试的版本为准。以下字段是验收契约，不是旧 schema：
+The new mechanism should use separate `governance/release-exceptions/` request records and report receipts, keeping the legacy `exceptions.json` compatible; the final path/schema follows the version tested by the implementation owner. The following fields are an acceptance contract, not the legacy schema:
 
-| 记录 | 必需内容 |
+| Record | Required content |
 | --- | --- |
-| Request | id、standard/emergency、reason、requestedBy、riskOwner、repository、targetSha 或 simulation manifest、scope、requestDigest、evidenceRunId/evidenceDigest、policyDigest、requestedExpiry |
-| Risk/verification | 用户影响、建议修复、为何暂不采用、替代验证及收据、回退方案、跟踪项；紧急情况的事后 reviewer/deadline |
-| Approval | 平台主体 ID、已验证角色、批准时间、最终 expiry、requestDigest、批准来源/事件 ID、selfApproval 标识、撤销状态；不能只存 approvedBy 昵称 |
-| Decision | 原始 checks 状态及完整 findings、逐项匹配/未匹配结果、目标/规则/环境身份、审批校验结果、decision、exception IDs、命令退出码、执行者和时间 |
+| Request | id, standard/emergency, reason, requestedBy, riskOwner, repository, targetSha or simulation manifest, scope, requestDigest, evidenceRunId/evidenceDigest, policyDigest, requestedExpiry |
+| Risk/verification | User impact, recommended fix, why it is not adopted for now, substitute verification and receipt, rollback plan, tracking item; for emergencies the post-hoc reviewer/deadline |
+| Approval | Platform principal ID, verified role, approval time, final expiry, requestDigest, approval source/event ID, selfApproval flag, revocation status; not just an approvedBy nickname |
+| Decision | Original checks status and complete findings, per-item matched/unmatched results, target/rule/environment identity, approval validation result, decision, exception IDs, command exit codes, executor, and time |
 
-原始 checker/browser 报告只读保留；聚合器生成新的 decision artifact。即使候选允许继续，报告中仍显示失败数、被接受数、未接受数及风险 owner。申请、批准、撤销、续期和修复是独立事件，不覆盖旧记录。
+Original checker/browser reports are kept read-only; the aggregator produces a new decision artifact. Even if the candidate is allowed to proceed, the report still shows the failure count, accepted count, unaccepted count, and risk owner. Requests, approvals, revocations, renewals, and fixes are independent events and do not overwrite old records.
 
-## CI/QA 接入契约
+## CI/QA integration contract
 
 ```text
-固定候选与受信任规则版本
-  → 原检查执行并无条件保存报告
-  → 全部通过：passed
-  → 有确定性设计发现：给建议修复或申请人工特例
-  → 验证平台身份/批准、SHA、scope、证据、期限、撤销
-  → 所有失败逐项被有效接受：accepted_with_exceptions
-  → 任一未匹配/新增/过期/越权：rejected
-  → 缺证据/基础设施失败/不可执行：blocked
+Fixed candidate and trusted rule version
+  → original checks run and reports are saved unconditionally
+  → all pass: passed
+  → deterministic design findings: give recommended fix or request human exception
+  → verify platform identity/approval, SHA, scope, evidence, expiry, revocation
+  → every failure validly accepted item by item: accepted_with_exceptions
+  → any unmatched/new/expired/unauthorized: rejected
+  → missing evidence/infrastructure failure/not executable: blocked
 ```
 
-CI 的最终 required decision gate 可以接受 `passed` 或经验证的 `accepted_with_exceptions`，但 artifact 与 job summary 必须明确区分。原始失败检查保留，不能靠让失败 job 从 required checks 消失实现放行；接入 owner 应协调最终 decision check 与原始 evidence jobs 的仓库保护配置，避免合法例外仍被旧的原始必需检查永久卡住。
+The final required CI decision gate may accept `passed` or a verified `accepted_with_exceptions`, but the artifact and job summary must clearly distinguish them. Original failing checks are kept; release cannot be achieved by making failing jobs disappear from required checks. The integration owner should coordinate repository protection settings for the final decision check and the original evidence jobs, so that legitimate exceptions are not permanently blocked by the old original required checks.
 
-收集失败 exit code 以便继续生成证据是允许的，但最终聚合器必须校验每个必需检查确实执行且报告完整。禁止全局 `SKIP_DESIGN`、把整 job 的 `continue-on-error` 当合规、删除断言、自动更新快照或把 infraError 转为 passed。
+Collecting failing exit codes in order to continue generating evidence is allowed, but the final aggregator must verify that every required check actually ran and its report is complete. Prohibited: a global `SKIP_DESIGN`, treating whole-job `continue-on-error` as compliance, deleting assertions, auto-updating snapshots, or converting infraError to passed.
 
-审批可由受保护 GitHub environment/经验证平台审批事件提供；须证明真实审批主体满足所需角色与独立性。仅声明 environment 名称并不证明配置了 reviewers；某些环境只需名单中的一人批准，也不自动满足两个职责的签核。仓库套餐、分支、权限、re-run actor 与真实批准事件均由适配器核验。外部审批未配置时拒绝真实放行，提供 simulation 演练结果而非伪造安全边界。
+Approval may come from a protected GitHub environment/verified platform approval event; it must be proven that the real approving principal meets the required role and independence. Merely declaring an environment name does not prove reviewers are configured; some environments require only one person from the list to approve, which does not automatically satisfy sign-off for two responsibilities. Repository plan, branch, permissions, re-run actor, and real approval events are all verified by the adapter. When external approval is not configured, reject real releases and provide simulation rehearsal results rather than a fake security boundary.
 
-远端 job 的可信工作流版本和批准映射不能由待批准 PR 任意更换；候选代码执行环境不带审批写权限或生产密钥。此契约不请求现在更改远端权限、关闭安全保护或自动发布。
+The trusted workflow version and approval mapping for remote jobs cannot be arbitrarily replaced by the PR awaiting approval; the candidate code execution environment has no approval write permission or production secrets. This contract does not request changing remote permissions, disabling security protections, or auto-releasing now.
 
-## Swarm 验收矩阵
+## Swarm acceptance matrix
 
-以下均须保留测试输入、原报告、批准 fixture/可信事件及决策，不把只有 schema 单测当端到端已验证：
+All of the following must keep test inputs, original reports, approval fixtures/trusted events, and decisions; schema unit tests alone do not count as end-to-end verified:
 
-1. 无例外且合规：passed；无批准且有失败：rejected。
-2. 标准批准精确覆盖静态发现：accepted_with_exceptions，原 finding 仍在。
-3. 浏览器/axe 具体发现、人工审阅视觉差异分别可按范围接受，不仅支持 DS-001/DS-002。
-4. CTO/release owner 紧急批准可接受合理设计偏离；普通 engineer/agent 冒称该角色拒绝。
-5. 到期、未来批准时间、超长有效期、撤销、错误角色、自批不符合等级要求，均拒绝。
-6. SHA、repository、requestDigest、policyDigest、run/evidence 摘要不匹配，均拒绝。
-7. 通配范围、同路径不同规则、同路由不同状态/视口/指纹的新失败，不得继承批准。
-8. 一项已批准、一项未批准的混合结果仍拒绝；多个独立有效批准精确覆盖全部可接受项时才放行。
-9. 缺报告、构建失败、浏览器未启动、测试被跳过、报告重复或候选变更，不能通过特例伪装已验证。
-10. 批准前后原始失败报告摘要不变；续期/撤销保留历史；expiry 到界点时行为明确。
-11. 同一候选有效批准再次评估无需重复人工输入；新提交必须重新授权。
-12. 真实角色适配器未配置时 fail closed；simulation 输出不能满足远端候选条件。
-13. 在原本会失败的实际隔离实现上完成“未批准阻断 → 批准后接受 → 过期/新失败再阻断”的集成演练；证明代码未改、检查未删，只有经验证的接受决定变化。
+1. No exceptions and compliant: passed; no approval and failures: rejected.
+2. Standard approval exactly covering a static finding: accepted_with_exceptions, original finding still present.
+3. Specific browser/axe findings and human-reviewed visual differences can each be accepted by scope, not only DS-001/DS-002.
+4. CTO/release owner emergency approval can accept a reasonable design deviation; an ordinary engineer/agent impersonating that role is rejected.
+5. Expired, future approval time, overlong validity, revoked, wrong role, and self-approval not meeting the tier requirement are all rejected.
+6. Mismatched SHA, repository, requestDigest, policyDigest, or run/evidence digest are all rejected.
+7. Wildcard scope, different rule on the same path, and new failures on the same route with different state/viewport/fingerprint do not inherit approval.
+8. A mixed result with one approved and one unapproved item is still rejected; release only when multiple independent valid approvals exactly cover all acceptable items.
+9. Missing report, build failure, browser failed to start, tests skipped, duplicate reports, or candidate changes cannot be disguised as verified via an exception.
+10. Original failure report digest unchanged before and after approval; renewal/revocation keep history; behavior at the expiry boundary is well defined.
+11. Re-evaluating the same candidate with a valid approval needs no repeated human input; a new commit requires re-authorization.
+12. Fail closed when the real role adapter is not configured; simulation output cannot satisfy remote candidate conditions.
+13. Complete an integration rehearsal on a real isolated implementation that would otherwise fail: "blocked without approval → accepted after approval → blocked again on expiry/new failure"; prove code unchanged and checks not deleted, with only the verified acceptance decision changing.
 
-## 官方参考
+## Official references
 
-- [GitHub environments 与审批](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments)：所需 reviewers、防自批以及套餐边界需实际核实。
-- [Workflow re-run 身份](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs)：重跑使用最初触发者的权限，不应只看触发重跑的人。
+- [GitHub environments and approvals](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments): required reviewers, self-review prevention, and plan boundaries need actual verification.
+- [Workflow re-run identity](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs): re-runs use the permissions of the original triggering actor; do not look only at who triggered the re-run.

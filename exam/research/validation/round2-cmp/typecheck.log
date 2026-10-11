@@ -1,0 +1,7 @@
+$ npm run typecheck (rerun after CMP-001 locator fix)
+2026-10-11T21:41:57Z
+
+> creao-design-lab@0.1.0 typecheck
+> tsc --noEmit
+
+EXIT=0

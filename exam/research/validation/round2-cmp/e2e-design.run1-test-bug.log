@@ -1,0 +1,128 @@
+$ PW_CHANNEL=chrome PW_SERVER_COMMAND='npm run start -- --hostname 127.0.0.1 --port 3100' npx playwright test tests/e2e/design.spec.ts
+2026-10-11T21:40:36Z
+
+Running 38 tests using 1 worker
+
+  ✓   1 tests/e2e/design.spec.ts:18:9 › [LAY-001] /files one visible page heading at 1280px (625ms)
+  ✓   2 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /files visible controls retain accessible names at 1280px (373ms)
+  ✓   3 tests/e2e/design.spec.ts:41:9 › [CMP-002] /files at most one filled primary action in main at 1280px (272ms)
+  ✓   4 tests/e2e/design.spec.ts:51:9 › [CMP-001] /files tabs are single-select with exactly one selected tab at 1280px (358ms)
+  ✓   5 tests/e2e/design.spec.ts:18:9 › [LAY-001] /connectors one visible page heading at 1280px (338ms)
+  ✓   6 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /connectors visible controls retain accessible names at 1280px (364ms)
+  ✓   7 tests/e2e/design.spec.ts:41:9 › [CMP-002] /connectors at most one filled primary action in main at 1280px (358ms)
+  ✘   8 tests/e2e/design.spec.ts:51:9 › [CMP-001] /connectors tabs are single-select with exactly one selected tab at 1280px (5.6s)
+  ✓   9 tests/e2e/design.spec.ts:18:9 › [LAY-001] /agents one visible page heading at 1280px (562ms)
+  ✓  10 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /agents visible controls retain accessible names at 1280px (739ms)
+  ✓  11 tests/e2e/design.spec.ts:41:9 › [CMP-002] /agents at most one filled primary action in main at 1280px (378ms)
+  ✓  12 tests/e2e/design.spec.ts:51:9 › [CMP-001] /agents tabs are single-select with exactly one selected tab at 1280px (294ms)
+  ✓  13 tests/e2e/design.spec.ts:18:9 › [LAY-001] /guidelines one visible page heading at 1280px (514ms)
+  ✓  14 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /guidelines visible controls retain accessible names at 1280px (569ms)
+  ✓  15 tests/e2e/design.spec.ts:41:9 › [CMP-002] /guidelines at most one filled primary action in main at 1280px (393ms)
+  ✓  16 tests/e2e/design.spec.ts:51:9 › [CMP-001] /guidelines tabs are single-select with exactly one selected tab at 1280px (409ms)
+  ✓  17 tests/e2e/design.spec.ts:18:9 › [LAY-001] /files one visible page heading at 390px (323ms)
+  ✓  18 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /files visible controls retain accessible names at 390px (314ms)
+  ✓  19 tests/e2e/design.spec.ts:41:9 › [CMP-002] /files at most one filled primary action in main at 390px (264ms)
+  ✓  20 tests/e2e/design.spec.ts:51:9 › [CMP-001] /files tabs are single-select with exactly one selected tab at 390px (277ms)
+  ✓  21 tests/e2e/design.spec.ts:18:9 › [LAY-001] /connectors one visible page heading at 390px (326ms)
+  ✓  22 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /connectors visible controls retain accessible names at 390px (317ms)
+  ✓  23 tests/e2e/design.spec.ts:41:9 › [CMP-002] /connectors at most one filled primary action in main at 390px (442ms)
+  ✘  24 tests/e2e/design.spec.ts:51:9 › [CMP-001] /connectors tabs are single-select with exactly one selected tab at 390px (5.4s)
+  ✓  25 tests/e2e/design.spec.ts:18:9 › [LAY-001] /agents one visible page heading at 390px (529ms)
+  ✓  26 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /agents visible controls retain accessible names at 390px (323ms)
+  ✓  27 tests/e2e/design.spec.ts:41:9 › [CMP-002] /agents at most one filled primary action in main at 390px (308ms)
+  ✓  28 tests/e2e/design.spec.ts:51:9 › [CMP-001] /agents tabs are single-select with exactly one selected tab at 390px (317ms)
+  ✓  29 tests/e2e/design.spec.ts:18:9 › [LAY-001] /guidelines one visible page heading at 390px (350ms)
+  ✓  30 tests/e2e/design.spec.ts:29:9 › [A11Y-001] /guidelines visible controls retain accessible names at 390px (832ms)
+  ✓  31 tests/e2e/design.spec.ts:41:9 › [CMP-002] /guidelines at most one filled primary action in main at 390px (493ms)
+  ✓  32 tests/e2e/design.spec.ts:51:9 › [CMP-001] /guidelines tabs are single-select with exactly one selected tab at 390px (445ms)
+  ✓  33 tests/e2e/design.spec.ts:74:5 › [STATE-001] connector empty state action reaches available services (380ms)
+  ✓  34 tests/e2e/design.spec.ts:85:5 › [NAV-001] empty-state destination copy matches actual available tab (969ms)
+  ✓  35 tests/e2e/design.spec.ts:99:5 › [STATE-001] file search no-results action restores actual entries (407ms)
+  ✓  36 tests/e2e/design.spec.ts:109:5 › [RESP-001] file list preserves field labels and fits 390px viewport (915ms)
+  ✓  37 tests/e2e/design.spec.ts:152:7 › [RESP-001] file list has no horizontal overflow at 320px (467ms)
+  ✓  38 tests/e2e/design.spec.ts:152:7 › [RESP-001] file list has no horizontal overflow at 800px (427ms)
+
+
+  1) tests/e2e/design.spec.ts:51:9 › [CMP-001] /connectors tabs are single-select with exactly one selected tab at 1280px 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByRole('main').locator('[role="tablist"]').locator('[role="tab"][aria-selected="false"]').first()
+    Expected: "true"
+    Received: "false"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" getByRole('main').locator('[role="tablist"]').locator('[role="tab"][aria-selected="false"]').first() with timeout 5000ms
+      - waiting for getByRole('main').locator('[role="tablist"]').locator('[role="tab"][aria-selected="false"]').first()
+        14 × locator resolved to <button role="tab" id="tab-all" type="button" tabindex="-1" aria-selected="false" class="button button-ghost " aria-controls="connector-results">全部</button>
+           - unexpected value "false"
+
+
+      66 |       const unselected = tablists.locator('[role="tab"][aria-selected="false"]').first();
+      67 |       await unselected.click();
+    > 68 |       await expect(unselected).toHaveAttribute('aria-selected', 'true');
+         |                                ^
+      69 |       await expect(tablists.locator('[role="tab"][aria-selected="true"]')).toHaveCount(1);
+      70 |     });
+      71 |   }
+        at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts:68:32
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/round2-cmp/design--CMP-001-connectors-97b82--one-selected-tab-at-1280px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/round2-cmp/design--CMP-001-connectors-97b82--one-selected-tab-at-1280px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/round2-cmp/design--CMP-001-connectors-97b82--one-selected-tab-at-1280px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/round2-cmp/design--CMP-001-connectors-97b82--one-selected-tab-at-1280px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests/e2e/design.spec.ts:51:9 › [CMP-001] /connectors tabs are single-select with exactly one selected tab at 390px 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByRole('main').locator('[role="tablist"]').locator('[role="tab"][aria-selected="false"]').first()
+    Expected: "true"
+    Received: "false"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" getByRole('main').locator('[role="tablist"]').locator('[role="tab"][aria-selected="false"]').first() with timeout 5000ms
+      - waiting for getByRole('main').locator('[role="tablist"]').locator('[role="tab"][aria-selected="false"]').first()
+        14 × locator resolved to <button role="tab" id="tab-all" type="button" tabindex="-1" aria-selected="false" class="button button-ghost " aria-controls="connector-results">全部</button>
+           - unexpected value "false"
+
+
+      66 |       const unselected = tablists.locator('[role="tab"][aria-selected="false"]').first();
+      67 |       await unselected.click();
+    > 68 |       await expect(unselected).toHaveAttribute('aria-selected', 'true');
+         |                                ^
+      69 |       await expect(tablists.locator('[role="tab"][aria-selected="true"]')).toHaveCount(1);
+      70 |     });
+      71 |   }
+        at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts:68:32
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/round2-cmp/design--CMP-001-connectors-a3496-y-one-selected-tab-at-390px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/round2-cmp/design--CMP-001-connectors-a3496-y-one-selected-tab-at-390px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/round2-cmp/design--CMP-001-connectors-a3496-y-one-selected-tab-at-390px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/round2-cmp/design--CMP-001-connectors-a3496-y-one-selected-tab-at-390px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    tests/e2e/design.spec.ts:51:9 › [CMP-001] /connectors tabs are single-select with exactly one selected tab at 1280px 
+    tests/e2e/design.spec.ts:51:9 › [CMP-001] /connectors tabs are single-select with exactly one selected tab at 390px 
+  36 passed (1.0m)
+EXIT=1

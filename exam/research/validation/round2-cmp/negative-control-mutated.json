@@ -1,0 +1,634 @@
+{
+  "config": {
+    "argv": [
+      "/Users/yuanlu/.local/node-v24.21.0/bin/node",
+      "/Users/yuanlu/code/1011/creao-design-lab/node_modules/.bin/playwright",
+      "test",
+      "tests/e2e/design.spec.ts",
+      "-g",
+      "CMP-002"
+    ],
+    "configFile": "/Users/yuanlu/code/1011/creao-design-lab/playwright.config.ts",
+    "rootDir": "/Users/yuanlu/code/1011/creao-design-lab/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/yuanlu/code/1011/creao-design-lab/test-results/round2-cmp-neg",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/yuanlu/code/1011/creao-design-lab/tests/e2e",
+        "testIgnore": [
+          "**/visual.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/yuanlu/code/1011/creao-design-lab/test-results/round2-cmp-neg",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/Users/yuanlu/code/1011/creao-design-lab/tests/e2e",
+        "snapshotDir": "/Users/yuanlu/code/1011/creao-design-lab/tests/e2e",
+        "testIgnore": [
+          "**/visual.spec.ts"
+        ],
+        "testMatch": "**/*.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "channel": "chrome",
+          "baseURL": "http://127.0.0.1:3100",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/yuanlu/code/1011/exam/research/validation/round2-cmp/negative-control-mutated.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "none",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run dev -- --hostname 127.0.0.1 --port 3100",
+      "url": "http://127.0.0.1:3100",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "cwd": "/Users/yuanlu/code/1011/creao-design-lab"
+    }
+  },
+  "suites": [
+    {
+      "title": "design.spec.ts",
+      "file": "design.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CMP-002] /files at most one filled primary action in main at 1280px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browser-version",
+                  "description": "154.0.8037.98"
+                },
+                {
+                  "type": "browser-channel",
+                  "description": "chrome"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 656,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T21:42:39.810Z",
+                  "annotations": [
+                    {
+                      "type": "browser-version",
+                      "description": "154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-channel",
+                      "description": "chrome"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a97bb9db443074d9bdd1-e2001a006272287a8da3",
+          "file": "design.spec.ts",
+          "line": 41,
+          "column": 9
+        },
+        {
+          "title": "[CMP-002] /connectors at most one filled primary action in main at 1280px",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browser-version",
+                  "description": "154.0.8037.98"
+                },
+                {
+                  "type": "browser-channel",
+                  "description": "chrome"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 651,
+                  "error": {
+                    "message": "Error: More than one filled primary Button in the main region\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m1\u001b[39m\nReceived:    \u001b[31m2\u001b[39m",
+                    "stack": "Error: More than one filled primary Button in the main region\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m1\u001b[39m\nReceived:    \u001b[31m2\u001b[39m\n    at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts:48:83",
+                    "location": {
+                      "file": "/Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts",
+                      "column": 83,
+                      "line": 48
+                    },
+                    "snippet": "  46 |       // Primary variant is expressed by the Button primitive as class `button-primary`; count every instance in main, visible or not.\n  47 |       const primaries = await main.locator('.button-primary').count();\n> 48 |       expect(primaries, 'More than one filled primary Button in the main region').toBeLessThanOrEqual(1);\n     |                                                                                   ^\n  49 |     });\n  50 |\n  51 |     test(`[CMP-001] ${route.path} tabs are single-select with exactly one selected tab at ${width}px`, async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts",
+                        "column": 83,
+                        "line": 48
+                      },
+                      "message": "Error: More than one filled primary Button in the main region\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m1\u001b[39m\nReceived:    \u001b[31m2\u001b[39m\n\n  46 |       // Primary variant is expressed by the Button primitive as class `button-primary`; count every instance in main, visible or not.\n  47 |       const primaries = await main.locator('.button-primary').count();\n> 48 |       expect(primaries, 'More than one filled primary Button in the main region').toBeLessThanOrEqual(1);\n     |                                                                                   ^\n  49 |     });\n  50 |\n  51 |     test(`[CMP-001] ${route.path} tabs are single-select with exactly one selected tab at ${width}px`, async ({ page }) => {\n    at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts:48:83"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T21:42:41.032Z",
+                  "annotations": [
+                    {
+                      "type": "browser-version",
+                      "description": "154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-channel",
+                      "description": "chrome"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/test-results/round2-cmp-neg/design--CMP-002-connectors-8cd4f-ry-action-in-main-at-1280px/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/test-results/round2-cmp-neg/design--CMP-002-connectors-8cd4f-ry-action-in-main-at-1280px/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/test-results/round2-cmp-neg/design--CMP-002-connectors-8cd4f-ry-action-in-main-at-1280px/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts",
+                    "column": 83,
+                    "line": 48
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a97bb9db443074d9bdd1-76849e7ed4faae95771c",
+          "file": "design.spec.ts",
+          "line": 41,
+          "column": 9
+        },
+        {
+          "title": "[CMP-002] /agents at most one filled primary action in main at 1280px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browser-version",
+                  "description": "154.0.8037.98"
+                },
+                {
+                  "type": "browser-channel",
+                  "description": "chrome"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 803,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T21:42:52.484Z",
+                  "annotations": [
+                    {
+                      "type": "browser-version",
+                      "description": "154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-channel",
+                      "description": "chrome"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a97bb9db443074d9bdd1-298e0c5f07ed09786d48",
+          "file": "design.spec.ts",
+          "line": 41,
+          "column": 9
+        },
+        {
+          "title": "[CMP-002] /guidelines at most one filled primary action in main at 1280px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browser-version",
+                  "description": "154.0.8037.98"
+                },
+                {
+                  "type": "browser-channel",
+                  "description": "chrome"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 938,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T21:42:53.757Z",
+                  "annotations": [
+                    {
+                      "type": "browser-version",
+                      "description": "154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-channel",
+                      "description": "chrome"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a97bb9db443074d9bdd1-e0e4dad1cb24c0f015b6",
+          "file": "design.spec.ts",
+          "line": 41,
+          "column": 9
+        },
+        {
+          "title": "[CMP-002] /files at most one filled primary action in main at 390px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browser-version",
+                  "description": "154.0.8037.98"
+                },
+                {
+                  "type": "browser-channel",
+                  "description": "chrome"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 503,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T21:42:54.701Z",
+                  "annotations": [
+                    {
+                      "type": "browser-version",
+                      "description": "154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-channel",
+                      "description": "chrome"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a97bb9db443074d9bdd1-e7b440397000e7ab724e",
+          "file": "design.spec.ts",
+          "line": 41,
+          "column": 9
+        },
+        {
+          "title": "[CMP-002] /connectors at most one filled primary action in main at 390px",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browser-version",
+                  "description": "154.0.8037.98"
+                },
+                {
+                  "type": "browser-channel",
+                  "description": "chrome"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 433,
+                  "error": {
+                    "message": "Error: More than one filled primary Button in the main region\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m1\u001b[39m\nReceived:    \u001b[31m2\u001b[39m",
+                    "stack": "Error: More than one filled primary Button in the main region\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m1\u001b[39m\nReceived:    \u001b[31m2\u001b[39m\n    at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts:48:83",
+                    "location": {
+                      "file": "/Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts",
+                      "column": 83,
+                      "line": 48
+                    },
+                    "snippet": "  46 |       // Primary variant is expressed by the Button primitive as class `button-primary`; count every instance in main, visible or not.\n  47 |       const primaries = await main.locator('.button-primary').count();\n> 48 |       expect(primaries, 'More than one filled primary Button in the main region').toBeLessThanOrEqual(1);\n     |                                                                                   ^\n  49 |     });\n  50 |\n  51 |     test(`[CMP-001] ${route.path} tabs are single-select with exactly one selected tab at ${width}px`, async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts",
+                        "column": 83,
+                        "line": 48
+                      },
+                      "message": "Error: More than one filled primary Button in the main region\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m1\u001b[39m\nReceived:    \u001b[31m2\u001b[39m\n\n  46 |       // Primary variant is expressed by the Button primitive as class `button-primary`; count every instance in main, visible or not.\n  47 |       const primaries = await main.locator('.button-primary').count();\n> 48 |       expect(primaries, 'More than one filled primary Button in the main region').toBeLessThanOrEqual(1);\n     |                                                                                   ^\n  49 |     });\n  50 |\n  51 |     test(`[CMP-001] ${route.path} tabs are single-select with exactly one selected tab at ${width}px`, async ({ page }) => {\n    at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts:48:83"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T21:42:55.222Z",
+                  "annotations": [
+                    {
+                      "type": "browser-version",
+                      "description": "154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-channel",
+                      "description": "chrome"
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/test-results/round2-cmp-neg/design--CMP-002-connectors-14fab-ary-action-in-main-at-390px/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/test-results/round2-cmp-neg/design--CMP-002-connectors-14fab-ary-action-in-main-at-390px/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/yuanlu/code/1011/creao-design-lab/test-results/round2-cmp-neg/design--CMP-002-connectors-14fab-ary-action-in-main-at-390px/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts",
+                    "column": 83,
+                    "line": 48
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a97bb9db443074d9bdd1-407f5e3e38f39518a64e",
+          "file": "design.spec.ts",
+          "line": 41,
+          "column": 9
+        },
+        {
+          "title": "[CMP-002] /agents at most one filled primary action in main at 390px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browser-version",
+                  "description": "154.0.8037.98"
+                },
+                {
+                  "type": "browser-channel",
+                  "description": "chrome"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 868,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T21:43:06.615Z",
+                  "annotations": [
+                    {
+                      "type": "browser-version",
+                      "description": "154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-channel",
+                      "description": "chrome"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a97bb9db443074d9bdd1-8233644d99c2f732bca0",
+          "file": "design.spec.ts",
+          "line": 41,
+          "column": 9
+        },
+        {
+          "title": "[CMP-002] /guidelines at most one filled primary action in main at 390px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "browser-version",
+                  "description": "154.0.8037.98"
+                },
+                {
+                  "type": "browser-channel",
+                  "description": "chrome"
+                }
+              ],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 775,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T21:43:07.950Z",
+                  "annotations": [
+                    {
+                      "type": "browser-version",
+                      "description": "154.0.8037.98"
+                    },
+                    {
+                      "type": "browser-channel",
+                      "description": "chrome"
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a97bb9db443074d9bdd1-1afeb0e828531475383e",
+          "file": "design.spec.ts",
+          "line": 41,
+          "column": 9
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-11T21:42:37.854Z",
+    "duration": 41267.292,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

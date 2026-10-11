@@ -100,6 +100,26 @@
       "check": "tests/e2e/visual.spec.ts",
       "scope": "Three full-page screenshots: Files initial list at 1280x900 and 390x900; Connectors connected empty at 1280x900. maxDiffPixels=0, threshold=0.2.",
       "limitations": "Baseline namespace includes OS, architecture, release, and browser version. Missing/mismatched baselines fail closed. Linux requires its own reviewed baseline; never skip or auto-accept. Legitimate UI changes can fail and require screenshot review. Does not detect all usability problems or cover unrepresented states."
+    },
+    {
+      "id": "CMP-001",
+      "title": "Tabs are single-select view switches",
+      "severity": "error",
+      "layer": "browser",
+      "source": "Component consistency proposal in exam/design-system-guideline.md (Tabs vs FilterChips)",
+      "check": "tests/e2e/design.spec.ts",
+      "scope": "Main landmark of files, connectors, agents, guidelines at 1280px and 390px initial state; connectors must render exactly one tablist",
+      "limitations": "Asserts role=tablist count (connectors exactly one, others at most one), aria-selected on every tab, exactly one selected tab before and after one tab click. Does not check FilterChips grouping, search/tabs/chips/count DOM order, visual style parity, or routes/states outside the explicit fixtures."
+    },
+    {
+      "id": "CMP-002",
+      "title": "At most one filled primary action per main region",
+      "severity": "error",
+      "layer": "browser",
+      "source": "Component consistency proposal in exam/design-system-guideline.md (action hierarchy)",
+      "check": "tests/e2e/design.spec.ts",
+      "scope": "Main landmark of files, connectors, agents, guidelines at 1280px and 390px initial state",
+      "limitations": "Primary is detected by the Button primitive's button-primary class; a styled lookalike or a primary outside main is not counted. Main landmark only, not sub-regions or dialogs outside main. Initial route state only: the files create-folder form and agents detail state each render one primary but are not exercised. Secondary/tertiary hierarchy and IconButton variant consistency remain review items."
     }
   ]
 }

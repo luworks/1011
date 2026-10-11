@@ -42,6 +42,6 @@ A worked audit applying your guideline to the provided screens: the specific vio
 | --- | --- | --- |
 | CREAO live product | [agent.creao.ai](https://agent.creao.ai) | CREAO’s live product for creating and managing AI agents and automations through chat. Explore the current screens, layouts, and component usage to inform your design guidelines and compliance audit. |
 
-## 整理备注（非原题内容）
+## Editor's note (not part of the original brief)
 
-原题提到了“provided screens”和“upcoming feature brief”，但本次提供的文本中未附带独立的屏幕截图或功能简报；已提供的参考资源为上述产品链接。
+The original brief mentions "provided screens" and an "upcoming feature brief", but the text provided for this task did not include separate screenshots or a feature brief; the reference resources provided are the product links above.

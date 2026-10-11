@@ -37,6 +37,39 @@ for (const width of [1280, 390]) {
         if (await control.isVisible()) await expect(control).toHaveAccessibleName(/\S/);
       }
     });
+
+    test(`[CMP-002] ${route.path} at most one filled primary action in main at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto(route.path);
+      const main = page.getByRole('main');
+      await expect(main.getByRole('heading', { level: 1 })).toBeVisible();
+      // Primary variant is expressed by the Button primitive as class `button-primary`; count every instance in main, visible or not.
+      const primaries = await main.locator('.button-primary').count();
+      expect(primaries, 'More than one filled primary Button in the main region').toBeLessThanOrEqual(1);
+    });
+
+    test(`[CMP-001] ${route.path} tabs are single-select with exactly one selected tab at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto(route.path);
+      const main = page.getByRole('main');
+      await expect(main.getByRole('heading', { level: 1 })).toBeVisible();
+      const tablists = main.locator('[role="tablist"]');
+      const expected = route.path === '/connectors' ? 1 : await tablists.count();
+      expect(expected, 'A collection screen may render at most one tablist').toBeLessThanOrEqual(1);
+      await expect(tablists).toHaveCount(expected);
+      if (expected === 0) return;
+      const tabs = tablists.locator('[role="tab"]');
+      expect(await tabs.count()).toBeGreaterThan(1);
+      for (const tab of await tabs.all()) await expect(tab).toHaveAttribute('aria-selected', /^(true|false)$/);
+      await expect(tablists.locator('[role="tab"][aria-selected="true"]')).toHaveCount(1);
+      // Selecting a different tab must move, not add, the selection.
+      // Pin the target by index: an attribute-filtered locator would re-resolve to another tab after the click.
+      const states = await tabs.evaluateAll(elements => elements.map(element => element.getAttribute('aria-selected')));
+      const unselected = tabs.nth(states.indexOf('false'));
+      await unselected.click();
+      await expect(unselected).toHaveAttribute('aria-selected', 'true');
+      await expect(tablists.locator('[role="tab"][aria-selected="true"]')).toHaveCount(1);
+    });
   }
 }
 

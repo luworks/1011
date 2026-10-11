@@ -1,0 +1,14 @@
+$ npm run check:design
+2026-10-11T21:40:24Z
+
+> creao-design-lab@0.1.0 check:design
+> node scripts/check-design.mjs
+
+{
+  "version": 1,
+  "root": "/Users/yuanlu/code/1011/creao-design-lab",
+  "passed": true,
+  "violations": [],
+  "exceptions": []
+}
+EXIT=0
