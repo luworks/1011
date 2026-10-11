@@ -38,7 +38,7 @@ for (const width of [1280, 390]) {
       expect(lang, `document lang on ${route}`).toMatch(/^en/i);
       // Collect visible text nodes in main; text inside an element marked data-source-lang is an accepted fallback.
       const offenders = await main.evaluate(root => {
-        const cjk = /[㐀-鿿]/;
+        const cjk = /[\u3400-\u9fff]/;
         const found: string[] = [];
         const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
         for (let node = walker.nextNode(); node; node = walker.nextNode()) {
