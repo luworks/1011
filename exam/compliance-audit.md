@@ -6,6 +6,33 @@ Audit date: 11 October 2026 (PDT). Standard: [design-system-guideline.md](design
 
 **Evidence status:** the source-product observations below are complete. Local receipts are summarized separately below; the runtime-mutation run is explicitly partial at the user-requested closeout, while the visual negative control is archived. No claim is made that these checks already run inside CREAO's production repository, that the live defects were fixed, or that CREAO's unpublished internal rules were violated.
 
+## Companion package
+
+This document is also read standalone. The full repository ships as `creao-design-submission.zip`; all paths in this section are relative to the ZIP root. Relative links elsewhere in this document resolve inside the ZIP (from `exam/`).
+
+| Path (ZIP root) | Purpose |
+| --- | --- |
+| `SUBMISSION-README.md` | Package overview and reading order |
+| `creao-design-lab/AGENTS.md` | Workflow coding agents load before changing UI |
+| `creao-design-lab/design.md` | Executable index: rule IDs mapped to tokens, components and checks |
+| `creao-design-lab/governance/rules.json` | Machine-readable rule registry (scopes, gates, limits) |
+| `creao-design-lab/scripts/check-design.mjs` | Static gate: CSS token and JSX primitive checks, registry validation |
+| `creao-design-lab/scripts/mutation-runner.mjs` | Negative/positive mutation runner on isolated copies |
+| `creao-design-lab/tests/e2e/design.spec.ts` | Browser gate: LAY, A11Y-001, STATE, NAV, RESP, CMP checks |
+| `creao-design-lab/tests/e2e/accessibility.spec.ts` | Axe scans across route/state/viewport fixtures (A11Y-002) |
+| `creao-design-lab/tests/e2e/visual.spec.ts` | Reviewed visual baselines (VISUAL-001) |
+| `.github/workflows/creao-design.yml` | CI workflow running the same gate on the candidate commit |
+| `exam/agents/design-drift-auditor.md` | Agent definition for auditing screens against these rules |
+| `exam/research/` | Live-product captures, DOM/AX records and validation evidence |
+| `exam/validation/validation-results.md` | Receipts, denominators and per-phase results |
+
+```sh
+unzip creao-design-submission.zip
+cd creao-design-lab
+npm ci
+npm run check:design && npm run build && npx playwright install chromium && npm run test:e2e
+```
+
 ## Method and boundaries
 
 The user confirmed that the linked live product is the complete supplied resource set. This audit therefore uses captured live screens, their accessibility/DOM evidence and public Widgets documentation. Deep captures were taken on 11 October 2026, 13:51–13:54 PDT; see the [capture manifest](research/deep/capture-manifest.json). Earlier desktop captures are retained under `research/screenshots/`. The inspected narrow source screen is 390 × 844; the local automated fixture uses 390 × 900, with desktop checks at 1280 × 900.

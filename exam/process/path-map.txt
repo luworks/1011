@@ -1,0 +1,17 @@
+# Old -> new paths, relative to exam/ (restructure 2026-10-11).
+# Links in design-system-guideline.md, compliance-audit.md and creao-design-lab/ still need updating by their owner.
+approach.md -> process/approach.md
+implementation-plan.md -> process/implementation-plan.md
+delivery-packaging-plan.md -> process/delivery-packaging-plan.md
+handoff.md -> process/handoff.md
+validation-results.md -> validation/validation-results.md
+engineer-experiment-review.md -> validation/engineer-experiment-review.md
+staging/accessibility-integration.md -> process/staging-notes/accessibility-integration.md
+staging/visual-strategy.zh-CN.md -> process/staging-notes/visual-strategy.md (translated to English; Chinese original removed)
+staging/accessibility.spec.ts -> (removed; byte-identical to ../creao-design-lab/tests/e2e/accessibility.spec.ts)
+staging/e2e-production-chrome.json -> (removed; byte-identical to ../creao-design-lab/reports/e2e-production-chrome.json)
+staging/page-states.json -> staging/page-states.json (untracked older draft, kept; superseded by ../creao-design-lab/governance/page-states.json)
+staging/page-states.test.mjs -> staging/page-states.test.mjs (untracked older draft, kept; superseded by ../creao-design-lab/tests/design/page-states.test.mjs)
+staging/visual.spec.ts -> staging/visual.spec.ts (untracked older draft, kept; superseded by ../creao-design-lab/tests/e2e/visual.spec.ts)
+# Unchanged: README.md, task.md, design-system-guideline.md, compliance-audit.md, research-findings.md, agents/, research/, tools/, delivery/ (gitignored).
+# Known external links to fix: design-system-guideline.md (validation-results.md), compliance-audit.md (validation-results.md, engineer-experiment-review.md), creao-design-lab/README.md.

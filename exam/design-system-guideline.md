@@ -16,6 +16,33 @@ Keep CREAO's existing token/component system. Add a product-level composition co
 - **Delivery:** [AGENTS.md](../creao-design-lab/AGENTS.md) loads the workflow for coding agents, [design.md](../creao-design-lab/design.md) indexes the implementation, and [rules.json](../creao-design-lab/governance/rules.json) is the executable mirror of the rule tables.
 - **Scope:** the local Next.js lab proves the rules are enforceable. It does not replace CREAO's private component library or change production.
 
+## Companion package
+
+This document is also read standalone. The full repository ships as `creao-design-submission.zip`; all paths in this section are relative to the ZIP root. Relative links elsewhere in this document resolve inside the ZIP (from `exam/`).
+
+| Path (ZIP root) | Purpose |
+| --- | --- |
+| `SUBMISSION-README.md` | Package overview and reading order |
+| `creao-design-lab/AGENTS.md` | Workflow coding agents load before changing UI |
+| `creao-design-lab/design.md` | Executable index: rule IDs mapped to tokens, components and checks |
+| `creao-design-lab/governance/rules.json` | Machine-readable rule registry (scopes, gates, limits) |
+| `creao-design-lab/scripts/check-design.mjs` | Static gate: CSS token and JSX primitive checks, registry validation |
+| `creao-design-lab/scripts/mutation-runner.mjs` | Negative/positive mutation runner on isolated copies |
+| `creao-design-lab/tests/e2e/design.spec.ts` | Browser gate: LAY, A11Y-001, STATE, NAV, RESP, CMP checks |
+| `creao-design-lab/tests/e2e/accessibility.spec.ts` | Axe scans across route/state/viewport fixtures (A11Y-002) |
+| `creao-design-lab/tests/e2e/visual.spec.ts` | Reviewed visual baselines (VISUAL-001) |
+| `.github/workflows/creao-design.yml` | CI workflow running the same gate on the candidate commit |
+| `exam/agents/design-drift-auditor.md` | Agent definition for auditing screens against these rules |
+| `exam/research/` | Live-product captures, DOM/AX records and validation evidence |
+| `exam/validation/validation-results.md` | Receipts, denominators and per-phase results |
+
+```sh
+unzip creao-design-submission.zip
+cd creao-design-lab
+npm ci
+npm run check:design && npm run build && npx playwright install chromium && npm run test:e2e
+```
+
 ## Evidence and scope
 
 CREAO publicly documents a Dashboard Widgets system with Stack, Grid, Card, Tabs, data display and chart components, on a warm canvas with cream surfaces, near-black text, restrained semantic color and structured widget trees ([official Widgets documentation](https://docs.creao.ai/features/widgets); [saved source](research/public-design-search/widgets.official.md)). The live `/widgets` gallery and CSS inspection corroborate those colors and components. The product also includes chat, agents, file collections/preview, connectors/setup, skills and a video workspace ([research findings](research-findings.md)).
