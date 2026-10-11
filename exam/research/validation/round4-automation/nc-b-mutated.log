@@ -1,0 +1,86 @@
+
+Running 2 tests using 1 worker
+
+  ✘  1 tests/e2e/consistency.spec.ts:31:7 › [CONTENT-001] collection copy matches document locale at 1280px (800ms)
+  ✘  2 tests/e2e/consistency.spec.ts:31:7 › [CONTENT-001] collection copy matches document locale at 390px (682ms)
+
+
+  1) tests/e2e/consistency.spec.ts:31:7 › [CONTENT-001] collection copy matches document locale at 1280px 
+
+    Error: CJK copy in main on /connectors without data-source-lang
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "在团队频道中分享进度并组织讨论。",
+    +   "在团队频道中分享进度并组织讨论。",
+    + ]
+
+      53 |         return found;
+      54 |       });
+    > 55 |       expect(offenders, `CJK copy in main on ${route} without data-source-lang`).toEqual([]);
+         |                                                                                  ^
+      56 |     }
+      57 |   });
+      58 | }
+        at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/consistency.spec.ts:55:82
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/e2e/consistency--CONTENT-001-c-842d0-s-document-locale-at-1280px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/e2e/consistency--CONTENT-001-c-842d0-s-document-locale-at-1280px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/e2e/consistency--CONTENT-001-c-842d0-s-document-locale-at-1280px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/e2e/consistency--CONTENT-001-c-842d0-s-document-locale-at-1280px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests/e2e/consistency.spec.ts:31:7 › [CONTENT-001] collection copy matches document locale at 390px 
+
+    Error: CJK copy in main on /connectors without data-source-lang
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "在团队频道中分享进度并组织讨论。",
+    +   "在团队频道中分享进度并组织讨论。",
+    + ]
+
+      53 |         return found;
+      54 |       });
+    > 55 |       expect(offenders, `CJK copy in main on ${route} without data-source-lang`).toEqual([]);
+         |                                                                                  ^
+      56 |     }
+      57 |   });
+      58 | }
+        at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/consistency.spec.ts:55:82
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/e2e/consistency--CONTENT-001-c-1d9e1-es-document-locale-at-390px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/e2e/consistency--CONTENT-001-c-1d9e1-es-document-locale-at-390px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/e2e/consistency--CONTENT-001-c-1d9e1-es-document-locale-at-390px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/e2e/consistency--CONTENT-001-c-1d9e1-es-document-locale-at-390px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    tests/e2e/consistency.spec.ts:31:7 › [CONTENT-001] collection copy matches document locale at 1280px 
+    tests/e2e/consistency.spec.ts:31:7 › [CONTENT-001] collection copy matches document locale at 390px 

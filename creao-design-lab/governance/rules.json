@@ -120,6 +120,26 @@
       "check": "tests/e2e/design.spec.ts",
       "scope": "Main landmark of files, connectors, agents, guidelines at 1280px and 390px initial state",
       "limitations": "Primary is detected by the Button primitive's button-primary class; a styled lookalike or a primary outside main is not counted. Main landmark only, not sub-regions or dialogs outside main. Initial route state only: the files create-folder form and agents detail state each render one primary but are not exercised. Secondary/tertiary hierarchy and IconButton variant consistency remain review items."
+    },
+    {
+      "id": "LAY-002",
+      "title": "Page header anatomy is consistent across routes",
+      "severity": "error",
+      "layer": "browser",
+      "source": "Consistency review round 4 (page header anatomy)",
+      "check": "tests/e2e/consistency.spec.ts",
+      "scope": "Main h1 of files, connectors, agents, guidelines at 1280px and 390px initial state",
+      "limitations": "Compares computed font-family, font-size and font-weight of the main h1 only. Does not check spacing, subtitle/description, header actions, color, line-height, or states other than the initial route render."
+    },
+    {
+      "id": "CONTENT-001",
+      "title": "Collection copy matches document locale",
+      "severity": "error",
+      "layer": "browser",
+      "source": "Consistency review round 4 (content locale)",
+      "check": "tests/e2e/consistency.spec.ts",
+      "scope": "Main landmark of connectors and files at 1280px and 390px initial state",
+      "limitations": "Asserts document lang starts with en and no visible CJK (U+3400-U+9FFF) text in main unless inside an element with data-source-lang. Does not detect other non-English scripts, Latin-script non-English copy, text outside main, attributes (aria-label, title, placeholder), or other routes/states."
     }
   ]
 }

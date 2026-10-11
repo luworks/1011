@@ -1,0 +1,11 @@
+
+Running 6 tests using 1 worker
+
+  ✓  1 tests/e2e/consistency.spec.ts:12:7 › [LAY-002] page header anatomy is consistent across routes at 1280px (1.7s)
+  ✓  2 tests/e2e/consistency.spec.ts:31:7 › [CONTENT-001] collection copy matches document locale at 1280px (724ms)
+  ✓  3 tests/e2e/consistency.spec.ts:12:7 › [LAY-002] page header anatomy is consistent across routes at 390px (881ms)
+  ✓  4 tests/e2e/consistency.spec.ts:31:7 › [CONTENT-001] collection copy matches document locale at 390px (512ms)
+  ✓  5 tests/e2e/design.spec.ts:51:9 › [CMP-001] /connectors tabs are single-select with exactly one selected tab at 1280px (445ms)
+  ✓  6 tests/e2e/design.spec.ts:51:9 › [CMP-001] /connectors tabs are single-select with exactly one selected tab at 390px (494ms)
+
+  6 passed (19.3s)

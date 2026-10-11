@@ -9,13 +9,13 @@ function fixture(t) {
   const root=fs.mkdtempSync(path.join(os.tmpdir(),'creao-check-'));
   t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
   const put=(file,text)=>{fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.writeFileSync(path.join(root,file),text);};
-  const linked=['src/styles/tokens.css','src/styles/components.css','src/styles/layouts.css','governance/rules.json','governance/exceptions.json','scripts/check-design.mjs','tests/e2e/design.spec.ts','tests/e2e/accessibility.spec.ts','tests/e2e/visual.spec.ts','governance/page-states.json','tests/design/page-states.test.mjs'];
+  const linked=['src/styles/tokens.css','src/styles/components.css','src/styles/layouts.css','governance/rules.json','governance/exceptions.json','scripts/check-design.mjs','tests/e2e/design.spec.ts','tests/e2e/consistency.spec.ts','tests/e2e/accessibility.spec.ts','tests/e2e/visual.spec.ts','governance/page-states.json','tests/design/page-states.test.mjs'];
   for(const file of linked)put(file,'');
   put('governance/rules.json',fs.readFileSync(path.join(project,'governance/rules.json'),'utf8'));
   put('governance/exceptions.json','{"exceptions":[]}');
   put('src/styles/tokens.css',':root { --text: #111; --surface: #fff; }');
   put('src/styles/components.css','.card { color: var(--text); background: var(--surface); }');
-  put('design.md','DS-001 DS-002 LAY-001 A11Y-001 STATE-001 NAV-001 RESP-001 GOV-001 A11Y-002 VISUAL-001 CMP-001 CMP-002\n'+linked.map(file=>`[${file}](${file})`).join('\n'));
+  put('design.md','DS-001 DS-002 LAY-001 A11Y-001 STATE-001 NAV-001 RESP-001 GOV-001 A11Y-002 VISUAL-001 CMP-001 CMP-002 LAY-002 CONTENT-001\n'+linked.map(file=>`[${file}](${file})`).join('\n'));
   return {root,put};
 }
 test('compliant AST baseline ignores comments and source strings',t=>{
@@ -42,7 +42,7 @@ test('GOV detects stale exception, missing IDs, broken links',t=>{
   put('governance/exceptions.json',JSON.stringify({exceptions:[{id:'x',ruleId:'DS-001',path:'src/styles/layouts.css',reason:'temporary migration',owner:'design',approvedBy:'review receipt',expires:'2000-01-01'}]}));
   fs.appendFileSync(path.join(root,'design.md'),'\n[broken](missing.css)');
   const errors=checkDesign(root).violations;
-  assert(errors.some(e=>e.message.includes('Expired')));assert(errors.some(e=>e.message.includes('Broken')));assert.equal(errors.filter(e=>e.message.includes('Missing required rule')).length,12);
+  assert(errors.some(e=>e.message.includes('Expired')));assert(errors.some(e=>e.message.includes('Broken')));assert.equal(errors.filter(e=>e.message.includes('Missing required rule')).length,14);
 });
 test('exceptions are exact-file, valid dates and visible in output',t=>{
   const {root,put}=fixture(t);

@@ -1,0 +1,88 @@
+
+Running 2 tests using 1 worker
+
+  ✘  1 tests/e2e/consistency.spec.ts:12:7 › [LAY-002] page header anatomy is consistent across routes at 1280px (1.2s)
+  ✘  2 tests/e2e/consistency.spec.ts:12:7 › [LAY-002] page header anatomy is consistent across routes at 390px (1.5s)
+
+
+  1) tests/e2e/consistency.spec.ts:12:7 › [LAY-002] page header anatomy is consistent across routes at 1280px 
+
+    Error: h1 typography on /agents differs from /files
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "fontFamily": "\"Instrument Sans Variable\", \"Inter Variable\", \"Inter Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+    -   "fontSize": "25px",
+    +   "fontSize": "40px",
+        "fontWeight": "650",
+      }
+
+      25 |     const reference = styles[headerRoutes[0]];
+      26 |     for (const route of headerRoutes) {
+    > 27 |       expect(styles[route], `h1 typography on ${route} differs from ${headerRoutes[0]}`).toEqual(reference);
+         |                                                                                          ^
+      28 |     }
+      29 |   });
+      30 |
+        at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/consistency.spec.ts:27:90
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/e2e/consistency--LAY-002-page--af29a-ent-across-routes-at-1280px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/e2e/consistency--LAY-002-page--af29a-ent-across-routes-at-1280px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/e2e/consistency--LAY-002-page--af29a-ent-across-routes-at-1280px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/e2e/consistency--LAY-002-page--af29a-ent-across-routes-at-1280px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests/e2e/consistency.spec.ts:12:7 › [LAY-002] page header anatomy is consistent across routes at 390px 
+
+    Error: h1 typography on /agents differs from /files
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "fontFamily": "\"Instrument Sans Variable\", \"Inter Variable\", \"Inter Fallback\", -apple-system, \"system-ui\", \"Segoe UI\", Roboto, sans-serif",
+    -   "fontSize": "24px",
+    +   "fontSize": "40px",
+        "fontWeight": "650",
+      }
+
+      25 |     const reference = styles[headerRoutes[0]];
+      26 |     for (const route of headerRoutes) {
+    > 27 |       expect(styles[route], `h1 typography on ${route} differs from ${headerRoutes[0]}`).toEqual(reference);
+         |                                                                                          ^
+      28 |     }
+      29 |   });
+      30 |
+        at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/consistency.spec.ts:27:90
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/e2e/consistency--LAY-002-page--b8895-tent-across-routes-at-390px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/e2e/consistency--LAY-002-page--b8895-tent-across-routes-at-390px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/e2e/consistency--LAY-002-page--b8895-tent-across-routes-at-390px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/e2e/consistency--LAY-002-page--b8895-tent-across-routes-at-390px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    tests/e2e/consistency.spec.ts:12:7 › [LAY-002] page header anatomy is consistent across routes at 1280px 
+    tests/e2e/consistency.spec.ts:12:7 › [LAY-002] page header anatomy is consistent across routes at 390px 

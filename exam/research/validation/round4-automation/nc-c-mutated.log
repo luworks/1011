@@ -1,0 +1,88 @@
+
+Running 2 tests using 1 worker
+
+  ✘  1 tests/e2e/design.spec.ts:51:9 › [CMP-001] /connectors tabs are single-select with exactly one selected tab at 1280px (5.8s)
+  ✘  2 tests/e2e/design.spec.ts:51:9 › [CMP-001] /connectors tabs are single-select with exactly one selected tab at 390px (6.1s)
+
+
+  1) tests/e2e/design.spec.ts:51:9 › [CMP-001] /connectors tabs are single-select with exactly one selected tab at 1280px 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('main').locator('[role="tablist"]').locator('[role="tab"][aria-selected="true"]')
+    Expected: 1
+    Received: 2
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByRole('main').locator('[role="tablist"]').locator('[role="tab"][aria-selected="true"]') with timeout 5000ms
+      - waiting for getByRole('main').locator('[role="tablist"]').locator('[role="tab"][aria-selected="true"]')
+        14 × locator resolved to 2 elements
+           - unexpected value "2"
+
+
+      62 |       expect(await tabs.count()).toBeGreaterThan(1);
+      63 |       for (const tab of await tabs.all()) await expect(tab).toHaveAttribute('aria-selected', /^(true|false)$/);
+    > 64 |       await expect(tablists.locator('[role="tab"][aria-selected="true"]')).toHaveCount(1);
+         |                                                                            ^
+      65 |       // Selecting a different tab must move, not add, the selection.
+      66 |       // Pin the target by index: an attribute-filtered locator would re-resolve to another tab after the click.
+      67 |       const states = await tabs.evaluateAll(elements => elements.map(element => element.getAttribute('aria-selected')));
+        at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts:64:76
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/e2e/design--CMP-001-connectors-97b82--one-selected-tab-at-1280px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/e2e/design--CMP-001-connectors-97b82--one-selected-tab-at-1280px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/e2e/design--CMP-001-connectors-97b82--one-selected-tab-at-1280px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/e2e/design--CMP-001-connectors-97b82--one-selected-tab-at-1280px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests/e2e/design.spec.ts:51:9 › [CMP-001] /connectors tabs are single-select with exactly one selected tab at 390px 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('main').locator('[role="tablist"]').locator('[role="tab"][aria-selected="true"]')
+    Expected: 1
+    Received: 2
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByRole('main').locator('[role="tablist"]').locator('[role="tab"][aria-selected="true"]') with timeout 5000ms
+      - waiting for getByRole('main').locator('[role="tablist"]').locator('[role="tab"][aria-selected="true"]')
+        12 × locator resolved to 2 elements
+           - unexpected value "2"
+
+
+      62 |       expect(await tabs.count()).toBeGreaterThan(1);
+      63 |       for (const tab of await tabs.all()) await expect(tab).toHaveAttribute('aria-selected', /^(true|false)$/);
+    > 64 |       await expect(tablists.locator('[role="tab"][aria-selected="true"]')).toHaveCount(1);
+         |                                                                            ^
+      65 |       // Selecting a different tab must move, not add, the selection.
+      66 |       // Pin the target by index: an attribute-filtered locator would re-resolve to another tab after the click.
+      67 |       const states = await tabs.evaluateAll(elements => elements.map(element => element.getAttribute('aria-selected')));
+        at /Users/yuanlu/code/1011/creao-design-lab/tests/e2e/design.spec.ts:64:76
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/e2e/design--CMP-001-connectors-a3496-y-one-selected-tab-at-390px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/e2e/design--CMP-001-connectors-a3496-y-one-selected-tab-at-390px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/e2e/design--CMP-001-connectors-a3496-y-one-selected-tab-at-390px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/e2e/design--CMP-001-connectors-a3496-y-one-selected-tab-at-390px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    tests/e2e/design.spec.ts:51:9 › [CMP-001] /connectors tabs are single-select with exactly one selected tab at 1280px 
+    tests/e2e/design.spec.ts:51:9 › [CMP-001] /connectors tabs are single-select with exactly one selected tab at 390px 

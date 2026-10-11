@@ -57,7 +57,7 @@ creao-design-lab/               enforcement implementation (Next.js lab with syn
     lib/copy.ts                 single source for navigation/destination labels (NAV-001)
   tests/
     design/                     checker unit tests
-    e2e/design.spec.ts          browser rules: LAY, A11Y-001, STATE, NAV, RESP, CMP
+    e2e/design.spec.ts          browser rules: LAY-001, A11Y-001, STATE, NAV, RESP, CMP
     e2e/accessibility.spec.ts   axe scans across route/state/viewport fixtures (A11Y-002)
     e2e/visual.spec.ts          reviewed visual baselines (VISUAL-001)
     mutations/cases.mjs         negative and positive mutation candidates

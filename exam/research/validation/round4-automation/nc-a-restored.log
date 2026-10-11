@@ -1,0 +1,7 @@
+
+Running 2 tests using 1 worker
+
+  ✓  1 tests/e2e/consistency.spec.ts:12:7 › [LAY-002] page header anatomy is consistent across routes at 1280px (1.4s)
+  ✓  2 tests/e2e/consistency.spec.ts:12:7 › [LAY-002] page header anatomy is consistent across routes at 390px (2.9s)
+
+  2 passed (17.0s)
