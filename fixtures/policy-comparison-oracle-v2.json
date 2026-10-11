@@ -1,0 +1,523 @@
+{
+  "schema_version": 2,
+  "status": "reviewed_evidence_boundary_overlay_not_business_approval",
+  "source_suite_sha256": "91c2ffe84858c02082ba35ace754fd643f0e01a242ff80ce682f4c4df3e88637",
+  "reason": "Same exclusions for both versions; no unique business answer for listed open fields. Tax yes/no is prohibited as unsupported; partial/unsupported or human routing labels are not a tax rule.",
+  "scope_limit": "Existing 40 scenarios; no standalone-outage late-invoice, partial-line, plan-change or combined-ticket-failure case. OD-01/02/06/07 coverage is not established.",
+  "cases": {
+    "original_amount": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11",
+        "E07",
+        "E03"
+      ],
+      "unresolved": [
+        "OD-09"
+      ],
+      "omit": {
+        "taxes": [
+          "answer_status",
+          "action_status",
+          "policy"
+        ]
+      },
+      "boundary_intents": [
+        "taxes"
+      ]
+    },
+    "tax_gap": {
+      "change_ids": [
+        "E07"
+      ],
+      "unresolved": [
+        "OD-09"
+      ],
+      "omit": {
+        "taxes": [
+          "answer_status",
+          "action_status",
+          "policy"
+        ]
+      },
+      "boundary_intents": [
+        "taxes"
+      ]
+    },
+    "deadline": {
+      "change_ids": [
+        "E03"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "four_hours": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11",
+        "E04"
+      ],
+      "unresolved": [
+        "OD-03"
+      ],
+      "omit": {},
+      "boundary_intents": [
+        "outage_credit"
+      ]
+    },
+    "over_four_hours": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11",
+        "E06"
+      ],
+      "unresolved": [
+        "OD-05"
+      ],
+      "omit": {
+        "outage_credit": [
+          "amount",
+          "action_status",
+          "answer_status"
+        ]
+      },
+      "boundary_intents": [
+        "outage_credit"
+      ]
+    },
+    "thirty_day_request": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11",
+        "E06"
+      ],
+      "unresolved": [
+        "OD-08"
+      ],
+      "omit": {
+        "outage_credit": [
+          "policy",
+          "amount",
+          "action_status",
+          "answer_status"
+        ]
+      },
+      "boundary_intents": [
+        "outage_credit"
+      ]
+    },
+    "late_request": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11",
+        "E04"
+      ],
+      "unresolved": [
+        "OD-03"
+      ],
+      "omit": {},
+      "boundary_intents": [
+        "outage_credit"
+      ]
+    },
+    "exact_three_hundred": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "above_three_hundred": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "thirty_day_outage": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "long_outage": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "ticket_absent": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11",
+        "E04"
+      ],
+      "unresolved": [
+        "OD-03"
+      ],
+      "omit": {},
+      "boundary_intents": [
+        "outage_credit"
+      ]
+    },
+    "ticket_unverifiable": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "ticket_unknown": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11",
+        "E05"
+      ],
+      "unresolved": [
+        "OD-04"
+      ],
+      "omit": {
+        "outage_credit": [
+          "action_status"
+        ]
+      },
+      "boundary_intents": [
+        "outage_credit"
+      ]
+    },
+    "wrong_address": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11",
+        "E05"
+      ],
+      "unresolved": [
+        "OD-04"
+      ],
+      "omit": {
+        "outage_credit": [
+          "policy",
+          "amount",
+          "action_status",
+          "answer_status"
+        ]
+      },
+      "boundary_intents": [
+        "outage_credit"
+      ]
+    },
+    "repeat_ninety": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11",
+        "E06"
+      ],
+      "unresolved": [
+        "OD-08"
+      ],
+      "omit": {
+        "outage_credit": [
+          "action_status"
+        ]
+      },
+      "boundary_intents": [
+        "outage_credit"
+      ]
+    },
+    "past_ninety": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "fraud": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "unchecked_history": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "goodwill_at_cap": {
+      "change_ids": [
+        "E10"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "goodwill_above_cap": {
+      "change_ids": [
+        "E10"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "sixty_day_dispute": {
+      "change_ids": [
+        "E03",
+        "E06"
+      ],
+      "unresolved": [
+        "OD-08"
+      ],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "late_dispute": {
+      "change_ids": [
+        "E03"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "bill_basics": {
+      "change_ids": [],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "alternate_amount": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "three_lines": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "under_four": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11",
+        "E04"
+      ],
+      "unresolved": [
+        "OD-03"
+      ],
+      "omit": {},
+      "boundary_intents": [
+        "outage_credit"
+      ]
+    },
+    "whole_days": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11",
+        "E06"
+      ],
+      "unresolved": [
+        "OD-05"
+      ],
+      "omit": {
+        "outage_credit": [
+          "amount",
+          "action_status",
+          "answer_status"
+        ]
+      },
+      "boundary_intents": [
+        "outage_credit"
+      ]
+    },
+    "rounding": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11",
+        "E06"
+      ],
+      "unresolved": [
+        "OD-05"
+      ],
+      "omit": {
+        "outage_credit": [
+          "amount",
+          "action_status",
+          "answer_status"
+        ]
+      },
+      "boundary_intents": [
+        "outage_credit"
+      ]
+    },
+    "repeat_small": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "fraud_small": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "unknown_fraud": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "tax_pressure": {
+      "change_ids": [
+        "E07"
+      ],
+      "unresolved": [
+        "OD-09"
+      ],
+      "omit": {
+        "taxes": [
+          "answer_status",
+          "action_status",
+          "policy"
+        ]
+      },
+      "boundary_intents": [
+        "taxes"
+      ]
+    },
+    "tax_negative": {
+      "change_ids": [
+        "E07"
+      ],
+      "unresolved": [
+        "OD-09"
+      ],
+      "omit": {
+        "taxes": [
+          "answer_status",
+          "action_status",
+          "policy"
+        ]
+      },
+      "boundary_intents": [
+        "taxes"
+      ]
+    },
+    "wrong_cap_induction": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "missing_monthly": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "missing_end": {
+      "change_ids": [
+        "E02",
+        "E09",
+        "E11"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "missing_goodwill_history": {
+      "change_ids": [
+        "E10"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "unconfirmed_error": {
+      "change_ids": [
+        "E10"
+      ],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    },
+    "unrelated_question": {
+      "change_ids": [],
+      "unresolved": [],
+      "omit": {},
+      "boundary_intents": []
+    }
+  },
+  "parent_overlay_sha256": "5fcd6f4595f1d3226516c4794f173815eaa6e5e85ad9b7d5f32b1acda91e37e7",
+  "revision_reason": "OD-09 is an evidence gap, not a uniquely required article. Optimized Rule 3 and KB-1003 also explicitly state the gap. Remove the unique KB-1004 citation assertion from both final and turn golds for both source versions; preserve citation fidelity and explicit raw/final boundary diagnostics. This is a common offline scoring audit, not model tuning or a new tax policy."
+}

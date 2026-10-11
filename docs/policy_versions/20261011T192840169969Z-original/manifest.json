@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "version_id": "20261011T192840169969Z-original",
+  "created_at_utc": "2026-10-11T19:28:40.169969+00:00",
+  "status": "original",
+  "parent_version_id": null,
+  "parent_manifest_sha256": null,
+  "corpus_version": "dbb59ca9a429ab22142b76f32c0704dc3477c5e7ff0a33289efc12d700a05a5f",
+  "files": {
+    "config/corpus-lock.json": "a163fcc3b2c55a8cb30aad145e64a490de1fc8344fe22438f28306f2f41e178a",
+    "exam/Nimbus Wireless — Billing Dispute & Refund Policy.md": "2e95cd29f6bf231ddac4f19e72e02b448c28ff7393ae2648b78994df5a09e48d",
+    "exam/NimbusCare Knowledge Base — Billing & Credits Excerpt.md": "5d05d5d5ab4a77c9a5352ba89e8855731c568f3723eb1d1264c1d03fb460eafd"
+  }
+}

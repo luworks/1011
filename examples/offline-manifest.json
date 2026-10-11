@@ -1,0 +1,15 @@
+{
+  "schema_version": 2,
+  "started_at": "2026-10-11T19:28:07.038442+00:00",
+  "code_sha256": "9c46b028c23946ba8667e5dd518390c68a86156c020fb7e6f171a4f0d6dcf12f",
+  "corpus_version": "dbb59ca9a429ab22142b76f32c0704dc3477c5e7ff0a33289efc12d700a05a5f",
+  "prompt_version": "workflow-v3",
+  "model_matrix_sha256": "a29fa45b2d7ca8e0ddc325011f39094865dca27dedf0f2b120381d4d79fd7c11",
+  "created_at": "2026-10-11T19:28:07.044370+00:00",
+  "mode": "offline_fixture",
+  "models": [],
+  "calls": [],
+  "budget_limit_usd": 5.0,
+  "ledger_total_usd": 3.831567,
+  "cost_note": "Client estimates; unknown failed attempts retain reservations, not a provider invoice."
+}

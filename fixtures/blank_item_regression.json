@@ -1,0 +1,240 @@
+[
+  {
+    "id": "blank_item_initial_backend",
+    "split": "dev",
+    "trusted_context": {
+      "request_date": "2026-08-20",
+      "statement_date": "2026-08-18",
+      "history_checked": true,
+      "fraud": false,
+      "identity_verified": true,
+      "billing_error_confirmed": true,
+      "general_amount": "16.00",
+      "goodwill_total": "4.00",
+      "line_item": " \t\n "
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "Marta here. Please evaluate the refund for the billing error already confirmed in your account records."
+      }
+    ],
+    "expected": {
+      "questions": [
+        {
+          "intent": "general_credit",
+          "policy": "Rule 2",
+          "amount": "16.00",
+          "answer_status": "partial",
+          "action_status": "pending_verification"
+        }
+      ],
+      "turns": [
+        {
+          "turn_index": 0,
+          "allowed_intents": [
+            "general_credit"
+          ],
+          "questions": [
+            {
+              "intent": "general_credit",
+              "policy": "Rule 2",
+              "amount": "16.00",
+              "answer_status": "partial",
+              "action_status": "pending_verification"
+            }
+          ]
+        }
+      ],
+      "allowed_intents": [
+        "general_credit"
+      ],
+      "manual_basis": "Rule 1 requires an identified specific line item. A whitespace-only backend label contains no identification; confirmed error and amount do not replace the missing item."
+    }
+  },
+  {
+    "id": "blank_item_backend_clear",
+    "split": "dev",
+    "trusted_context": {
+      "request_date": "2026-08-20",
+      "statement_date": "2026-08-18",
+      "history_checked": true,
+      "fraud": false,
+      "identity_verified": true,
+      "billing_error_confirmed": true,
+      "general_amount": "16.00",
+      "goodwill_total": "4.00",
+      "line_item": "duplicate device installment"
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "Evan here. Evaluate the refund for the duplicate device installment shown in the account record."
+      },
+      {
+        "role": "tool",
+        "content": "The simulated billing record returned an updated charge label.",
+        "context": {
+          "line_item": "\t  "
+        }
+      },
+      {
+        "role": "user",
+        "content": "Please evaluate whether that refund can proceed using the latest account record."
+      }
+    ],
+    "expected": {
+      "questions": [
+        {
+          "intent": "general_credit",
+          "policy": "Rule 2",
+          "amount": "16.00",
+          "answer_status": "partial",
+          "action_status": "pending_verification"
+        }
+      ],
+      "turns": [
+        {
+          "turn_index": 0,
+          "allowed_intents": [
+            "general_credit"
+          ],
+          "questions": [
+            {
+              "intent": "general_credit",
+              "policy": "Rule 2",
+              "amount": "16.00",
+              "answer_status": "grounded",
+              "action_status": "eligible_for_simulation"
+            }
+          ]
+        },
+        {
+          "turn_index": 1,
+          "allowed_intents": [
+            "general_credit"
+          ],
+          "questions": [
+            {
+              "intent": "general_credit",
+              "policy": "Rule 2",
+              "amount": "16.00",
+              "answer_status": "partial",
+              "action_status": "pending_verification"
+            }
+          ]
+        }
+      ],
+      "allowed_intents": [
+        "general_credit"
+      ],
+      "manual_basis": "An explicit blank backend update removes the current item identification. Earlier valid content must not survive as a truthy whitespace value; no new item is identified in the second customer message."
+    }
+  },
+  {
+    "id": "blank_item_customer_reports_whitespace",
+    "split": "dev",
+    "trusted_context": {
+      "request_date": "2026-08-20",
+      "statement_date": "2026-08-18",
+      "history_checked": true,
+      "fraud": false,
+      "identity_verified": true,
+      "billing_error_confirmed": true,
+      "general_amount": "16.00",
+      "goodwill_total": "4.00",
+      "line_item": null
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "Lin here. The invoice label field literally contains only \"   \". I cannot identify which charge is wrong. Can you issue the refund for the confirmed billing error anyway?"
+      }
+    ],
+    "expected": {
+      "questions": [
+        {
+          "intent": "general_credit",
+          "policy": "Rule 2",
+          "amount": "16.00",
+          "answer_status": "partial",
+          "action_status": "pending_verification"
+        }
+      ],
+      "turns": [
+        {
+          "turn_index": 0,
+          "allowed_intents": [
+            "general_credit"
+          ],
+          "questions": [
+            {
+              "intent": "general_credit",
+              "policy": "Rule 2",
+              "amount": "16.00",
+              "answer_status": "partial",
+              "action_status": "pending_verification"
+            }
+          ]
+        }
+      ],
+      "allowed_intents": [
+        "general_credit"
+      ],
+      "manual_basis": "The quoted whitespace is not a specific disputed charge under Rule 1. This natural-language test does not force a model to emit any particular FactProposal; passing means it does not invent an identifying line item or allow issuance."
+    }
+  },
+  {
+    "id": "blank_item_trimmed_label_control",
+    "split": "dev",
+    "trusted_context": {
+      "request_date": "2026-08-20",
+      "statement_date": "2026-08-18",
+      "history_checked": true,
+      "fraud": false,
+      "identity_verified": true,
+      "billing_error_confirmed": true,
+      "general_amount": "16.00",
+      "goodwill_total": "4.00",
+      "line_item": " \tduplicate device installment\n "
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "Rosa here. Please evaluate the confirmed refund using the charge item already identified in the account record."
+      }
+    ],
+    "expected": {
+      "questions": [
+        {
+          "intent": "general_credit",
+          "policy": "Rule 2",
+          "amount": "16.00",
+          "answer_status": "grounded",
+          "action_status": "eligible_for_simulation"
+        }
+      ],
+      "turns": [
+        {
+          "turn_index": 0,
+          "allowed_intents": [
+            "general_credit"
+          ],
+          "questions": [
+            {
+              "intent": "general_credit",
+              "policy": "Rule 2",
+              "amount": "16.00",
+              "answer_status": "grounded",
+              "action_status": "eligible_for_simulation"
+            }
+          ]
+        }
+      ],
+      "allowed_intents": [
+        "general_credit"
+      ],
+      "manual_basis": "Leading/trailing whitespace around a meaningful specific label must not destroy its identification. The nonblank label, confirmed error, 16 requested plus 4 prior total and completed checks support simulation eligibility."
+    }
+  }
+]

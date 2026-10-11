@@ -1,0 +1,61 @@
+--- a/src/policy_agent/service.py
++++ b/src/policy_agent/service.py
+@@ -24,6 +24,8 @@
+     steps = []
+     if 'line_item' in missing:
+         steps.append('Please identify the specific invoice charge you are disputing.')
++    if missing & {'statement_date', 'verified_statement_date'}:
++        steps.append('Please have authorized support verify the statement date on the disputed invoice before assessing the dispute deadline.')
+     if any(d['action_status'] == 'pending_verification' for d in decisions):
+         steps.append('The next step is to have authorized support verify the outstanding account and eligibility details before a credit decision.')
+     if 'tax_adjustment_policy' in missing:
+--- a/tests/test_service_charter_adversarial.py
++++ b/tests/test_service_charter_adversarial.py
+@@ -124,9 +124,46 @@
+     assert 'authorized support' in response
+ 
+ 
+-@pytest.mark.xfail(strict=True, reason='Known presentation gap: missing statement date only gets generic outstanding-check guidance; core owner must fix.')
+ def test_missing_statement_date_next_step_names_the_missing_record():
+     result = Workflow(Corpus(), context=account(statement_date=None)).turn('Refund please.', {
+         'intents': ['general_credit'], 'facts': [], 'search_query': 'refund'})
+     assert 'statement_date' in result['decisions'][0]['missing']
+     assert 'statement date' in result['reply'].lower()
++
++
++def test_reported_statement_date_requires_specific_verification_without_promotion():
++    context = account()
++    context.pop('statement_date')
++    flow = Workflow(Corpus(), context=context)
++    result = flow.turn('The statement date is October 1, 2026. Please refund me.', {
++        'intents': ['general_credit'], 'search_query': 'refund', 'facts': [{
++            'field': 'statement_date', 'value': '2026-10-01', 'source_index': 0,
++            'quote': 'October 1, 2026', 'correction': False,
++        }],
++    })
++    assert result['error'] is None
++    decision = result['decisions'][0]
++    assert 'verified_statement_date' in decision['missing']
++    assert decision['action_status'] == 'pending_verification'
++    assert 'statement_date' not in flow.verified_fields
++    assert 'verify the statement date on the disputed invoice' in result['reply']
++    assert 'no credit has been approved or issued' in result['reply']
++    before = deepcopy(result['decisions'])
++    compose_reply(result['decisions'])
++    assert result['decisions'] == before
++
++
++def test_statement_date_guidance_is_deduplicated_and_does_not_expose_internal_flags():
++    result = Workflow(Corpus(), context=account(statement_date=None, fraud=True)).turn(
++        'Please refund me.', {'intents': ['general_credit'], 'facts': [], 'search_query': 'refund'})
++    decision = result['decisions'][0]
++    assert decision['action_status'] == 'requires_human'
++    # Both aliases can occur in a composed result; emit one instruction only.
++    decisions = deepcopy(result['decisions'])
++    decisions[0]['missing'].append('verified_statement_date')
++    before = deepcopy(decisions)
++    response = compose_reply(decisions)
++    assert response.count('verify the statement date on the disputed invoice') == 1
++    assert 'fraud' not in response.lower()
++    assert not any(word in response.lower() for word in ['password', 'card number', 'send your pin'])
++    assert decisions == before

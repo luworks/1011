@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "source_run_dirs": [
+    "runs/final-live-replay"
+  ],
+  "replay_source": "runs/final-live-replay",
+  "scope": "Explicit selected experiment snapshots; full scored turns removed from summaries. Original replay retained only when requested. No claim that all experiments or all intended cases completed.",
+  "source_files": [
+    {
+      "path": "runs/final-live-replay/summary.json",
+      "sha256": "235faeaee361a5f640f3602dedf44101cd093a998ad64b80fd0b434ceeb96015",
+      "bytes": 62
+    },
+    {
+      "path": "runs/final-live-replay/manifest.json",
+      "sha256": "84b2cc17730a3678180f9ab05aa404957e223936e8decf4c47f7cef9434281b4",
+      "bytes": 5952
+    },
+    {
+      "path": "runs/final-live-replay/turns.jsonl",
+      "sha256": "d3d3abb9cffae4d6adea4cddbe7f5506eda6f0ab90e9c897147873e59db61089",
+      "bytes": 136147
+    },
+    {
+      "path": "runs/final-live-replay/manifest.json",
+      "sha256": "84b2cc17730a3678180f9ab05aa404957e223936e8decf4c47f7cef9434281b4",
+      "bytes": 5952
+    }
+  ],
+  "outputs": {
+    "summary.json": "c3c03a08dcd1d00d4db1b78d205cda099b97a62f702422ef719261682005ddef",
+    "comparison.md": "410be6bc52212bfbb8d10b8534b528a6507b9b6250ffb61eb91c8670f856ef90",
+    "original-conversation.jsonl": "d3d3abb9cffae4d6adea4cddbe7f5506eda6f0ab90e9c897147873e59db61089",
+    "replay-manifest.json": "84b2cc17730a3678180f9ab05aa404957e223936e8decf4c47f7cef9434281b4",
+    "offline-conversation.jsonl": "c15a9b1d69695ba53c2a33d3cec8243dd2127448a18a7d4b3c9b8c4b374a08e0",
+    "offline-manifest.json": "d242d8e452b01aadc8dd41ea1bda896f12e232c34248caeaf04e6daf8ba4f492",
+    "offline-summary.json": "b7b9fd2f918340bb405901000caaf6f14f09f5bec49c17dd6fadf4cd9fe5b897",
+    "historical-baseline-manifest.json": "d1d3d97d6b2720d028d4c8a64a388c2b12d90fafc519fa5a02c8bf8b3fded4d1",
+    "frozen_baseline.zip": "91299da10d760dab710da5567427d6dd473109dd14b0201ed76b962cab153c43",
+    "README.md": "9a8aab37729cc48dfcec96551bad7842bd1ab670dc5f833cd88d01f94cb70bf1"
+  },
+  "status": "mvp_examples_only_final_model_selection_pending",
+  "selection_eligible": false,
+  "live_replay_scope": {
+    "source": "runs/final-live-replay",
+    "mode": "live",
+    "turns": 6,
+    "code_sha256": "d0a6b3ff36fedb7a9755ed814485a03e1f448f534fe343d33096ed7740294968",
+    "current_offline_code_sha256": "9c46b028c23946ba8667e5dd518390c68a86156c020fb7e6f171a4f0d6dcf12f",
+    "same_code_version": false,
+    "note": "Historical real API replay, not a current-source benchmark or final model comparison."
+  },
+  "offline_scope": {
+    "source": "runs/mvp-offline-verified",
+    "mode": "offline_fixture",
+    "note": "Current-source fixture replay; not an LLM score."
+  },
+  "historical_baseline": {
+    "manifest": "historical-baseline-manifest.json",
+    "archive": "frozen_baseline.zip",
+    "selection_eligible": false
+  }
+}

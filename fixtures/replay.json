@@ -1,0 +1,90 @@
+{
+  "transcript_sha256": "a537319ad20f6843edee47b3497f807a694e1795747ead4e9efb5a3752ec8ad8",
+  "header_context": {
+    "monthly_charge": "225.00",
+    "request_date": "2026-10-05"
+  },
+  "events": {
+    "14:02": {
+      "understanding": {
+        "intents": [
+          "outage_credit"
+        ],
+        "facts": [],
+        "search_query": "outage_credit"
+      }
+    },
+    "14:04": {
+      "understanding": {
+        "intents": [],
+        "facts": [],
+        "search_query": ""
+      }
+    },
+    "14:05": {
+      "confirmed_context": {
+        "identity_verified": true
+      }
+    },
+    "14:06": {
+      "understanding": {
+        "intents": [
+          "outage_credit"
+        ],
+        "facts": [
+          {
+            "field": "statement_date",
+            "value": "2026-10-01",
+            "source_index": 4,
+            "quote": "invoice dated October 1st",
+            "correction": false
+          },
+          {
+            "field": "line_item",
+            "value": "recurring charge",
+            "source_index": 4,
+            "quote": "recurring charge",
+            "correction": false
+          }
+        ],
+        "search_query": "outage_credit"
+      }
+    },
+    "14:08": {
+      "confirmed_context": {
+        "ticket_status": "verified",
+        "ticket_number": "OUT-58823",
+        "address_matches": true,
+        "outage_start": "2026-09-10T06:00:00",
+        "outage_end": "2026-09-21T06:00:00"
+      }
+    },
+    "14:09": {
+      "understanding": {
+        "intents": [
+          "outage_credit"
+        ],
+        "facts": [],
+        "search_query": "outage_credit"
+      }
+    },
+    "14:11": {
+      "understanding": {
+        "intents": [
+          "taxes"
+        ],
+        "facts": [],
+        "search_query": "taxes"
+      }
+    },
+    "14:13": {
+      "understanding": {
+        "intents": [
+          "outage_deadline"
+        ],
+        "facts": [],
+        "search_query": "outage_deadline"
+      }
+    }
+  }
+}

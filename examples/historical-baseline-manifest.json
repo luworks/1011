@@ -1,0 +1,11 @@
+{
+  "status": "historical_snapshot_only",
+  "frozen_baseline": {
+    "path": "frozen_baseline.zip",
+    "sha256": "91299da10d760dab710da5567427d6dd473109dd14b0201ed76b962cab153c43",
+    "code_sha256": "dd16cd58fcebb6d56aa7ebc1b10e1ff3441de804bfaab82c79a5a069733a78de",
+    "note": "Exact runnable project snapshot used for the four frozen model runs; preserved independently of concurrent model-expansion work."
+  },
+  "selection_eligible": false,
+  "note": "This snapshot used the superseded GPT-5.4 development matrix. It is retained for reproducibility, not the GPT-6+/Claude-5.5 formal model selection."
+}
