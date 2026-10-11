@@ -1,0 +1,57 @@
+# Credentials and local environment; blank templates are versioned.
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Python environments, caches, and package build metadata.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.tox/
+.nox/
+*.egg-info/
+.eggs/
+
+# JavaScript dependencies and framework caches (including nested apps).
+node_modules/
+.pnp
+.pnp.*
+.next/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+
+# Generated output and local experiment records.
+# Curated, sanitized examples/ and fixtures/ remain versioned.
+runs/
+dist/
+build/
+out/
+coverage/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+report/.data-app-offline/
+
+# Machine-local editor files, logs, and temporary files.
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+*.swo
+*~
+*.log
+
+# Final submission archive built by scripts/package.py (kept at root for hand-off).
+/policy-grounded-agent-prototype.zip
