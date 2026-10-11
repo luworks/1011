@@ -2,13 +2,15 @@
 
 Audit date: 11 October 2026 (PDT). Standard: [design-system-guideline.md](design-system-guideline.md) and the executable [design.md](../creao-design-lab/design.md), version 0.2 (with retained v1 experiment history).
 
-**Finding:** the inspected product contains five directly evidenced issues across page identity, empty-state navigation/recovery, and compact file layouts. A sixth, lower-priority improvement applies the proposed stricter in-state recovery rule to file search. Four further screenshot-evidenced findings (AUD-07–AUD-10) cover cross-screen component consistency and the Chat home: mixed-locale connector copy, two competing selector styles on Connectors, an inconsistent action hierarchy across routes, and upsell surfaces fused to the chat composer. These four are judged against review-gated rules that do not yet have automated checks. The issues can be translated into specific pre-release checks without redesigning CREAO's token or component library.
+**Finding:** the audit records **ten findings, AUD-01 to AUD-10** (one P1, five P2, four P3). AUD-01 to AUD-05 are directly evidenced issues in page identity, empty-state navigation/recovery and compact file layouts; AUD-06 is a lower-priority application of the stricter in-state recovery rule to file search. AUD-07 to AUD-10 are screenshot-evidenced cross-screen consistency findings: mixed-locale connector copy, two competing selector styles on Connectors, an inconsistent action hierarchy across routes, and upsell surfaces fused to the chat composer. AUD-07 and AUD-10 are judged against review-gated rules; AUD-08 and AUD-09 against rules whose structural core is now automated in the lab. All ten translate into pre-release checks without redesigning CREAO's token or component library.
 
 **Evidence status:** the source-product observations below are complete. Local receipts are summarized separately below; the runtime-mutation run is explicitly partial at the user-requested closeout, while the visual negative control is archived. No claim is made that these checks already run inside CREAO's production repository, that the live defects were fixed, or that CREAO's unpublished internal rules were violated.
 
 ## Method and boundaries
 
 The user confirmed that the linked live product is the complete supplied resource set. This audit therefore uses captured live screens, their accessibility/DOM evidence and public Widgets documentation. Deep captures were taken on 11 October 2026, 13:51–13:54 PDT; see the [capture manifest](research/deep/capture-manifest.json). Earlier desktop captures are retained under `research/screenshots/`. The inspected narrow source screen is 390 × 844; the local automated fixture uses 390 × 900, with desktop checks at 1280 × 900.
+
+Live captures were taken with CREAO's zh-CN locale; UI strings are quoted by English meaning; the raw captures linked as evidence retain the original text. The local lab's UI copy is English, so lab-expected strings below are its literal labels.
 
 Three evidence lanes are kept separate:
 
@@ -23,12 +25,12 @@ Severity is a proposed triage decision, not a measured incident rate: P1 means a
 | Finding | Screen/state | Rule | Priority | Evidence | Proposed pre-ship detection |
 | --- | --- | --- | --- | --- | --- |
 | AUD-01 | Files, desktop list | LAY-001 | P2 | Visual title is a button; no headings in captured DOM | Count visible level-one headings within main and compare route identity |
-| AUD-02 | Connectors, Connected (0) | NAV-001 | P2 | Guidance says `可用`; actual target tab says `可连接` | Assert canonical destination name in guidance and selected destination after action |
+| AUD-02 | Connectors, Connected (0) | NAV-001 | P2 | Guidance names an "Available" tab; the actual tab is labelled "Connectable" | Assert canonical destination name in guidance and selected destination after action |
 | AUD-03 | Same connector empty state | STATE-001 | P2 | Empty state contains only heading/text; no in-state next action | Trigger zero connections, invoke recovery action, assert connectable services appear |
 | AUD-04 | Files, 390px | A11Y-001 | P1 | Folder button's text is hidden; icon is hidden from accessibility; no alternate name | Compute the visible control's accessible name at compact width |
 | AUD-05 | Files, 390px list | RESP-001 | P2 | Desktop-style headers remain above a differently stacked metadata layout | Hide stale headers, preserve known label/value pairs, check field geometry and review screenshot |
 | AUD-06 | Files, search with no matches | STATE-001 | P3 | Empty region has no action, although the search box does have a clear affordance | Require an in-state clear action and assert query reset plus restored results |
-| AUD-07 | Connectors, catalog grid | CONTENT-001 | P2 | Chinese UI; most visible card descriptions are English, Instagram and Box are Chinese | Review-gated; proposed rendered-text locale scan per catalog item |
+| AUD-07 | Connectors, catalog grid | CONTENT-001 | P2 | zh-CN UI; most visible card descriptions are English, while Instagram and Box are in the UI locale | Review-gated; proposed rendered-text locale scan per catalog item |
 | AUD-08 | Connectors, catalog controls | CMP-001 | P3 | Status tabs and category chips are adjacent selectors with different styles and unclear scope | Partly automated in the lab: `[CMP-001]` browser tests (tablist/selection structure); chip style and scope still review-gated |
 | AUD-09 | Chat home, Files, Agents, Connectors | CMP-002 | P3 | Filled, outlined, ghost, text-arrow and icon-only actions with no consistent primary/secondary mapping | Partly automated in the lab: `[CMP-002]` browser tests (≤1 filled primary per main); variant mapping still review-gated |
 | AUD-10 | Chat home | CHAT-001 | P3 | Dismissible team upsell fused to the composer, repeated in sidebar card and header plan control | Review-gated; proposed composer-region composition check plus screenshot review |
@@ -39,7 +41,7 @@ AUD-07 to AUD-10 are visual-composition findings taken from desktop screenshots.
 
 ## AUD-01 — Files loses semantic page identity
 
-**Observed state.** On `https://agent.creao.ai/files`, the desktop screen displays “文件” as the page title. The saved [DOM record](research/files-dom.json) reports `headings: []` and identifies the title as `BUTTON` with text “文件”. The [desktop screenshot](research/screenshots/03-files.png) shows the visual title in the expected page-header position.
+**Observed state.** On `https://agent.creao.ai/files`, the desktop screen displays "Files" as the page title. The saved [DOM record](research/files-dom.json) reports `headings: []` and identifies the title as a `BUTTON` with that text. The [desktop screenshot](research/screenshots/03-files.png) shows the visual title in the expected page-header position.
 
 **Violation.** LAY-001 requires one visible `h1` identifying each governed top-level page within its main region. A large text button does not satisfy that semantic contract. The evidence is stronger than a screenshot-only judgment because the element and empty heading list were inspected.
 
@@ -47,47 +49,47 @@ AUD-07 to AUD-10 are visual-composition findings taken from desktop screenshots.
 
 **Exact correction.** Render the page identity through `PageHeader` / a semantic `h1`. If the existing title also opens navigation or folder selection, retain that interaction in a separate named control rather than making the page identity only a button. Use lower-level headings for previews and sections.
 
-**How it is caught before shipping.** In [design.spec.ts](../creao-design-lab/tests/e2e/design.spec.ts), `[LAY-001] /files one visible page heading at 1280px` and its compact counterpart assert exactly one main region, one visible level-one heading and the expected name “文件”. A candidate that reproduces the observed structure has zero matching headings and fails the rule assertion. This requires DOM inspection; the CSS token check would not detect it.
+**How it is caught before shipping.** In [design.spec.ts](../creao-design-lab/tests/e2e/design.spec.ts), `[LAY-001] /files one visible page heading at 1280px` and its compact counterpart assert exactly one main region, one visible level-one heading and the expected name "Files". A candidate that reproduces the observed structure has zero matching headings and fails the rule assertion. This requires DOM inspection; the CSS token check would not detect it.
 
 **Adoption boundary.** The local test targets `/files` in the prototype. CREAO can use the same assertion on its real route with authenticated fixture data. That production integration has not occurred.
 
 ## AUD-02 — Connector guidance names a tab that is not present
 
-**Observed state.** On `https://agent.creao.ai/integrations`, the selected tab is “已连接 (0)”. The empty-state description says “前往可用标签页连接服务。” The actual available destination is labeled “可连接”, alongside “全部”, “内置” and “已连接”. Both the [screenshot](research/screenshots/05-connectors-empty.png) and [accessibility tree](research/connectors-empty-ax.txt) preserve the mismatch.
+**Observed state.** On `https://agent.creao.ai/integrations`, the selected tab is "Connected (0)". The empty-state description says "Go to the Available tab to connect services." The actual destination is labelled "Connectable", alongside "All", "Built-in" and "Connected". Both the [screenshot](research/screenshots/05-connectors-empty.png) and [accessibility tree](research/connectors-empty-ax.txt) preserve the mismatch.
 
-**Violation.** NAV-001 requires destination guidance to use the real destination's name. “可用” and “可连接” might be semantically related, but asking the user to locate a named tab that does not exist creates avoidable uncertainty.
+**Violation.** NAV-001 requires destination guidance to use the real destination's name. "Available" and "Connectable" might be semantically related, but asking the user to locate a named tab that does not exist creates avoidable uncertainty.
 
 **User impact.** A first-time user must infer which tab the instruction means. A coding agent can repeat stale copy when adding or renaming navigation unless copy ownership is explicit.
 
-**Exact correction.** Put the canonical destination label in the shared copy module and compose both the tab and recovery guidance from it. Use an action such as “浏览可连接服务”. Its handler activates the connectable tab, and the panel must show eligible services.
+**Exact correction.** Put the canonical destination label in the shared copy module and compose both the tab and recovery guidance from it. Use an action such as "Browse connectable services". Its handler activates the connectable tab, and the panel must show eligible services.
 
-**How it is caught before shipping.** `[NAV-001] empty-state destination copy matches actual available tab` in [design.spec.ts](../creao-design-lab/tests/e2e/design.spec.ts) finds the actual tab named “可连接”, enters the connected-empty state, checks that its description contains “可连接” and does not contain the obsolete “可用”, then invokes recovery and asserts `aria-selected="true"` on the target. Copying the observed wording into the local candidate fails the description assertion. Wrong routing fails the selected-state assertion.
+**How it is caught before shipping.** `[NAV-001] empty-state destination copy matches actual available tab` in [design.spec.ts](../creao-design-lab/tests/e2e/design.spec.ts) finds the actual tab named "Connectable", enters the connected-empty state, checks that its description contains "Connectable" and does not contain the obsolete "Available", then invokes recovery and asserts `aria-selected="true"` on the target. Copying the observed wording into the local candidate fails the description assertion. Wrong routing fails the selected-state assertion.
 
-**Automation limit.** The current test deliberately uses a canonical Chinese contract. It does not prove all locales or future destination renames are correct, and it does not statically prove all strings originate in one module. Shared-source reuse is a source-review requirement; a legitimate rename requires a reviewed contract update.
+**Automation limit.** The current test deliberately uses a canonical English contract (locale fixtures required for other locales). It does not prove all locales or future destination renames are correct, and it does not statically prove all strings originate in one module. Shared-source reuse is a source-review requirement; a legitimate rename requires a reviewed contract update.
 
 ## AUD-03 — Connector empty state does not offer a direct next step
 
-**Observed state.** The same [Connected (0) screenshot](research/screenshots/05-connectors-empty.png) shows an icon, “暂无已连接的连接器”, and a sentence directing users elsewhere. The matching [AX subtree](research/connectors-empty-ax.txt) contains a heading and text without a button/link inside the empty state. Tabs remain available outside it.
+**Observed state.** The same [Connected (0) screenshot](research/screenshots/05-connectors-empty.png) shows an icon, "No connected connectors", and a sentence directing users elsewhere. The matching [AX subtree](research/connectors-empty-ax.txt) contains a heading and text without a button/link inside the empty state. Tabs remain available outside it.
 
 **Violation.** STATE-001 requires a recoverable empty state to include an actionable next step within that state. A distant tab is an available workaround, but it does not fulfill the proposed composition contract.
 
 **User impact.** The screen explains absence without completing the recovery path. Users have to reinterpret the explanation as an instruction to navigate manually; the naming mismatch in AUD-02 compounds the problem.
 
-**Exact correction.** Retain the empty-state title and explanatory purpose, add “浏览可连接服务”, and wire it to the actual connectable panel. Do not launch OAuth merely because the user asks to browse services. Use a distinct explicit action to connect an individual service.
+**Exact correction.** Retain the empty-state title and explanatory purpose, add "Browse connectable services", and wire it to the actual connectable panel. Do not launch OAuth merely because the user asks to browse services. Use a distinct explicit action to connect an individual service.
 
 **How it is caught before shipping.** `[STATE-001] connector empty state action reaches available services` triggers the fixture with zero connections, requires the recovery button to be visible, clicks it, asserts the connectable tab is selected and an actual service action appears, then verifies the recovery button disappears. A missing or inert button fails. A compliance attribute or snapshot of a button would not be sufficient.
 
 **Important distinction.** We are not claiming users were completely trapped: the top-level tabs were present. The finding is a specific violation of the adopted in-state recovery rule. Initial empty-state recovery already exists elsewhere in the product: the [agents screen](research/screenshots/02-agents-empty.png) supplies a creation CTA.
 
-## AUD-04 — Compact “New folder” button loses its accessible name
+## AUD-04 — Compact "New folder" button loses its accessible name
 
-**Observed state.** On Files at 390 × 844, the [screenshot](research/deep/14-files-mobile.png) shows a folder-plus icon near Upload. The saved [mobile DOM record](research/deep/files-mobile-dom.json) identifies the button with text “新建文件夹”, but that text is in a `SPAN` with `display: none`. Its SVG has `aria-hidden="true"`; `aria-label`, `aria-labelledby` and `title` are absent. The button rectangle is visible, 41 × 36 CSS px at x=250, y=56.
+**Observed state.** On Files at 390 × 844, the [screenshot](research/deep/14-files-mobile.png) shows a folder-plus icon near Upload. The saved [mobile DOM record](research/deep/files-mobile-dom.json) identifies the button with text "New folder", but that text is in a `SPAN` with `display: none`. Its SVG has `aria-hidden="true"`; `aria-label`, `aria-labelledby` and `title` are absent. The button rectangle is visible, 41 × 36 CSS px at x=250, y=56.
 
 **Violation.** A11Y-001 requires visible interactive controls to retain an accessible name after responsive changes. Hidden text plus an accessibility-hidden icon supplies no usable name in this recorded structure. This is a specific naming finding; button dimensions alone are not used to make a target-size compliance claim.
 
 **User impact.** A user relying on accessible control names cannot reliably identify the action. Desktop-only checks would miss the responsive change that removes the label.
 
-**Exact correction.** Retain the name through `aria-label="新建文件夹"` or a genuinely visually hidden text treatment that stays in the accessibility tree. Preserve the decorative icon's hidden state. If text remains visible, it must match the action's accessible name.
+**Exact correction.** Retain the name through an `aria-label` of "New folder" (in the active locale) or a genuinely visually hidden text treatment that stays in the accessibility tree. Preserve the decorative icon's hidden state. If text remains visible, it must match the action's accessible name.
 
 **How it is caught before shipping.** `[A11Y-001] /files visible controls retain accessible names at 390px` iterates visible interactive controls and calls Playwright's accessible-name assertion, requiring a non-whitespace result. A local mutation that removes the name while hiding the visible text should fail this specific assertion. The desktop counterpart verifies that the name also exists before collapse.
 
@@ -95,7 +97,7 @@ AUD-07 to AUD-10 are visual-composition findings taken from desktop screenshots.
 
 ## AUD-05 — Compact file metadata no longer corresponds to the headers
 
-**Observed state.** In [the 390px Files capture](research/deep/14-files-mobile.png), the “名称” header wraps into separate characters, while “修改时间”, “大小” and “来源” remain in a desktop-style header row. File entries below use another layout: the name appears on its own row, modification time and size sit underneath, and source occupies a further line. The spatial header-to-value mapping has broken.
+**Observed state.** In [the 390px Files capture](research/deep/14-files-mobile.png), the "Name" header wraps into separate characters, while "Modified", "Size" and "Source" remain in a desktop-style header row. File entries below use another layout: the name appears on its own row, modification time and size sit underneath, and source occupies a further line. The spatial header-to-value mapping has broken.
 
 **Violation.** RESP-001 requires field identity to survive responsive transformation. Keeping table-like headers above values that no longer occupy those columns makes the page look structurally tabular while asking users to infer a different reading order.
 
@@ -111,23 +113,23 @@ AUD-07 to AUD-10 are visual-composition findings taken from desktop screenshots.
 
 ## AUD-06 — File-search recovery is outside the empty region
 
-**Observed state.** Searching for a nonmatching term produces “没有文件” with the more precise description “没有与搜索匹配的文件或文件夹。” The [screenshot](research/deep/15-files-no-results.png) shows no action inside the empty region, **and does show a clear affordance at the right end of the search box**. The [AX capture](research/deep/15-files-no-results.txt) records the no-results message.
+**Observed state.** Searching for a nonmatching term produces "No files" with the more precise description "No files or folders match the search." The [screenshot](research/deep/15-files-no-results.png) shows no action inside the empty region, **and does show a clear affordance at the right end of the search box**. The [AX capture](research/deep/15-files-no-results.txt) records the no-results message.
 
-**Violation and priority.** This is a P3 application of the proposed STATE-001 in-state recovery contract. It is weaker than AUD-03 because the user already has an obvious recovery affordance adjacent to the active query. It must not be described as “there is no way to clear the search”.
+**Violation and priority.** This is a P3 application of the proposed STATE-001 in-state recovery contract. It is weaker than AUD-03 because the user already has an obvious recovery affordance adjacent to the active query. It must not be described as "there is no way to clear the search".
 
-**Exact correction.** Prefer an unambiguous “No matching files” title, retain the explanation, and add “清除搜索” inside the empty state. Keep the search-box clear control as well. If multiple filters contribute to zero results, the action must state and clear the intended filters, rather than silently clearing unrelated user context.
+**Exact correction.** Prefer an unambiguous "No matching files" title, retain the explanation, and add "Clear search" inside the empty state. Keep the search-box clear control as well. If multiple filters contribute to zero results, the action must state and clear the intended filters, rather than silently clearing unrelated user context.
 
 **How it is caught before shipping.** `[STATE-001] file search no-results action restores actual entries` enters a deterministic unmatched query, asserts zero result items, invokes the clear action within the empty region, asserts the query becomes empty and a seeded result returns. A nearby clear button outside the region does not satisfy the locator contract. This catches the proposed consistency requirement; it is not proof the original product had no recovery affordance.
 
 ## AUD-07 — Connector catalog mixes languages item by item
 
-**Observed state.** The [Connectors screenshot](research/screenshots/04-connectors.png) is a Chinese UI: navigation, page title “连接器”, search placeholder “搜索连接器”, status tabs, category chips, “45 个结果” and the featured carousel copy are Chinese. In the catalog grid below, descriptions alternate by item: Shopify, Google Ads, Slack, Notion, Gmail, Asana, Canva and Discord are English (for example “Manage products, orders, customers, and your online…”), while Instagram (“读取 Instagram 专业账户的…”) and Box (“搜索、读取、上传、下载和共享 Box 文件与文件夹…”) are Chinese. The Shopify featured card above is Chinese while the Shopify grid card below is English.
+**Observed state.** The [Connectors screenshot](research/screenshots/04-connectors.png) is in the zh-CN UI locale: navigation, page title "Connectors", search placeholder "Search connectors", status tabs, category chips, "45 results" and the featured carousel copy are all in that locale. In the catalog grid below, descriptions alternate by item: Shopify, Google Ads, Slack, Notion, Gmail, Asana, Canva and Discord are English (for example "Manage products, orders, customers, and your online…"), while Instagram ("Read an Instagram professional account's…") and Box ("Search, read, upload, download and share Box files and folders…") are in the UI locale. The Shopify featured card above is in the UI locale while the Shopify grid card below is English.
 
 **Violation.** CONTENT-001 requires user-facing copy within one view to follow the active UI locale, with a declared fallback rather than per-item mixing. Product names (Shopify, Notion) are legitimately untranslated; the finding concerns the descriptive sentences.
 
-**User impact.** A reader who relies on Chinese must scan a grid where most descriptions are in another language, and the same service is described in two languages on one screen. Comparison across cards is harder because the reading mode changes item by item. No claim is made about how many users cannot read English.
+**User impact.** A reader who relies on the UI locale must scan a grid where most descriptions are in another language, and the same service is described in two languages on one screen. Comparison across cards is harder because the reading mode changes item by item. No claim is made about how many users cannot read English.
 
-**Exact correction.** Source connector descriptions from a localized catalog keyed by connector ID and UI locale. When a translation is missing, apply one declared fallback (for example, show the Chinese category label plus an untranslated-content marker) and log the gap, rather than silently mixing languages. Featured and grid entries for the same connector must resolve from the same localized record.
+**Exact correction.** Source connector descriptions from a localized catalog keyed by connector ID and UI locale. When a translation is missing, apply one declared fallback (for example, show the localized category label plus an untranslated-content marker) and log the gap, rather than silently mixing languages. Featured and grid entries for the same connector must resolve from the same localized record.
 
 **How it is caught before shipping.** Today this is review-gated: Product Design checks catalog screenshots in each supported locale. Proposed automation (not yet in rules.json): a rendered-text locale scan that, for each catalog item under `zh-CN`, flags descriptions whose script does not match the UI locale after excluding an allowlist of product names, plus a contract test that featured and grid entries of the same connector resolve to the same description key.
 
@@ -135,7 +137,7 @@ AUD-07 to AUD-10 are visual-composition findings taken from desktop screenshots.
 
 ## AUD-08 — Two adjacent selector styles with unclear scope on Connectors
 
-**Observed state.** In the same [Connectors screenshot](research/screenshots/04-connectors.png), the row containing the search box also holds plain text tabs “全部 / 可连接 / 内置 / 已连接 (0)”, with “全部” marked by an underline. Directly below, a second row holds category chips “所有分类 / 商业 / 电子商务 / 营销 / 社交媒体 / 生产力”, with “所有分类” marked by a filled pill. Both rows filter the same grid; “45 个结果” sits at the right of the chip row.
+**Observed state.** In the same [Connectors screenshot](research/screenshots/04-connectors.png), the row containing the search box also holds plain text tabs "All / Connectable / Built-in / Connected (0)", with "All" marked by an underline. Directly below, a second row holds category chips "All categories / Business / E-commerce / Marketing / Social media / Productivity", with "All categories" marked by a filled pill. Both rows filter the same grid; "45 results" sits at the right of the chip row.
 
 **Violation.** CMP-001 requires tabs to switch between peer views and filter chips to narrow a collection, with a clear visual hierarchy when both appear. Here two selectors of similar size and weight sit in adjacent rows, with different selected-state treatments, and nothing on screen states whether the status tab and category chip combine or reset each other.
 
@@ -151,16 +153,16 @@ AUD-07 to AUD-10 are visual-composition findings taken from desktop screenshots.
 
 **Observed state.** Across top-level screens the same importance level uses different treatments:
 
-- [Chat home](research/screenshots/01-chat.png): two adjacent suggestion cards each carry a filled black button (“试用 Visual Studio →”, “试用 /slide”), so the region has two visually equal primary actions; the promo strip uses a text link “创建团队 →”, and the “热门智能体” section uses another text link “探索 →”.
-- [Files](research/screenshots/03-files.png): the header pairs a ghost icon+text action (“新建文件夹”) with a filled black “+ 上传”.
-- [Agents empty](research/screenshots/02-agents-empty.png): the header has an outlined icon+text “导入”, and the empty state has a filled black “创建您的第一个智能体” without an icon.
-- [Connectors](research/screenshots/04-connectors.png): every catalog card uses an outlined square icon-only “+” button, while the featured carousel cards show no explicit action.
+- [Chat home](research/screenshots/01-chat.png): two adjacent suggestion cards each carry a filled black button ("Try Visual Studio →", "Try /slide"), so the region has two visually equal primary actions; the promo strip uses a text link "Create team →", and the "Popular agents" section uses another text link "Explore →".
+- [Files](research/screenshots/03-files.png): the header pairs a ghost icon+text action ("New folder") with a filled black "+ Upload".
+- [Agents empty](research/screenshots/02-agents-empty.png): the header has an outlined icon+text "Import", and the empty state has a filled black "Create your first agent" without an icon.
+- [Connectors](research/screenshots/04-connectors.png): every catalog card uses an outlined square icon-only "+" button, while the featured carousel cards show no explicit action.
 
 **Violation.** CMP-002 requires one primary action per region and a stable mapping from importance to variant (primary filled, secondary outlined/ghost, tertiary text link), including consistent icon and arrow use. The screens above use the filled variant for repeated card actions, alternate trailing arrows and leading icons without a rule, and use icon-only buttons for the main per-item action on Connectors.
 
-**User impact.** Visual weight stops predicting importance, so users cannot rely on “filled means the main task”. On the chat home, repeated filled buttons compete with the composer. Each new feature is likely to pick another variant because no rule is visible in the product. The accessible names of the connector “+” buttons were not captured, so no A11Y-001 claim is made here.
+**User impact.** Visual weight stops predicting importance, so users cannot rely on "filled means the main task". On the chat home, repeated filled buttons compete with the composer. Each new feature is likely to pick another variant because no rule is visible in the product. The accessible names of the connector "+" buttons were not captured, so no A11Y-001 claim is made here.
 
-**Exact correction.** Use the library `Button` variants by role: one filled primary per region (Files “上传”, Agents empty “创建您的第一个智能体”); outlined secondary for card-level actions such as suggestion cards and connector “Connect”; text links with trailing arrow only for navigation (“探索 →”). Give connector card actions a visible label or a tooltip plus an accessible name such as “连接 Shopify”.
+**Exact correction.** Use the library `Button` variants by role: one filled primary per region (Files "Upload", Agents empty "Create your first agent"); outlined secondary for card-level actions such as suggestion cards and connector "Connect"; text links with trailing arrow only for navigation ("Explore →"). Give connector card actions a visible label or a tooltip plus an accessible name such as "Connect Shopify".
 
 **How it is caught before shipping.** Automated part (registered as CMP-002 in rules.json, browser layer): `[CMP-002] <route> at most one filled primary action in main at <1280 or 390>px` in [design.spec.ts](../creao-design-lab/tests/e2e/design.spec.ts) counts `.button-primary` (the Button primitive's `variant="primary"`) in the main landmark of /files, /connectors, /agents and /guidelines and fails above one. Receipts: 8/8 CMP-002 passed within the 38/38 run in [e2e-design.log](research/validation/round2-cmp/e2e-design.log). [Negative control](research/validation/round2-cmp/negative-control.md): two primaries injected on /connectors → 2 failed (1280 and 390, received 2), 6 passed; after revert, 8/8 passed. Icon-only names stay covered by A11Y-001. Still review-gated: the secondary/tertiary variant mapping, the variant inventory, primary-styled lookalikes without the class, sub-regions, and non-initial states (files create form, agents detail).
 
@@ -168,7 +170,7 @@ AUD-07 to AUD-10 are visual-composition findings taken from desktop screenshots.
 
 ## AUD-10 — Chat home places upsell surfaces against the composer
 
-**Observed state.** The [Chat home](research/screenshots/01-chat.png) shows the serif greeting “Y，有什么可以帮你的？” and the composer. A promo strip is attached directly under the composer card, sharing its edge: “和团队一起使用？创建团队即送 30 免费 credits…购买席位，再送 100 奖励 credits。” with “创建团队 →” and a close “×”. The same offer appears again in the sidebar bottom card “创建团队 · 免费送 30 credits——试用…”, and the header shows “免费套餐 | 升级”. Further down the same viewport, two suggestion cards carry filled buttons (AUD-09).
+**Observed state.** The [Chat home](research/screenshots/01-chat.png) shows the serif greeting "Y, what can I help you with?" and the composer. A promo strip is attached directly under the composer card, sharing its edge: "Using it with a team? Create a team and get 30 free credits… buy seats for another 100 bonus credits." with "Create team →" and a close "×". The same offer appears again in the sidebar bottom card "Create team · 30 free credits — try…", and the header shows "Free plan | Upgrade". Further down the same viewport, two suggestion cards carry filled buttons (AUD-09).
 
 **Violation.** CHAT-001 requires the composer to be the single primary task on the chat workbench, with commercial or onboarding prompts placed in a separate, non-attached region and not duplicated within one viewport. Here the upsell is visually fused to the composer, and the same offer appears twice in one viewport.
 
@@ -223,27 +225,28 @@ The [accessibility evidence record](research/accessibility/README.md) preserves 
 
 ## Local validation results and distinct denominators
 
-Detailed immutable reports, command logs and history are indexed in [validation-results.zh-CN.md](validation-results.zh-CN.md), [accessibility/README.md](research/accessibility/README.md), and the [independent engineer experiment review](engineer-experiment-review.zh-CN.md). Results from different candidate revisions and gate versions are not merged into a single unqualified success rate.
+Detailed immutable reports, command logs and history are indexed in [validation-results.md](validation/validation-results.md), [accessibility/README.md](research/accessibility/README.md), and the [independent engineer experiment review](validation/engineer-experiment-review.md). Results from different candidate revisions and gate versions are not merged into a single unqualified success rate.
 
-| Evidence lane | Recorded result / status | Interpretation and remaining scope |
+| Evidence lane | Result | Scope / caveat |
 | --- | --- | --- |
-| Typecheck, lint, production build and static gate | v1 archived commands exit 0; final enhanced candidate receipts are recorded in validation results | A passing historical revision is not a substitute for final-candidate identity |
-| Checker unit tests | Enhanced checker: 13 passing unit cases; original v1 suite had 8 | These are checker tests, not 13 product screens |
-| Original browser suite | 22/22 passed on local production build | Chrome 154.0.8037.98 on macOS; includes semantic, recovery and layout assertions |
-| Enhanced axe suite | 16/16 passed after real table/pre and group-role fixes | Separate scan rounds retained; incomplete findings have explicit review and limits |
-| Enhanced semantic/browser scope | 38 cases = original 22 + axe 16 | Keep phases/candidate identities visible; do not call this 38 independently explored product states |
-| State inventory | 31 entries: 22 implemented, 9 not implemented | Inventory coverage, not a passing-test count; missing states remain listed |
-| Visual gate | Three screen snapshots; macOS baseline reviewed | Linux has no approved baseline and must fail closed pending controlled bootstrap/review; final negative-control result below |
-| Fixed static mutations, first round | 5 killed / 1 survived; 2/2 positive controls accepted | Valid negative denominator 6; real alias escape retained |
-| Fixed static mutations, second round | 6/6 killed; 2/2 positive controls accepted; 0 survived/invalid/error/false-positive | Scope limited to those fixed candidates; later check additions require their own receipts |
-| Runtime mutations | Final combined suite is partial: 9/12 planned negatives killed and 2/3 positives accepted; 3 negatives + 1 positive remain pending. [Frozen partial receipt](research/validation/phase-b/mutations-all-partial-2026-10-11T21-28-22-239Z/partial-summary.json). No completed full-run pass or final hash check is claimed. | Prior two runs each had 7 invalid cases; valid design denominator 0 for those runs, never counted as kills |
-| Axe negative control | **1/1 killed**, independently validated | Invalid runtime `aria-pressed="sometimes"`; typecheck and production build succeeded, HTTP 200 and real DOM confirmed; axe returned `aria-valid-attr-value` critical |
-| Visual negative control | **1/1 visual mutant killed**: registered-token letter spacing changed actual rendering; Files desktop/mobile differed by 4,735/4,738 pixels, while Connectors passed. Static checks and production build passed; baseline images and gate hashes stayed unchanged. See [validation results](validation-results.zh-CN.md). | Must demonstrate real source/pixel change with unchanged baseline and visual gate; environment mismatch is not a successful design kill |
-| Independent engineer A | Original suite 22/22; static 0 violations; feature works | v2 with the same agent also passed 38/38; visual 3/3 after independent reviewer approval of two feature-driven baseline changes; first diff retained |
-| Independent engineer B | Original suite 20/22; 2 name-test failures; 7 static violations; feature pointer behavior works | 5 literal-color + 2 native-control findings; focus loss additionally found manually. Same-agent v2: 32/38 passed, 6 name/axe failures; visual 1/3, unapproved |
-| Manual product checks | Desktop, 390/320px reviewed; 800px fixed and rechecked; local create/preview/recovery/detail paths exercised | No real OAuth, model run or complete screen-reader journey |
-| Remote CI and protected policy | Configuration is an implementation artifact; remote execution and required protection not established | Linux visual bootstrap is intentionally blocking, not an unexplained green check |
-| CREAO deployment | Not performed | No claim that the original live defects are remediated |
+| Typecheck, lint, build, static gate | v1 commands exit 0; enhanced-candidate receipts in validation results | A historical pass does not stand in for final-candidate identity |
+| Checker unit tests | 13 passing (v1 suite: 8) | Checker tests, not product screens |
+| Original browser suite | 22/22 on local production build | Chrome 154.0.8037.98, macOS; semantic, recovery and layout assertions |
+| Axe suite | 16/16 after real table/pre and group-role fixes | Earlier scan rounds retained; incomplete findings reviewed with stated limits |
+| Enhanced browser scope | 38 cases = 22 original + 16 axe | Not 38 independent product states |
+| CMP-001 / CMP-002 | 8/8 + 8/8 within a 38/38 run ([log](research/validation/round2-cmp/e2e-design.log)); CMP-002 negative control 2/2 detected | No CMP-001 negative control yet |
+| State inventory | 31 entries: 22 implemented, 9 not | Coverage plan, not a test count |
+| Visual gate | 3 snapshots; macOS baseline reviewed | Linux has no approved baseline and fails closed until reviewed |
+| Static mutations, round 1 | 5/6 killed, 1 survived; 2/2 positives accepted | Alias escape retained as evidence |
+| Static mutations, round 2 | 6/6 killed; 2/2 positives accepted; 0 survived/invalid/error | Fixed candidates only; new checks need their own receipts |
+| Runtime mutations | Partial: 9/12 negatives killed, 2/3 positives accepted; 3 negatives + 1 positive pending ([frozen receipt](research/validation/phase-b/mutations-all-partial-2026-10-11T21-28-22-239Z/partial-summary.json)) | No full-run pass claimed. Two earlier runs had 7 invalid cases each and count as 0 kills |
+| Axe negative control | 1/1 killed (`aria-pressed="sometimes"` → `aria-valid-attr-value`, critical) | Build, HTTP 200 and real DOM confirmed |
+| Visual negative control | 1/1 killed: token letter-spacing change altered Files desktop/mobile by 4,735/4,738 px; Connectors unchanged ([details](validation/validation-results.md)) | Static checks and build passed; baselines and gate hashes unchanged |
+| Engineer A | 22/22; 0 static violations; feature works | v2: 38/38; visual 3/3 after independent approval of two feature-driven baseline changes |
+| Engineer B | 20/22 (2 name failures); 7 static violations (5 color, 2 native control); feature works by pointer | Focus loss found manually. v2: 32/38 (6 name/axe failures); visual 1/3, unapproved |
+| Manual product checks | Desktop, 390/320px reviewed; 800px fixed and rechecked; local create/preview/recovery/detail paths exercised | No real OAuth, model run or full screen-reader journey |
+| Remote CI and protection | Configuration only | Remote execution and required protection not established |
+| CREAO deployment | Not performed | Live defects not claimed remediated |
 
 The axe negative-control denominator of one is separate from six static negatives and the runtime mutation set. Its initial symlink/Turbopack build failure was an infrastructure attempt, not a kill; the subsequent successful webpack production build and rule-attributed scan provide the valid evidence. Likewise, initial missing-browser failures and invalid shared-baseline runs remain visible in history but do not improve the mutation score.
 

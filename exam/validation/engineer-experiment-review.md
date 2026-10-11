@@ -4,13 +4,13 @@ Review time: 2026-10-11 14:08 PDT. Review method: read-only source inspection, p
 
 ## 1. Experiment Question and Evidence Scope
 
-Two independent engineers received the same request: add an "Important" marker to files and an "Important only" filter, while preserving search, empty-state recovery, narrow-screen readability, and accessible names for controls. A was explicitly told to follow the guideline; B was asked to deliberately take reasonable, visible implementation shortcuts. Neither could modify checkers, rules, dependencies, or tests, nor create negatives through compile errors. Full conditions are in the [experiment protocol](../creao-design-lab/experiments/engineer-protocol.md).
+Two independent engineers received the same request: add an "Important" marker to files and an "Important only" filter, while preserving search, empty-state recovery, narrow-screen readability, and accessible names for controls. A was explicitly told to follow the guideline; B was asked to deliberately take reasonable, visible implementation shortcuts. Neither could modify checkers, rules, dependencies, or tests, nor create negatives through compile errors. Full conditions are in the [experiment protocol](../../creao-design-lab/experiments/engineer-protocol.md).
 
 This is a **mechanism validation with two controlled implementations**. It cannot be used to infer the violation probability of real engineers, nor does it prove that simply providing Markdown naturally yields compliant results. A/B is counted separately from the fixed mutation set.
 
 ## 2. Baseline Integrity
 
-Frozen manifest: [baseline-manifest.json](research/validation/engineers/baseline-manifest.json), containing 38 files. Manifest SHA-256:
+Frozen manifest: [baseline-manifest.json](../research/validation/engineers/baseline-manifest.json), containing 38 files. Manifest SHA-256:
 
 `1294c012784e2e1ef02640bf81d20fe92e86bec9b2840dddbb7f4469f776b440`
 
@@ -28,9 +28,9 @@ The 17 protected assets include `AGENTS.md`, `design.md`, rules and exceptions, 
 
 Verifiable evidence:
 
-- [Machine-readable integrity result](research/validation/engineers/source-integrity-review.json): before/after hashes for each changed file, patch hashes, and verification time.
-- [A's full patch](research/validation/engineers/engineer-a.patch).
-- [B's full patch](research/validation/engineers/engineer-b.patch).
+- [Machine-readable integrity result](../research/validation/engineers/source-integrity-review.json): before/after hashes for each changed file, patch hashes, and verification time.
+- [A's full patch](../research/validation/engineers/engineer-a.patch).
+- [B's full patch](../research/validation/engineers/engineer-b.patch).
 
 This supports the conclusion that "both candidate implementations run against the same gate assets"; it does not mean remote CI has run, nor does it prove the checker cannot be modified by future commits.
 
@@ -86,16 +86,16 @@ Final verification: the main agent ran the original browser checks against two i
 
 | Check | A | B | Evidence |
 | --- | --- | --- | --- |
-| Types / ESLint | Both exit 0 | Both exit 0 | Main agent's independent re-run receipts: [A commands](research/validation/engineers/engineer-a/evaluator-commands.json), [B commands](research/validation/engineers/engineer-b/evaluator-commands.json) |
-| Production build | Exit 0, build succeeded | Exit 0, build succeeded | [A evaluator build](research/validation/engineers/engineer-a/evaluator-build.log), [B evaluator build](research/validation/engineers/engineer-b/evaluator-build.log) |
-| Static design check | Exit 0, `passed: true`, 0 violations | Exit 1, `passed: false`, 5 DS-001 raw colors + 2 DS-002 native controls | [A evaluator static](research/validation/engineers/engineer-a/evaluator-check-design.log), [B evaluator static](research/validation/engineers/engineer-b/evaluator-check-design.log) |
-| Original production browser checks | 22/22 passed, exit 0 | 20/22 passed, 2 failed, exit 1 | [A JSON](research/validation/engineers/engineer-a/evaluator-e2e.json), [B JSON](research/validation/engineers/engineer-b/evaluator-e2e.json); exit codes in the main agent's [interaction and result receipt](research/validation/engineers/manual-feature-acceptance.json) |
+| Types / ESLint | Both exit 0 | Both exit 0 | Main agent's independent re-run receipts: [A commands](../research/validation/engineers/engineer-a/evaluator-commands.json), [B commands](../research/validation/engineers/engineer-b/evaluator-commands.json) |
+| Production build | Exit 0, build succeeded | Exit 0, build succeeded | [A evaluator build](../research/validation/engineers/engineer-a/evaluator-build.log), [B evaluator build](../research/validation/engineers/engineer-b/evaluator-build.log) |
+| Static design check | Exit 0, `passed: true`, 0 violations | Exit 1, `passed: false`, 5 DS-001 raw colors + 2 DS-002 native controls | [A evaluator static](../research/validation/engineers/engineer-a/evaluator-check-design.log), [B evaluator static](../research/validation/engineers/engineer-b/evaluator-check-design.log) |
+| Original production browser checks | 22/22 passed, exit 0 | 20/22 passed, 2 failed, exit 1 | [A JSON](../research/validation/engineers/engineer-a/evaluator-e2e.json), [B JSON](../research/validation/engineers/engineer-b/evaluator-e2e.json); exit codes in the main agent's [interaction and result receipt](../research/validation/engineers/manual-feature-acceptance.json) |
 | Real interaction with the new feature | Passed | Pointer operations and state changes passed | The same receipt records marking, filtering, combined search, empty-result recovery, and unmarking |
 | Focus after dynamic removal | Returns to the "Important only" filter button | Lands on `BODY` | B's is a new manual finding, not counted as a detection by the old automated tests |
 
 Both of B's browser failures are A11Y-001: the star control on `/files` lacks an accessible name at 1280px and 390px. Of the 22 results, skipped/flaky are both 0; it must not be described as the entire suite failing. B's feature runs and its production build succeeds, showing that the block comes from design rules, not a failure faked by a syntax error.
 
-The [A filter screenshot](research/validation/engineers/a-important-filter.png), [A narrow-screen screenshot](research/validation/engineers/a-mobile.png), and [B filter screenshot](research/validation/engineers/b-important-filter.png) keep the manually operated states; B's failure screenshots, trace, and error context are stored in `research/validation/engineers/engineer-b/test-results/`. The frozen manifest also has a [persistent archive](research/validation/engineers/baseline-manifest.json), to avoid relying solely on the ignored experiment run directory.
+The [A filter screenshot](../research/validation/engineers/a-important-filter.png), [A narrow-screen screenshot](../research/validation/engineers/a-mobile.png), and [B filter screenshot](../research/validation/engineers/b-important-filter.png) keep the manually operated states; B's failure screenshots, trace, and error context are stored in `research/validation/engineers/engineer-b/test-results/`. The frozen manifest also has a [persistent archive](../research/validation/engineers/baseline-manifest.json), to avoid relying solely on the ignored experiment run directory.
 
 Final verdict: **A is acceptable; B is blocked by the existing static and browser design gates.** B additionally has a focus-restoration defect not covered by current automation, showing that manual acceptance of new features is still needed. This experiment contains only one synthetic feature and two agents implementing in assigned directions; it is separate from the fixed mutation results and cannot be used to infer an overall compliance rate for real engineers.
 
@@ -104,6 +104,6 @@ Final verdict: **A is acceptable; B is blocked by the existing static and browse
 
 This round reused the A/B agents to re-implement the same "Important marking and filtering" request on the enhanced baseline; it is a re-check of the original experiment and cannot count as two additional independent engineers. The original v1 results, patches, and failure evidence remain unchanged.
 
-A's [enhanced browser result](research/validation/engineers-v2/a/final/evaluator-e2e.json) is 38/38 passed. The first [visual comparison](research/validation/engineers-v2/a/final/evaluator-visual-first.json) had two Files changes caused by the controls added by the new feature; after the main agent independently viewed the actual desktop and narrow-screen screenshots, it approved the corresponding candidate baseline changes, see the [review receipt](research/validation/engineers-v2/a/final/visual-review.json). The original diff is kept in `research/validation/engineers-v2/a/visual-first/`; only A's copy baseline was updated, canonical was not automatically overwritten; the subsequent [visual re-check](research/validation/engineers-v2/a/final/evaluator-visual-reviewed.json) without the update flag passed 3/3.
+A's [enhanced browser result](../research/validation/engineers-v2/a/final/evaluator-e2e.json) is 38/38 passed. The first [visual comparison](../research/validation/engineers-v2/a/final/evaluator-visual-first.json) had two Files changes caused by the controls added by the new feature; after the main agent independently viewed the actual desktop and narrow-screen screenshots, it approved the corresponding candidate baseline changes, see the [review receipt](../research/validation/engineers-v2/a/final/visual-review.json). The original diff is kept in `research/validation/engineers-v2/a/visual-first/`; only A's copy baseline was updated, canonical was not automatically overwritten; the subsequent [visual re-check](../research/validation/engineers-v2/a/final/evaluator-visual-reviewed.json) without the update flag passed 3/3.
 
-B's [first visual result](research/validation/engineers-v2/b/final/evaluator-visual-first.json) is 1/3 passed with 2 Files failures, and its changes were not approved. The main agent actually exercised four steps in both candidates: mark → filter to one item → search with no results → clear to recover; this proves the basic feature runs, but does not substitute for accessibility and visual acceptance. B's [full enhanced report](research/validation/engineers-v2/b/final/evaluator-e2e.json) ends at **32/38 passed, 6 failed**, 0 skipped/flaky, with failure screenshots and traces archived in `research/validation/engineers-v2/b/final/e2e-artifacts/`; B remains blocked by the gates.
+B's [first visual result](../research/validation/engineers-v2/b/final/evaluator-visual-first.json) is 1/3 passed with 2 Files failures, and its changes were not approved. The main agent actually exercised four steps in both candidates: mark → filter to one item → search with no results → clear to recover; this proves the basic feature runs, but does not substitute for accessibility and visual acceptance. B's [full enhanced report](../research/validation/engineers-v2/b/final/evaluator-e2e.json) ends at **32/38 passed, 6 failed**, 0 skipped/flaky, with failure screenshots and traces archived in `research/validation/engineers-v2/b/final/e2e-artifacts/`; B remains blocked by the gates.

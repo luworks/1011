@@ -32,19 +32,19 @@ Visited on 2026-10-11, UI language Chinese, screenshot size 943 × 898. The prod
 
 | Step | Page / state | Current assessment | Evidence |
 | --- | --- | --- | --- |
-| 1 | `/chat` chat home | Main input area is clear; includes capability suggestions, popular agents, and a promo area; a suitable starting point for the chat workbench pattern. Real send and run not tested | [Screenshot 01](research/screenshots/01-chat.png) |
-| 2 | `/apps` empty agents list | Has page title, explanation, and a clear create button; usable as a positive empty-state example | [Screenshot 02](research/screenshots/02-agents-empty.png) |
-| 3 | `/files` file list | Has search, filters, view toggle, upload, and per-item actions; page-title semantics have a verifiable gap | [Screenshot 03](research/screenshots/03-files.png), [DOM](research/files-dom.json) |
-| 4 | `/integrations` all connectors | Has a recommended area, search, tabs, categories, and result count; useful for studying information order on collection pages | [Screenshot 04](research/screenshots/04-connectors.png) |
-| 5 | `/integrations` connected, empty | Empty-state copy does not match the real tab name, and the empty state has no direct next-step action | [Screenshot 05](research/screenshots/05-connectors-empty.png), [Accessibility tree](research/connectors-empty-ax.txt) |
+| 1 | `/chat` chat home | Main input area is clear; includes capability suggestions, popular agents, and a promo area; a suitable starting point for the chat workbench pattern. Real send and run not tested | [Screenshot 01](../research/screenshots/01-chat.png) |
+| 2 | `/apps` empty agents list | Has page title, explanation, and a clear create button; usable as a positive empty-state example | [Screenshot 02](../research/screenshots/02-agents-empty.png) |
+| 3 | `/files` file list | Has search, filters, view toggle, upload, and per-item actions; page-title semantics have a verifiable gap | [Screenshot 03](../research/screenshots/03-files.png), [DOM](../research/files-dom.json) |
+| 4 | `/integrations` all connectors | Has a recommended area, search, tabs, categories, and result count; useful for studying information order on collection pages | [Screenshot 04](../research/screenshots/04-connectors.png) |
+| 5 | `/integrations` connected, empty | Empty-state copy does not match the real tab name, and the empty state has no direct next-step action | [Screenshot 05](../research/screenshots/05-connectors-empty.png), [Accessibility tree](../research/connectors-empty-ax.txt) |
 
 ### Key evidence: connected empty state
 
-![Connectors connected empty state](research/screenshots/05-connectors-empty.png)
+![Connectors connected empty state](../research/screenshots/05-connectors-empty.png)
 
 ### Comparison evidence: agents empty state
 
-![Empty agents list with create action](research/screenshots/02-agents-empty.png)
+![Empty agents list with create action](../research/screenshots/02-agents-empty.png)
 
 Screenshots and accessibility trees include sidebar information from an existing account and are currently kept only as local working material. For external submission, retake them with a test account or produce clearly labeled redacted copies, keeping the original evidence and processing notes.
 

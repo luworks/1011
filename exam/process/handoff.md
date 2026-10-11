@@ -17,12 +17,12 @@ Updated: 2026-10-11, America/Los_Angeles. This file records the facts at handoff
 
 The main body of the brief must be two Markdown files; the prototype is a validation attachment:
 
-1. [task.md](task.md): the original brief.
-2. [design-system-guideline.md](design-system-guideline.md): product-level layout patterns, rules, checks, approval, and exceptions.
-3. [compliance-audit.md](compliance-audit.md): real product observation → rule → how it is caught before release → local evidence.
-4. [validation-results.md](validation-results.md): verified results and failure history; [implementation-plan.md](implementation-plan.md): scope and delivery matrix.
-5. [design.md](../creao-design-lab/design.md), [AGENTS.md](../creao-design-lab/AGENTS.md), [README.md](../creao-design-lab/README.md), [package.json](../creao-design-lab/package.json): implementation entry points, versions, commands, and boundaries.
-6. [delivery-packaging-plan.md](delivery-packaging-plan.md), [design drift patrol responsibilities](agents/design-drift-auditor.md): full-process package and follow-up patrol contract.
+1. [task.md](../task.md): the original brief.
+2. [design-system-guideline.md](../design-system-guideline.md): product-level layout patterns, rules, checks, approval, and exceptions.
+3. [compliance-audit.md](../compliance-audit.md): real product observation → rule → how it is caught before release → local evidence.
+4. [validation-results.md](../validation/validation-results.md): verified results and failure history; [implementation-plan.md](implementation-plan.md): scope and delivery matrix.
+5. [design.md](../../creao-design-lab/design.md), [AGENTS.md](../../creao-design-lab/AGENTS.md), [README.md](../../creao-design-lab/README.md), [package.json](../../creao-design-lab/package.json): implementation entry points, versions, commands, and boundaries.
+6. [delivery-packaging-plan.md](delivery-packaging-plan.md), [design drift patrol responsibilities](../agents/design-drift-auditor.md): full-process package and follow-up patrol contract.
 
 The user confirmed there are no other attachments. Public sitemap, official Widgets docs, screenshot, and DOM research are complete; do not restart the search for design.md from scratch, and do not stop on the grounds that the private library is missing. Observed visual values, official Widget concepts, and local proposals are labeled separately; local adapter components must not pose as CREAO's private library. No create, connect, upload, or agent-run actions were performed on CREAO live data.
 
@@ -38,7 +38,7 @@ The following are facts from different rounds and are not all bound to the final
 | Real manual acceptance | File create/validate, preview Escape and focus, simulated connection, agent detail, source view; 800px overflow documented before and after the fix | `research/prototype/manual-review.json` and screenshots |
 | axe | Three scan rounds kept; final 16/16; scroll-region keyboard operation verified; illegal aria-pressed negative case hit effectively | `research/accessibility/README.md`, `negative-control/receipt.json` |
 | Visual | Ordinary comparison 3/3 in the same reviewed macOS environment; wrong letter-spacing with a legal token detected by pixel comparison | `research/validation/phase-b/visual/`, `phase-b/visual-negative/` |
-| Independent engineer v1 | A original gate 22/22; B 20/22, raw color/native control and unnamed button detected; feature and compliance accepted separately | [engineer-experiment-review.md](engineer-experiment-review.md), `research/validation/engineers/` |
+| Independent engineer v1 | A original gate 22/22; B 20/22, raw color/native control and unnamed button detected; feature and compliance accepted separately | [engineer-experiment-review.md](../validation/engineer-experiment-review.md), `research/validation/engineers/` |
 
 In v1 B, focus landing on BODY after unchecking a filter was found manually; do not say the original automated gate caught it. React Doctor has 6 warnings for the same performance rule, and the archive has no full CLI score; npm audit across all dependencies has 5 high entries attributed to the same ESLint toolchain advisory, with 0 for production dependencies; do not write that all checks have zero issues.
 
